@@ -1,6 +1,6 @@
 package test.git;
 
-public class Test_LB {
+public class Test_SCH {
 	
 	
 	public void bonjour() {
