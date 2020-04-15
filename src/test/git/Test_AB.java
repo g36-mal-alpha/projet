@@ -4,7 +4,7 @@ public class Test_AB {
 	
 	
 	public void bonjour() {
-		System.out.println( "Bonjoour" );
+		System.out.println( "Bonjour" );
 	}
 	
 	
