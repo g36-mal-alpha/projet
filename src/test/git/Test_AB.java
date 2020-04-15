@@ -4,11 +4,9 @@ public class Test_AB {
 	
 	
 	public void bonjour() {
-<<<<<<< HEAD
+
 		System.out.println( "Bonjour" );
-=======
-		System.out.println( "Adieu" );
->>>>>>> branch 'master' of https://github.com/g36-mal-alpha/projet
+
 	}
 	
 	
