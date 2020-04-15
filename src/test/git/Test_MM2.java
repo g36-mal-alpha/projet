@@ -5,6 +5,7 @@ public class Test_MM2 {
 	
 	public void bonjour() {
 		System.out.println( "Bonjoour" );
+		System.out.println( "Ca va ?" );
 	}
 	
 	
