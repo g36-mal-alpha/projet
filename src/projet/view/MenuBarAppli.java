@@ -69,10 +69,6 @@ public class MenuBarAppli extends MenuBar {
 		this.getMenus().add(menu);
 		menuDonnees = menu;
 		
-		item = new MenuItem( "Mémos" );
-		item.setOnAction(  (e) -> managerGui.showView( EnumView.MemoListe )  );
-		menu.getItems().add( item );
-		
 		item = new MenuItem( "Services" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.ServiceListe )  );
 		menu.getItems().add( item );
@@ -133,10 +129,6 @@ public class MenuBarAppli extends MenuBar {
 		
 		item = new MenuItem( "DaoCategorie" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.TestDaoCategorie )  );
-		menu.getItems().add( item );
-		
-		item = new MenuItem( "DaoMemo" );
-		item.setOnAction(  (e) -> managerGui.showView( EnumView.TestDaoMemo )  );
 		menu.getItems().add( item );
 		
 		item = new MenuItem( "DaoService" );

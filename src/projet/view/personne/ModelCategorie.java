@@ -8,7 +8,6 @@ import jfox.commun.exception.ExceptionValidation;
 import jfox.javafx.util.UtilFX;
 import projet.commun.IMapper;
 import projet.dao.DaoCategorie;
-import projet.dao.DaoMemo;
 import projet.dao.DaoPersonne;
 import projet.data.Categorie;
 
@@ -30,9 +29,6 @@ public class ModelCategorie  {
 	private DaoCategorie	daoCategorie;
     @Inject
     private DaoPersonne		daoPersonne;
-    @Inject
-    private DaoMemo			daoMemo;
-	
 	
 	// Getters 
 	
@@ -97,11 +93,6 @@ public class ModelCategorie  {
 		// Vérifie l'abence de personnes rattachées à la catégorie
 		if ( daoPersonne.compterPourCategorie( item.getId() ) != 0 ) {
 			throw new ExceptionValidation( "Des personnes sont rattachées à cette catégorie.." ) ;
-		}
-		
-		// Vérifie l'abence de mémos rattaches à la catégorie
-		if ( daoMemo.compterPourCategorie( item.getId() ) != 0 ) {
-			throw new ExceptionValidation( "Des mémos sont rattachés à cette catégorie.." ) ;
 		}
 		
 		daoCategorie.supprimer( item.getId() );
