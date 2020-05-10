@@ -50,10 +50,10 @@ public class MenuBarAppli extends MenuBar {
 		
 		// Manu SystÃ¨me
 		
-		menu =  new Menu( "SystÃ¨me" );;
+		menu =  new Menu( "Système" );
 		this.getMenus().add(menu);
 		
-		item = new MenuItem( "Se dÃ©connecter" );
+		item = new MenuItem( "Se déconnecter" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.Connexion )  );
 		menu.getItems().add( item );
 		itemDeconnecter = item;
@@ -65,11 +65,11 @@ public class MenuBarAppli extends MenuBar {
 		
 		// Manu DonnÃ©es
 		
-		menu =  new Menu( "DonnÃ©es" );;
+		menu =  new Menu( "Données" );;
 		this.getMenus().add(menu);
 		menuDonnees = menu;
 		
-		item = new MenuItem( "MÃ©mos" );
+		item = new MenuItem( "Mémos" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.MemoListe )  );
 		menu.getItems().add( item );
 		
@@ -81,7 +81,7 @@ public class MenuBarAppli extends MenuBar {
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.PersonneListe )  );
 		menu.getItems().add( item );
 		
-		item = new MenuItem( "CatÃ©gories" );
+		item = new MenuItem( "Catégories" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.CategorieListe )  );
 		menu.getItems().add( item );
 		itemCategories = item;
@@ -98,12 +98,12 @@ public class MenuBarAppli extends MenuBar {
 		this.getMenus().add(menu);
 		menuEtats = menu;
 		
-		item = new MenuItem( "Personnes par catÃ©gorie v1" );
+		item = new MenuItem( "Personnes par catégorie v1" );
 		item.setOnAction(  (e) ->  
 				managerGui.showDialog( EnumView.EtatPersonnesParCateogire1 ) );
 		menu.getItems().add( item );
 		
-		item = new MenuItem( "Personnes par catÃ©gorie v2" );
+		item = new MenuItem( "Personnes par catégorie v2" );
 		item.setOnAction(  (e) ->  
 				managerGui.showDialog( EnumView.EtatPersonnesParCateogire2 ) );
 		menu.getItems().add( item );
@@ -118,7 +118,7 @@ public class MenuBarAppli extends MenuBar {
 				managerReport.showViewer( EnumReport.PersonnesListeSimple, null ) );
 		menu.getItems().add( item );
 		
-		item = new MenuItem( "Annuaire tÃ©lÃ©phonique" );
+		item = new MenuItem( "Annuaire téléphonique" );
 		item.setOnAction(  (e) ->  
 //				managerReport.print( EnumReport.AnnuaireTelephone, null ) );
 				managerReport.showViewer( EnumReport.AnnuaireTelephone, null ) );

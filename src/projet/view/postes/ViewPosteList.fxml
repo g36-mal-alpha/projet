@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="216.0" layoutY="78.0" prefHeight="200.0" prefWidth="134.0" style="-fx-border-color: rgb(66, 135, 245);">
+         <columns>
+            <TableColumn prefWidth="133.20000457763672" text="Buvette (Nombre)" />
+         </columns>
+      </TableView>
+      <TableView layoutX="566.0" layoutY="78.0" prefHeight="200.0" prefWidth="134.0" style="-fx-border-color: rgb(66, 110, 245);">
+         <columns>
+            <TableColumn prefWidth="133.20000457763672" text="Signaleur (Nombre)" />
+         </columns>
+      </TableView>
+      <TableView layoutX="374.0" layoutY="78.0" prefHeight="200.0" prefWidth="170.0" style="-fx-border-color: rgb(66, 135, 245);">
+         <columns>
+            <TableColumn prefWidth="172.80001831054688" text=" Chronométreur (Nombre)" />
+            <TableColumn prefWidth="172.80001831054688" text=" Chronométreur (Nombre)" />
+         </columns>
+      </TableView>
+      <TableView layoutX="31.0" layoutY="78.0" prefHeight="200.0" prefWidth="161.0" style="-fx-border-color: rgb(66, 135, 245);">
+         <columns>
+            <TableColumn prefWidth="160.19998168945312" text="Administrateur (Nombre)" />
+         </columns>
+      </TableView>
+      <TableView layoutX="730.0" layoutY="78.0" prefHeight="200.0" prefWidth="134.0" style="-fx-border-color: rgb(66, 135, 245);">
+         <columns>
+            <TableColumn prefWidth="133.20000457763672" text="Nom? (Nombre)" />
+         </columns>
+      </TableView>
+      <TableView layoutX="31.0" layoutY="340.0" prefHeight="200.0" prefWidth="161.0" style="-fx-border-color: rgb(66, 135, 245);">
+         <columns>
+            <TableColumn prefWidth="160.20000648498535" text="Nom? (Nombre)" />
+         </columns>
+      </TableView>
+      <TableView layoutX="216.0" layoutY="340.0" prefHeight="200.0" prefWidth="134.0" style="-fx-border-color: rgb(66, 135, 245);">
+         <columns>
+            <TableColumn prefWidth="133.19998168945312" text="Nom? (Nombre)" />
+         </columns>
+      </TableView>
+      <TableView layoutX="378.0" layoutY="340.0" prefHeight="200.0" prefWidth="170.0" style="-fx-border-color: rgb(66, 135, 245);">
+         <columns>
+            <TableColumn prefWidth="169.19998168945312" text="Nom? (Nombre)" />
+         </columns>
+      </TableView>
+      <TableView layoutX="566.0" layoutY="340.0" prefHeight="200.0" prefWidth="134.0" style="-fx-border-color: rgb(66, 135, 245);">
+         <columns>
+            <TableColumn prefWidth="132.7999267578125" text="Nom? (Nombre)" />
+         </columns>
+      </TableView>
+      <TableView layoutX="730.0" layoutY="340.0" prefHeight="200.0" prefWidth="134.0" style="-fx-border-color: rgb(66, 135, 245);">
+         <columns>
+            <TableColumn prefWidth="132.7999267578125" text="Nom? (Nombre)" />
+         </columns>
+      </TableView>
+      <Label layoutX="398.0" layoutY="14.0" text="POSTES :">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
+
