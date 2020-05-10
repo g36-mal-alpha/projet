@@ -18,7 +18,7 @@ public class MainProjet {
 	
 	public static void main(String[] args) {   
 
-		
+		// on a tout cassé
 		try {
 
 			// JDBC - DataSource
