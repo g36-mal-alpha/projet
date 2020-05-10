@@ -184,6 +184,7 @@ public class MenuBarAppli extends MenuBar {
 				itemCategories.setVisible(true);
 				itemComptes.setVisible(true);
 				menuTests.setVisible(true);
+				menuPostes.setVisible(true);
 			}
 		}
 	}
