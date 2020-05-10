@@ -68,16 +68,6 @@ INSERT INTO telephone (idtelephone, idpersonne, libelle, numero ) VALUES
 ALTER TABLE telephone ALTER COLUMN idtelephone RESTART WITH 100;
 
 
--- Concerner
-
-INSERT INTO concerner (idmemo, idPersonne) VALUES
-  ( 1, 1 ),
-  ( 1, 2 ),
-  ( 1, 3 ),
-  ( 2, 1 ),
-  ( 2, 2 );
-
-
 -- Service
 
 INSERT INTO service ( idservice, nom, anneecreation, flagsiege ) VALUES
