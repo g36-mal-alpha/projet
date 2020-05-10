@@ -3,7 +3,6 @@ SET search_path TO projet;
 
 -- Supprimer toutes les données
 DELETE FROM service;
-DELETE FROM concerner;
 DELETE FROM telephone;
 DELETE FROM personne;
 DELETE FROM categorie;
