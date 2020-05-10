@@ -23,6 +23,7 @@ public class MenuBarAppli extends MenuBar {
 	private Menu	menuDonnees;
 	private Menu	menuEtats;
 	private Menu	menuTests;
+	private Menu 	menuPostes;
 	
 	private MenuItem itemDeconnecter;
 
@@ -134,7 +135,15 @@ public class MenuBarAppli extends MenuBar {
 		item = new MenuItem( "DaoService" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.TestDaoService )  );
 		menu.getItems().add( item );
-
+		
+		// PROJET - Menu Postes
+		menu = new Menu("Postes");
+		this.getMenus().add(menu);
+		menuPostes = menu;
+		
+		item = new MenuItem("Postes des bénévoles");
+		item.setOnAction( (e) -> managerGui.showView( EnumView.PosteList )  );
+		menu.getItems().add(item);
 
 		// Configuration initiale du menu
 		configurerMenu( modelConnexion.getCompteActif() );
