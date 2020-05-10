@@ -171,6 +171,7 @@ public class MenuBarAppli extends MenuBar {
 		menuEtats.setVisible(false);
 		menuTests.setVisible(false);
 		menuEtats.setVisible(false);
+		menuPostes.setVisible(false);
 		
 		if( compteActif != null ) {
 			itemDeconnecter.setDisable(false);
