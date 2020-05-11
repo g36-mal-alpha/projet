@@ -49,12 +49,12 @@ public class MenuBarAppli extends MenuBar {
 		MenuItem item;
 		
 		
-		// Manu SystÃ¨me
+		// Manu SystÃƒÂ¨me
 		
-		menu =  new Menu( "Système" );
+		menu =  new Menu( "SystÃ¨me" );
 		this.getMenus().add(menu);
 		
-		item = new MenuItem( "Se déconnecter" );
+		item = new MenuItem( "Se dÃ©connecter" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.Connexion )  );
 		menu.getItems().add( item );
 		itemDeconnecter = item;
@@ -64,9 +64,9 @@ public class MenuBarAppli extends MenuBar {
 		menu.getItems().add( item );
 
 		
-		// Manu DonnÃ©es
+		// Manu DonnÃƒÂ©es
 		
-		menu =  new Menu( "Données" );;
+		menu =  new Menu( "DonnÃ©es" );;
 		this.getMenus().add(menu);
 		menuDonnees = menu;
 		
@@ -78,7 +78,7 @@ public class MenuBarAppli extends MenuBar {
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.PersonneListe )  );
 		menu.getItems().add( item );
 		
-		item = new MenuItem( "Catégories" );
+		item = new MenuItem( "CatÃ©gories" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.CategorieListe )  );
 		menu.getItems().add( item );
 		itemCategories = item;
@@ -95,12 +95,12 @@ public class MenuBarAppli extends MenuBar {
 		this.getMenus().add(menu);
 		menuEtats = menu;
 		
-		item = new MenuItem( "Personnes par catégorie v1" );
+		item = new MenuItem( "Personnes par catÃ©gorie v1" );
 		item.setOnAction(  (e) ->  
 				managerGui.showDialog( EnumView.EtatPersonnesParCateogire1 ) );
 		menu.getItems().add( item );
 		
-		item = new MenuItem( "Personnes par catégorie v2" );
+		item = new MenuItem( "Personnes par catÃ©gorie v2" );
 		item.setOnAction(  (e) ->  
 				managerGui.showDialog( EnumView.EtatPersonnesParCateogire2 ) );
 		menu.getItems().add( item );
@@ -115,7 +115,7 @@ public class MenuBarAppli extends MenuBar {
 				managerReport.showViewer( EnumReport.PersonnesListeSimple, null ) );
 		menu.getItems().add( item );
 		
-		item = new MenuItem( "Annuaire téléphonique" );
+		item = new MenuItem( "Annuaire tÃ©lÃ©phonique" );
 		item.setOnAction(  (e) ->  
 //				managerReport.print( EnumReport.AnnuaireTelephone, null ) );
 				managerReport.showViewer( EnumReport.AnnuaireTelephone, null ) );
@@ -141,9 +141,11 @@ public class MenuBarAppli extends MenuBar {
 		this.getMenus().add(menu);
 		menuPostes = menu;
 		
-		item = new MenuItem("Postes des bénévoles");
+		item = new MenuItem("Postes des bÃ©nÃ©voles");
 		item.setOnAction( (e) -> managerGui.showView( EnumView.PosteList )  );
 		menu.getItems().add(item);
+		
+		
 
 		// Configuration initiale du menu
 		configurerMenu( modelConnexion.getCompteActif() );
@@ -157,7 +159,7 @@ public class MenuBarAppli extends MenuBar {
 	}
 
 	
-	// MÃ©thodes auxiliaires
+	// MÃƒÂ©thodes auxiliaires
 	
 	private void configurerMenu( Compte compteActif  ) {
 
@@ -169,6 +171,7 @@ public class MenuBarAppli extends MenuBar {
 		menuEtats.setVisible(false);
 		menuTests.setVisible(false);
 		menuEtats.setVisible(false);
+		menuPostes.setVisible(false);
 		
 		if( compteActif != null ) {
 			itemDeconnecter.setDisable(false);
@@ -181,6 +184,7 @@ public class MenuBarAppli extends MenuBar {
 				itemCategories.setVisible(true);
 				itemComptes.setVisible(true);
 				menuTests.setVisible(true);
+				menuPostes.setVisible(true);
 			}
 		}
 	}
