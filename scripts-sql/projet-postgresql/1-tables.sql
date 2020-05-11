@@ -63,6 +63,8 @@ CREATE TABLE service (
 	PRIMARY KEY (idservice)
 );
 
+
+
 /*
 ------------------------------------------------------------
 -- Table: Utilisateur
