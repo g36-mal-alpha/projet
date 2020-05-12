@@ -44,6 +44,7 @@ public class ManagerGui extends ManagerGuiAbstract {
 		stage.setMinWidth(400);
 		stage.setMinHeight(300);
 		stage.getIcons().add(new Image(getClass().getResource("icone.png").toExternalForm()));
+		stage.sizeToScene();
 		
 		// Configuration par défaut pour les boîtes de dialogue
 		typeConfigDialogDefault = ConfigDialog.class;
