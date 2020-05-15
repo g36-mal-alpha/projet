@@ -71,9 +71,7 @@ public class ModelCompte {
 			message.append( "\nLe pseudo est trop court : 3 mini." );
 		} else  if ( courant.getPseudo().length()> 25 ) {
 			message.append( "\nLe pseudo est trop long : 25 maxi." );
-		} else 	if ( ! daoCompte.verifierUnicitePseudo( courant.getPseudo(), courant.getId() ) ) {
-			message.append( "\nLe pseudo " + courant.getPseudo() + " est déjà utilisé." );
-		}
+
 		
 		if( courant.getMotDePasse() == null || courant.getMotDePasse().isEmpty() ) {
 			message.append( "\nLe mot de passe ne doit pas être vide." );
@@ -87,7 +85,9 @@ public class ModelCompte {
 			message.append( "\nL'adresse e-mail ne doit pas être vide." );
 		} else  if ( courant.getEmail().length()> 100 ) {
 			message.append( "\nL'adresse e-mail est trop longue : 100 maxi." );
-		}
+		} /*else 	if ( ! daoCompte.verifierUniciteEmail( courant.getEmail(), courant.getId() ) ) {
+			message.append( "\nL'Email " + courant.getEmail() + " est déjà utilisé." );
+		} */
 		
 		if ( message.length() > 0 ) {
 			throw new ExceptionValidation( message.toString().substring(1) );
@@ -104,7 +104,7 @@ public class ModelCompte {
 			daoCompte.modifier( courant );
 		}
 	}
-	
+}
 	
 	public void supprimer( Compte item ) {
 		daoCompte.supprimer( item.getId() );

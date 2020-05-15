@@ -66,7 +66,7 @@ public class ModelConnexion {
 					courant.pseudoProperty().getValue(), courant.motDePasseProperty().getValue() );
 		
 		if( compte == null ) {
-			throw new ExceptionValidation( "Pseudo ou mot de passe invalide." );
+			throw new ExceptionValidation( "Adresse Email ou mot de passe invalide." );
 		} else {
 			Platform.runLater( () -> compteActif.setValue( compte ) );
 		}

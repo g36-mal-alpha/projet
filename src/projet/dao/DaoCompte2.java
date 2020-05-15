@@ -204,7 +204,7 @@ public class DaoCompte2 {
 	}
 
 
-	public boolean verifierUnicitePseudo( String pseudo, Integer idCompte )   {
+	 public boolean verifierUnicitePseudo( String pseudo, Integer idCompte )   {
 
 		Connection			cn		= null;
 		CallableStatement	stmt	= null;
@@ -215,7 +215,7 @@ public class DaoCompte2 {
 		try {
 			cn = dataSource.getConnection();
 
-			sql = "{ CALL compte_verifier_unicite_pseudo( ?, ?, ? ) } ";
+			sql = "{ CALL compte_verifier_unicite_email( ?, ?, ? ) } ";
 			stmt = cn.prepareCall( sql );
 			stmt.setObject(	1, pseudo );
 			stmt.setObject(	2, idCompte );
