@@ -108,10 +108,10 @@ ALTER TABLE poste ALTER COLUMN idposte RESTART WITH 5;
   
 -- Equipe
 
-INSERT INTO equipe ( idequipe, nom_equipe, valide, paye) VALUES
-  ( 1, 'equipe1',TRUE, FALSE),
-  ( 2, 'equipe2', TRUE , TRUE),
-  ( 3, 'equipe 3', TRUE, TRUE);
+INSERT INTO equipe ( idequipe, nom_equipe, valide, paye, nb_plateau) VALUES
+  ( 1, 'equipe1',TRUE, FALSE, 1),
+  ( 2, 'equipe2', TRUE , TRUE, 2),
+  ( 3, 'equipe 3', TRUE, TRUE, 1);
 
 ALTER TABLE equipe ALTER COLUMN idequipe RESTART WITH 4;
   
@@ -126,10 +126,10 @@ ALTER TABLE epreuve ALTER COLUMN idepreuve RESTART WITH 4;
 
 -- Participant
  
-INSERT INTO participant (idparticipant, idequipe, idepreuve, idcompte, nom, prenom, sexe, numero_tel,  date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise, nb_plateaux) VALUES
-  ( 1,1,1,1, 'nom1', 'leo', 'M', '06 52 36 98 25','12/08/1995', 'adresse 1', 'chef equipe','fichier 1', 'mail1@gmail.com',  'junior' , 'velo, kanoé',  1),
-  ( 2,2,2,2, 'nom2', 'bob', 'M', '06 95 58 21 02','12/08/1965', 'adresse 2', 'equipier',   'fichier 2', 'mail2@hotmail.fr', 'senior', 'velo', 2),
-  ( 3,3,3,3, 'nom3', 'toto','M', '06 87 10 96 32','12/08/1998','adresse 3', 'equipier',   'fichier 3', 'mail3@orange.fr',  'junior', 'kanoe' , 2);
+INSERT INTO participant (idparticipant, idequipe, idepreuve, idcompte, nom, prenom, sexe, numero_tel,  date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise) VALUES
+  ( 1,1,1,1, 'nom1', 'leo', 'M', '06 52 36 98 25','12/08/1995', 'adresse 1', 'chef equipe','fichier 1', 'mail1@gmail.com',  'junior' , 'velo, kanoé'),
+  ( 2,2,2,2, 'nom2', 'bob', 'M', '06 95 58 21 02','12/08/1965', 'adresse 2', 'equipier',   'fichier 2', 'mail2@hotmail.fr', 'senior', 'velo'),
+  ( 3,3,3,3, 'nom3', 'toto','M', '06 87 10 96 32','12/08/1998','adresse 3', 'equipier',   'fichier 3', 'mail3@orange.fr',  'junior', 'kanoe');
   
 ALTER TABLE participant ALTER COLUMN idparticipant RESTART WITH 16;
  
