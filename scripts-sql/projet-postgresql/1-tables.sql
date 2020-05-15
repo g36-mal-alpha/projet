@@ -149,7 +149,9 @@ CREATE TABLE participant(
 	
 	FOREIGN KEY (idequipe) REFERENCES equipe (idequipe),
 	FOREIGN KEY (idepreuve) REFERENCES epreuve (idepreuve),
-	FOREIGN KEY (idcompte) REFERENCES compte (idcompte)
+	FOREIGN KEY (idcompte) REFERENCES compte (idcompte),
+	
+	UNIQUE (mail)
 
 );
 
