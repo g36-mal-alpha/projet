@@ -95,7 +95,7 @@ public class MenuBarAppli extends MenuBar {
 		this.getMenus().add(menu);
 		menuEtats = menu;
 		
-		item = new MenuItem( "Personnes par catégorie v1" );
+		/*item = new MenuItem( "Personnes par catégorie v1" );
 		item.setOnAction(  (e) ->  
 				managerGui.showDialog( EnumView.EtatPersonnesParCateogire1 ) );
 		menu.getItems().add( item );
@@ -119,7 +119,7 @@ public class MenuBarAppli extends MenuBar {
 		item.setOnAction(  (e) ->  
 //				managerReport.print( EnumReport.AnnuaireTelephone, null ) );
 				managerReport.showViewer( EnumReport.AnnuaireTelephone, null ) );
-		menu.getItems().add( item );
+		menu.getItems().add( item );*/
 		
 		//Participants etat
 		item = new MenuItem("Liste des participants (PDF)");
