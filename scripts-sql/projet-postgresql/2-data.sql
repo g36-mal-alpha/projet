@@ -85,53 +85,53 @@ INSERT INTO service ( idservice, nom, anneecreation, flagsiege ) VALUES
   ( 3, 'Agence Limoges', 2008, FALSE ),
   ( 4, 'Agence Brive', 2014, FALSE );
 
-ALTER TABLE service ALTER COLUMN idservice RESTART WITH 5;
+ALTER TABLE service ALTER COLUMN idservice RESTART WITH 4;
  
 -- Bénévole 
 
-INSERT INTO benevole ( idbenevole, idcompte, nom, prenom, age, permis_conduire, mineurs, permanent ) VALUES
-  ( 1,1, 'nom1', 'bob', 34,'lien_fichier1' ,TRUE, TRUE),
-  ( 2,2, 'nom2', 'paul', 25,'lien_fichier1', TRUE, FALSE),
-  ( 3,3, 'nom3', 'jack', 36,'lien_fichier1', FALSE, TRUE );
+INSERT INTO benevole ( idbenevole, idcompte, nom, prenom, date_naissance, permis_conduire, mineurs, permanent ) VALUES
+  ( 1,1, 'nom1', 'bob', '12/08/1968','lien_fichier1' ,TRUE, TRUE),
+  ( 2,2, 'nom2', 'paul', '12/08/1978','lien_fichier1', TRUE, FALSE),
+  ( 3,3, 'nom3', 'jack', '12/08/1986','lien_fichier1', FALSE, TRUE );
   
 ALTER TABLE benevole ALTER COLUMN idbenevole RESTART WITH 8;
 
 -- Poste 
 
-INSERT INTO poste ( idposte, lieu, signaleur, horaires, numero_poste ) VALUES
-  ( 20, 'lieu1', TRUE,  '17:00:00' , 1),
-  ( 30, 'lieu2', FALSE, '18:00:00' , 22),
-  ( 40, 'lieu3', TRUE,  '09:00:00' , 17),
-  ( 50, 'lieu4', TRUE , '07:00:00' , 45);
+INSERT INTO poste ( idposte, lieu, signaleur, heure_debut, numero_poste, heure_fin ) VALUES
+  ( 20, 'lieu1', TRUE,  '17:00:00' , 1, '18:00:00'),
+  ( 30, 'lieu2', FALSE, '18:00:00' , 22, '19:00:00'),
+  ( 40, 'lieu3', TRUE,  '09:00:00' , 17, '11:00:00'),
+  ( 50, 'lieu4', TRUE , '07:00:00' , 45, '10:00:00');
  
 ALTER TABLE poste ALTER COLUMN idposte RESTART WITH 5;
   
 -- Equipe
 
-INSERT INTO equipe ( idequipe, nom_equipe) VALUES
-  ( 1, 'equipe1'),
-  ( 2, 'equipe2'),
-  ( 3, 'equipe 3');
+INSERT INTO equipe ( idequipe, nom_equipe, valide, paye) VALUES
+  ( 1, 'equipe1',TRUE, FALSE),
+  ( 2, 'equipe2', TRUE , TRUE),
+  ( 3, 'equipe 3', TRUE, TRUE);
 
-ALTER TABLE equipe ALTER COLUMN idequipe RESTART WITH 2;
+ALTER TABLE equipe ALTER COLUMN idequipe RESTART WITH 4;
   
 -- Epreuve
 
-INSERT INTO epreuve ( idepreuve, nom, date_epreuve, lieu) VALUES
-  ( 1, 'epreuve a', '12/08/2020',  'lieu 1'),
-  ( 2, 'epreuve b', '17/08/2020', 'lieu 2'),
-  ( 3, 'epreuve c', '11/08/2020',  'lieu 1');
+INSERT INTO epreuve ( idepreuve, nom, date_epreuve, lieu, tarif) VALUES
+  ( 1, 'epreuve a', '12/08/2020',  'lieu 1','10 €'),
+  ( 2, 'epreuve b', '17/08/2020', 'lieu 2', '10 €'),
+  ( 3, 'epreuve c', '11/08/2020',  'lieu 1', '20 €');
   
 ALTER TABLE epreuve ALTER COLUMN idepreuve RESTART WITH 4;
 
 -- Participant
  
-INSERT INTO participant (idparticipant, idequipe, idepreuve, idcompte, nom, prenom, age, sexe, numero_tel,  date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise, nb_plateaux) VALUES
-  ( 1,1,1,1, 'nom1', 'leo', 25, 'M', '06 52 36 98 25','12/08/1995', 'adresse 1', 'chef equipe','fichier 1', 'mail1@gmail.com',  'junior' , 'velo, kanoé',  1),
-  ( 2,2,2,2, 'nom2', 'bob', 35, 'M', '06 95 58 21 02','12/08/1965', 'adresse 2', 'equipier',   'fichier 2', 'mail2@hotmail.fr', 'senior', 'velo', 2),
-  ( 3,3,3,3, 'nom3', 'toto', 22,'M', '06 87 10 96 32','12/08/1998','adresse 3', 'equipier',   'fichier 3', 'mail3@orange.fr',  'junior', 'kanoe' , 2);
+INSERT INTO participant (idparticipant, idequipe, idepreuve, idcompte, nom, prenom, sexe, numero_tel,  date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise, nb_plateaux) VALUES
+  ( 1,1,1,1, 'nom1', 'leo', 'M', '06 52 36 98 25','12/08/1995', 'adresse 1', 'chef equipe','fichier 1', 'mail1@gmail.com',  'junior' , 'velo, kanoé',  1),
+  ( 2,2,2,2, 'nom2', 'bob', 'M', '06 95 58 21 02','12/08/1965', 'adresse 2', 'equipier',   'fichier 2', 'mail2@hotmail.fr', 'senior', 'velo', 2),
+  ( 3,3,3,3, 'nom3', 'toto','M', '06 87 10 96 32','12/08/1998','adresse 3', 'equipier',   'fichier 3', 'mail3@orange.fr',  'junior', 'kanoe' , 2);
   
-ALTER TABLE participant ALTER COLUMN idparticipant RESTART WITH 17;
+ALTER TABLE participant ALTER COLUMN idparticipant RESTART WITH 16;
  
 -- Documents Licncies
 
