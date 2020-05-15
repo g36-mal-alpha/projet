@@ -48,6 +48,9 @@ ORDER BY participant.nom ASC,
 		<property name="com.jaspersoft.studio.field.label" value="mail"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="participant"/>
 	</field>
+	<variable name="nbParticipants" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{nom}]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -195,13 +198,20 @@ ORDER BY participant.nom ASC,
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="55" splitType="Stretch">
+		<band height="75" splitType="Stretch">
+			<textField>
+				<reportElement x="350" y="30" width="30" height="18" uuid="dc80a7a0-82fb-44db-a73f-919de5f8aa2a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$V{nbParticipants}]]></textFieldExpression>
+			</textField>
 			<staticText>
-				<reportElement x="128" y="20" width="299" height="30" uuid="2e4ff412-f637-4a75-a534-6f2c67f81d1e"/>
-				<textElement>
-					<font size="24" isBold="true"/>
-				</textElement>
-				<text><![CDATA[FIN]]></text>
+				<reportElement x="180" y="30" width="170" height="18" uuid="e42522e4-5508-4933-a733-72843bd092db">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Nombre total de participants : ]]></text>
 			</staticText>
 		</band>
 	</summary>

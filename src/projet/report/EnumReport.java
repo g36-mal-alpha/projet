@@ -10,6 +10,7 @@ public enum EnumReport implements IEnumReport {
 	PersonnesParCategorie2	( "personne/ListeParCategorie2.jrxml" ),
 	PersonnesListeSimple	( "personne/ListeSimple.jrxml" ),
 	AnnuaireTelephone		( "personne/Annuaire.jrxml" ),
+	ParticipantsList		("participants/participantList.jrxml"),
 	;
 
 	

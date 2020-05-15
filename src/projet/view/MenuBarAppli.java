@@ -120,6 +120,17 @@ public class MenuBarAppli extends MenuBar {
 //				managerReport.print( EnumReport.AnnuaireTelephone, null ) );
 				managerReport.showViewer( EnumReport.AnnuaireTelephone, null ) );
 		menu.getItems().add( item );
+		
+		//Participants etat
+		item = new MenuItem("Liste des participants (PDF)");
+		item.setOnAction((e) ->  
+				managerReport.openFilePdf( EnumReport.ParticipantsList, null ) );
+		menu.getItems().add( item );
+		
+		item = new MenuItem( "Liste des participants (viewer)" );
+		item.setOnAction(  (e) ->  
+				managerReport.showViewer( EnumReport.ParticipantsList, null ) );
+		menu.getItems().add( item );
 
 		
 		// Manu Tests
