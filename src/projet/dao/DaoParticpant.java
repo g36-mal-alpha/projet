@@ -35,7 +35,7 @@ public class DaoParticpant {
 		
 		try {
 			cn = dataSource.getConnection();
-			sql = "INSERT INTO service ( nom, anneecreation, flagSiege ) VALUES( ?, ?, ? ) ";
+			sql = "INSERT INTO service (nom, prenom, sexe, numero_tel,  date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise) VALUES( ?, ?, ? ) ";
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 			stmt.setObject( 1, service.getNom() );
 			stmt.setObject( 2, service.getAnneeCreation() );
