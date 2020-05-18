@@ -36,7 +36,7 @@ public class DaoParticipant {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "INSERT INTO service (nom, prenom, sexe, numero_tel, date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+			sql = "INSERT INTO particpant (nom, prenom, sexe, numero_tel, date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 			stmt.setObject( 1,  participant.getNom() );
 			stmt.setObject( 2,  participant.getPrenom() );
@@ -73,7 +73,7 @@ public class DaoParticipant {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "UPDATE service SET nom = ?, prenom = ?, sexe = ?, numero_tel = ?,  date_naissance = ?, adresse = ?, role = ?, certificat_medical = ?, mail = ?, niveau = ?, materiel_utilise = ?  WHERE idparticipant =  ?";
+			sql = "UPDATE participant SET nom = ?, prenom = ?, sexe = ?, numero_tel = ?,  date_naissance = ?, adresse = ?, role = ?, certificat_medical = ?, mail = ?, niveau = ?, materiel_utilise = ?  WHERE idparticipant =  ?";
 			stmt = cn.prepareStatement( sql );
 			stmt.setObject( 1, participant.getNom() );
 			stmt.setObject( 2, participant.getPrenom() );
@@ -105,7 +105,7 @@ public class DaoParticipant {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "DELETE FROM service WHERE idparticpant = ? ";
+			sql = "DELETE FROM participant WHERE idparticpant = ? ";
 			stmt = cn.prepareStatement( sql );
 			stmt.setInt( 1, idParticipant );
 			stmt.executeUpdate();
@@ -127,7 +127,7 @@ public class DaoParticipant {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "SELECT * FROM service WHERE idservice = ?";
+			sql = "SELECT * FROM participant WHERE idparticipant = ?";
 			stmt = cn.prepareStatement( sql );
 			stmt.setInt(1, idParticipant);
 			rs = stmt.executeQuery();
@@ -176,7 +176,7 @@ public class DaoParticipant {
 	//nom = ?, prenom = ?, sexe = ?, numero_tel = ?,  date_naissance = ?, adresse = ?, role = ?, certificat_medical = ?, mail = ?, niveau = ?, materiel_utilise = ? 
 	private Participant construireParticipant( ResultSet rs ) throws SQLException {
 		Participant participant = new Participant();
-		participant.setId( rs.getObject( "idservice", Integer.class ) );
+		participant.setId( rs.getObject( "idparticipant", Integer.class ) );
 		participant.setNom( rs.getObject( "nom", String.class ) );
 		participant.setPrenom( rs.getObject( "prenom", String.class ) );		
 		participant.setSexe( rs.getObject( "sexe", String.class ) );
