@@ -36,7 +36,7 @@ public class DaoParticipant {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "INSERT INTO particpant (nom, prenom, sexe, numero_tel, date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+			sql = "INSERT INTO participant (nom, prenom, sexe, numero_tel, date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 			stmt.setObject( 1,  participant.getNom() );
 			stmt.setObject( 2,  participant.getPrenom() );
@@ -105,7 +105,7 @@ public class DaoParticipant {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "DELETE FROM participant WHERE idparticpant = ? ";
+			sql = "DELETE FROM participant WHERE idparticipant = ? ";
 			stmt = cn.prepareStatement( sql );
 			stmt.setInt( 1, idParticipant );
 			stmt.executeUpdate();
