@@ -35,7 +35,7 @@ public class DaoBenevole {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "INSERT INTO service ( nom, prenom, date_naissance, permis_conduire, mineurs, permanent ) VALUES( ?, ?, ?, ?, ?, ? ) ";
+			sql = "INSERT INTO benevole ( nom, prenom, date_naissance, permis_conduire, mineurs, permanent ) VALUES( ?, ?, ?, ?, ?, ? ) ";
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 			stmt.setObject( 1, benevole.getNom() );
 			stmt.setObject( 2, benevole.getPrenom() );
@@ -67,7 +67,7 @@ public class DaoBenevole {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "UPDATE service SET nom = ?, prenom = ?, date_naissance = ?, permis_conduire = ?, mineurs = ?, permanent = ? WHERE idservice =  ?";
+			sql = "UPDATE benevole SET nom = ?, prenom = ?, date_naissance = ?, permis_conduire = ?, mineurs = ?, permanent = ? WHERE idbenevole =  ?";
 			stmt = cn.prepareStatement( sql );
 			stmt.setObject( 1, benevole.getNom() );
 			stmt.setObject( 2, benevole.getPrenom() );
@@ -116,7 +116,7 @@ public class DaoBenevole {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "SELECT * FROM beneovle WHERE idbenevole = ?";
+			sql = "SELECT * FROM benevole WHERE idbenevole = ?";
 			stmt = cn.prepareStatement( sql );
 			stmt.setInt(1, idBenevole);
 			rs = stmt.executeQuery();
@@ -165,7 +165,7 @@ public class DaoBenevole {
 
 	private Benevole construireBenevole( ResultSet rs ) throws SQLException {
 		Benevole benevole = new Benevole();
-		benevole.setId( rs.getObject( "idservice", Integer.class ) );
+		benevole.setId( rs.getObject( "idbenevole", Integer.class ) );
 		benevole.setNom( rs.getObject( "nom", String.class ) );
 		benevole.setPrenom( rs.getObject( "prenom", String.class ) );
 		benevole.setDate_naissance( rs.getObject( "date_naissance", LocalDate.class ) );
