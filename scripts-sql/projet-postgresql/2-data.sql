@@ -23,9 +23,9 @@ DELETE FROM encadrer;
 -- Compte
 
 INSERT INTO compte (idcompte, pseudo, motdepasse, email ) VALUES
-  (1, 'geek', 'geek', 'geek@3il.fr' ),
-  (2, 'chef', 'chef', 'chef@3il.fr' ),
-  (3, 'job', 'job', 'job@3il.fr' );
+  (1, 'president', 'president', 'president@boldair.fr' ),
+  (2, 'tresorier', 'tresorier', 'tresorier@boldair.fr' ),
+  (3, 'benevolePermanent', 'benevolePermanent', 'benevole@boldair.fr' );
 
 ALTER TABLE compte ALTER COLUMN idcompte RESTART WITH 4;
 

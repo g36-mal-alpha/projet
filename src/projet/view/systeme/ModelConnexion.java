@@ -52,8 +52,8 @@ public class ModelConnexion {
 	
 	@PostConstruct
 	public void init() {
-		courant.setPseudo( "geek" );
-		courant.setMotDePasse( "geek" );
+		courant.setPseudo( "president" );
+		courant.setMotDePasse( "president" );
 	}
 	
 	
@@ -66,7 +66,7 @@ public class ModelConnexion {
 					courant.pseudoProperty().getValue(), courant.motDePasseProperty().getValue() );
 		
 		if( compte == null ) {
-			throw new ExceptionValidation( "Adresse Email ou mot de passe invalide." );
+			throw new ExceptionValidation( "Adresse Pseudo ou mot de passe invalide." );
 		} else {
 			Platform.runLater( () -> compteActif.setValue( compte ) );
 		}
