@@ -174,5 +174,5 @@ public class DaoBenevole {
 		benevole.setPermanent( rs.getObject( "permanent", Boolean.class ) );
 		return benevole;
 	}
-
+	
 }
