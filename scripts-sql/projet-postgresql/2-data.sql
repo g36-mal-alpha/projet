@@ -134,7 +134,7 @@ INSERT INTO participant (idparticipant, idequipe, idepreuve, idcompte, nom, pren
   
 ALTER TABLE participant ALTER COLUMN idparticipant RESTART WITH 16;
  
--- Documents Licncies
+-- Documents Licencies
 
 INSERT INTO documents_licencies ( iddocument, idparticipant, nom_doc, date_doc, doc) VALUES
   ( 1, 1, 'doc a', '12/08/2020',  'lien 1'),
@@ -143,4 +143,18 @@ INSERT INTO documents_licencies ( iddocument, idparticipant, nom_doc, date_doc, 
 
 ALTER TABLE documents_licencies ALTER COLUMN iddocument RESTART WITH 5;
 
+-- Avoir
 
+INSERT INTO avoir ( idposte, idbenevole) VALUES
+  ( 30, 1),
+  ( 20, 2);
+
+--ALTER TABLE avoir ALTER COLUMN idposte, idbenevole RESTART WITH 5;
+
+-- Encadrer
+
+ INSERT INTO encadrer ( idepreuve, idbenevole) VALUES
+  ( 1, 1),
+  ( 2, 2);
+
+--ALTER TABLE encadrer ALTER COLUMN idepreuve, idbenevole RESTART WITH 5;
