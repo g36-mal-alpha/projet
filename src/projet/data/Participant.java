@@ -24,7 +24,7 @@ public class Participant {
 	private final StringProperty   	 	numero_tel         = new SimpleStringProperty();
 	//private final Property<Date>   	date_naissance     = new SimpleDateProperty();
 	private final StringProperty   	 	adresse     	   = new SimpleStringProperty();
-	private final ObservableList<String> role              = FXCollections.observableArrayList();
+	private final StringProperty		role               = new SimpleStringProperty();
 	private final StringProperty   	 	certificat_medical = new SimpleStringProperty();
 	private final StringProperty   	 	mail               = new SimpleStringProperty();
 	private final StringProperty   	 	niveau             = new SimpleStringProperty();
@@ -113,23 +113,15 @@ public class Participant {
 		this.adresseProperty().set(adresse);
 	}
 	
-	public final ObservableList<String> getRole() {
-		return this.role;
+	public final String getRole() {
+		return this.roleProperty().get();
 	}
-
 	
-	/*public boolean isInRole( String role ) {
-		
-		if ( role != null ) {
-			for ( String r : role ) {
-				if ( role.equals( r ) ) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}*/
 
+	public final void setRole(final String role) {
+		this.roleProperty().set(role);
+	}
+	
 	
 	public final StringProperty certificat_medicalProperty() {
 		return this.certificat_medical;
@@ -223,6 +215,13 @@ public class Participant {
 	public final StringProperty prenomProperty() {
 		return this.prenom;
 	}
+
+	public final StringProperty roleProperty() {
+		return this.role;
+	}
+	
+
+
 	
 	
 }
