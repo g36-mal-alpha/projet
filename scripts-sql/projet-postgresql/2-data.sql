@@ -149,7 +149,7 @@ INSERT INTO avoir ( idposte, idbenevole) VALUES
   ( 30, 1),
   ( 20, 2);
 
---ALTER TABLE avoir ALTER COLUMN idposte, idbenevole RESTART WITH 5;
+--ALTER TABLE avoir ALTER COLUMN idposte, idbenevole RESTART WITH 2;
 
 -- Encadrer
 
@@ -157,4 +157,4 @@ INSERT INTO avoir ( idposte, idbenevole) VALUES
   ( 1, 1),
   ( 2, 2);
 
---ALTER TABLE encadrer ALTER COLUMN idepreuve, idbenevole RESTART WITH 5;
+--ALTER TABLE encadrer ALTER COLUMN idepreuve, idbenevole RESTART WITH 2;

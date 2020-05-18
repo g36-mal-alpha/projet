@@ -250,5 +250,4 @@ public class DaoCompte2 {
 		}
 		return compte;
 	}
-	
 }

@@ -29,7 +29,6 @@ public class Participant {
 	private final StringProperty   	 	niveau             = new SimpleStringProperty();
 	private final StringProperty   	 	materiel_utilise   = new SimpleStringProperty();
 
-
 	
 	// Getters & setters
 
@@ -196,7 +195,6 @@ public class Participant {
 	
 	
 	
-	
 	// hashCode() & equals()
 
 	@Override
@@ -232,11 +230,4 @@ public class Participant {
 		return this.role;
 	}
 
-
-	
-	
-
-
-	
-	
 }

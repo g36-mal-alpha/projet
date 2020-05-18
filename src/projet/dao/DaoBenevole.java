@@ -17,23 +17,14 @@ import projet.data.Benevole;
 
 public class DaoBenevole {
 
-	
+
 	// Champs
 
 	@Inject
 	private DataSource		dataSource;
 
-	
+
 	// Actions 
-	/*private final Property<Integer>		id				= new SimpleObjectProperty<>();
-	private final StringProperty   	 	nom     	  	= new SimpleStringProperty();
-	private final StringProperty   	 	prenom     	    = new SimpleStringProperty();
-	private final Property<LocalDate>   date_naissance  = new SimpleObjectProperty<LocalDate>();
-	private final StringProperty   	 	permis_conduire = new SimpleStringProperty();
-	private final Property<Boolean>		mineurs		    = new SimpleObjectProperty<>( false );
-	//private final BooleanProperty		mineurs		    = new SimpleBooleanProperty();
-	private final Property<Boolean>		permanent		= new SimpleObjectProperty<>( false );
-	//private final BooleanProperty		permanent		    = new SimpleBooleanProperty();*/
 
 	public int inserer( Benevole benevole ) {
 
@@ -41,7 +32,7 @@ public class DaoBenevole {
 		PreparedStatement	stmt	= null;
 		ResultSet 			rs		= null;
 		String				sql;
-		
+
 		try {
 			cn = dataSource.getConnection();
 			sql = "INSERT INTO service ( nom, prenom, date_naissance, permis_conduire, mineurs, permanent ) VALUES( ?, ?, ?, ?, ?, ? ) ";
@@ -59,7 +50,7 @@ public class DaoBenevole {
 			rs.next();
 			benevole.setId( rs.getObject( 1, Integer.class) );
 			return benevole.getId();
-	
+
 		} catch ( SQLException e ) {
 			throw new RuntimeException(e);
 		} finally {
@@ -168,10 +159,10 @@ public class DaoBenevole {
 			UtilJdbc.close( rs, stmt, cn );
 		}
 	}
-	
-	
+
+
 	// Méthodes auxiliaires
-	
+
 	private Benevole construireBenevole( ResultSet rs ) throws SQLException {
 		Benevole benevole = new Benevole();
 		benevole.setId( rs.getObject( "idservice", Integer.class ) );

@@ -151,8 +151,6 @@ public class Benevole {
 	
 
 	
-
-	
 	// hashCode() & equals()
 
 	@Override
@@ -179,9 +177,4 @@ public class Benevole {
 	public String toString() {
 		return getNom();
 	}
-
-
-	
-
-	
 }
