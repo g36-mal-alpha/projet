@@ -7,6 +7,7 @@ public enum EnumReport implements IEnumReport {
 	// Valeurs
 	
 	ParticipantsList		( "participants/participantList.jrxml" ),
+	BenevolesList			( "benevoles/benevoleList.jrxml" ),
 	;
 
 	
