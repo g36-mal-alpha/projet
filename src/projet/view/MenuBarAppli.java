@@ -95,32 +95,6 @@ public class MenuBarAppli extends MenuBar {
 		this.getMenus().add(menu);
 		menuEtats = menu;
 		
-		/*item = new MenuItem( "Personnes par catégorie v1" );
-		item.setOnAction(  (e) ->  
-				managerGui.showDialog( EnumView.EtatPersonnesParCateogire1 ) );
-		menu.getItems().add( item );
-		
-		item = new MenuItem( "Personnes par catégorie v2" );
-		item.setOnAction(  (e) ->  
-				managerGui.showDialog( EnumView.EtatPersonnesParCateogire2 ) );
-		menu.getItems().add( item );
-		
-		item = new MenuItem( "Liste des personnes (PDF)" );
-		item.setOnAction(  (e) ->  
-				managerReport.openFilePdf( EnumReport.PersonnesListeSimple, null ) );
-		menu.getItems().add( item );
-		
-		item = new MenuItem( "Liste des personnes (viewer)" );
-		item.setOnAction(  (e) ->  
-				managerReport.showViewer( EnumReport.PersonnesListeSimple, null ) );
-		menu.getItems().add( item );
-		
-		item = new MenuItem( "Annuaire téléphonique" );
-		item.setOnAction(  (e) ->  
-//				managerReport.print( EnumReport.AnnuaireTelephone, null ) );
-				managerReport.showViewer( EnumReport.AnnuaireTelephone, null ) );
-		menu.getItems().add( item );*/
-		
 		//Participants etat
 		item = new MenuItem("Liste des participants (PDF)");
 		item.setOnAction((e) ->  
@@ -130,6 +104,17 @@ public class MenuBarAppli extends MenuBar {
 		item = new MenuItem( "Liste des participants (viewer)" );
 		item.setOnAction(  (e) ->  
 				managerReport.showViewer( EnumReport.ParticipantsList, null ) );
+		menu.getItems().add( item );
+		
+		//Bénévoles état
+		item = new MenuItem("Liste des bénévoles (PDF)");
+		item.setOnAction((e) ->  
+			managerReport.openFilePdf( EnumReport.BenevolesList, null ) );
+		menu.getItems().add( item );
+		
+		item = new MenuItem( "Liste des participants (viewer)" );
+		item.setOnAction(  (e) ->  
+				managerReport.showViewer( EnumReport.BenevolesList, null ) );
 		menu.getItems().add( item );
 
 		

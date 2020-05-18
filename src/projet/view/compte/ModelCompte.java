@@ -79,15 +79,15 @@ public class ModelCompte {
 			message.append( "\nLe mot de passe est trop court : 3 mini." );
 		} else  if ( courant.getMotDePasse().length()> 25 ) {
 			message.append( "\nLe mot de passe est trop long : 25 maxi." );
+		}else if ( ! daoCompte.verifierUnicitePseudo( courant.getPseudo(), courant.getId() ) ) {
+		message.append( "\nL'Email " + courant.getPseudo() + " est déjà utilisé." );
 		}
 		
 		if( courant.getEmail() == null || courant.getEmail().isEmpty() ) {
 			message.append( "\nL'adresse e-mail ne doit pas être vide." );
 		} else  if ( courant.getEmail().length()> 100 ) {
 			message.append( "\nL'adresse e-mail est trop longue : 100 maxi." );
-		} /*else 	if ( ! daoCompte.verifierUniciteEmail( courant.getEmail(), courant.getId() ) ) {
-			message.append( "\nL'Email " + courant.getEmail() + " est déjà utilisé." );
-		} */
+		}
 		
 		if ( message.length() > 0 ) {
 			throw new ExceptionValidation( message.toString().substring(1) );

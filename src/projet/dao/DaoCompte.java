@@ -207,7 +207,7 @@ public class DaoCompte {
 	}
 
 
-	public boolean verifierUniciteEmail( String pseudo, Integer idCompte )   {
+	public boolean verifierUnicitePseudo( String pseudo, Integer idCompte )   {
 
 		Connection			cn		= null;
 		PreparedStatement	stmt	= null;
