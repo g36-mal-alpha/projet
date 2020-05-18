@@ -21,7 +21,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label prefHeight="35.0" prefWidth="261.0" text="Téléphone :">
+            <Label fx:id="textTelephone" prefHeight="35.0" prefWidth="261.0" text="Téléphone :">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -32,7 +32,7 @@
                   <Font name="Arial" size="12.0" />
                </font>
             </Label>
-            <Label prefHeight="35.0" prefWidth="263.0" text="Adresse Mail :">
+            <Label fx:id="textAdresseMail" prefHeight="35.0" prefWidth="263.0" text="Adresse Mail :">
                <padding>
                   <Insets left="40.0" right="50.0" />
                </padding>
@@ -40,32 +40,32 @@
                   <Font name="Arial" size="12.0" />
                </font>
             </Label>
-            <Label prefHeight="35.0" prefWidth="262.0" text="Adresse :">
+            <Label fx:id="textAdresse" prefHeight="35.0" prefWidth="262.0" text="Adresse :">
                <padding>
                   <Insets left="40.0" right="50.0" />
                </padding>
             </Label>
-            <Label prefHeight="35.0" prefWidth="262.0" text="Course :">
+            <Label fx:id="textCourse" prefHeight="35.0" prefWidth="262.0" text="Course :">
                <padding>
                   <Insets left="40.0" right="50.0" />
                </padding>
             </Label>
-            <Label prefHeight="35.0" prefWidth="259.0" text="Permis :">
+            <Label fx:id="textPermis" prefHeight="35.0" prefWidth="259.0" text="Permis :">
                <padding>
                   <Insets left="40.0" right="50.0" />
                </padding>
             </Label>
-            <Label prefHeight="35.0" prefWidth="263.0" text="Majeur :">
+            <Label fx:id="textMajeur" prefHeight="35.0" prefWidth="263.0" text="Majeur :">
                <padding>
                   <Insets left="40.0" right="50.0" />
                </padding>
             </Label>
-            <Label prefHeight="35.0" prefWidth="282.0" text="Certificat médicale :">
+            <Label fx:id="textCertificat" prefHeight="35.0" prefWidth="282.0" text="Certificat médicale :">
                <padding>
                   <Insets left="40.0" right="50.0" />
                </padding>
             </Label>
-            <Label prefHeight="35.0" prefWidth="262.0" text="Coût :">
+            <Label fx:id="textCout" prefHeight="35.0" prefWidth="262.0" text="Coût :">
                <padding>
                   <Insets left="40.0" right="50.0" />
                </padding>
@@ -96,7 +96,7 @@
       </HBox>
       <HBox layoutX="333.0" layoutY="143.0" prefHeight="43.0" prefWidth="222.0" style="-fx-border-color: rgb(66, 135, 245);">
          <children>
-            <Label prefHeight="50.0" prefWidth="234.0" text="Prénom :">
+            <Label fx:id="textPrenom" prefHeight="50.0" prefWidth="234.0" text="Prénom :">
                <font>
                   <Font size="19.0" />
                </font>
@@ -108,10 +108,13 @@
       </HBox>
       <HBox layoutX="610.0" layoutY="65.0" prefHeight="42.0" prefWidth="222.0" style="-fx-border-color: rgb(66, 135, 245);">
          <children>
-            <Label prefHeight="50.0" prefWidth="234.0" text="Poste : ">
+            <Label fx:id="textPoste" prefHeight="50.0" prefWidth="234.0" text="Poste : ">
                <font>
                   <Font size="19.0" />
                </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
             </Label>
          </children>
       </HBox>
