@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="benevoleList" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe241323-9684-470b-80b0-fc2dfcac2d60">
-	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
+ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
+NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
+	</property>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostegreSQL_projet"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="424"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="565"/>
@@ -15,7 +19,7 @@
 	avoir.idposte,
 	benevole.permanent,
 	poste.lieu,
-	poste.signaleur,
+	poste.libelle,
 	poste.heure_debut,
 	poste.numero_poste,
 	poste.heure_fin
@@ -37,6 +41,14 @@ FROM avoir
 		<property name="com.jaspersoft.studio.field.label" value="date_naissance"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="benevole"/>
 	</field>
+	<field name="idbenevole" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="idbenevole"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="benevole"/>
+	</field>
+	<field name="idposte" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="idposte"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="avoir"/>
+	</field>
 	<field name="permanent" class="java.lang.Boolean">
 		<property name="com.jaspersoft.studio.field.label" value="permanent"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="benevole"/>
@@ -45,8 +57,8 @@ FROM avoir
 		<property name="com.jaspersoft.studio.field.label" value="lieu"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="poste"/>
 	</field>
-	<field name="signaleur" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.label" value="signaleur"/>
+	<field name="libelle" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="libelle"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="poste"/>
 	</field>
 	<field name="heure_debut" class="java.sql.Time">
@@ -104,106 +116,150 @@ FROM avoir
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="30" splitType="Stretch">
+		<band height="60" splitType="Stretch">
 			<staticText>
-				<reportElement style="Etiquette" x="0" y="0" width="128" height="30" uuid="39c1b86b-e5c0-4ad7-9b7e-178b5107333f">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="128034a1-a621-4888-a8b8-d603f201df9e"/>
+				<reportElement style="Etiquette" x="0" y="0" width="100" height="60" uuid="39c1b86b-e5c0-4ad7-9b7e-178b5107333f">
+					<property name="com.jaspersoft.studio.data.sql.tables">
+						<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
+ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
+NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
+					</property>
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostegreSQL_projet"/>
+					<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="424"/>
+					<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="565"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<text><![CDATA[nom]]></text>
+				<text><![CDATA[Nom / Prénom]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Etiquette" x="128" y="0" width="61" height="30" uuid="58269130-ac64-49c5-9add-518f06e68141">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe3e1a2b-3943-4b93-8185-8a2471e63719"/>
+				<reportElement style="Etiquette" x="100" y="0" width="89" height="60" uuid="58269130-ac64-49c5-9add-518f06e68141">
+					<property name="com.jaspersoft.studio.data.sql.tables">
+						<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
+ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
+NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
+					</property>
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostegreSQL_projet"/>
+					<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="424"/>
+					<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="565"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<text><![CDATA[date_naissance]]></text>
+				<text><![CDATA[Date de naissance]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Etiquette" x="189" y="0" width="61" height="30" uuid="5a9682a2-3b43-44f9-8e70-7c36425592ca">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="271ba056-69c6-4d05-8c87-b596a46fb2ae"/>
+				<reportElement style="Etiquette" x="189" y="0" width="89" height="60" uuid="6869b327-d3fa-4d26-a727-af307df309e0">
+					<property name="com.jaspersoft.studio.data.sql.tables">
+						<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
+ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
+NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
+					</property>
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostegreSQL_projet"/>
+					<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="424"/>
+					<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="565"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<text><![CDATA[permanent]]></text>
+				<text><![CDATA[Lieu]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Etiquette" x="250" y="0" width="61" height="30" uuid="6869b327-d3fa-4d26-a727-af307df309e0">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe11c86d-78d4-4646-ac3a-5f1143216f36"/>
+				<reportElement style="Etiquette" x="278" y="0" width="52" height="60" uuid="f28e0586-2b0f-4bb6-b646-46f596e45433">
+					<property name="com.jaspersoft.studio.data.sql.tables">
+						<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
+ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
+NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
+					</property>
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostegreSQL_projet"/>
+					<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="424"/>
+					<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="565"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<text><![CDATA[lieu]]></text>
+				<text><![CDATA[Poste]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Etiquette" x="311" y="0" width="61" height="30" uuid="f28e0586-2b0f-4bb6-b646-46f596e45433">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="53287d88-10ae-443a-8295-d128b798b4c8"/>
+				<reportElement style="Etiquette" x="330" y="0" width="80" height="60" uuid="fc10083c-c8a4-42e1-ab4d-79e803975ce9">
+					<property name="com.jaspersoft.studio.data.sql.tables">
+						<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
+ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
+NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
+					</property>
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostegreSQL_projet"/>
+					<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="424"/>
+					<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="565"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<text><![CDATA[signaleur]]></text>
+				<text><![CDATA[Heure de début]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Etiquette" x="372" y="0" width="61" height="30" uuid="fc10083c-c8a4-42e1-ab4d-79e803975ce9">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b5962ebc-e252-4dba-b324-ca9a6da9a1d8"/>
+				<reportElement style="Etiquette" x="410" y="0" width="84" height="60" uuid="b819f00c-9abe-4e5b-8a8b-65f01c4ca83b">
+					<property name="com.jaspersoft.studio.data.sql.tables">
+						<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
+ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
+NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
+					</property>
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostegreSQL_projet"/>
+					<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="424"/>
+					<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="565"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<text><![CDATA[heure_debut]]></text>
+				<text><![CDATA[Numéro poste]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Etiquette" x="433" y="0" width="61" height="30" uuid="b819f00c-9abe-4e5b-8a8b-65f01c4ca83b">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c11d021e-2a9e-4ab5-8c74-4bdfefa3e679"/>
+				<reportElement style="Etiquette" x="494" y="0" width="61" height="60" uuid="a89edf06-c50b-4445-9cce-d228b1b532a7">
+					<property name="com.jaspersoft.studio.data.sql.tables">
+						<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
+ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
+NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
+					</property>
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostegreSQL_projet"/>
+					<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="424"/>
+					<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="565"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<text><![CDATA[numero_poste]]></text>
-			</staticText>
-			<staticText>
-				<reportElement style="Etiquette" x="494" y="0" width="61" height="30" uuid="a89edf06-c50b-4445-9cce-d228b1b532a7">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e6ad83d0-7901-4851-8b15-520af577fa7d"/>
-				</reportElement>
-				<text><![CDATA[heure_fin]]></text>
+				<text><![CDATA[Heure de fin]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="30" splitType="Stretch">
+		<band height="42" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="128" height="30" uuid="3f81bce9-5c99-462a-9a81-ded3e431c587">
+				<reportElement x="0" y="0" width="100" height="30" uuid="3f81bce9-5c99-462a-9a81-ded3e431c587">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="128034a1-a621-4888-a8b8-d603f201df9e"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[UPPER($F{nom}) + " " +  $F{prenom}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nom}.toUpperCase() + " " +  $F{prenom}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="128" y="0" width="61" height="30" uuid="f15eea00-4fd2-4c59-8a23-84bfe6067e3c">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="100" y="0" width="89" height="30" uuid="f15eea00-4fd2-4c59-8a23-84bfe6067e3c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe3e1a2b-3943-4b93-8185-8a2471e63719"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{date_naissance}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="189" y="0" width="61" height="30" uuid="f709aad6-f3fc-4d2a-bcb0-389fb833514b">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="271ba056-69c6-4d05-8c87-b596a46fb2ae"/>
-				</reportElement>
-				<textFieldExpression><![CDATA[$F{permanent}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="250" y="0" width="61" height="30" uuid="49080a6d-1f2e-4ed2-8998-6561f537feef">
+				<reportElement x="189" y="0" width="89" height="30" uuid="49080a6d-1f2e-4ed2-8998-6561f537feef">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe11c86d-78d4-4646-ac3a-5f1143216f36"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{lieu}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="311" y="0" width="61" height="30" uuid="b5178df6-6201-4068-8b68-c700abd87f42">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="53287d88-10ae-443a-8295-d128b798b4c8"/>
-				</reportElement>
-				<textFieldExpression><![CDATA[$F{signaleur}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="372" y="0" width="61" height="30" uuid="6f022531-8154-4064-8978-188d2c7932de">
+			<textField pattern="HH : mm">
+				<reportElement x="330" y="0" width="80" height="30" uuid="6f022531-8154-4064-8978-188d2c7932de">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b5962ebc-e252-4dba-b324-ca9a6da9a1d8"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{heure_debut}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="433" y="0" width="61" height="30" uuid="eebed71f-10d2-451f-8817-25084132cc59">
+				<reportElement x="410" y="0" width="84" height="30" uuid="eebed71f-10d2-451f-8817-25084132cc59">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c11d021e-2a9e-4ab5-8c74-4bdfefa3e679"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{numero_poste}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="HH : mm">
 				<reportElement x="494" y="0" width="61" height="30" uuid="a32a8467-d822-4857-a784-1d03927a3c0e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e6ad83d0-7901-4851-8b15-520af577fa7d"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{heure_fin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="0" width="52" height="30" uuid="3a49aeda-80a3-4d53-b22a-8572402f28d6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="df2972c9-92a9-4741-9386-ba15e1f78e48"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{libelle}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
