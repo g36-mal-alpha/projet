@@ -35,6 +35,7 @@ public class DaoParticipant {
 		String				sql;
 
 		try {
+			//probleme unique mail 
 			cn = dataSource.getConnection();
 			sql = "INSERT INTO participant (nom, prenom, sexe, numero_tel, date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
