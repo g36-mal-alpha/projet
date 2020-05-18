@@ -1,14 +1,13 @@
 package projet.data;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 
 
 public class Participant {
@@ -22,7 +21,7 @@ public class Participant {
 	private final StringProperty   	 	prenom     	       = new SimpleStringProperty();
 	private final StringProperty   	 	sexe     	  	   = new SimpleStringProperty();
 	private final StringProperty   	 	numero_tel         = new SimpleStringProperty();
-	//private final Property<Date>   	date_naissance     = new SimpleDateProperty();
+	private final Property<LocalDate>   date_naissance     = new SimpleObjectProperty<LocalDate>();
 	private final StringProperty   	 	adresse     	   = new SimpleStringProperty();
 	private final StringProperty		role               = new SimpleStringProperty();
 	private final StringProperty   	 	certificat_medical = new SimpleStringProperty();
@@ -98,6 +97,19 @@ public class Participant {
 		this.numero_telProperty().set(numero_tel);
 	}
 	
+	public final Property<LocalDate> date_naissanceProperty() {
+		return this.date_naissance;
+	}
+	
+
+	public final LocalDate getDate_naissance() {
+		return this.date_naissanceProperty().getValue();
+	}
+	
+
+	public final void setDate_naissance(final LocalDate date_naissance) {
+		this.date_naissanceProperty().setValue(date_naissance);
+	}
 
 	public final StringProperty adresseProperty() {
 		return this.adresse;
@@ -219,6 +231,9 @@ public class Participant {
 	public final StringProperty roleProperty() {
 		return this.role;
 	}
+
+
+	
 	
 
 

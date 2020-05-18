@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import jfox.dao.jdbc.UtilJdbc;
 import projet.data.Participant;
 
 
-public class DaoParticpant {
+public class DaoParticipant {
 
 	
 	// Champs
@@ -41,7 +42,7 @@ public class DaoParticpant {
 			stmt.setObject( 2, participant.getPrenom() );
 			stmt.setObject( 3, participant.getSexe() );
 			stmt.setObject( 4, participant.getNumero_tel() );
-			//stmt.setObject( 5, participant.getDate_naissance() );
+			stmt.setObject( 5, participant.getDate_naissance() );
 			stmt.setObject( 6, participant.getAdresse() );
 			stmt.setObject( 7, participant.getRole() );
 			stmt.setObject( 8, participant.getCertificat_medical() );
@@ -78,7 +79,7 @@ public class DaoParticpant {
 			stmt.setObject( 2, participant.getPrenom() );
 			stmt.setObject( 3, participant.getSexe() );
 			stmt.setObject( 4, participant.getNumero_tel() );
-			//stmt.setObject( 5, participant.getDate_naissance() );
+			stmt.setObject( 5, participant.getDate_naissance() );
 			stmt.setObject( 6, participant.getAdresse() );
 			stmt.setObject( 7, participant.getRole() );
 			stmt.setObject( 8, participant.getCertificat_medical() );
@@ -180,7 +181,7 @@ public class DaoParticpant {
 		participant.setPrenom( rs.getObject( "prenom", String.class ) );		
 		participant.setSexe( rs.getObject( "sexe", String.class ) );
 		participant.setNumero_tel( rs.getObject( "numero_tel", String.class ) );
-		//participant.setDate_naissance( rs.getObject( "date_naissance", String.class ) );
+		participant.setDate_naissance( rs.getObject( "date_naissance", LocalDate.class ) );
 		participant.setAdresse( rs.getObject( "adresse", String.class ) );
 		participant.setRole( rs.getObject( "role", String.class ) );		
 		participant.setCertificat_medical( rs.getObject( "certificat_medical", String.class ) );
