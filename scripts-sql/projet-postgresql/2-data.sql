@@ -6,18 +6,17 @@ DELETE FROM service;
 DELETE FROM telephone;
 DELETE FROM personne;
 DELETE FROM categorie;
+DELETE FROM avoir;
+DELETE FROM encadrer;
 DELETE FROM role;
+DELETE FROM poste;
+DELETE FROM documents_licencies;
+DELETE FROM participant;
+DELETE FROM equipe;
+DELETE FROM epreuve;
 DELETE FROM benevole;
 DELETE FROM compte;
 
-
-DELETE FROM poste;
-DELETE FROM equipe;
-DELETE FROM epreuve;
-DELETE FROM participant;
-DELETE FROM documents_licencies;
-DELETE FROM avoir;
-DELETE FROM encadrer;
 
 
 -- Compte
@@ -98,11 +97,11 @@ ALTER TABLE benevole ALTER COLUMN idbenevole RESTART WITH 8;
 
 -- Poste 
 
-INSERT INTO poste ( idposte, lieu, signaleur, heure_debut, numero_poste, heure_fin ) VALUES
-  ( 20, 'lieu1', TRUE,  '17:00:00' , 1, '18:00:00'),
-  ( 30, 'lieu2', FALSE, '18:00:00' , 22, '19:00:00'),
-  ( 40, 'lieu3', TRUE,  '09:00:00' , 17, '11:00:00'),
-  ( 50, 'lieu4', TRUE , '07:00:00' , 45, '10:00:00');
+INSERT INTO poste ( idposte, lieu, libelle, heure_debut, numero_poste, heure_fin ) VALUES
+  ( 20, 'lieu1', 'signaleur',  '17:00:00' , 1, '18:00:00'),
+  ( 30, 'lieu2', 'securite', '18:00:00' , 22, '19:00:00'),
+  ( 40, 'lieu3', 'signaleur',  '09:00:00' , 17, '11:00:00'),
+  ( 50, 'lieu4', 'securite', '07:00:00' , 45, '10:00:00');
  
 ALTER TABLE poste ALTER COLUMN idposte RESTART WITH 5;
   
@@ -146,15 +145,14 @@ ALTER TABLE documents_licencies ALTER COLUMN iddocument RESTART WITH 5;
 -- Avoir
 
 INSERT INTO avoir ( idposte, idbenevole) VALUES
-  ( 30, 1),
-  ( 20, 2);
+  (30, 1),
+  (20, 2);
 
---ALTER TABLE avoir ALTER COLUMN idposte, idbenevole RESTART WITH 2;
 
 -- Encadrer
 
  INSERT INTO encadrer ( idepreuve, idbenevole) VALUES
-  ( 1, 1),
-  ( 2, 2);
+  (1, 1),
+  (2, 2);
 
---ALTER TABLE encadrer ALTER COLUMN idepreuve, idbenevole RESTART WITH 2;
+
