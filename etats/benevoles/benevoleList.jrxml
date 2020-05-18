@@ -61,6 +61,9 @@ FROM avoir
 		<property name="com.jaspersoft.studio.field.label" value="heure_fin"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="poste"/>
 	</field>
+	<variable name="nbBenevole" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{nom}]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -226,6 +229,15 @@ FROM avoir
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="55" splitType="Stretch">
+			<textField>
+				<reportElement x="320" y="10" width="52" height="30" uuid="615cff8f-8165-468d-a3f3-02625c252a68"/>
+				<textFieldExpression><![CDATA[$V{nbBenevole}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="189" y="10" width="131" height="30" uuid="9f413c35-ba82-4c3a-a2b0-40b7bcab8b62"/>
+				<text><![CDATA[Nombre total de bénévoles : ]]></text>
+			</staticText>
+		</band>
 	</summary>
 </jasperReport>
