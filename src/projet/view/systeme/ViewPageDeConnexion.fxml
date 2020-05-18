@@ -9,12 +9,12 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.systeme.ControllerConnexion">
    <children>
-      <Label layoutX="190.0" layoutY="63.0" text="Application Administrateur Bol D'Air" textFill="#006eff">
+      <Label layoutX="190.0" layoutY="65.0" text="Application Administrateur Bol D'Air" textFill="#006eff">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="373.0" layoutY="175.0" text="Pseudo :" textFill="#006eff">
+      <Label layoutX="403.0" layoutY="168.0" text="Pseudo :" textFill="#006eff">
          <font>
             <Font size="25.0" />
          </font>
