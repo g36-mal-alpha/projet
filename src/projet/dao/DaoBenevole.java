@@ -160,6 +160,32 @@ public class DaoBenevole {
 		}
 	}
 
+	public List<Benevole> listerPoutPoste(int idPoste) {
+
+		Connection			cn 		= null;
+		PreparedStatement	stmt 	= null;
+		ResultSet 			rs		= null;
+		String				sql;
+
+		try {
+			cn = dataSource.getConnection();
+			sql = "SELECT * FROM benevole ORDER BY nom";
+			stmt = cn.prepareStatement( sql );
+			stmt.setInt( 1, idPoste );
+			rs = stmt.executeQuery();
+
+			List<Benevole> benevoles = new LinkedList<>();
+			while (rs.next()) {
+				benevoles.add( construireBenevole( rs ) );
+			}
+			return benevoles;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close( rs, stmt, cn );
+		}
+	}
 
 	// Méthodes auxiliaires
 
