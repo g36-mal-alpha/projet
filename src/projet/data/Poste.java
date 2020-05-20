@@ -8,6 +8,8 @@ import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 public class Poste {
@@ -21,7 +23,7 @@ public class Poste {
 	private final Property<LocalTime>   heure_debut     = new SimpleObjectProperty<>();
 	private final Property<LocalTime>   heure_fin       = new SimpleObjectProperty<>();
 	private final Property<Integer>		numero_poste    = new SimpleObjectProperty<>();
-
+	private final ObservableList<Benevole> benevoles = FXCollections.observableArrayList();
 
 	
 	// Getters & setters
@@ -110,6 +112,10 @@ public class Poste {
 
 	public final void setNumero_poste(final Integer numero_poste) {
 		this.numero_posteProperty().setValue(numero_poste);
+	}
+	
+	public ObservableList<Benevole> getBenevoles() {
+		return benevoles;
 	}
 	
 	// hashCode() & equals()
