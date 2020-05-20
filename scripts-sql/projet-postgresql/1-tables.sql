@@ -186,8 +186,6 @@ CREATE TABLE avoir(
 	idposte      INT  NOT NULL ,
 	idbenevole   INT  NOT NULL  ,
 	
-	-- CHECK( Role IN ('POSTE','BENEVOLE') ),
-	
 	PRIMARY KEY (idposte,idbenevole),
 	
 	FOREIGN KEY (idposte) REFERENCES poste (idposte),
