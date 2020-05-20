@@ -160,6 +160,12 @@ public class DaoBenevole {
 		}
 	}
 
+	
+	//page 6 tuto 11
+	
+	
+	
+	
 	public List<Benevole> listerPoutPoste(int idPoste) {
 
 		Connection			cn 		= null;
