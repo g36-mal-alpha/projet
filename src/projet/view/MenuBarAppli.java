@@ -149,11 +149,11 @@ public class MenuBarAppli extends MenuBar {
 		menu.getItems().add( item );
 		
 		// PROJET - Menu Postes
-		menu = new Menu("Postes");
+		menu = new Menu("Poste");
 		this.getMenus().add(menu);
 		menuPostes = menu;
 		
-		item = new MenuItem("Postes des bénévoles");
+		item = new MenuItem("Poste des bénévoles");
 		item.setOnAction( (e) -> managerGui.showView( EnumView.PosteList )  );
 		menu.getItems().add(item);
 		

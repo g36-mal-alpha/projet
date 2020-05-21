@@ -1,4 +1,4 @@
-package projet.view.postes;
+package projet.view.poste;
 
 public class ControllerPosteList {
 	
