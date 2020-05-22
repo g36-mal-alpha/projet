@@ -13,7 +13,7 @@ import projet.data.Poste;
 import projet.view.EnumView;
 
 
-public class ControllerMemoListe {
+public class ControllerPosteListe {
 	
 	
 	// Composants de la vue
