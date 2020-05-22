@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -121,11 +122,14 @@
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                       </columnConstraints>
                                       <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
                                           <Label alignment="CENTER" text="Catégorie :" textAlignment="CENTER">
@@ -133,15 +137,26 @@
                                                 <Insets />
                                              </opaqueInsets>
                                              <GridPane.margin>
-                                                <Insets left="10.0" />
+                                                <Insets left="3.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <ComboBox fx:id="comboBoxCategorie" prefWidth="150.0" GridPane.columnIndex="1" />
-                                          <Button mnemonicParsing="false" onAction="#doSupprimerCategorie" text="Suppr" GridPane.columnIndex="2">
+                                          <ComboBox fx:id="comboBoxCategorie" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+                                          <Button mnemonicParsing="false" onAction="#doSupprimerCategorie" prefHeight="25.0" prefWidth="61.0" text="Suppr" GridPane.columnIndex="3">
                                              <GridPane.margin>
-                                                <Insets left="20.0" />
+                                                <Insets left="5.0" />
                                              </GridPane.margin>
                                           </Button>
+                                          <Label alignment="CENTER" text="Benevole(s) :" textAlignment="CENTER" GridPane.rowIndex="1">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <ListView prefHeight="62.0" prefWidth="117.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="4" />
+                                          <Button mnemonicParsing="false" onAction="#doSupprimerCategorie" prefHeight="25.0" prefWidth="61.0" text="Suppr" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                          <Button mnemonicParsing="false" onAction="#doSupprimerCategorie" prefHeight="25.0" prefWidth="61.0" text="Ajouter" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                                        </children>
                                     </GridPane>
                                  </children>

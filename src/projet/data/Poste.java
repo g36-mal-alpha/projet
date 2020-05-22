@@ -21,7 +21,7 @@ public class Poste {
 	private final Property<Integer>		id				= new SimpleObjectProperty<>();
 	private final StringProperty   	 	libelle     	= new SimpleStringProperty();
 	private final StringProperty   	 	lieu   	        = new SimpleStringProperty();
-	private final Property<Integer>	    statut 		= new SimpleObjectProperty<>(0);
+	private final Property<Integer>	    statut 		    = new SimpleObjectProperty<>(0);
 	private final Property<LocalDate>   jour            = new SimpleObjectProperty<>();
 	private final Property<LocalTime>   heure_debut     = new SimpleObjectProperty<>();
 	private final Property<LocalTime>   heure_fin       = new SimpleObjectProperty<>();

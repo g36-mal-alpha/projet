@@ -10,6 +10,7 @@ import jfox.commun.exception.ExceptionValidation;
 import jfox.javafx.util.UtilFX;
 import projet.commun.IMapper;
 import projet.dao.DaoPoste;
+import projet.data.Benevole;
 import projet.data.Categorie;
 import projet.data.Poste;
 import projet.view.personne.ModelCategorie;
@@ -126,4 +127,11 @@ public class ModelPoste  {
 		mapper.update( courant, UtilFX.findNext( liste, item ) );
 	}
 	
+	public void supprimerBenevole( Benevole item ) {
+		 courant.getBenevoles().remove( item );
+	}
+		
+	public void ajouterBenevole( Benevole item ) {
+		 courant.getBenevoles().add( item );
+	}
 }
