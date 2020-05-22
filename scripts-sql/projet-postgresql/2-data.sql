@@ -86,22 +86,22 @@ ALTER TABLE service ALTER COLUMN idservice RESTART WITH 4;
  
 -- Bénévole 
 
-INSERT INTO benevole ( idbenevole, idcompte, nom, prenom, date_naissance, permis_conduire, mineurs, permanent, idcategorie ) VALUES
-  ( 1,1, 'nom1', 'bob', '12/08/1968','lien_fichier1' ,TRUE, TRUE, 1 ),
-  ( 2,2, 'nom2', 'paul', '12/08/1978','lien_fichier1', TRUE, FALSE , 1),
-  ( 3,3, 'nom3', 'jack', '12/08/1986','lien_fichier1', FALSE, TRUE , 2);
+INSERT INTO benevole ( idbenevole, idcompte, nom, prenom, date_naissance, permis_conduire, mineurs, idcategorie ) VALUES
+  ( 1,1, 'nom1', 'bob', '12/08/1968','lien_fichier1' ,TRUE, 1 ),
+  ( 2,2, 'nom2', 'paul', '12/08/1978','lien_fichier1', TRUE , 1),
+  ( 3,3, 'nom3', 'jack', '12/08/1986','lien_fichier1', FALSE , 2);
   
 ALTER TABLE benevole ALTER COLUMN idbenevole RESTART WITH 8;
 
 -- Poste 
 
-INSERT INTO poste ( idposte, lieu, libelle, heure_debut, numero_poste, heure_fin ) VALUES
-  ( 1, 'lieu1', 'signaleur',  '17:00:00' , 1, '18:00:00'),
-  ( 2, 'lieu2', 'securite', '18:00:00' , 22, '19:00:00'),
-  ( 3, 'lieu3', 'signaleur',  '09:00:00' , 17, '11:00:00'),
-  ( 4, 'lieu4', 'securite', '07:00:00' , 45, '10:00:00');
+INSERT INTO poste ( idposte, lieu, libelle, heure_debut, numero_poste, heure_fin, idcategorie) VALUES
+  ( 1, 'lieu1', 'signaleur',  '17:00:00' , 1, '18:00:00', 1),
+  ( 2, 'lieu2', 'securite', '18:00:00' , 22, '19:00:00' , 2),
+  ( 3, 'lieu3', 'signaleur',  '09:00:00' , 17, '11:00:00', 1),
+  ( 4, 'lieu4', 'securite', '07:00:00' , 45, '10:00:00', 2);
  
-ALTER TABLE poste ALTER COLUMN idposte RESTART WITH 5;
+ALTER TABLE poste ALTER COLUMN idposte RESTART WITH 6;
   
 -- Equipe
 
@@ -143,8 +143,8 @@ ALTER TABLE documents_licencies ALTER COLUMN iddocument RESTART WITH 5;
 -- Avoir
 
 INSERT INTO avoir ( idposte, idbenevole) VALUES
-  (1, 1),
-  (2, 2);
+  (1, 2),
+  (2, 1);
 
 
 -- Encadrer

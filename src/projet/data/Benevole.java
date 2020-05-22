@@ -23,7 +23,8 @@ public class Benevole {
 	//private final BooleanProperty		mineurs		    = new SimpleBooleanProperty();
 	private final Property<Boolean>		permanent		= new SimpleObjectProperty<>( false );
 	//private final BooleanProperty		permanent		= new SimpleBooleanProperty();
-
+	 private final Property<Categorie> categorie        = new SimpleObjectProperty<>();
+		
 
 	
 	// Getters & setters
@@ -147,6 +148,21 @@ public class Benevole {
 
 	public final void setPermanent(final Boolean permanent) {
 		this.permanentProperty().setValue(permanent);
+	}
+	
+	
+	public final Property<Categorie> categorieProperty() {
+		return this.categorie;
+	}
+	
+
+	public final Categorie getCategorie() {
+		return this.categorieProperty().getValue();
+	}
+	
+
+	public final void setCategorie(final Categorie categorie) {
+		this.categorieProperty().setValue(categorie);
 	}
 	
 

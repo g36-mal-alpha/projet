@@ -145,7 +145,7 @@ public class DaoPoste {
 			rs = stmt.executeQuery();
 
 			if ( rs.next() ) {
-				return construirePoste( rs, false );
+				return construirePoste( rs, true );
 			} else {
 				return null;
 			}
@@ -198,8 +198,9 @@ public class DaoPoste {
 			 Integer idCategorie = rs.getObject( "idcategorie", Integer.class );
 			 if ( idCategorie != null ) {
 				 poste.setCategorie( daoCategorie.retrouver(idCategorie) );
+				 poste.getBenevoles().setAll( daoBenevole.listerPoutPoste( poste.getId() ) );
 			 }
-			 poste.getBenevoles().setAll( daoBenevole.listerPoutPoste( poste.getId() ) );
+			 
 		} 
 		return poste;
 	}
