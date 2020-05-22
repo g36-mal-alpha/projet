@@ -23,8 +23,9 @@ public class Poste {
 	private final Property<LocalTime>   heure_debut     = new SimpleObjectProperty<>();
 	private final Property<LocalTime>   heure_fin       = new SimpleObjectProperty<>();
 	private final Property<Integer>		numero_poste    = new SimpleObjectProperty<>();
-	private final ObservableList<Benevole> benevoles = FXCollections.observableArrayList();
-
+	private final ObservableList<Benevole> benevoles    = FXCollections.observableArrayList();
+	private final Property<Poste> poste                 = new SimpleObjectProperty<>();
+	private final Property<Categorie> categorie         = new SimpleObjectProperty<>();
 	
 	// Getters & setters
 
@@ -116,6 +117,34 @@ public class Poste {
 	
 	public ObservableList<Benevole> getBenevoles() {
 		return benevoles;
+	}
+	
+	public final Property<Poste> posteProperty() {
+		return this.poste;
+	}
+	
+
+	public final Poste getPoste() {
+		return this.posteProperty().getValue();
+	}
+	
+
+	public final void setPoste(final Poste poste) {
+		this.posteProperty().setValue(poste);
+	}
+	
+	public final Property<Categorie> categorieProperty() {
+		return this.categorie;
+	}
+	
+
+	public final Categorie getCategorie() {
+		return this.categorieProperty().getValue();
+	}
+	
+
+	public final void setCategorie(final Categorie categorie) {
+		this.categorieProperty().setValue(categorie);
 	}
 	
 	// hashCode() & equals()

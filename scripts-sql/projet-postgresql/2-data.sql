@@ -41,13 +41,11 @@ INSERT INTO role (idcompte, role) VALUES
 -- Categorie
 
 INSERT INTO categorie (idcategorie, libelle ) VALUES
-  (1, 'Employés' ),
-  (2, 'Partenaires' ),
-  (3, 'Clients' ),
-  (4, 'Fournisseurs' ),
-  (5, 'Dirigeants' );
+  (1, 'M' ),
+  (2, 'E' );
 
-ALTER TABLE categorie ALTER COLUMN idcategorie RESTART WITH 6;
+
+ALTER TABLE categorie ALTER COLUMN idcategorie RESTART WITH 2;
 
 
 -- Personne
@@ -88,10 +86,10 @@ ALTER TABLE service ALTER COLUMN idservice RESTART WITH 4;
  
 -- Bénévole 
 
-INSERT INTO benevole ( idbenevole, idcompte, nom, prenom, date_naissance, permis_conduire, mineurs, permanent ) VALUES
-  ( 1,1, 'nom1', 'bob', '12/08/1968','lien_fichier1' ,TRUE, TRUE),
-  ( 2,2, 'nom2', 'paul', '12/08/1978','lien_fichier1', TRUE, FALSE),
-  ( 3,3, 'nom3', 'jack', '12/08/1986','lien_fichier1', FALSE, TRUE );
+INSERT INTO benevole ( idbenevole, idcompte, nom, prenom, date_naissance, permis_conduire, mineurs, permanent, idcategorie ) VALUES
+  ( 1,1, 'nom1', 'bob', '12/08/1968','lien_fichier1' ,TRUE, TRUE, 1 ),
+  ( 2,2, 'nom2', 'paul', '12/08/1978','lien_fichier1', TRUE, FALSE , 1),
+  ( 3,3, 'nom3', 'jack', '12/08/1986','lien_fichier1', FALSE, TRUE , 2);
   
 ALTER TABLE benevole ALTER COLUMN idbenevole RESTART WITH 8;
 

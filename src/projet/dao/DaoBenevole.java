@@ -159,11 +159,6 @@ public class DaoBenevole {
 			UtilJdbc.close( rs, stmt, cn );
 		}
 	}
-
-	
-	//page 6 tuto 11
-	
-	
 	
 	
 	public List<Benevole> listerPoutPoste(int idPoste) {
@@ -175,7 +170,7 @@ public class DaoBenevole {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "SELECT * FROM benevole ORDER BY nom";
+			sql = "SELECT * FROM avoir INNER JOIN benevole ON avoir.idbenevole = benevole.idbenevole WHERE avoir.idposte = ?";
 			stmt = cn.prepareStatement( sql );
 			stmt.setInt( 1, idPoste );
 			rs = stmt.executeQuery();

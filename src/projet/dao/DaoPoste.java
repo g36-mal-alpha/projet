@@ -15,6 +15,7 @@ import javax.sql.DataSource;
 import jfox.dao.jdbc.UtilJdbc;
 import projet.data.Benevole;
 import projet.data.Poste;
+import projet.dao.DaoBenevole;
 
 public class DaoPoste {
 
@@ -23,6 +24,12 @@ public class DaoPoste {
 	
 	@Inject
 	private DataSource		dataSource;
+	
+	@Inject
+	private DaoBenevole     daoBenevole;
+	
+	@Inject
+	private DaoCategorie    daoCategorie;
 
 
 	// Actions 
@@ -36,14 +43,20 @@ public class DaoPoste {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "INSERT INTO poste ( libelle, lieu, heure_debut, heure_fin, numero_poste ) VALUES( ?, ?, ?, ?, ? ) ";
+			sql = "INSERT INTO poste ( libelle, lieu, heure_debut, heure_fin, numero_poste, idcategorie ) VALUES( ?, ?, ?, ?, ?, ? ) ";
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 			stmt.setObject( 1, poste.getLibelle() );
 			stmt.setObject( 2, poste.getLieu() );
 			stmt.setObject( 3, poste.getHeure_debut() );
 			stmt.setObject( 4, poste.getHeure_fin() );
 			stmt.setObject( 5, poste.getNumero_poste() );
-
+			if ( poste.getCategorie() == null ) {
+				 stmt.setObject( 6, null );
+			} 
+			else {
+				 stmt.setObject( 6,poste.getCategorie().getId() );
+			} 
+			
 			stmt.executeUpdate();
 
 			// Récupère l'identifiant généré par le SGBD
@@ -69,16 +82,22 @@ public class DaoPoste {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "UPDATE poste SET libelle = ?, lieu = ?, heure_debut = ?, heure_fin = ?, numero_poste = ?  WHERE idposte =  ?";
+			sql = "UPDATE poste SET libelle = ?, lieu = ?, heure_debut = ?, heure_fin = ?, numero_poste = ?, idcategorie = ?  WHERE idposte =  ?";
 			stmt = cn.prepareStatement( sql );
 			stmt.setObject( 1, poste.getLibelle() );
 			stmt.setObject( 2, poste.getLieu() );
 			stmt.setObject( 3, poste.getHeure_debut() );
 			stmt.setObject( 4, poste.getHeure_fin() );
 			stmt.setObject( 5, poste.getNumero_poste() );
-			stmt.setObject( 6, poste.getId() );
+			if ( poste.getCategorie() == null ) {
+				 stmt.setObject( 6, null );
+			} 
+			else {
+				 stmt.setObject( 6,poste.getCategorie().getId() );
+			} 
+			stmt.setObject( 7, poste.getId() );
 			stmt.executeUpdate();
-			supprimerAvoir(6);
+			supprimerAvoir(8);
 			insererAvoir(poste);
 
 		} catch (SQLException e) {
@@ -126,7 +145,7 @@ public class DaoPoste {
 			rs = stmt.executeQuery();
 
 			if ( rs.next() ) {
-				return construirePoste( rs );
+				return construirePoste( rs, false );
 			} else {
 				return null;
 			}
@@ -153,7 +172,7 @@ public class DaoPoste {
 
 			List<Poste> postes = new LinkedList<>();
 			while (rs.next()) {
-				postes.add( construirePoste( rs ) );
+				postes.add( construirePoste( rs, false ) );
 			}
 			return postes;
 
@@ -167,7 +186,7 @@ public class DaoPoste {
 
 	// Méthodes auxiliaires
 
-	private Poste construirePoste( ResultSet rs ) throws SQLException {
+	private Poste construirePoste( ResultSet rs , boolean flagComplet ) throws SQLException {
 		Poste poste = new Poste();
 		poste.setId( rs.getObject( "idposte", Integer.class ) );
 		poste.setLibelle( rs.getObject( "libelle", String.class ) );
@@ -175,6 +194,13 @@ public class DaoPoste {
 		poste.setHeure_debut( rs.getObject( "heure_debut", LocalTime.class ) );
 		poste.setHeure_fin( rs.getObject( "heure_fin", LocalTime.class ) );
 		poste.setNumero_poste( rs.getObject( "numero_poste", Integer.class ) );
+		if ( flagComplet ) {
+			 Integer idCategorie = rs.getObject( "idcategorie", Integer.class );
+			 if ( idCategorie != null ) {
+				 poste.setCategorie( daoCategorie.retrouver(idCategorie) );
+			 }
+			 poste.getBenevoles().setAll( daoBenevole.listerPoutPoste( poste.getId() ) );
+		} 
 		return poste;
 	}
 	
