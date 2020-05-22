@@ -143,8 +143,8 @@ ALTER TABLE documents_licencies ALTER COLUMN iddocument RESTART WITH 5;
 -- Avoir
 
 INSERT INTO avoir ( idposte, idbenevole) VALUES
-  (1, 2),
-  (2, 1);
+  (1, 3),
+  (4, 3);
 
 
 -- Encadrer

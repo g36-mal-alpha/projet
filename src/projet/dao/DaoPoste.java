@@ -236,8 +236,8 @@ public class DaoPoste {
 			sql = "INSERT INTO avoir (idposte , idbenevole ) VALUES( ?, ?) ";
 			stmt = cn.prepareStatement( sql);
 			
-			stmt.setObject( 1, poste.getId() );
 			for ( Benevole benevole : poste.getBenevoles()) {
+				stmt.setObject( 1, poste.getId() );
 				stmt.setObject( 2, benevole.getId() );
 				stmt.executeUpdate();
 			} 
