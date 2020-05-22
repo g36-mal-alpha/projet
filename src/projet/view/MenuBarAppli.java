@@ -23,12 +23,13 @@ public class MenuBarAppli extends MenuBar {
 	private Menu	menuDonnees;
 	private Menu	menuEtats;
 	private Menu	menuTests;
-	private Menu 	menuPostes;
+	//private Menu 	menuPostes;
 	
 	private MenuItem itemDeconnecter;
 
 	private MenuItem itemCategories;
 	private MenuItem itemComptes;
+	private MenuItem itemPostes;
 	
 	@Inject
 	private IManagerGui 	managerGui;
@@ -91,8 +92,8 @@ public class MenuBarAppli extends MenuBar {
 		item = new MenuItem( "Postes" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.PosteListe )  );
 		menu.getItems().add( item );
-		itemComptes = item;
-
+		itemPostes = item;
+		
 		
 		// Manu Etats
 		
@@ -153,6 +154,7 @@ public class MenuBarAppli extends MenuBar {
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.InfoParticipant )  );
 		menu.getItems().add( item );
 		
+		/*
 		// PROJET - Menu Postes
 		menu = new Menu("Poste");
 		this.getMenus().add(menu);
@@ -161,7 +163,7 @@ public class MenuBarAppli extends MenuBar {
 		item = new MenuItem("Poste des bénévoles");
 		item.setOnAction( (e) -> managerGui.showView( EnumView.PosteList )  );
 		menu.getItems().add(item);
-		
+		*/
 		
 
 		// Configuration initiale du menu
@@ -185,10 +187,11 @@ public class MenuBarAppli extends MenuBar {
 		menuDonnees.setVisible(false);
 		itemCategories.setVisible(false);
 		itemComptes.setVisible(false);
+		itemPostes.setVisible(false);
 		menuEtats.setVisible(false);
 		menuTests.setVisible(false);
 		menuEtats.setVisible(false);
-		menuPostes.setVisible(false);
+		//menuPostes.setVisible(false);
 		
 		if( compteActif != null ) {
 			itemDeconnecter.setDisable(false);
@@ -200,8 +203,9 @@ public class MenuBarAppli extends MenuBar {
 				menuDonnees.setVisible(true);
 				itemCategories.setVisible(true);
 				itemComptes.setVisible(true);
+				itemPostes.setVisible(true);
 				menuTests.setVisible(true);
-				menuPostes.setVisible(true);
+				//menuPostes.setVisible(true);
 			}
 		}
 	}

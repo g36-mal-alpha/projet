@@ -3,21 +3,16 @@ package projet.view.poste;
 import javax.inject.Inject;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
 import javafx.util.converter.IntegerStringConverter;
-import jfox.javafx.util.ConverterStringDouble;
-import jfox.javafx.util.ConverterStringInteger;
 import jfox.javafx.util.ConverterStringLocalDate;
 import jfox.javafx.util.ListenerFocusValidation;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Categorie;
-import projet.data.Memo;
+import projet.data.Poste;
 import projet.view.EnumView;
 
 
@@ -33,15 +28,11 @@ public class ControllerPosteForm {
 	@FXML
 	private TextArea			textAreaLieu;
 	@FXML
-	private CheckBox			checkBoxBenevole;
-	@FXML
-	private ToggleGroup			toggleGroupStatut;
-	@FXML
-	private TextField			textFieldEffectif;
-	@FXML
-	private TextField			textFieldBudget;
-	@FXML
 	private DatePicker			datePickerJour;
+	@FXML
+	private DatePicker			datePickerHeure_debut;
+	@FXML
+	private DatePicker			datePickerHeure_fin;
 	@FXML
 	private ComboBox<Categorie>	comboBoxCategorie;
 
@@ -61,25 +52,23 @@ public class ControllerPosteForm {
 
 		// Data binding
 		
-		Memo courant = modelPoste.getCourant();
-		actualiserStatutDansVue();
+		Poste courant = modelPoste.getCourant();
+		//actualiserStatutDansVue();
 		textFieldId.textProperty().bindBidirectional( courant.idProperty(), new IntegerStringConverter()  );
-		textFieldTitre.textProperty().bindBidirectional( courant.titreProperty()  );
-		textAreaDescription.textProperty().bindBidirectional( courant.descriptionProperty()  );
-		checkBoxUrgent.selectedProperty().bindBidirectional( courant.flagUrgentProperty()  );
 		
-		toggleGroupStatut.selectedToggleProperty().addListener( obs -> actualiserStatutDansModele() ) ; 
-		courant.statutProperty().addListener( obs -> actualiserStatutDansVue() );
+		textFieldLibelle.textProperty().bindBidirectional( courant.libelleProperty()  );
 		
-		textFieldEffectif.textProperty().bindBidirectional( courant.effectifProperty(), new ConverterStringInteger()  );
-		textFieldEffectif.focusedProperty().addListener(new ListenerFocusValidation( courant.effectifProperty() ) );
+		textAreaLieu.textProperty().bindBidirectional( courant.lieuProperty()  );
+	
+		datePickerJour.getEditor().textProperty().bindBidirectional( courant.jourProperty(), new ConverterStringLocalDate() );
+		datePickerJour.getEditor().focusedProperty().addListener(new ListenerFocusValidation( courant.jourProperty(), "Jour incorrect." ) );
 		
-		textFieldBudget.textProperty().bindBidirectional( courant.budgetProperty(), new ConverterStringDouble("#,##0.00") );
-		textFieldBudget.focusedProperty().addListener(new ListenerFocusValidation( courant.budgetProperty(), "Valeur incorrecte pour le budget." ) );
+		/*datePickerHeure_debut.getEditor().textProperty().bindBidirectional( courant.heure_debutProperty(), new ConverterStringLocalDate() );
+		datePickerHeure_debut.getEditor().focusedProperty().addListener(new ListenerFocusValidation( courant.heure_debutProperty(), "Heure incorrect." ) );
 		
-		datePickerEcheance.getEditor().textProperty().bindBidirectional( courant.echeanceProperty(), new ConverterStringLocalDate() );
-		datePickerEcheance.getEditor().focusedProperty().addListener(new ListenerFocusValidation( courant.echeanceProperty(), "Valeur de l'échéance incorrect." ) );
-		
+		datePickerHeure_fin.getEditor().textProperty().bindBidirectional( courant.heure_finProperty(), new ConverterStringLocalDate() );
+		datePickerHeure_fin.getEditor().focusedProperty().addListener(new ListenerFocusValidation( courant.heure_finProperty(), "Heure incorrect." ) );
+		*/
 		comboBoxCategorie.setItems( modelPoste.getCategories() );
 		comboBoxCategorie.valueProperty().bindBidirectional( courant.categorieProperty());
 
@@ -90,13 +79,13 @@ public class ControllerPosteForm {
 	
 	@FXML
 	private void doAnnuler() {
-		managerGui.showView( EnumView.MemoListe );
+		managerGui.showView( EnumView.PosteListe );
 	}
 	
 	@FXML
 	private void doValider() {
 		modelPoste.validerMiseAJour();
-		managerGui.showView( EnumView.MemoListe );
+		managerGui.showView( EnumView.PosteListe );
 	}
 	
 	@FXML
@@ -104,7 +93,7 @@ public class ControllerPosteForm {
 	 comboBoxCategorie.setValue( null );
 	}
 
-	
+	/*
 	//Statut Radio
 	private void actualiserStatutDansModele() { 
 		
@@ -122,7 +111,7 @@ public class ControllerPosteForm {
 		int statut = modelPoste.getCourant().getStatut();   
 		Toggle bouton = toggleGroupStatut.getToggles().get( statut ); 
 		toggleGroupStatut.selectToggle(  bouton );
-	}
+	}*/
 	
 	
 }
