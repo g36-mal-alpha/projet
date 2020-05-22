@@ -97,7 +97,7 @@ public class DaoPoste {
 			} 
 			stmt.setObject( 7, poste.getId() );
 			stmt.executeUpdate();
-			supprimerAvoir(8);
+			supprimerAvoir(7);
 			insererAvoir(poste);
 
 		} catch (SQLException e) {
@@ -233,7 +233,7 @@ public class DaoPoste {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "INSERT INTO avoir (idposte , idbenevole ) VALUES( ?, ?) ";
+			sql = "INSERT INTO avoir (idposte , idbenevole ) VALUES ( ?, ?) ";
 			stmt = cn.prepareStatement( sql);
 			
 			for ( Benevole benevole : poste.getBenevoles()) {
