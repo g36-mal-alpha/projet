@@ -87,6 +87,11 @@ public class MenuBarAppli extends MenuBar {
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.CompteListe )  );
 		menu.getItems().add( item );
 		itemComptes = item;
+		
+		item = new MenuItem( "Postes" );
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.PosteListe )  );
+		menu.getItems().add( item );
+		itemComptes = item;
 
 		
 		// Manu Etats

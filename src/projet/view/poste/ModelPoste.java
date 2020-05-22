@@ -1,4 +1,4 @@
-package projet.view.memo;
+package projet.view.poste;
 
 import java.time.LocalDate;
 
@@ -9,38 +9,38 @@ import javafx.collections.ObservableList;
 import jfox.commun.exception.ExceptionValidation;
 import jfox.javafx.util.UtilFX;
 import projet.commun.IMapper;
-import projet.dao.DaoMemo;
+import projet.dao.DaoPoste;
 import projet.data.Categorie;
-import projet.data.Memo;
+import projet.data.Poste;
 import projet.view.personne.ModelCategorie;
 
 
-public class ModelMemo  {
+public class ModelPoste  {
 	
 	
 	// Données observables 
 	
-	private final ObservableList<Memo> liste = FXCollections.observableArrayList(); 
+	private final ObservableList<Poste> liste = FXCollections.observableArrayList(); 
 	
-	private final Memo	courant = new Memo();
+	private final Poste	courant = new Poste();
 
 	
 	// Autres champs
     @Inject
 	private IMapper			mapper;
     @Inject
-	private DaoMemo	daoMemo;
+	private DaoPoste	    daoPoste;
     @Inject
-    private ModelCategorie modelCategorie;
+    private ModelCategorie  modelCategorie;
 	
 	
 	// Getters 
 	
-	public ObservableList<Memo> getListe() {
+	public ObservableList<Poste> getListe() {
 		return liste;
 	}
 	
-	public Memo getCourant() {
+	public Poste getCourant() {
 		return courant;
 	}
 	
@@ -52,7 +52,7 @@ public class ModelMemo  {
 	// Actualisations
 	
 	public void actualiserListe() {
-		liste.setAll( daoMemo.listerTout() );
+		liste.setAll( daoPoste.listerTout() );
  	}
 
 
@@ -60,12 +60,12 @@ public class ModelMemo  {
 	
 	public void preparerAjouter() {
 		modelCategorie.actualiserListe();
-		mapper.update( courant, new Memo() );
+		mapper.update( courant, new Poste() );
 	}
 	
-	public void preparerModifier( Memo item ) {
+	public void preparerModifier( Poste item ) {
 		modelCategorie.actualiserListe();
-		mapper.update( courant, daoMemo.retrouver( item.getId() ) );
+		mapper.update( courant, daoPoste.retrouver( item.getId() ) );
 	}
 	
 	
@@ -75,45 +75,24 @@ public class ModelMemo  {
 		
 		StringBuilder message = new StringBuilder();
 
-		if( courant.getTitre() == null || courant.getTitre().isEmpty() ) {
-			message.append( "\nLe mémo ne doit pas être vide." );
-		} else  if ( courant.getTitre().length()> 50 ) {
+		if( courant.getLibelle() == null || courant.getLibelle().isEmpty() ) {
+			message.append( "\nLe libelle du poste ne doit pas être vide." );
+		} else  if ( courant.getLibelle().length()> 50 ) {
 			message.append( "\nLe mémo est trop long : 50 maxi." );
 		}
 		
-		if( courant.getEffectif() != null) {
-			if(courant.getEffectif()<0)
-			{
-				message.append( "\nL'effectif ne peut pas être inférieur à zéro." );
-			}
-			else if(courant.getEffectif()>1000) {
-				message.append( "\nEffectif trop grand : 1000 maxi" );
-			}
-			
-		}
 		
-		if( courant.getBudget() != null) {
-			if(courant.getBudget()<0)
-			{
-				message.append( "\nLe Budget ne peut pas être inférieur à zéro." );
-			}
-			else if(courant.getBudget()>1000000) {
-				message.append( "\nBudget trop grand : 1 000 000 maxi" );
-			}
-			
-		}
-		
-		if( courant.getEcheance() != null) {
+		if( courant.getJour() != null) {
 			
 			LocalDate mini=LocalDate.of(2000, 01, 01);
 			LocalDate maxi=LocalDate.of(2099, 12, 31);
 	
-			if(courant.getEcheance().isBefore(mini))
+			if(courant.getJour().isBefore(mini))
 			{
-				message.append( "\nLa date d'échéance doit être comprise entre le 01/01/2000 et le 31/12/2099." );
+				message.append( "\nLe jour doit être comprise entre le 01/01/2000 et le 31/12/2099." );
 			}		
-			if(courant.getEcheance().isAfter(maxi)) {
-				message.append( "\nLa date d'échéance doit être comprise entre le 01/01/2000 et le 31/12/2099." );
+			if(courant.getJour().isAfter(maxi)) {
+				message.append( "\nLe jour doit être comprise entre le 01/01/2000 et le 31/12/2099." );
 			}
 			
 		}
@@ -127,18 +106,18 @@ public class ModelMemo  {
 		
 		if ( courant.getId() == null ) {
 			// Insertion
-			courant.setId( daoMemo.inserer( courant ) );
+			courant.setId( daoPoste.inserer( courant ) );
 		} else {
 			// modficiation
-			daoMemo.modifier( courant );
+			daoPoste.modifier( courant );
 		}
 	}
 	
 	
-	public void supprimer( Memo item ) {
+	public void supprimer( Poste item ) {
 		
 		// Vérifie l'abence de personnes rattachées à la catégorie
-		daoMemo.supprimer( item.getId() );
+		daoPoste.supprimer( item.getId() );
 		mapper.update( courant, UtilFX.findNext( liste, item ) );
 	}
 	

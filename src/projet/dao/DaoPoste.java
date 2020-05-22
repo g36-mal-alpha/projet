@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.LinkedList;
 import java.util.List;
@@ -43,18 +44,19 @@ public class DaoPoste {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "INSERT INTO poste ( libelle, lieu, heure_debut, heure_fin, numero_poste, idcategorie ) VALUES( ?, ?, ?, ?, ?, ? ) ";
+			sql = "INSERT INTO poste ( libelle, lieu, jour, heure_debut, heure_fin, numero_poste, idcategorie ) VALUES( ?, ?, ?, ?, ?, ?, ? ) ";
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 			stmt.setObject( 1, poste.getLibelle() );
 			stmt.setObject( 2, poste.getLieu() );
-			stmt.setObject( 3, poste.getHeure_debut() );
-			stmt.setObject( 4, poste.getHeure_fin() );
-			stmt.setObject( 5, poste.getNumero_poste() );
+			stmt.setObject( 3, poste.getJour() );
+			stmt.setObject( 4, poste.getHeure_debut() );
+			stmt.setObject( 5, poste.getHeure_fin() );
+			stmt.setObject( 6, poste.getNumero_poste() );
 			if ( poste.getCategorie() == null ) {
-				 stmt.setObject( 6, null );
+				 stmt.setObject( 7, null );
 			} 
 			else {
-				 stmt.setObject( 6,poste.getCategorie().getId() );
+				 stmt.setObject( 7,poste.getCategorie().getId() );
 			} 
 			
 			stmt.executeUpdate();
@@ -82,22 +84,24 @@ public class DaoPoste {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "UPDATE poste SET libelle = ?, lieu = ?, heure_debut = ?, heure_fin = ?, numero_poste = ?, idcategorie = ?  WHERE idposte =  ?";
+			sql = "UPDATE poste SET libelle = ?, lieu = ?, jour = ? , heure_debut = ?, heure_fin = ?, numero_poste = ?, idcategorie = ?  WHERE idposte =  ?";
 			stmt = cn.prepareStatement( sql );
 			stmt.setObject( 1, poste.getLibelle() );
 			stmt.setObject( 2, poste.getLieu() );
-			stmt.setObject( 3, poste.getHeure_debut() );
-			stmt.setObject( 4, poste.getHeure_fin() );
-			stmt.setObject( 5, poste.getNumero_poste() );
+			stmt.setObject( 3, poste.getJour() );
+			stmt.setObject( 4, poste.getHeure_debut() );
+			stmt.setObject( 5, poste.getHeure_fin() );
+			stmt.setObject( 6, poste.getNumero_poste() );
 			if ( poste.getCategorie() == null ) {
-				 stmt.setObject( 6, null );
+				 stmt.setObject( 7, null );
 			} 
 			else {
-				 stmt.setObject( 6,poste.getCategorie().getId() );
+				 stmt.setObject( 7,poste.getCategorie().getId() );
 			} 
-			stmt.setObject( 7, poste.getId() );
+			 
+			stmt.setObject( 8, poste.getId() );
 			stmt.executeUpdate();
-			supprimerAvoir(7);
+			supprimerAvoir(8);
 			insererAvoir(poste);
 
 		} catch (SQLException e) {
@@ -191,6 +195,7 @@ public class DaoPoste {
 		poste.setId( rs.getObject( "idposte", Integer.class ) );
 		poste.setLibelle( rs.getObject( "libelle", String.class ) );
 		poste.setLieu( rs.getObject( "lieu", String.class ) );
+		poste.setJour( rs.getObject( "jour", LocalDate.class ) );
 		poste.setHeure_debut( rs.getObject( "heure_debut", LocalTime.class ) );
 		poste.setHeure_fin( rs.getObject( "heure_fin", LocalTime.class ) );
 		poste.setNumero_poste( rs.getObject( "numero_poste", Integer.class ) );

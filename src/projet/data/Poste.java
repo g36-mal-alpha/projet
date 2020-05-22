@@ -1,6 +1,7 @@
 package projet.data;
 
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
 
@@ -20,12 +21,14 @@ public class Poste {
 	private final Property<Integer>		id				= new SimpleObjectProperty<>();
 	private final StringProperty   	 	libelle     	= new SimpleStringProperty();
 	private final StringProperty   	 	lieu   	        = new SimpleStringProperty();
+	private final Property<LocalDate>   jour            = new SimpleObjectProperty<>();
 	private final Property<LocalTime>   heure_debut     = new SimpleObjectProperty<>();
 	private final Property<LocalTime>   heure_fin       = new SimpleObjectProperty<>();
 	private final Property<Integer>		numero_poste    = new SimpleObjectProperty<>();
 	private final ObservableList<Benevole> benevoles    = FXCollections.observableArrayList();
 	private final Property<Poste> poste                 = new SimpleObjectProperty<>();
 	private final Property<Categorie> categorie         = new SimpleObjectProperty<>();
+	
 	
 	// Getters & setters
 
@@ -147,6 +150,23 @@ public class Poste {
 		this.categorieProperty().setValue(categorie);
 	}
 	
+	
+	public final Property<LocalDate> jourProperty() {
+		return this.jour;
+	}
+	
+
+	public final LocalDate getJour() {
+		return this.jourProperty().getValue();
+	}
+	
+
+	public final void setJour(final LocalDate jour) {
+		this.jourProperty().setValue(jour);
+	}
+	
+	
+	
 	// hashCode() & equals()
 
 	@Override
@@ -172,5 +192,5 @@ public class Poste {
 	@Override
 	public String toString() {
 		return getLibelle();
-	}
+	}	
 }

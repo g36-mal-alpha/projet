@@ -1,4 +1,4 @@
-package projet.view.memo;
+package projet.view.poste;
 
 import javax.inject.Inject;
 
@@ -21,7 +21,7 @@ import projet.data.Memo;
 import projet.view.EnumView;
 
 
-public class ControllerMemoForm {
+public class ControllerPosteForm {
 
 	
 	// Composants de la vue
@@ -29,11 +29,11 @@ public class ControllerMemoForm {
 	@FXML
 	private TextField			textFieldId;
 	@FXML
-	private TextField			textFieldTitre;
+	private TextField			textFieldLibelle;
 	@FXML
-	private TextArea			textAreaDescription;
+	private TextArea			textAreaLieu;
 	@FXML
-	private CheckBox			checkBoxUrgent;
+	private CheckBox			checkBoxBenevole;
 	@FXML
 	private ToggleGroup			toggleGroupStatut;
 	@FXML
@@ -41,7 +41,7 @@ public class ControllerMemoForm {
 	@FXML
 	private TextField			textFieldBudget;
 	@FXML
-	private DatePicker			datePickerEcheance;
+	private DatePicker			datePickerJour;
 	@FXML
 	private ComboBox<Categorie>	comboBoxCategorie;
 
@@ -51,7 +51,7 @@ public class ControllerMemoForm {
 	@Inject
 	private IManagerGui			managerGui;
 	@Inject
-	private ModelMemo		modelMemo;
+	private ModelPoste		modelPoste;
 
 
 	// Initialisation du Controller
@@ -61,7 +61,7 @@ public class ControllerMemoForm {
 
 		// Data binding
 		
-		Memo courant = modelMemo.getCourant();
+		Memo courant = modelPoste.getCourant();
 		actualiserStatutDansVue();
 		textFieldId.textProperty().bindBidirectional( courant.idProperty(), new IntegerStringConverter()  );
 		textFieldTitre.textProperty().bindBidirectional( courant.titreProperty()  );
@@ -80,7 +80,7 @@ public class ControllerMemoForm {
 		datePickerEcheance.getEditor().textProperty().bindBidirectional( courant.echeanceProperty(), new ConverterStringLocalDate() );
 		datePickerEcheance.getEditor().focusedProperty().addListener(new ListenerFocusValidation( courant.echeanceProperty(), "Valeur de l'échéance incorrect." ) );
 		
-		comboBoxCategorie.setItems( modelMemo.getCategories() );
+		comboBoxCategorie.setItems( modelPoste.getCategories() );
 		comboBoxCategorie.valueProperty().bindBidirectional( courant.categorieProperty());
 
 	}
@@ -95,7 +95,7 @@ public class ControllerMemoForm {
 	
 	@FXML
 	private void doValider() {
-		modelMemo.validerMiseAJour();
+		modelPoste.validerMiseAJour();
 		managerGui.showView( EnumView.MemoListe );
 	}
 	
@@ -112,14 +112,14 @@ public class ControllerMemoForm {
 		
 		Toggle bouton = toggleGroupStatut.getSelectedToggle();    
 		int statut = toggleGroupStatut.getToggles().indexOf( bouton  );    
-		modelMemo.getCourant().setStatut( statut );
+		modelPoste.getCourant().setStatut( statut );
 	}
 	
 	
 	private void actualiserStatutDansVue() {   
 		// Sélectionne le bouton radio correspondant au statut   
 		
-		int statut = modelMemo.getCourant().getStatut();   
+		int statut = modelPoste.getCourant().getStatut();   
 		Toggle bouton = toggleGroupStatut.getToggles().get( statut ); 
 		toggleGroupStatut.selectToggle(  bouton );
 	}

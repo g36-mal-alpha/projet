@@ -1,4 +1,4 @@
-package projet.view.memo;
+package projet.view.poste;
 
 import javax.inject.Inject;
 
@@ -9,7 +9,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import jfox.javafx.util.UtilFX;
 import jfox.javafx.view.IManagerGui;
-import projet.data.Memo;
+import projet.data.Poste;
 import projet.view.EnumView;
 
 
@@ -19,7 +19,7 @@ public class ControllerMemoListe {
 	// Composants de la vue
 
 	@FXML
-	private ListView<Memo>	listView;
+	private ListView<Poste>	   listView;
 	@FXML
 	private Button				buttonModifier;
 	@FXML
@@ -31,7 +31,7 @@ public class ControllerMemoListe {
 	@Inject
 	private IManagerGui			managerGui;
 	@Inject
-	private ModelMemo		modelMemo;
+	private ModelPoste		modelPoste;
 	
 	
 	// Initialisation du Controller
@@ -40,7 +40,7 @@ public class ControllerMemoListe {
 	private void initialize() {
 
 		// Data binding
-		listView.setItems( modelMemo.getListe() );
+		listView.setItems( modelPoste.getListe() );
 		
 		// Configuraiton des boutons
 		listView.getSelectionModel().selectedItemProperty().addListener(
@@ -50,13 +50,13 @@ public class ControllerMemoListe {
 		configurerBoutons();
 		
 		//CellFactory
-		listView.setCellFactory( UtilFX.cellFactory( item -> item.getTitre() ) );
+		listView.setCellFactory( UtilFX.cellFactory( item -> item.getLibelle() ) );
 		
 	}
 	
 	public void refresh() {
-		modelMemo.actualiserListe();
-		UtilFX.selectInListView( listView, modelMemo.getCourant() );
+		modelPoste.actualiserListe();
+		UtilFX.selectInListView( listView, modelPoste.getCourant() );
 		listView.requestFocus();
 	}
 
@@ -65,20 +65,20 @@ public class ControllerMemoListe {
 	
 	@FXML
 	private void doAjouter() {
-		modelMemo.preparerAjouter();;
-		managerGui.showView( EnumView.MemoForm );
+		modelPoste.preparerAjouter();;
+		managerGui.showView( EnumView.PosteForm );
 	}
 
 	@FXML
 	private void doModifier() {
-		modelMemo.preparerModifier( listView.getSelectionModel().getSelectedItem() );
-		managerGui.showView( EnumView.MemoForm );
+		modelPoste.preparerModifier( listView.getSelectionModel().getSelectedItem() );
+		managerGui.showView( EnumView.PosteForm );
 	}
 
 	@FXML
 	private void doSupprimer() {
 		if ( managerGui.showDialogConfirm( "Confirmez-vous la suppresion ?" ) ) {
-			modelMemo.supprimer( listView.getSelectionModel().getSelectedItem() );
+			modelPoste.supprimer( listView.getSelectionModel().getSelectedItem() );
 			refresh();
 		}
 	}
