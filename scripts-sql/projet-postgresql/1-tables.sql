@@ -97,6 +97,7 @@ CREATE TABLE poste(
 	idcategorie    INT,
 	lieu           VARCHAR (255) NOT NULL ,
 	libelle 	   VARCHAR (255) NOT NULL,
+	jour		   DATE  NOT NULL ,
 	heure_debut    TIME  NOT NULL ,
 	numero_poste   INT  NOT NULL  ,
 	heure_fin      TIME NOT NULL,
