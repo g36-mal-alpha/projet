@@ -21,6 +21,7 @@ public class Poste {
 	private final Property<Integer>		id				= new SimpleObjectProperty<>();
 	private final StringProperty   	 	libelle     	= new SimpleStringProperty();
 	private final StringProperty   	 	lieu   	        = new SimpleStringProperty();
+	private final Property<Integer>	    statut 		= new SimpleObjectProperty<>(0);
 	private final Property<LocalDate>   jour            = new SimpleObjectProperty<>();
 	private final Property<LocalTime>   heure_debut     = new SimpleObjectProperty<>();
 	private final Property<LocalTime>   heure_fin       = new SimpleObjectProperty<>();
@@ -71,6 +72,18 @@ public class Poste {
 
 	public final void setLieu(final String lieu) {
 		this.lieuProperty().set(lieu);
+	}
+	
+	public final Property<Integer> statutProperty() {
+		return this.statut;
+	}
+	
+	public final Integer getStatut() {
+		return this.statutProperty().getValue();
+	}
+
+	public final void setStatut(final Integer statut) {
+		this.statutProperty().setValue(statut);
 	}
 	
 
@@ -192,5 +205,6 @@ public class Poste {
 	@Override
 	public String toString() {
 		return getLibelle();
-	}	
+	}
+	
 }

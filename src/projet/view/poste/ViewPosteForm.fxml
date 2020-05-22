@@ -5,17 +5,19 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="paneRoot" prefHeight="373.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.poste.ControllerMemoListe">
+<AnchorPane fx:id="paneRoot" prefHeight="373.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.poste.ControllerPosteForm">
    <children>
       <Label alignment="CENTER" styleClass="titre-vue" text="Poste" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
       <HBox alignment="CENTER" fillHeight="false" layoutY="60.0" prefHeight="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
@@ -82,6 +84,23 @@
                                     <Label text="Heure fin" GridPane.rowIndex="2" />
                                     <Label text="Heure debut" GridPane.rowIndex="1" />
                                     <DatePicker fx:id="datePickerEcheance2" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <RadioButton mnemonicParsing="false" text="oui" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="toggleGroupStatut" />
+                                       </toggleGroup>
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="non" toggleGroup="$toggleGroupStatut" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <GridPane.margin>
+                                          <Insets left="80.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <Label text="Permis ?" GridPane.rowIndex="3" />
                                  </children>
                                  <padding>
                                     <Insets left="5.0" right="5.0" />

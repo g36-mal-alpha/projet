@@ -81,6 +81,11 @@ public class ModelPoste  {
 			message.append( "\nLe mémo est trop long : 50 maxi." );
 		}
 		
+		if( courant.getLieu() == null || courant.getLieu().isEmpty() ) {
+			message.append( "\nLe lieu du poste ne doit pas être vide." );
+		} else  if ( courant.getLieu().length()> 50 ) {
+			message.append( "\nLe lieu est trop long : 50 maxi." );
+		}
 		
 		if( courant.getJour() != null) {
 			
