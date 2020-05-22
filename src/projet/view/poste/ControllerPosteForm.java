@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
@@ -13,6 +14,7 @@ import javafx.util.converter.IntegerStringConverter;
 import jfox.javafx.util.ConverterStringLocalDate;
 import jfox.javafx.util.ListenerFocusValidation;
 import jfox.javafx.view.IManagerGui;
+import projet.data.Benevole;
 import projet.data.Categorie;
 import projet.data.Poste;
 import projet.view.EnumView;
@@ -39,8 +41,10 @@ public class ControllerPosteForm {
 	private DatePicker			datePickerHeure_fin;
 	@FXML
 	private ComboBox<Categorie>	comboBoxCategorie;
-
-
+    @FXML
+    private ListView<Benevole>  listViewBenevoles;
+    
+    
 	// Autres champs
 	
 	@Inject
@@ -82,6 +86,7 @@ public class ControllerPosteForm {
 		comboBoxCategorie.setItems( modelPoste.getCategories() );
 		comboBoxCategorie.valueProperty().bindBidirectional( courant.categorieProperty());
 
+		listViewBenevoles.setItems( courant.getBenevoles() );
 	}
 	
 	
@@ -101,6 +106,17 @@ public class ControllerPosteForm {
 	@FXML
 	private void doSupprimerCategorie() {
 	 comboBoxCategorie.setValue( null );
+	}
+	
+	@FXML
+	private void doSupprimerBenevoles() {
+	 modelPoste.supprimerBenevole(
+	 listViewBenevoles.getSelectionModel().getSelectedItem() );
+	}
+	
+	@FXML
+	private void doAjouterBenevoles() {
+		
 	}
 
 	

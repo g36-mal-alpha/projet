@@ -126,7 +126,7 @@
                                       </columnConstraints>
                                       <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -154,9 +154,9 @@
                                                 <Insets />
                                              </GridPane.margin>
                                           </Label>
-                                          <ListView prefHeight="62.0" prefWidth="117.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="4" />
-                                          <Button mnemonicParsing="false" onAction="#doSupprimerCategorie" prefHeight="25.0" prefWidth="61.0" text="Suppr" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                          <Button mnemonicParsing="false" onAction="#doSupprimerCategorie" prefHeight="25.0" prefWidth="61.0" text="Ajouter" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                          <ListView fx:id="listViewBenevoles" prefHeight="62.0" prefWidth="117.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="4" />
+                                          <Button mnemonicParsing="false" onAction="#doSupprimerBenevoles" prefHeight="25.0" prefWidth="61.0" text="Suppr" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                          <Button mnemonicParsing="false" onAction="#doAjouterBenevoles" prefHeight="25.0" prefWidth="61.0" text="Ajouter" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                                        </children>
                                     </GridPane>
                                  </children>
