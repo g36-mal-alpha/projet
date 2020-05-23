@@ -12,9 +12,7 @@ import javafx.beans.property.StringProperty;
 
 public class Participant {
 	
-	// erreur ligne 123/25
 	// Champs
-	//nom, prenom, sexe, numero_tel,  date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise
 	
 	private final Property<Integer>		id				   = new SimpleObjectProperty<>();
 	private final StringProperty   	 	nom     	  	   = new SimpleStringProperty();
