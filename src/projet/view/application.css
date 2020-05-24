@@ -15,6 +15,15 @@
     -fx-font-size: 16;
 }
 
+#buttonCo {
+	-fx-background-color: #3498db;
+	-fx-text-fill: white;
+}
+
+#buttonCo:hover {
+	-fx-background-color: #34495e;
+}
+
 
 
 /* VARIABLE DEFINITIONS: Only these 4 variables have to be adjusted, the rest is copy-paste */
