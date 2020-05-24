@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="benevoleList" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe241323-9684-470b-80b0-fc2dfcac2d60">
-	<property name="com.jaspersoft.studio.data.sql.tables">
-		<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
-ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
-NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
-	</property>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostegreSQL_projet"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="424"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="565"/>
@@ -17,7 +13,6 @@ NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
 	benevole.date_naissance,
 	benevole.idbenevole,
 	avoir.idposte,
-	benevole.permanent,
 	poste.lieu,
 	poste.libelle,
 	poste.heure_debut,
@@ -48,10 +43,6 @@ FROM avoir
 	<field name="idposte" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.label" value="idposte"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="avoir"/>
-	</field>
-	<field name="permanent" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.label" value="permanent"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="benevole"/>
 	</field>
 	<field name="lieu" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="lieu"/>
@@ -146,7 +137,7 @@ NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
 				<text><![CDATA[Date de naissance]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Etiquette" x="189" y="0" width="89" height="60" uuid="6869b327-d3fa-4d26-a727-af307df309e0">
+				<reportElement style="Etiquette" x="189" y="0" width="61" height="60" uuid="6869b327-d3fa-4d26-a727-af307df309e0">
 					<property name="com.jaspersoft.studio.data.sql.tables">
 						<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
 ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
@@ -160,7 +151,7 @@ NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
 				<text><![CDATA[Lieu]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Etiquette" x="278" y="0" width="52" height="60" uuid="f28e0586-2b0f-4bb6-b646-46f596e45433">
+				<reportElement style="Etiquette" x="250" y="0" width="80" height="60" uuid="f28e0586-2b0f-4bb6-b646-46f596e45433">
 					<property name="com.jaspersoft.studio.data.sql.tables">
 						<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
 ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
@@ -232,7 +223,7 @@ NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
 				<textFieldExpression><![CDATA[$F{date_naissance}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="189" y="0" width="89" height="30" uuid="49080a6d-1f2e-4ed2-8998-6561f537feef">
+				<reportElement x="189" y="0" width="61" height="30" uuid="49080a6d-1f2e-4ed2-8998-6561f537feef">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe11c86d-78d4-4646-ac3a-5f1143216f36"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{lieu}]]></textFieldExpression>
@@ -256,7 +247,7 @@ NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
 				<textFieldExpression><![CDATA[$F{heure_fin}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="278" y="0" width="52" height="30" uuid="3a49aeda-80a3-4d53-b22a-8572402f28d6">
+				<reportElement x="250" y="0" width="80" height="30" uuid="3a49aeda-80a3-4d53-b22a-8572402f28d6">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="df2972c9-92a9-4741-9386-ba15e1f78e48"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{libelle}]]></textFieldExpression>
