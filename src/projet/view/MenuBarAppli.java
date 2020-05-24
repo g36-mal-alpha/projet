@@ -23,6 +23,7 @@ public class MenuBarAppli extends MenuBar {
 	private Menu	menuDonnees;
 	private Menu	menuEtats;
 	private Menu	menuTests;
+	private Menu 	menuMap;
 	//private Menu 	menuPostes;
 	
 	private MenuItem itemDeconnecter;
@@ -165,6 +166,14 @@ public class MenuBarAppli extends MenuBar {
 		menu.getItems().add(item);
 		*/
 		
+		/*Menu MAP*/
+		menu =  new Menu( "Carte" );;
+		this.getMenus().add(menu);
+		menuMap = menu;
+		
+		item = new MenuItem( "Carte des signaleurs" );
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.ViewMap )  );
+		menu.getItems().add( item );
 
 		// Configuration initiale du menu
 		configurerMenu( modelConnexion.getCompteActif() );
@@ -192,12 +201,14 @@ public class MenuBarAppli extends MenuBar {
 		menuTests.setVisible(false);
 		menuEtats.setVisible(false);
 		//menuPostes.setVisible(false);
+		menuMap.setVisible(false);
 		
 		if( compteActif != null ) {
 			itemDeconnecter.setDisable(false);
 			if( compteActif.isInRole( Roles.UTILISATEUR) ) {
 				menuDonnees.setVisible(true);
 				menuEtats.setVisible(true);
+				menuMap.setVisible(true);
 			}
 			if( compteActif.isInRole( Roles.ADMINISTRATEUR ) ) {
 				menuDonnees.setVisible(true);
@@ -206,6 +217,7 @@ public class MenuBarAppli extends MenuBar {
 				itemPostes.setVisible(true);
 				menuTests.setVisible(true);
 				//menuPostes.setVisible(true);
+				menuMap.setVisible(true);
 			}
 		}
 	}
