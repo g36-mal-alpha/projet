@@ -119,7 +119,7 @@ public class MenuBarAppli extends MenuBar {
 			managerReport.openFilePdf( EnumReport.BenevolesList, null ) );
 		menu.getItems().add( item );
 		
-		item = new MenuItem( "Liste des participants (viewer)" );
+		item = new MenuItem( "Liste des bénévoles (viewer)" );
 		item.setOnAction(  (e) ->  
 				managerReport.showViewer( EnumReport.BenevolesList, null ) );
 		menu.getItems().add( item );
