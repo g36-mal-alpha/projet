@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="benevoleList" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe241323-9684-470b-80b0-fc2dfcac2d60">
-	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[YmVuZXZvbGUgLDE1OCwxNSwyMTBjOTA1OC0zNjQ2LTQzMWYtOGUzZi1iMmY0NjZiOWYzOTE7YXZv
+aXIgLDE1LDIzNyw5ZWY3MjhhNi0zYjk4LTRiOTMtODM5MS01NDBkNzUxOTY3MjI7cG9zdGUgLDE1
+OCwyODksNWJjYTA2YWYtMzNlNC00YTk5LTljODgtZTI4Y2ViYzJkMmUyOw==]]>
+	</property>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostegreSQL_projet"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="424"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="565"/>
 	<style name="Defaut" isDefault="true" hTextAlign="Center" vTextAlign="Middle" fontName="Arial" fontSize="10"/>
-	<style name="Etiquette" hTextAlign="Center" vTextAlign="Middle" isBold="true"/>
+	<style name="Etiquette" hTextAlign="Center" vTextAlign="Middle" fontSize="9" isBold="true">
+		<pen lineStyle="Solid" lineColor="#050000"/>
+		<box>
+			<pen lineWidth="0.0"/>
+		</box>
+	</style>
 	<queryString language="SQL">
 		<![CDATA[SELECT benevole.nom,
 	benevole.prenom,
@@ -17,7 +26,8 @@
 	poste.libelle,
 	poste.heure_debut,
 	poste.numero_poste,
-	poste.heure_fin
+	poste.heure_fin,
+	poste.jour
 FROM avoir
 	INNER JOIN benevole ON 
 	 avoir.idbenevole = benevole.idbenevole 
@@ -62,6 +72,10 @@ FROM avoir
 	</field>
 	<field name="heure_fin" class="java.sql.Time">
 		<property name="com.jaspersoft.studio.field.label" value="heure_fin"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="poste"/>
+	</field>
+	<field name="jour" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="jour"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="poste"/>
 	</field>
 	<variable name="nbBenevole" class="java.lang.Integer" calculation="Count">
@@ -109,7 +123,7 @@ FROM avoir
 	<columnHeader>
 		<band height="60" splitType="Stretch">
 			<staticText>
-				<reportElement style="Etiquette" x="0" y="0" width="100" height="60" uuid="39c1b86b-e5c0-4ad7-9b7e-178b5107333f">
+				<reportElement style="Etiquette" x="0" y="0" width="80" height="60" uuid="39c1b86b-e5c0-4ad7-9b7e-178b5107333f">
 					<property name="com.jaspersoft.studio.data.sql.tables">
 						<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
 ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
@@ -123,7 +137,7 @@ NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
 				<text><![CDATA[Nom / Prénom]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Etiquette" x="100" y="0" width="89" height="60" uuid="58269130-ac64-49c5-9add-518f06e68141">
+				<reportElement style="Etiquette" x="80" y="0" width="89" height="60" uuid="58269130-ac64-49c5-9add-518f06e68141">
 					<property name="com.jaspersoft.studio.data.sql.tables">
 						<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
 ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
@@ -137,7 +151,7 @@ NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
 				<text><![CDATA[Date de naissance]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Etiquette" x="189" y="0" width="61" height="60" uuid="6869b327-d3fa-4d26-a727-af307df309e0">
+				<reportElement style="Etiquette" x="170" y="0" width="61" height="60" uuid="6869b327-d3fa-4d26-a727-af307df309e0">
 					<property name="com.jaspersoft.studio.data.sql.tables">
 						<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
 ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
@@ -151,7 +165,7 @@ NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
 				<text><![CDATA[Lieu]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Etiquette" x="250" y="0" width="80" height="60" uuid="f28e0586-2b0f-4bb6-b646-46f596e45433">
+				<reportElement style="Etiquette" x="230" y="0" width="70" height="60" uuid="f28e0586-2b0f-4bb6-b646-46f596e45433">
 					<property name="com.jaspersoft.studio.data.sql.tables">
 						<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
 ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
@@ -165,7 +179,7 @@ NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
 				<text><![CDATA[Poste]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Etiquette" x="330" y="0" width="80" height="60" uuid="fc10083c-c8a4-42e1-ab4d-79e803975ce9">
+				<reportElement style="Etiquette" x="300" y="0" width="72" height="60" uuid="fc10083c-c8a4-42e1-ab4d-79e803975ce9">
 					<property name="com.jaspersoft.studio.data.sql.tables">
 						<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
 ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
@@ -179,7 +193,7 @@ NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
 				<text><![CDATA[Heure de début]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Etiquette" x="410" y="0" width="84" height="60" uuid="b819f00c-9abe-4e5b-8a8b-65f01c4ca83b">
+				<reportElement style="Etiquette" x="372" y="0" width="68" height="60" uuid="b819f00c-9abe-4e5b-8a8b-65f01c4ca83b">
 					<property name="com.jaspersoft.studio.data.sql.tables">
 						<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
 ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
@@ -193,7 +207,7 @@ NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
 				<text><![CDATA[Numéro poste]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Etiquette" x="494" y="0" width="61" height="60" uuid="a89edf06-c50b-4445-9cce-d228b1b532a7">
+				<reportElement style="Etiquette" x="440" y="0" width="60" height="60" uuid="a89edf06-c50b-4445-9cce-d228b1b532a7">
 					<property name="com.jaspersoft.studio.data.sql.tables">
 						<![CDATA[cG9zdGUgLDE1OCwyODgsMGZmMjA2YzMtYzVlZS00OTY0LTkzYmUtNjdkMjE4YTllMTdhO2F2b2ly
 ICwxNSwyMTYsOGI0ZWE2MWYtZmNiNy00YzI4LTlmZTItNmZlMDhhNTJlYzM0O2JlbmV2b2xlICwx
@@ -206,51 +220,63 @@ NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
 				</reportElement>
 				<text><![CDATA[Heure de fin]]></text>
 			</staticText>
+			<staticText>
+				<reportElement style="Etiquette" x="500" y="0" width="55" height="60" uuid="15b7bf05-d94a-4868-ab51-ad2333641ebe">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="998cb15b-4cc3-48b6-95d9-21f279898020"/>
+				</reportElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="42" splitType="Stretch">
+		<band height="30" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="100" height="30" uuid="3f81bce9-5c99-462a-9a81-ded3e431c587">
+				<reportElement x="0" y="0" width="80" height="30" uuid="3f81bce9-5c99-462a-9a81-ded3e431c587">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="128034a1-a621-4888-a8b8-d603f201df9e"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{nom}.toUpperCase() + " " +  $F{prenom}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="100" y="0" width="89" height="30" uuid="f15eea00-4fd2-4c59-8a23-84bfe6067e3c">
+				<reportElement x="80" y="0" width="89" height="30" uuid="f15eea00-4fd2-4c59-8a23-84bfe6067e3c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe3e1a2b-3943-4b93-8185-8a2471e63719"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{date_naissance}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="189" y="0" width="61" height="30" uuid="49080a6d-1f2e-4ed2-8998-6561f537feef">
+				<reportElement x="170" y="0" width="61" height="30" uuid="49080a6d-1f2e-4ed2-8998-6561f537feef">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe11c86d-78d4-4646-ac3a-5f1143216f36"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{lieu}]]></textFieldExpression>
 			</textField>
-			<textField pattern="HH : mm">
-				<reportElement x="330" y="0" width="80" height="30" uuid="6f022531-8154-4064-8978-188d2c7932de">
+			<textField pattern="HH:mm">
+				<reportElement x="300" y="0" width="72" height="30" uuid="6f022531-8154-4064-8978-188d2c7932de">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b5962ebc-e252-4dba-b324-ca9a6da9a1d8"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{heure_debut}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="410" y="0" width="84" height="30" uuid="eebed71f-10d2-451f-8817-25084132cc59">
+				<reportElement x="372" y="0" width="68" height="30" uuid="eebed71f-10d2-451f-8817-25084132cc59">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c11d021e-2a9e-4ab5-8c74-4bdfefa3e679"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{numero_poste}]]></textFieldExpression>
 			</textField>
-			<textField pattern="HH : mm">
-				<reportElement x="494" y="0" width="61" height="30" uuid="a32a8467-d822-4857-a784-1d03927a3c0e">
+			<textField pattern="HH:mm">
+				<reportElement x="440" y="0" width="60" height="30" uuid="a32a8467-d822-4857-a784-1d03927a3c0e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e6ad83d0-7901-4851-8b15-520af577fa7d"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{heure_fin}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="250" y="0" width="80" height="30" uuid="3a49aeda-80a3-4d53-b22a-8572402f28d6">
+				<reportElement x="230" y="0" width="70" height="30" uuid="3a49aeda-80a3-4d53-b22a-8572402f28d6">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="df2972c9-92a9-4741-9386-ba15e1f78e48"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{libelle}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="500" y="0" width="55" height="30" uuid="6c126b76-2984-493b-a1f7-744c5e5562a9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="998cb15b-4cc3-48b6-95d9-21f279898020"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{jour}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
