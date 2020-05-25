@@ -99,7 +99,7 @@ INSERT INTO poste ( idposte, lieu, libelle, statut ,jour, heure_debut, numero_po
   ( 1, 'lieu1', 'signaleur',1,'12/08/2020', '17:00:00' , 1, '18:00:00', 1),
   ( 2, 'lieu2', 'buvette',2,'12/08/2020', '18:00:00' , 22, '19:00:00' , 2),
   ( 3, 'lieu3', 'moto',1,'12/08/2020' ,  '09:00:00' , 17, '11:00:00', 1),
-  ( 4, 'lieu4', 'photographe',2, '12/08/2020', '07:00:00' , 45, '10:00:00', 2);
+  ( 4, 'lieu4', 'photographe',1, '12/08/2020', '07:00:00' , 45, '10:00:00', 1);
  
 ALTER TABLE poste ALTER COLUMN idposte RESTART WITH 6;
   

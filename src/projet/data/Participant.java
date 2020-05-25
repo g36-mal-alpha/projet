@@ -28,6 +28,29 @@ public class Participant {
 	private final StringProperty   	 	materiel_utilise   = new SimpleStringProperty();
 
 	
+	// Constructeurs
+	
+	public Participant() {
+	}
+
+	public Participant( int id, String nom, String prenom, String sexe, String numero_tel, LocalDate date_naissance, String adresse, String role, String certificat_medical, String mail, String niveau, String materiel_utilise) {
+		setId(id);
+		setNom(nom);
+		setPrenom(prenom);
+		setSexe(sexe);
+		setNumero_tel(numero_tel);
+		setDate_naissance(date_naissance);
+		setAdresse(adresse);
+		setRole(role);
+		setCertificat_medical(certificat_medical);
+		setMail(mail);
+		setNiveau(niveau);
+		setMateriel_utilise(materiel_utilise);
+		
+	}
+	
+	
+	
 	// Getters & setters
 
 	public final Property<Integer> idProperty() {
@@ -54,6 +77,11 @@ public class Participant {
 		this.nomProperty().set(nom);
 	}
 	
+	
+	public final StringProperty prenomProperty() {
+		return this.prenom;
+	}
+
 	
 	public final String getPrenom() {
 		return this.prenomProperty().get();
@@ -120,6 +148,11 @@ public class Participant {
 
 	public final void setAdresse(final String adresse) {
 		this.adresseProperty().set(adresse);
+	}
+	
+	
+	public final StringProperty roleProperty() {
+		return this.role;
 	}
 	
 	public final String getRole() {
@@ -218,14 +251,6 @@ public class Participant {
 	@Override
 	public String toString() {
 		return getNom();
-	}
-
-	public final StringProperty prenomProperty() {
-		return this.prenom;
-	}
-
-	public final StringProperty roleProperty() {
-		return this.role;
 	}
 
 }

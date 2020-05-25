@@ -65,24 +65,22 @@ public class ControllerPosteForm {
 		actualiserStatutDansVue();
 		textFieldId.textProperty().bindBidirectional( courant.idProperty(), new IntegerStringConverter()  );
 		
-		//textFieldLibelle.textProperty().bindBidirectional( courant.libelleProperty()  );
+		textFieldLibelle.textProperty().bindBidirectional( courant.libelleProperty()  );
 		
-		//textAreaLieu.textProperty().bindBidirectional( courant.lieuProperty()  );
+		textAreaLieu.textProperty().bindBidirectional( courant.lieuProperty()  );
 	
 		toggleGroupStatut.selectedToggleProperty().addListener( obs -> actualiserStatutDansModele() ) ; 
 		courant.statutProperty().addListener( obs -> actualiserStatutDansVue() );
 		
-		
-		/*datePickerJour.getEditor().textProperty().bindBidirectional( courant.jourProperty(), new ConverterStringLocalDate() );
+		datePickerJour.getEditor().textProperty().bindBidirectional( courant.jourProperty(), new ConverterStringLocalDate() );
 		datePickerJour.getEditor().focusedProperty().addListener(new ListenerFocusValidation( courant.jourProperty(), "Jour incorrect." ) );
 		
-		datePickerHeure_debut.getEditor().textProperty().bindBidirectional( courant.heure_debutProperty(), new ConverterStringLocalDate() );
+		/*datePickerHeure_debut.getEditor().textProperty().bindBidirectional( courant.heure_debutProperty(), new ConverterStringLocalDate() );
 		datePickerHeure_debut.getEditor().focusedProperty().addListener(new ListenerFocusValidation( courant.heure_debutProperty(), "Heure incorrect." ) );
 		
 		datePickerHeure_fin.getEditor().textProperty().bindBidirectional( courant.heure_finProperty(), new ConverterStringLocalDate() );
 		datePickerHeure_fin.getEditor().focusedProperty().addListener(new ListenerFocusValidation( courant.heure_finProperty(), "Heure incorrect." ) );
 		*/
-		
 		comboBoxCategorie.setItems( modelPoste.getCategories() );
 		comboBoxCategorie.valueProperty().bindBidirectional( courant.categorieProperty());
 
