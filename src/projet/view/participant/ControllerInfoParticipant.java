@@ -9,7 +9,7 @@ import projet.data.Participant;
 
 
 public class ControllerInfoParticipant {
-	// Composants de la vue
+	// Composants de la vues
 	
 	@FXML
 	private Label		labelNom;

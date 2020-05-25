@@ -10,7 +10,7 @@ import projet.data.Participant;
 
 
 public class ControllerInfoParticipantModification {
-	// Composants de la vue
+	// Composants de la vues
 	
 	@FXML
 	private TextField		textFieldNom;

@@ -16,7 +16,7 @@ import projet.view.EnumView;
 public class ControllerListeParticipant {
 	
 	
-	// Composants de la vue
+	// Composants de la vues
 
 	@FXML
 	private ListView<Participant>	   listView;
