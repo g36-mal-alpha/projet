@@ -21,9 +21,6 @@ public class DaoEquipe {
 
 	@Inject
 	private DataSource		dataSource;
-
-	@Inject
-	private DaoEquipe	    daoEquipe;
 	
 	// Actions 
 
