@@ -79,6 +79,18 @@ public class Equipe  {
 		this.valideProperty().setValue(valide);
 	}
 	
+//	public final Property<Boolean> valideProperty() {
+//	return this.valide;
+//}
+//
+//public final Boolean getValide() {
+//	return this.valideProperty().getValue();
+//}
+//
+//public final void setValide(final Boolean valide) {
+//	this.valideProperty().setValue(valide);
+//}
+	
 
 	public final Property<Boolean> payeProperty() {
 		return this.paye;
@@ -93,6 +105,18 @@ public class Equipe  {
 	public final void setPaye(final Boolean paye) {
 		this.payeProperty().setValue(paye);
 	}
+	
+//	public final Property<Boolean> payeProperty() {
+//	return this.paye;
+//}
+//
+//public final Boolean getValide() {
+//	return this.payeProperty().getPaye();
+//}
+//
+//public final void setValide(final Boolean paye) {
+//	this.payeProperty().setValue(paye);
+//}
 	
 
 	public final Property<Integer> statutProperty() {
