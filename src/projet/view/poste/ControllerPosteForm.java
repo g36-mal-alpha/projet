@@ -65,9 +65,9 @@ public class ControllerPosteForm {
 		actualiserStatutDansVue();
 		textFieldId.textProperty().bindBidirectional( courant.idProperty(), new IntegerStringConverter()  );
 		
-		//textFieldLibelle.textProperty().bindBidirectional( courant.libelleProperty()  );
+		textFieldLibelle.textProperty().bindBidirectional( courant.libelleProperty()  );
 		
-		//textAreaLieu.textProperty().bindBidirectional( courant.lieuProperty()  );
+		textAreaLieu.textProperty().bindBidirectional( courant.lieuProperty()  );
 	
 		toggleGroupStatut.selectedToggleProperty().addListener( obs -> actualiserStatutDansModele() ) ; 
 		courant.statutProperty().addListener( obs -> actualiserStatutDansVue() );

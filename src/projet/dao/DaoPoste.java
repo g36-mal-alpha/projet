@@ -103,7 +103,7 @@ public class DaoPoste {
 			 
 			stmt.setObject( 9, poste.getId() );
 			stmt.executeUpdate();
-			supprimerAvoir(9);
+			supprimerAvoir(poste.getId());
 			insererAvoir(poste);
 
 		} catch (SQLException e) {

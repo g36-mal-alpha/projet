@@ -36,7 +36,7 @@
                   <Label text="Id :" />
                   <TextField fx:id="textFieldId" editable="false" focusTraversable="false" maxWidth="-Infinity" prefHeight="25.0" prefWidth="50.0" GridPane.columnIndex="1" />
                   <Label text="Libelle" GridPane.rowIndex="1" />
-                  <TextField fx:id="textFieldTitre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="textFieldLibelle" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </children>
@@ -49,7 +49,7 @@
                      <content>
                         <AnchorPane>
                            <children>
-                              <TextArea fx:id="textAreaDescription" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                              <TextArea fx:id="textAreaLieu" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -74,17 +74,17 @@
                                     <Label text="Jour" />
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <children>
-                                          <DatePicker fx:id="datePickerEcheance1" prefHeight="25.0" prefWidth="120.0">
+                                          <DatePicker fx:id="datePickerHeure_debut" prefHeight="25.0" prefWidth="120.0">
                                              <HBox.margin>
                                                 <Insets right="80.0" />
                                              </HBox.margin>
                                           </DatePicker>
                                        </children>
                                     </HBox>
-                                    <DatePicker fx:id="datePickerEcheance" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="1" />
+                                    <DatePicker fx:id="datePickerJour" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="1" />
                                     <Label text="Heure fin" GridPane.rowIndex="2" />
                                     <Label text="Heure debut" GridPane.rowIndex="1" />
-                                    <DatePicker fx:id="datePickerEcheance2" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <DatePicker fx:id="datePickerHeure_fin" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <RadioButton mnemonicParsing="false" text="oui" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="toggleGroupStatut" />
