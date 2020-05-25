@@ -26,9 +26,28 @@ public class Poste {
 	private final Property<LocalTime>   heure_debut     = new SimpleObjectProperty<>();
 	private final Property<LocalTime>   heure_fin       = new SimpleObjectProperty<>();
 	private final Property<Integer>		numero_poste    = new SimpleObjectProperty<>();
+	private final Property<Poste>       poste                 = new SimpleObjectProperty<>();
+	private final Property<Categorie>   categorie         = new SimpleObjectProperty<>();
 	private final ObservableList<Benevole> benevoles    = FXCollections.observableArrayList();
-	private final Property<Poste> poste                 = new SimpleObjectProperty<>();
-	private final Property<Categorie> categorie         = new SimpleObjectProperty<>();
+	
+	// Constructeurs
+	
+	public Poste() {
+	}
+	
+	public Poste( int id, String libelle, String lieu, Integer statut, LocalDate jour, LocalTime heure_debut, LocalTime heure_fin, Integer numero_poste , Poste poste, Categorie categorie ) {
+		setId(id);
+		setLibelle(libelle);
+		setLieu(lieu);
+		setStatut(statut);
+		setJour(jour);
+		setHeure_debut(heure_debut);
+		setHeure_fin(heure_fin);
+		setNumero_poste(numero_poste);
+		setPoste(poste);
+		setCategorie(categorie);
+	}
+	
 	
 	
 	// Getters & setters

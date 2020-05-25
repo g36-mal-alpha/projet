@@ -28,6 +28,9 @@ public class Participant {
 	private final StringProperty   	 	materiel_utilise   = new SimpleStringProperty();
 
 	
+	
+	
+	
 	// Getters & setters
 
 	public final Property<Integer> idProperty() {
@@ -54,6 +57,11 @@ public class Participant {
 		this.nomProperty().set(nom);
 	}
 	
+	
+	public final StringProperty prenomProperty() {
+		return this.prenom;
+	}
+
 	
 	public final String getPrenom() {
 		return this.prenomProperty().get();
@@ -120,6 +128,11 @@ public class Participant {
 
 	public final void setAdresse(final String adresse) {
 		this.adresseProperty().set(adresse);
+	}
+	
+	
+	public final StringProperty roleProperty() {
+		return this.role;
 	}
 	
 	public final String getRole() {
@@ -218,14 +231,6 @@ public class Participant {
 	@Override
 	public String toString() {
 		return getNom();
-	}
-
-	public final StringProperty prenomProperty() {
-		return this.prenom;
-	}
-
-	public final StringProperty roleProperty() {
-		return this.role;
 	}
 
 }

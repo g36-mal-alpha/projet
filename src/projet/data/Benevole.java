@@ -25,8 +25,24 @@ public class Benevole {
 	//private final BooleanProperty		permanent		= new SimpleBooleanProperty();
 	 private final Property<Categorie> categorie        = new SimpleObjectProperty<>();
 		
+	// Constructeurs
+		
+	public Benevole() {
+	}
 
+	public Benevole( int id, String nom, String prenom, LocalDate date_naissance, String permis_conduire, Boolean mineurs, Boolean permanent, Categorie categorie ) {
+		setId(id);
+		setNom(nom);
+		setPrenom(prenom);
+		setDate_naissance(date_naissance);
+		setPermis_conduire(permis_conduire);
+		setMineurs(mineurs);
+		setPermanent(permanent);
+		setCategorie(categorie);
+	}
+		
 	
+	 
 	// Getters & setters
 
 	public final Property<Integer> idProperty() {
