@@ -19,7 +19,7 @@ public class Equipe  {
 	//private final BooleanProperty		valide		    = new SimpleBooleanProperty();
 	private final Property<Boolean>		paye		    = new SimpleObjectProperty<>( false );
 	//private final BooleanProperty		paye		    = new SimpleBooleanProperty();
-	private final Property<Integer>	    statut 		    = new SimpleObjectProperty<>();
+	private final Property<Integer>	    nb_plateau 	    = new SimpleObjectProperty<>();
 	
 	
 	// Constructeurs
@@ -27,12 +27,12 @@ public class Equipe  {
 	public Equipe() {
 	}
 
-	public Equipe( final int id, final String nom_equipe, Boolean valide, Boolean paye, Integer statut ) {
+	public Equipe( final int id, final String nom_equipe, Boolean valide, Boolean paye, Integer nb_plateau ) {
 		setId(id);
 		setNom_equipe(nom_equipe);
 		setValide(valide);
 		setPaye(paye);
-		setStatut(statut);
+		setNb_plateau(nb_plateau);
 	}
 	
 	
@@ -119,18 +119,18 @@ public class Equipe  {
 //}
 	
 
-	public final Property<Integer> statutProperty() {
-		return this.statut;
+	public final Property<Integer> nb_plateauProperty() {
+		return this.nb_plateau;
 	}
 	
 
-	public final Integer getStatut() {
-		return this.statutProperty().getValue();
+	public final Integer getNb_plateau() {
+		return this.nb_plateauProperty().getValue();
 	}
 	
 
-	public final void setStatut(final Integer statut) {
-		this.statutProperty().setValue(statut);
+	public final void setNb_plateau(final Integer nb_plateau) {
+		this.nb_plateauProperty().setValue(nb_plateau);
 	}
 	
 	
