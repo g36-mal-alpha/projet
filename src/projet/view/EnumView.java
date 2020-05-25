@@ -30,6 +30,8 @@ public enum EnumView implements IEnumView {
 	EtatPersonnesParCateogire2	( "personne/ViewEtatPersonnesParCategorie2.fxml" ),
 	PosteList					("postes/ViewPosteList.fxml"),
 	InfoParticipant 			("participant/ViewInfoParticipant.fxml"),
+	ParticipantListe 			("participant/ViewListeParticipant.fxml"),
+	ParticipantModification 	("participant/ViewInfoParticipantModification.fxml"),
 	ViewMap						( "map/ViewMap.fxml" )
 	;
 

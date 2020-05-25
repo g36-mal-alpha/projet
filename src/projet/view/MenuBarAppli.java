@@ -155,6 +155,10 @@ public class MenuBarAppli extends MenuBar {
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.InfoParticipant )  );
 		menu.getItems().add( item );
 		
+		item = new MenuItem( "ViewListeParticipant" );
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.ParticipantListe  )  );
+		menu.getItems().add( item );
+		
 		/*
 		// PROJET - Menu Postes
 		menu = new Menu("Poste");

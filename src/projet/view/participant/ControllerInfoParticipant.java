@@ -4,36 +4,40 @@ import javax.inject.Inject;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import jfox.javafx.view.IManagerGui;
+import projet.data.Participant;
 
 
 public class ControllerInfoParticipant {
 	// Composants de la vue
 	
 	@FXML
-	private Label		textNom;
+	private Label		labelNom;
 	@FXML
-	private Label		textPoste;
+	private Label		labelPoste;
 	@FXML
-	private Label		textPrenom;
+	private Label		labelPrenom;
 	@FXML
-	private Label		textTelephone;
+	private Label		labelTelephone;
 	@FXML
-	private Label		textAdresseMail;
+	private Label		labelAdresseMail;
 	@FXML
-	private Label		textAdresse;
+	private Label		labelAdresse;
 	@FXML
-	private Label		textCourse;
+	private Label		labelCourse;
 	@FXML
-	private Label		textPermis;
+	private Label		labelPermis;
 	@FXML
-	private Label		textMajeur;
+	private Label		labelMajeur;
 	@FXML
-	private Label		textCertificat;
+	private Label		labelCertificat;
 	@FXML
-	private Label		textCout;
+	private Label		labelCout;
 		
 	// Autres champs
 	
+	@Inject
+	private IManagerGui			managerGui;
 	@Inject
 	private ModelInfoParticipant	modelInfoParticipant;
 	
@@ -43,30 +47,41 @@ public class ControllerInfoParticipant {
 	@FXML
 	private void initialize() {
 		
-		// Data binding
-		textNom.textProperty().bind( modelInfoParticipant.nomProperty() );
-		modelInfoParticipant.nomProperty().setValue( "Nom : %d " );
-		textPoste.textProperty().bind( modelInfoParticipant.posteProperty() );
-		modelInfoParticipant.posteProperty().setValue( "Poste : " );
-		textPrenom.textProperty().bind( modelInfoParticipant.prenomProperty() );
-		modelInfoParticipant.prenomProperty().setValue( "Prenom : " );
-		textTelephone.textProperty().bind( modelInfoParticipant.telephoneProperty() );
-		modelInfoParticipant.telephoneProperty().setValue( "Téléphone : " );
-		textAdresseMail.textProperty().bind( modelInfoParticipant.adressemailProperty() );
-		modelInfoParticipant.adressemailProperty().setValue( "Adresse Mail : " );
-		textAdresse.textProperty().bind( modelInfoParticipant.adresseProperty() );
-		modelInfoParticipant.adresseProperty().setValue( "Adresse :" );
-		textCourse.textProperty().bind( modelInfoParticipant.adresseProperty() );
-		modelInfoParticipant.courseProperty().setValue( "Course : " );
-		textPermis.textProperty().bind( modelInfoParticipant.courseProperty() );
-		modelInfoParticipant.permisProperty().setValue( "Permis : " );
-		textMajeur.textProperty().bind( modelInfoParticipant.majeurProperty() );
-		modelInfoParticipant.majeurProperty().setValue( "Majeur : " );
-		textCertificat.textProperty().bind( modelInfoParticipant.certificatProperty() );
-		modelInfoParticipant.certificatProperty().setValue( "Certificat Médicale : " );
-		textCout.textProperty().bind( modelInfoParticipant.coutProperty() );
-		modelInfoParticipant.coutProperty().setValue( "Coût : " );
+		Participant courantParticipant = modelInfoParticipant.getCourantParticipant();
 		
+		// Data binding
+
+		labelNom.textProperty().bind(modelInfoParticipant.nomProperty());
+		/* labelPoste.textProperty().bindBidirectional(courantParticipant.adresseProperty());
+
+		
+		labelPrenom.textProperty().bind( modelInfoParticipant.prenomProperty() );
+		modelInfoParticipant.prenomProperty().setValue( "Prenom : " );
+		
+		labelTelephone.textProperty().bind( modelInfoParticipant.telephoneProperty() );
+		modelInfoParticipant.telephoneProperty().setValue( "Téléphone : " );
+		
+		labelAdresseMail.textProperty().bind( modelInfoParticipant.adressemailProperty() );
+		modelInfoParticipant.adressemailProperty().setValue( "Adresse Mail : " );
+		
+		labelAdresse.textProperty().bind( modelInfoParticipant.adresseProperty() );
+		modelInfoParticipant.adresseProperty().setValue( "Adresse :" );
+		
+		labelCourse.textProperty().bind( modelInfoParticipant.adresseProperty() );
+		modelInfoParticipant.courseProperty().setValue( "Course : " );
+		
+		labelPermis.textProperty().bind( modelInfoParticipant.courseProperty() );
+		modelInfoParticipant.permisProperty().setValue( "Permis : " );
+		
+		labelMajeur.textProperty().bind( modelInfoParticipant.majeurProperty() );
+		modelInfoParticipant.majeurProperty().setValue( "Majeur : " );
+		
+		labelCertificat.textProperty().bind( modelInfoParticipant.certificatProperty() );
+		modelInfoParticipant.certificatProperty().setValue( "Certificat Médicale : " );
+		
+		labelCout.textProperty().bind( modelInfoParticipant.coutProperty() );
+		modelInfoParticipant.coutProperty().setValue( "Coût : " );
+		*/
 	}
 
 }

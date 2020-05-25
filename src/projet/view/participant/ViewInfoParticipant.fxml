@@ -84,7 +84,7 @@
       </HBox>
       <HBox layoutX="333.0" layoutY="64.0" prefHeight="43.0" prefWidth="222.0" style="-fx-border-color: rgb(66, 135,  245);">
          <children>
-            <Label fx:id="textNom" prefHeight="50.0" prefWidth="210.0" text="Nom : ">
+            <Label fx:id="labelNom" prefHeight="50.0" prefWidth="210.0" text="Nom : ">
                <font>
                   <Font name="Arial" size="19.0" />
                </font>
