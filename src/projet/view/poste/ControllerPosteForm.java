@@ -65,7 +65,7 @@ public class ControllerPosteForm {
 		actualiserStatutDansVue();
 		textFieldId.textProperty().bindBidirectional( courant.idProperty(), new IntegerStringConverter()  );
 		
-		/*textFieldLibelle.textProperty().bindBidirectional( courant.libelleProperty()  );*/
+		//textFieldLibelle.textProperty().bindBidirectional( courant.libelleProperty()  );
 		
 		//textAreaLieu.textProperty().bindBidirectional( courant.lieuProperty()  );
 	
