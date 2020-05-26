@@ -145,7 +145,7 @@ public class DaoBenevole {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "SELECT * FROM benevole ORDER BY nom";
+			sql = "SELECT * FROM benevole ORDER BY nom , prenom";
 			stmt = cn.prepareStatement( sql );
 			rs = stmt.executeQuery();
 
