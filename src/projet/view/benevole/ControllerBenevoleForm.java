@@ -4,6 +4,8 @@ import javax.inject.Inject;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -11,6 +13,7 @@ import jfox.javafx.control.EditingCell;
 import jfox.javafx.util.ConverterStringInteger;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Categorie;
+import projet.data.Poste;
 import projet.data.Benevole;
 import projet.data.Telephone;
 import projet.view.EnumView;
@@ -28,15 +31,13 @@ public class ControllerBenevoleForm {
 		@FXML	
 		private TextField			textFieldPrenom;
 	    @FXML
-	    private ComboBox<Categorie>	comboBoxCategorie;
+	    private DatePicker			dateNaissance;
 		@FXML
-		private TableView<Telephone>	tableViewTelphones;
+		private TextField			textFieldPermis;
 		@FXML
-		private TableColumn<Telephone, Integer> columnId;
+		private RadioButton			radioMineur;
 		@FXML
-		private TableColumn<Telephone, String> columnLibelle;
-		@FXML
-		private TableColumn<Telephone, String> columnNumero;
+		private ComboBox<Poste> 	comboPoste;
 
 		
 		// Autres champs

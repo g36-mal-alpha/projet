@@ -49,21 +49,21 @@
                   <Label text="Id :" />
                   <TextField fx:id="textFieldId" editable="false" focusTraversable="false" maxWidth="-Infinity" prefHeight="25.0" prefWidth="50.0" GridPane.columnIndex="1" />
                   <Label text="Nom :" GridPane.rowIndex="1" />
-                  <TextField fx:id="textFieldTitre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="textFieldNom" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label text="Prénom :" GridPane.rowIndex="2" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="textFieldPrenom" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                   </TextField>
                   <Label text="Date de naissance :" GridPane.rowIndex="3" />
-                  <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <DatePicker fx:id="dateNaissance" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label text="Permis de conduire :" GridPane.rowIndex="4" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="textFieldPermis" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <Label text="Mineur :" GridPane.rowIndex="5" />
-                  <RadioButton mnemonicParsing="false" text="Oui (Actif) / Non (Inactif)" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <RadioButton fx:id="radioMineur" mnemonicParsing="false" text="Oui (Actif) / Non (Inactif)" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                   <Label text="Poste :" GridPane.rowIndex="6" />
-                  <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <ComboBox fx:id="comboPoste" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                </children>
             </GridPane>
          </children>

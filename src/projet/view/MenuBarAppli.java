@@ -68,7 +68,7 @@ public class MenuBarAppli extends MenuBar {
 		
 		// Manu DonnÃ©es
 		
-		menu =  new Menu( "Données" );;
+		menu =  new Menu( "Gestion" );;
 		this.getMenus().add(menu);
 		menuDonnees = menu;
 		
@@ -92,6 +92,11 @@ public class MenuBarAppli extends MenuBar {
 		
 		item = new MenuItem( "Postes" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.PosteListe )  );
+		menu.getItems().add( item );
+		itemPostes = item;
+		
+		item = new MenuItem( "Bénévoles" );
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.BenevoleListe )  );
 		menu.getItems().add( item );
 		itemPostes = item;
 		

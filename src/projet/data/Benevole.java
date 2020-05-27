@@ -207,6 +207,6 @@ public class Benevole {
 	
 	@Override
 	public String toString() {
-		return getNom();
+		return getNom() + " " +getPrenom();
 	}
 }

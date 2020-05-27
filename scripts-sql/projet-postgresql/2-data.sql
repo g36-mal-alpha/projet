@@ -87,9 +87,9 @@ ALTER TABLE service ALTER COLUMN idservice RESTART WITH 4;
 -- Bénévole 
 
 INSERT INTO benevole ( idbenevole, idcompte, nom, prenom, date_naissance, permis_conduire, mineurs, idcategorie ) VALUES
-  ( 1,1, 'nom1', 'bob', '12/08/1968','lien_fichier1' ,TRUE, 1 ),
-  ( 2,2, 'nom2', 'paul', '12/08/1978','lien_fichier1', TRUE , 1),
-  ( 3,3, 'nom3', 'jack', '12/08/1986','lien_fichier1', FALSE , 2);
+  ( 1,1, 'Musk', 'Elon', '12/08/1968','lien_fichier1' ,TRUE, 1 ),
+  ( 2,2, 'Tesla', 'Nicolas', '12/08/1978','lien_fichier1', TRUE , 1),
+  ( 3,3, 'Boussard', 'Lucas', '12/08/1986','lien_fichier1', FALSE , 2);
   
 ALTER TABLE benevole ALTER COLUMN idbenevole RESTART WITH 8;
 
