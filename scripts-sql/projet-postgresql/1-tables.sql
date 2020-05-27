@@ -177,7 +177,7 @@ CREATE TABLE documents_licencies(
 	idparticipant    INT  NOT NULL  ,
 	nom_doc          VARCHAR (255) NOT NULL ,
 	date_doc         DATE  NOT NULL ,
-	doc              VARCHAR (255) NOT NULL ,
+	lien_doc         VARCHAR (255) NOT NULL ,
 	
 	PRIMARY KEY (iddocument),
 	

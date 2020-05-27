@@ -133,7 +133,7 @@ ALTER TABLE participant ALTER COLUMN idparticipant RESTART WITH 16;
  
 -- Documents Licencies
 
-INSERT INTO documents_licencies ( iddocument, idparticipant, nom_doc, date_doc, doc) VALUES
+INSERT INTO documents_licencies ( iddocument, idparticipant, nom_doc, date_doc, lien_doc) VALUES
   ( 1, 1, 'doc a', '12/08/2020',  'lien 1'),
   ( 2, 2, 'doc b', '17/08/2020', 'lien 2'),
   ( 3, 3, 'doc c', '11/08/2020',  'lien 1');
