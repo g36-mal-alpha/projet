@@ -25,6 +25,7 @@ public enum EnumView implements IEnumView {
 	TestDaoService		( "test/ViewTestDaoService.fxml" ),
 	TestDaoBenevole		( "test/ViewTestDaoBenevole.fxml" ),
 	TestDaoParticipant  ( "test/ViewTestDaoParticipant.fxml" ),
+	TestDaoEquipe       ( "test/ViewTestDaoEquipe.fxml" ),
 	TestDaoPoste		( "test/ViewTestDaoPoste.fxml" ),
 	EtatPersonnesParCateogire1	( "personne/ViewEtatPersonnesParCategorie1.fxml" ),
 	EtatPersonnesParCateogire2	( "personne/ViewEtatPersonnesParCategorie2.fxml" ),

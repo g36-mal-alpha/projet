@@ -63,7 +63,7 @@ public class DaoEquipe {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "UPDATE benevole SET nom_equipe = ?, valide = ?, paye = ?, n = ? WHERE idbenevole =  ?";
+			sql = "UPDATE equipe SET nom_equipe = ?, valide = ?, paye = ?, nb_plateau = ? WHERE idequipe =  ?";
 			stmt = cn.prepareStatement( sql );
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 			stmt.setObject( 1, equipe.getNom_equipe() );
@@ -212,7 +212,7 @@ public class DaoEquipe {
 
 	private Equipe construireEquipe( ResultSet rs, boolean valide  ) throws SQLException {
 		Equipe equipe = new Equipe();
-		equipe.setId( rs.getObject( "idbenevole", Integer.class ) );
+		equipe.setId( rs.getObject( "idequipe", Integer.class ) );
 		equipe.setNom_equipe( rs.getObject( "nom_equipe", String.class ) );
 		equipe.setValide( rs.getObject( "valide", Boolean.class ) );
 		equipe.setPaye( rs.getObject( "paye", Boolean.class ) );
