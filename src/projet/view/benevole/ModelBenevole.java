@@ -40,9 +40,11 @@ public class ModelBenevole {
 			return courant;
 		}
 		
-		public ObservableList<Poste> getCategories() {
+		public ObservableList<Poste> getListePoste() {
 			 return modelPoste.getListe();
 		}
+		
+
 		
 		
 		// Actualisations

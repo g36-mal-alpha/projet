@@ -7,6 +7,8 @@ import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 public class Benevole {
@@ -24,6 +26,7 @@ public class Benevole {
 	private final Property<Boolean>		permanent		= new SimpleObjectProperty<>( false );
 	//private final BooleanProperty		permanent		= new SimpleBooleanProperty();
 	 private final Property<Categorie> categorie        = new SimpleObjectProperty<>();
+	 private final ObservableList<Poste> postes    		= FXCollections.observableArrayList();
 		
 	// Constructeurs
 		
@@ -41,6 +44,10 @@ public class Benevole {
 		setCategorie(categorie);
 	}
 		
+	
+	public ObservableList<Poste> getPostes() {
+		return postes;
+	}
 	
 	 
 	// Getters & setters

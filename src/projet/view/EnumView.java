@@ -21,6 +21,8 @@ public enum EnumView implements IEnumView {
 	ServiceForm					( "service/ViewServiceForm.fxml" ),
 	PosteListe		   			( "poste/ViewPosteListe.fxml" ),
 	PosteForm					( "poste/ViewPosteForm.fxml" ),
+	BenevoleListe				( "benevole/ViewBenevoleList.fxml" ),
+	BenevoleForm				( "benevole/ViewBenevoleForm.fxml" ),
 	TestDaoCategorie			( "test/ViewTestDaoCategorie.fxml" ),
 	TestDaoService				( "test/ViewTestDaoService.fxml" ),
 	TestDaoBenevole				( "test/ViewTestDaoBenevole.fxml" ),
@@ -28,16 +30,15 @@ public enum EnumView implements IEnumView {
 	TestDaoEquipe      			( "test/ViewTestDaoEquipe.fxml" ),
 	TestDaoPoste				( "test/ViewTestDaoPoste.fxml" ),
 	TestDaoEpreuve				( "test/ViewTestDaoEpreuve.fxml" ),
-	TestDaoDocuments				( "test/ViewTestDaoDocuments.fxml" ),
+	TestDaoDocuments			( "test/ViewTestDaoDocuments.fxml" ),
 	EtatPersonnesParCateogire1	( "personne/ViewEtatPersonnesParCategorie1.fxml" ),
 	EtatPersonnesParCateogire2	( "personne/ViewEtatPersonnesParCategorie2.fxml" ),
 	PosteList					("postes/ViewPosteList.fxml"),
 	InfoParticipant 			("participant/ViewInfoParticipant.fxml"),
 	ParticipantListe 			("participant/ViewListeParticipant.fxml"),
 	ParticipantModification 	("participant/ViewInfoParticipantModification.fxml"),
-	ViewMap						( "map/ViewMap.fxml" ),
-	BenevoleListe				( "benevole/ViewBenevoleList.fxml" ),
-	BenevoleForm				( "benevole/ViewBenevoleForm.fxml" )
+	ViewMap						( "map/ViewMap.fxml" )
+	
 	;
 
 	

@@ -1,28 +1,21 @@
 package projet.view.benevole;
 
-import java.awt.Checkbox;
+
 
 import javax.inject.Inject;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import jfox.javafx.control.EditingCell;
+import javafx.scene.control.CheckBox;
 import jfox.javafx.util.ConverterStringInteger;
 import jfox.javafx.util.ConverterStringLocalDate;
 import jfox.javafx.util.ListenerFocusValidation;
 import jfox.javafx.view.IManagerGui;
-import projet.data.Categorie;
 import projet.data.Poste;
 import projet.data.Benevole;
-import projet.data.Telephone;
 import projet.view.EnumView;
-import projet.view.personne.ModelBenevole;
-import projet.view.poste.ModelPoste;
 
 public class ControllerBenevoleForm {
 	
@@ -40,7 +33,7 @@ public class ControllerBenevoleForm {
 		@FXML
 		private TextField			textFieldPermis;
 		@FXML
-		private Checkbox			checkMineur;
+		private CheckBox			checkMineur;
 		@FXML
 		private ComboBox<Poste> 	comboPoste;
 
@@ -51,7 +44,7 @@ public class ControllerBenevoleForm {
 		@Inject
 		private ModelBenevole		modelBenevole;
 		@Inject
-		private Poste				modelPoste;
+		private Benevole				bene;
 	    
 		
 		// Initialisation du controller
@@ -71,10 +64,10 @@ public class ControllerBenevoleForm {
 
 			// Data binding
 			
-			comboPoste.setItems( modelPoste.getLibelle() );
-			comboPoste.valueProperty().bindBidirectional( courant.libelleProperty());
+			comboPoste.setItems( bene.getPostes());
+			//comboPoste.valueProperty().bindBidirectional( courant.libelleProperty());
 			
-			checkMineur.selectedProperty().bindBidirectional( courant.mineursProperty() );
+			//checkMineur.selectedProperty().bindBidirectional( courant.mineursProperty() );
 		
 		}
 		
