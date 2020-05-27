@@ -99,9 +99,11 @@ CREATE TABLE poste(
 	libelle 	   VARCHAR (255) NOT NULL,
 	statut		   SMALLINT		NOT NULL CHECK (statut>=0 AND statut<=2),
 	jour		   DATE  NOT NULL ,
-	heure_debut    TIME  NOT NULL ,
+	heure_debut    VARCHAR (255) NOT NULL,
+	--heure_debut    TIME  NOT NULL ,
 	numero_poste   INT  NOT NULL  ,
-	heure_fin      TIME NOT NULL,
+	--heure_fin      TIME NOT NULL,
+	heure_fin    VARCHAR (255) NOT NULL,
 	
 	PRIMARY KEY (idposte),
 	
