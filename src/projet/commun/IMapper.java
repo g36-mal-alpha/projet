@@ -4,6 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
+import projet.data.Benevole;
 import projet.data.Categorie;
 import projet.data.Compte;
 import projet.data.Personne;
@@ -27,5 +28,7 @@ public interface IMapper {
 	Poste update( @MappingTarget Poste target, Poste source );
 	
 	Participant update( @MappingTarget Participant target, Participant source );
+	
+	Benevole update( @MappingTarget Benevole target, Benevole source );
 	
 }
