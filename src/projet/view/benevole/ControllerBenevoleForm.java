@@ -1,5 +1,7 @@
 package projet.view.benevole;
 
+import java.awt.Checkbox;
+
 import javax.inject.Inject;
 
 import javafx.fxml.FXML;
@@ -11,6 +13,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import jfox.javafx.control.EditingCell;
 import jfox.javafx.util.ConverterStringInteger;
+import jfox.javafx.util.ConverterStringLocalDate;
+import jfox.javafx.util.ListenerFocusValidation;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Categorie;
 import projet.data.Poste;
@@ -18,6 +22,7 @@ import projet.data.Benevole;
 import projet.data.Telephone;
 import projet.view.EnumView;
 import projet.view.personne.ModelBenevole;
+import projet.view.poste.ModelPoste;
 
 public class ControllerBenevoleForm {
 	
@@ -35,7 +40,7 @@ public class ControllerBenevoleForm {
 		@FXML
 		private TextField			textFieldPermis;
 		@FXML
-		private RadioButton			radioMineur;
+		private Checkbox			checkMineur;
 		@FXML
 		private ComboBox<Poste> 	comboPoste;
 
@@ -45,6 +50,8 @@ public class ControllerBenevoleForm {
 		private IManagerGui			managerGui;
 		@Inject
 		private ModelBenevole		modelBenevole;
+		@Inject
+		private Poste				modelPoste;
 	    
 		
 		// Initialisation du controller
@@ -58,25 +65,16 @@ public class ControllerBenevoleForm {
 			textFieldNom.textProperty().bindBidirectional( courant.nomProperty() );
 			textFieldPrenom.textProperty().bindBidirectional( courant.prenomProperty() );
 
-	        
-			// Configuration de la combo box
+			dateNaissance.getEditor().textProperty().bindBidirectional( courant.date_naissanceProperty(), new ConverterStringLocalDate() );
+			dateNaissance.getEditor().focusedProperty().addListener(new ListenerFocusValidation( courant.date_naissanceProperty(), "Jour incorrect." ) );
+			
 
 			// Data binding
-			comboBoxCategorie.setItems(  modelBenevole.getCategories());
-	        comboBoxCategorie.valueProperty().bindBidirectional( courant.categorieProperty() );
-	 		
 			
-			// Configuration du TableView
-
-			// Data binding
-			tableViewTelphones.setItems(  courant.getTelephones() );
+			comboPoste.setItems( modelPoste.getLibelle() );
+			comboPoste.valueProperty().bindBidirectional( courant.libelleProperty());
 			
-			columnId.setCellValueFactory( t -> t.getValue().idProperty() );
-			columnLibelle.setCellValueFactory( t -> t.getValue().libelleProperty() );
-			columnNumero.setCellValueFactory( t -> t.getValue().numeroProperty() );
-
-			columnLibelle.setCellFactory(  p -> new EditingCell<>() );
-			columnNumero.setCellFactory(  p -> new EditingCell<>() );		
+			checkMineur.selectedProperty().bindBidirectional( courant.mineursProperty() );
 		
 		}
 		
@@ -94,17 +92,6 @@ public class ControllerBenevoleForm {
 			managerGui.showView( EnumView.BenevoleListe );
 		}
 		
-		@FXML
-		private void doAjouterTelephone() {
-			modelBenevole.ajouterTelephone();
-		}
-		
-		
-		@FXML
-		private void doiSupprimerTelephone() {
-			Telephone telephone = tableViewTelphones.getSelectionModel().getSelectedItem();
-			modelBenevole.supprimerTelephone(telephone);
-		}
-	    
+
 
 }

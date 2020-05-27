@@ -48,6 +48,7 @@ public class ModelPoste  {
 	public ObservableList<Categorie> getCategories() {
 		 return modelCategorie.getListe();
 	}
+	
 
 	
 	// Actualisations

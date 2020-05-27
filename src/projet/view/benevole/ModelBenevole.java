@@ -8,6 +8,9 @@ import jfox.javafx.util.UtilFX;
 import projet.commun.IMapper;
 import projet.dao.DaoBenevole;
 import projet.data.Benevole;
+import projet.data.Categorie;
+import projet.data.Poste;
+import projet.view.poste.ModelPoste;
 
 public class ModelBenevole {
 	
@@ -23,6 +26,8 @@ public class ModelBenevole {
 		private IMapper			mapper;
 	    @Inject
 		private DaoBenevole		daoBenevole;
+	    @Inject
+	    private ModelPoste		modelPoste;
 		
 		
 		// Getters
@@ -33,6 +38,10 @@ public class ModelBenevole {
 
 		public Benevole getCourant() {
 			return courant;
+		}
+		
+		public ObservableList<Poste> getCategories() {
+			 return modelPoste.getListe();
 		}
 		
 		
