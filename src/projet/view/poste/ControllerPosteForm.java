@@ -1,5 +1,7 @@
 package projet.view.poste;
 
+import java.text.SimpleDateFormat;
+
 import javax.inject.Inject;
 
 import javafx.fxml.FXML;
@@ -36,9 +38,11 @@ public class ControllerPosteForm {
 	@FXML
 	private DatePicker			datePickerJour;
 	@FXML
-	private DatePicker			datePickerHeure_debut;
+	private TextField			TextFieldHeure_debut;
 	@FXML
-	private DatePicker			datePickerHeure_fin;
+	private TextField			TextFieldHeure_fin;
+	@FXML
+	private TextField			TextFieldNumero_poste;
 	@FXML
 	private ComboBox<Categorie>	comboBoxCategorie;
     @FXML
@@ -77,10 +81,20 @@ public class ControllerPosteForm {
 		
 		/*datePickerHeure_debut.getEditor().textProperty().bindBidirectional( courant.heure_debutProperty(), new ConverterStringLocalDate() );
 		datePickerHeure_debut.getEditor().focusedProperty().addListener(new ListenerFocusValidation( courant.heure_debutProperty(), "Heure incorrect." ) );
+		*/
 		
-		datePickerHeure_fin.getEditor().textProperty().bindBidirectional( courant.heure_finProperty(), new ConverterStringLocalDate() );
+		//TextFieldHeure_debut.textProperty().bindBidirectional( courant.heure_debutProperty(), new SimpleDateFormat("hh::mm::ss") );
+		TextFieldHeure_debut.textProperty().bindBidirectional( courant.heure_debutProperty());
+		
+		/*datePickerHeure_fin.getEditor().textProperty().bindBidirectional( courant.heure_finProperty(), new ConverterStringLocalDate() );
 		datePickerHeure_fin.getEditor().focusedProperty().addListener(new ListenerFocusValidation( courant.heure_finProperty(), "Heure incorrect." ) );
 		*/
+		
+		//TextFieldHeure_fin.textProperty().bindBidirectional( courant.heure_finProperty(),  new SimpleDateFormat("hh::mm::ss") );
+		TextFieldHeure_fin.textProperty().bindBidirectional( courant.heure_finProperty() );
+		
+		TextFieldNumero_poste.textProperty().bindBidirectional( courant.numero_posteProperty(),  new IntegerStringConverter() );
+		
 		comboBoxCategorie.setItems( modelPoste.getCategories() );
 		comboBoxCategorie.valueProperty().bindBidirectional( courant.categorieProperty());
 

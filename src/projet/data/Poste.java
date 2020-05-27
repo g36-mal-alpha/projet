@@ -1,6 +1,10 @@
 package projet.data;
 
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
@@ -23,11 +27,23 @@ public class Poste {
 	private final StringProperty   	 	lieu   	        = new SimpleStringProperty();
 	private final Property<Integer>	    statut 		    = new SimpleObjectProperty<>(0);
 	private final Property<LocalDate>   jour            = new SimpleObjectProperty<>();
-	private final Property<LocalTime>   heure_debut     = new SimpleObjectProperty<>();
-	private final Property<LocalTime>   heure_fin       = new SimpleObjectProperty<>();
+	
+	//private final Property<LocalTime> heure_debut     = new SimpleObjectProperty<>();
+	private final StringProperty      heure_debut     = new SimpleStringProperty();
+	//private final DateFormat            heure_debut     = new SimpleDateFormat("hh:mm:ss");
+	
+	/*Date parseDateString(String heure_debut){
+    SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+    Date date = dateFormat.parse(heure_debut);
+	}*/
+	
+	//private final Property<LocalTime> heure_fin       = new SimpleObjectProperty<>();
+	private final StringProperty      heure_fin       = new SimpleStringProperty();
+	//private final DateFormat            heure_fin       = new SimpleDateFormat("hh:mm:ss");
+	
 	private final Property<Integer>		numero_poste    = new SimpleObjectProperty<>();
-	private final Property<Poste>       poste                 = new SimpleObjectProperty<>();
-	private final Property<Categorie>   categorie         = new SimpleObjectProperty<>();
+	private final Property<Poste>       poste           = new SimpleObjectProperty<>();
+	private final Property<Categorie>   categorie       = new SimpleObjectProperty<>();
 	private final ObservableList<Benevole> benevoles    = FXCollections.observableArrayList();
 	
 	// Constructeurs
@@ -35,7 +51,7 @@ public class Poste {
 	public Poste() {
 	}
 	
-	public Poste( int id, String libelle, String lieu, Integer statut, LocalDate jour, LocalTime heure_debut, LocalTime heure_fin, Integer numero_poste , Poste poste, Categorie categorie ) {
+	public Poste( int id, String libelle, String lieu, Integer statut, LocalDate jour, String heure_debut, String heure_fin, Integer numero_poste , Poste poste, Categorie categorie ) {
 		setId(id);
 		setLibelle(libelle);
 		setLieu(lieu);
@@ -106,7 +122,7 @@ public class Poste {
 	}
 	
 
-	public final Property<LocalTime> heure_debutProperty() {
+	/*public final Property<LocalTime> heure_debutProperty() {
 		return this.heure_debut;
 	}
 	
@@ -133,9 +149,38 @@ public class Poste {
 
 	public final void setHeure_fin(final LocalTime heure_fin) {
 		this.heure_finProperty().setValue(heure_fin);
+	}*/
+	 
+	
+	public final StringProperty heure_debutProperty() {
+		return this.heure_debut;
 	}
 	
 
+	public final String getHeure_debut() {
+		return this.heure_debutProperty().get();
+	}
+	
+
+	public final void setHeure_debut(final String heure_debut) {
+		this.heure_debutProperty().set(heure_debut);
+	}
+	
+
+	public final StringProperty heure_finProperty() {
+		return this.heure_fin;
+	}
+	
+
+	public final String getHeure_fin() {
+		return this.heure_finProperty().get();
+	}
+	
+
+	public final void setHeure_fin(final String heure_fin) {
+		this.heure_finProperty().set(heure_fin);
+	}
+	
 	public final Property<Integer> numero_posteProperty() {
 		return this.numero_poste;
 	}
@@ -197,10 +242,31 @@ public class Poste {
 		this.jourProperty().setValue(jour);
 	}
 	
+	/*public final DateFormat heure_debutProperty() {
+		return this.heure_debut;
+	}
 	
-	
-	// hashCode() & equals()
+	public final DateFormat getHeure_debut() {
+		return this.heure_debutProperty().getValue();
+	}
 
+	public final void setHeure_debut(final DateFormat heure_debut) {
+		this.heure_debutProperty().setValue(heure_debut);
+	}
+	
+
+	public final DateFormat heure_finProperty() {
+		return this.heure_fin;
+	}
+	
+	public final DateFormat getHeure_fin() {
+		return this.heure_finProperty().getValue();
+	}
+
+	public final void setHeure_fin(final DateFormat heure_fin) {
+		this.heure_finProperty().setValue(heure_fin);
+	*/
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id.getValue());
@@ -225,5 +291,5 @@ public class Poste {
 	public String toString() {
 		return getLibelle();
 	}
-	
+
 }

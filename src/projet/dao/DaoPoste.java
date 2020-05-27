@@ -199,8 +199,8 @@ public class DaoPoste {
 		poste.setStatut( rs.getObject( "statut", Integer.class ) );
 		poste.setLieu( rs.getObject( "lieu", String.class ) );
 		poste.setJour( rs.getObject( "jour", LocalDate.class ) );
-		poste.setHeure_debut( rs.getObject( "heure_debut", LocalTime.class ) );
-		poste.setHeure_fin( rs.getObject( "heure_fin", LocalTime.class ) );
+		poste.setHeure_debut( rs.getObject( "heure_debut", String.class ) );
+		poste.setHeure_fin( rs.getObject( "heure_fin", String.class ) );
 		poste.setNumero_poste( rs.getObject( "numero_poste", Integer.class ) );
 		if ( flagComplet ) {
 			 Integer idCategorie = rs.getObject( "idcategorie", Integer.class );
@@ -208,7 +208,6 @@ public class DaoPoste {
 				 poste.setCategorie( daoCategorie.retrouver(idCategorie) );
 				 poste.getBenevoles().setAll( daoBenevole.listerPoutPoste( poste.getId() ) );
 			 }
-			 
 		} 
 		return poste;
 	}

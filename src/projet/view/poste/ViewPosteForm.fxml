@@ -74,17 +74,16 @@
                                     <Label text="Jour" />
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <children>
-                                          <DatePicker fx:id="datePickerHeure_debut" prefHeight="25.0" prefWidth="120.0">
+                                          <TextField fx:id="TextFieldHeure_debut">
                                              <HBox.margin>
-                                                <Insets right="80.0" />
+                                                <Insets right="50.0" />
                                              </HBox.margin>
-                                          </DatePicker>
+                                          </TextField>
                                        </children>
                                     </HBox>
                                     <DatePicker fx:id="datePickerJour" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="1" />
                                     <Label text="Heure fin" GridPane.rowIndex="2" />
                                     <Label text="Heure debut" GridPane.rowIndex="1" />
-                                    <DatePicker fx:id="datePickerHeure_fin" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <RadioButton mnemonicParsing="false" text="oui" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="toggleGroupStatut" />
@@ -102,6 +101,9 @@
                                        </GridPane.margin>
                                     </RadioButton>
                                     <Label text="Permis ?" GridPane.rowIndex="3" />
+                                    <TextField fx:id="TextFieldHeure_fin" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label text="Numero" GridPane.rowIndex="4" />
+                                    <TextField fx:id="TextFieldNumero_poste" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                  </children>
                                  <padding>
                                     <Insets left="5.0" right="5.0" />
