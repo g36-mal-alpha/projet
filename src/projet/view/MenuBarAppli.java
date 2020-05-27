@@ -155,6 +155,10 @@ public class MenuBarAppli extends MenuBar {
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.TestDaoEquipe )  );
 		menu.getItems().add( item );
 		
+		item = new MenuItem( "DaoEpreuve" );
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.TestDaoEpreuve )  );
+		menu.getItems().add( item );
+		
 		item = new MenuItem( "ViewInfoParticipantTest" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.InfoParticipant )  );
 		menu.getItems().add( item );
