@@ -114,7 +114,7 @@ ALTER TABLE equipe ALTER COLUMN idequipe RESTART WITH 4;
   
 -- Epreuve
 
-INSERT INTO epreuve ( idepreuve, nom, date_epreuve, lieu, tarif) VALUES
+INSERT INTO epreuve ( idepreuve, nom_epreuve, date_epreuve, lieu, tarif) VALUES
   ( 1, 'epreuve a', '12/08/2020',  'lieu 1','10 €'),
   ( 2, 'epreuve b', '17/08/2020', 'lieu 2', '10 €'),
   ( 3, 'epreuve c', '11/08/2020',  'lieu 1', '20 €');
@@ -133,7 +133,7 @@ ALTER TABLE participant ALTER COLUMN idparticipant RESTART WITH 16;
  
 -- Documents Licencies
 
-INSERT INTO documents_licencies ( iddocument, idparticipant, nom_doc, date_doc, doc) VALUES
+INSERT INTO documents_licencies ( iddocument, idparticipant, nom_doc, date_doc, lien_doc) VALUES
   ( 1, 1, 'doc a', '12/08/2020',  'lien 1'),
   ( 2, 2, 'doc b', '17/08/2020', 'lien 2'),
   ( 3, 3, 'doc c', '11/08/2020',  'lien 1');
