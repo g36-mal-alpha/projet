@@ -115,9 +115,9 @@ ALTER TABLE equipe ALTER COLUMN idequipe RESTART WITH 4;
 -- Epreuve
 
 INSERT INTO epreuve ( idepreuve, nom_epreuve, date_epreuve, lieu, tarif) VALUES
-  ( 1, 'epreuve a', '12/08/2020',  'lieu 1','10 €'),
-  ( 2, 'epreuve b', '17/08/2020', 'lieu 2', '10 €'),
-  ( 3, 'epreuve c', '11/08/2020',  'lieu 1', '20 €');
+  ( 1, 'epreuve a', '12/08/2020',  'lieu 1','10'),
+  ( 2, 'epreuve b', '17/08/2020', 'lieu 2', '10'),
+  ( 3, 'epreuve c', '11/08/2020',  'lieu 1', '20');
   
 ALTER TABLE epreuve ALTER COLUMN idepreuve RESTART WITH 4;
 

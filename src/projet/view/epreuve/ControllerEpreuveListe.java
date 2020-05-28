@@ -10,7 +10,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import jfox.javafx.util.UtilFX;
 import jfox.javafx.view.IManagerGui;
-import projet.data.Equipe;
+import projet.data.Epreuve;
 import projet.view.EnumView;
 
 
@@ -20,7 +20,7 @@ public class ControllerEpreuveListe {
 	// Composants de la vue
 
 	@FXML
-	private ListView<Equipe>		listView;
+	private ListView<Epreuve>		listView;
 	@FXML
 	private Button				buttonModifier;
 	@FXML
@@ -43,10 +43,10 @@ public class ControllerEpreuveListe {
 		// Data binding
 		listView.setItems( modelEpreuve.getListe() );
 		
-		listView.setCellFactory(  UtilFX.cellFactory( item -> item.getNom_equipe() ));
+		listView.setCellFactory(  UtilFX.cellFactory( item -> item.getNom_epreuve() ));
 		
 		// Configuraiton des boutons
-		listView.getSelectionModel().getSelectedItems().addListener( (ListChangeListener<Equipe>) (c) -> {configurerBoutons();});     	
+		listView.getSelectionModel().getSelectedItems().addListener( (ListChangeListener<Epreuve>) (c) -> {configurerBoutons();});     	
 		configurerBoutons();
 
 	}
@@ -63,23 +63,23 @@ public class ControllerEpreuveListe {
 	@FXML
 	private void doAjouter() {
 		modelEpreuve.preparerAjouter();;
-		managerGui.showView( EnumView.EquipeForm );
+		managerGui.showView( EnumView.EpreuveForm );
 	}
 
 	@FXML
 	private void doModifier() {
-		Equipe item = listView.getSelectionModel().getSelectedItem();
+		Epreuve item = listView.getSelectionModel().getSelectedItem();
 		if ( item == null ) {
 			managerGui.showDialogError( "Aucun élément n'est sélectionné dans la liste.");
 		} else {
 			modelEpreuve.preparerModifier(item);
-			managerGui.showView( EnumView.EquipeForm );
+			managerGui.showView( EnumView.EpreuveForm );
 		}
 	}
 
 	@FXML
 	private void doSupprimer() {
-		Equipe item = listView.getSelectionModel().getSelectedItem();
+		Epreuve item = listView.getSelectionModel().getSelectedItem();
 		if ( item == null ) {
 			managerGui.showDialogError( "Aucun élément n'est sélectionné dans la liste.");
 		} else {

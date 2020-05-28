@@ -1,5 +1,7 @@
 package projet.view.epreuve;
 
+import java.time.LocalDate;
+
 import javax.inject.Inject;
 
 import javafx.collections.FXCollections;
@@ -7,8 +9,8 @@ import javafx.collections.ObservableList;
 import jfox.commun.exception.ExceptionValidation;
 import jfox.javafx.util.UtilFX;
 import projet.commun.IMapper;
-import projet.dao.DaoEquipe;
-import projet.data.Equipe;
+import projet.dao.DaoEpreuve;
+import projet.data.Epreuve;
 
 
 public class ModelEpreuve  {
@@ -16,25 +18,25 @@ public class ModelEpreuve  {
 	
 	// Données observables 
 	
-	private final ObservableList<Equipe> liste = FXCollections.observableArrayList(); 
+	private final ObservableList<Epreuve> liste = FXCollections.observableArrayList(); 
 	
-	private final Equipe	courant = new Equipe();
+	private final Epreuve	courant = new Epreuve();
 
 	
 	// Autres champs
     @Inject
 	private IMapper			mapper;
     @Inject
-	private DaoEquipe		daoEquipe;
+	private DaoEpreuve		daoEpreuve;
 	
 	
 	// Getters 
 	
-	public ObservableList<Equipe> getListe() {
+	public ObservableList<Epreuve> getListe() {
 		return liste;
 	}
 	
-	public Equipe getCourant() {
+	public Epreuve getCourant() {
 		return courant;
 	}
 	
@@ -42,18 +44,18 @@ public class ModelEpreuve  {
 	// Actualisations
 	
 	public void actualiserListe() {
-		liste.setAll( daoEquipe.listerTout() );
+		liste.setAll( daoEpreuve.listerTout() );
  	}
 
 
 	// Actions
 	
 	public void preparerAjouter() {
-		mapper.update( courant, new Equipe() );
+		mapper.update( courant, new Epreuve() );
 	}
 	
-	public void preparerModifier( Equipe item ) {
-		mapper.update( courant, daoEquipe.retrouver( item.getId() ) );
+	public void preparerModifier( Epreuve item ) {
+		mapper.update( courant, daoEpreuve.retrouver( item.getId() ) );
 	}
 	
 	
@@ -63,16 +65,37 @@ public class ModelEpreuve  {
 		
 		StringBuilder message = new StringBuilder();
 
-		if( courant.getNom_equipe() == null || courant.getNom_equipe().isEmpty() ) {
+		if( courant.getNom_epreuve() == null || courant.getNom_epreuve().isEmpty() ) {
 			message.append( "\nLe nom ne doit pas être vide." );
-		} else  if ( courant.getNom_equipe().length()> 50 ) {
+		} else  if ( courant.getNom_epreuve().length()> 50 ) {
 			message.append( "\nLe nom est trop long : 50 maxi." );
 		}
 
-		if( courant.getNb_plateau() != null ) {
-			if (courant.getNb_plateau() > 10 ) {
-				message.append( "\nAttention vous êtes gourmand (trop de plateaux !!)" );
+		if( courant.getTarif() != null ) {
+			if (courant.getTarif() > 100 ) {
+				message.append( "\nAttention prix trop élevé !!" );
 			}
+		}
+		
+		if( courant.getLieu() == null || courant.getLieu().isEmpty() ) {
+			message.append( "\nLe lieu du poste ne doit pas être vide." );
+		} else  if ( courant.getLieu().length()> 50 ) {
+			message.append( "\nLe lieu est trop long : 50 maxi." );
+		}
+		
+		if( courant.getDate_epreuve() != null) {
+			
+			LocalDate mini=LocalDate.of(2000, 01, 01);
+			LocalDate maxi=LocalDate.of(2099, 12, 31);
+	
+			if(courant.getDate_epreuve().isBefore(mini))
+			{
+				message.append( "\nLe jour doit être comprise entre le 01/01/2000 et le 31/12/2099." );
+			}		
+			if(courant.getDate_epreuve().isAfter(maxi)) {
+				message.append( "\nLe jour doit être comprise entre le 01/01/2000 et le 31/12/2099." );
+			}
+			
 		}
 		
 		if ( message.length() > 0 ) {
@@ -84,17 +107,17 @@ public class ModelEpreuve  {
 		
 		if ( courant.getId() == null ) {
 			// Insertion
-			courant.setId( daoEquipe.inserer( courant ) );
+			courant.setId( daoEpreuve.inserer( courant ) );
 		} else {
 			// modficiation
-			daoEquipe.modifier( courant );
+			daoEpreuve.modifier( courant );
 		}
 	}
 	
 	
-	public void supprimer( Equipe item ) {
+	public void supprimer( Epreuve item ) {
 		
-		daoEquipe.supprimer( item.getId() );
+		daoEpreuve.supprimer( item.getId() );
 		System.out.println( UtilFX.findNext( liste, item ) );
 		mapper.update( courant, UtilFX.findNext( liste, item ) );
 	}

@@ -217,7 +217,7 @@ public class DaoEpreuve {
 		Epreuve.setNom_epreuve( rs.getObject( "nom_epreuve", String.class ) );
 		Epreuve.setDate_epreuve( rs.getObject( "date_epreuve", LocalDate.class ) );
 		Epreuve.setLieu( rs.getObject( "lieu", String.class ) );
-		Epreuve.setTarif( rs.getObject( "tarif", String.class ) );
+		Epreuve.setTarif( rs.getObject( "tarif", Integer.class ) );
 		return Epreuve;
 	}
 	

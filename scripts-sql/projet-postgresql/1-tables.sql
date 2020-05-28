@@ -134,7 +134,7 @@ CREATE TABLE epreuve(
 	nom_epreuve          VARCHAR (255) NOT NULL ,
 	date_epreuve         DATE  NOT NULL ,
 	lieu                 VARCHAR (255) NOT NULL  ,
-	tarif		         VARCHAR (255) NOT NULL ,
+	tarif		         INT NOT NULL ,
 	
 	PRIMARY KEY (idepreuve)
 );

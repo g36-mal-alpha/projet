@@ -18,14 +18,14 @@ public class Epreuve  {
 	private final StringProperty	    nom_epreuve	    = new SimpleStringProperty();
 	private final Property<LocalDate>   date_epreuve    = new SimpleObjectProperty<LocalDate>();
 	private final StringProperty	    lieu	        = new SimpleStringProperty();
-	private final StringProperty	    tarif    	    = new SimpleStringProperty();
+	private final Property<Integer>	    tarif    	    = new SimpleObjectProperty<>();
 	
 	// Constructeurs
 	
 	public Epreuve() {
 	}
 
-	public Epreuve( final int id, final String nom_epreuve, LocalDate date_epreuve, String lieu , String tarif ) {
+	public Epreuve( final int id, final String nom_epreuve, LocalDate date_epreuve, String lieu , Integer tarif ) {
 		setId(id);
 		setNom_epreuve(nom_epreuve);
 		setDate_epreuve(date_epreuve);
@@ -93,20 +93,19 @@ public class Epreuve  {
 	}
 	
 
-	public final StringProperty tarifProperty() {
+	public final Property<Integer> tarifProperty() {
 		return this.tarif;
 	}
 	
 
-	public final String getTarif() {
-		return this.tarifProperty().get();
+	public final Integer getTarif() {
+		return this.tarifProperty().getValue();
 	}
 	
 
-	public final void setTarif(final String tarif) {
-		this.tarifProperty().set(tarif);
+	public final void setTarif(final Integer tarif) {
+		this.tarifProperty().setValue(tarif);
 	}
-	
 	
 	
 	// toString()
@@ -135,6 +134,7 @@ public class Epreuve  {
 		Epreuve other = (Epreuve) obj;
 		return Objects.equals(id.getValue(), other.id.getValue() );
 	}
+	
 
 }
 

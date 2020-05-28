@@ -105,6 +105,11 @@ public class MenuBarAppli extends MenuBar {
 		menu.getItems().add( item );
 		itemPostes = item;
 		
+		item = new MenuItem( "Epreuves" );
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.EpreuveListe )  );
+		menu.getItems().add( item );
+		itemPostes = item;
+		
 		
 		// Manu Etats
 		
