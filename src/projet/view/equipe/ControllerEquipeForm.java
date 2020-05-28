@@ -9,11 +9,11 @@ import javafx.util.converter.IntegerStringConverter;
 import jfox.javafx.util.ConverterStringInteger;
 import jfox.javafx.util.ListenerFocusValidation;
 import jfox.javafx.view.IManagerGui;
-import projet.data.Service;
+import projet.data.Equipe;
 import projet.view.EnumView;
 
 
-public class ControllerServiceForm {
+public class ControllerEquipeForm {
 
 	
 	// Composants de la vue
@@ -23,17 +23,18 @@ public class ControllerServiceForm {
 	@FXML
 	private TextField		textFieldNom;
 	@FXML
-	private TextField		textFieldAnneeCreation;
+	private TextField		textFieldNb_plateau;
 	@FXML
-	private CheckBox		checkBoxSiege;
-
+	private CheckBox		checkBoxValide;
+	@FXML
+	private CheckBox		checkBoxPaye;
 	
 	// Autres champs
 	
 	@Inject
 	private IManagerGui		managerGui;
 	@Inject
-	private ModelService	modelService;
+	private ModelEquipe	modelEquipe;
 
 
 	// Initialisation du Controller
@@ -43,17 +44,18 @@ public class ControllerServiceForm {
 
 		// Data binding
 		
-		Service courant = modelService.getCourant();
+		Equipe courant = modelEquipe.getCourant();
 
 		textFieldId.textProperty().bindBidirectional( courant.idProperty(), new IntegerStringConverter()  );
 
-		textFieldNom.textProperty().bindBidirectional( courant.nomProperty() );
+		textFieldNom.textProperty().bindBidirectional( courant.nom_equipeProperty() );
 		
-		textFieldAnneeCreation.textProperty().bindBidirectional( courant.anneeCreationProperty(), new ConverterStringInteger( "###0" ) );
-		textFieldAnneeCreation.focusedProperty().addListener( new ListenerFocusValidation( courant.anneeCreationProperty()  ));
+		textFieldNb_plateau.textProperty().bindBidirectional( courant.nb_plateauProperty(), new ConverterStringInteger( "###0" ) );
+		textFieldNb_plateau.focusedProperty().addListener( new ListenerFocusValidation( courant.nb_plateauProperty()  ));
 		
-		checkBoxSiege.selectedProperty().bindBidirectional( courant.flagSiegeProperty() );
+		checkBoxPaye.selectedProperty().bindBidirectional( courant.payeProperty() );
 		
+		checkBoxPaye.selectedProperty().bindBidirectional( courant.valideProperty() );
 	}
 	
 	
@@ -61,13 +63,13 @@ public class ControllerServiceForm {
 	
 	@FXML
 	private void doAnnuler() {
-		managerGui.showView( EnumView.ServiceListe );
+		managerGui.showView( EnumView.EquipeListe );
 	}
 	
 	@FXML
 	private void doValider() {
-		modelService.validerMiseAJour();
-		managerGui.showView( EnumView.ServiceListe );
+		modelEquipe.validerMiseAJour();
+		managerGui.showView( EnumView.EquipeListe );
 	}
 	
 }

@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="paneRoot" prefHeight="390.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.service.ControllerServiceForm">
+<AnchorPane fx:id="paneRoot" prefHeight="390.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.equipe.ControllerEquipeForm">
    <children>
-      <Label alignment="CENTER" styleClass="titre-vue" text="Service" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+      <Label alignment="CENTER" styleClass="titre-vue" text="Equipe" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
       <VBox alignment="CENTER" fillWidth="false" layoutY="80.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
             <GridPane prefHeight="164.0" prefWidth="288.0">
@@ -26,16 +26,19 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label text="Id :" />
                   <TextField fx:id="textFieldId" editable="false" focusTraversable="false" maxWidth="-Infinity" prefHeight="25.0" prefWidth="50.0" GridPane.columnIndex="1" />
-                  <Label text="Nom" GridPane.rowIndex="1" />
+                  <Label text="Nom :" GridPane.rowIndex="1" />
                   <TextField fx:id="textFieldNom" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label text="Année création  :" GridPane.rowIndex="2" />
-                  <Label text="Au siège :" GridPane.rowIndex="3" />
-                  <TextField fx:id="textFieldAnneeCreation" maxWidth="-Infinity" prefHeight="25.0" prefWidth="46.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <CheckBox fx:id="checkBoxSiege" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Nb Plateau(x) :" GridPane.rowIndex="2" />
+                  <Label text="Valide :" GridPane.rowIndex="3" />
+                  <TextField fx:id="textFieldNb_plateau" maxWidth="-Infinity" prefHeight="25.0" prefWidth="46.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <CheckBox fx:id="checkBoxValide" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Paye :" GridPane.rowIndex="4" />
+                  <CheckBox fx:id="checkBoxPaye" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
             </GridPane>
          </children>

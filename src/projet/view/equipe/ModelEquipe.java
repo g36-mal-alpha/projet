@@ -7,34 +7,34 @@ import javafx.collections.ObservableList;
 import jfox.commun.exception.ExceptionValidation;
 import jfox.javafx.util.UtilFX;
 import projet.commun.IMapper;
-import projet.dao.DaoService;
-import projet.data.Service;
+import projet.dao.DaoEquipe;
+import projet.data.Equipe;
 
 
-public class ModelService  {
+public class ModelEquipe  {
 	
 	
 	// Données observables 
 	
-	private final ObservableList<Service> liste = FXCollections.observableArrayList(); 
+	private final ObservableList<Equipe> liste = FXCollections.observableArrayList(); 
 	
-	private final Service	courant = new Service();
+	private final Equipe	courant = new Equipe();
 
 	
 	// Autres champs
     @Inject
 	private IMapper			mapper;
     @Inject
-	private DaoService		daoService;
+	private DaoEquipe		daoEquipe;
 	
 	
 	// Getters 
 	
-	public ObservableList<Service> getListe() {
+	public ObservableList<Equipe> getListe() {
 		return liste;
 	}
 	
-	public Service getCourant() {
+	public Equipe getCourant() {
 		return courant;
 	}
 	
@@ -42,18 +42,18 @@ public class ModelService  {
 	// Actualisations
 	
 	public void actualiserListe() {
-		liste.setAll( daoService.listerTout() );
+		liste.setAll( daoEquipe.listerTout() );
  	}
 
 
 	// Actions
 	
 	public void preparerAjouter() {
-		mapper.update( courant, new Service() );
+		mapper.update( courant, new Equipe() );
 	}
 	
-	public void preparerModifier( Service item ) {
-		mapper.update( courant, daoService.retrouver( item.getId() ) );
+	public void preparerModifier( Equipe item ) {
+		mapper.update( courant, daoEquipe.retrouver( item.getId() ) );
 	}
 	
 	
@@ -63,16 +63,15 @@ public class ModelService  {
 		
 		StringBuilder message = new StringBuilder();
 
-		if( courant.getNom() == null || courant.getNom().isEmpty() ) {
+		if( courant.getNom_equipe() == null || courant.getNom_equipe().isEmpty() ) {
 			message.append( "\nLe nom ne doit pas être vide." );
-		} else  if ( courant.getNom().length()> 50 ) {
+		} else  if ( courant.getNom_equipe().length()> 50 ) {
 			message.append( "\nLe nom est trop long : 50 maxi." );
 		}
 
-		if( courant.getAnneeCreation() != null ) {
-			if ( courant.getAnneeCreation() < 1900  
-					|| courant.getAnneeCreation() > 2100 ) {
-				message.append( "\nValeur incorrecte pour l'année de création." );
+		if( courant.getNb_plateau() != null ) {
+			if (courant.getNb_plateau() > 10 ) {
+				message.append( "\nAttention vous êtes gourmand (trop de plateaux !!)" );
 			}
 		}
 		
@@ -85,17 +84,17 @@ public class ModelService  {
 		
 		if ( courant.getId() == null ) {
 			// Insertion
-			courant.setId( daoService.inserer( courant ) );
+			courant.setId( daoEquipe.inserer( courant ) );
 		} else {
 			// modficiation
-			daoService.modifier( courant );
+			daoEquipe.modifier( courant );
 		}
 	}
 	
 	
-	public void supprimer( Service item ) {
+	public void supprimer( Equipe item ) {
 		
-		daoService.supprimer( item.getId() );
+		daoEquipe.supprimer( item.getId() );
 		System.out.println( UtilFX.findNext( liste, item ) );
 		mapper.update( courant, UtilFX.findNext( liste, item ) );
 	}

@@ -106,8 +106,8 @@ ALTER TABLE poste ALTER COLUMN idposte RESTART WITH 6;
 -- Equipe
 
 INSERT INTO equipe ( idequipe, nom_equipe, valide, paye, nb_plateau) VALUES
-  ( 1, 'equipe1',TRUE, FALSE, 1),
-  ( 2, 'equipe2', TRUE , TRUE, 2),
+  ( 1, 'equipe 1',TRUE, FALSE, 1),
+  ( 2, 'equipe 2', TRUE , TRUE, 2),
   ( 3, 'equipe 3', TRUE, TRUE, 1);
 
 ALTER TABLE equipe ALTER COLUMN idequipe RESTART WITH 4;
