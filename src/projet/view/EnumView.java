@@ -27,6 +27,9 @@ public enum EnumView implements IEnumView {
 	EquipeListe				    ( "equipe/ViewEquipeListe.fxml" ),
 	EpreuveForm				    ( "epreuve/ViewEpreuveForm.fxml" ),
 	EpreuveListe			    ( "epreuve/ViewEpreuveListe.fxml" ),
+	InfoParticipant 			("participant/ViewInfoParticipant.fxml"),
+	ParticipantListe 			("participant/ViewListeParticipant.fxml"),
+	ParticipantForm				("participant/ViewParticipantForm.fxml"),
 	TestDaoCategorie			( "test/ViewTestDaoCategorie.fxml" ),
 	TestDaoService				( "test/ViewTestDaoService.fxml" ),
 	TestDaoBenevole				( "test/ViewTestDaoBenevole.fxml" ),
@@ -38,9 +41,6 @@ public enum EnumView implements IEnumView {
 	EtatPersonnesParCateogire1	( "personne/ViewEtatPersonnesParCategorie1.fxml" ),
 	EtatPersonnesParCateogire2	( "personne/ViewEtatPersonnesParCategorie2.fxml" ),
 	PosteList					("postes/ViewPosteList.fxml"),
-	InfoParticipant 			("participant/ViewInfoParticipant.fxml"),
-	ParticipantListe 			("participant/ViewListeParticipant.fxml"),
-	ParticipantModification 	("participant/ViewInfoParticipantModification.fxml"),
 	ViewMap						( "map/ViewMap.fxml" );
 
 	

@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.participant.ControllerInfoParticipantModification">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.participant.ControllerParticipantForm">
    <children>
       <VBox layoutX="11.0" layoutY="53.0" prefHeight="544.0" prefWidth="882.0" style="-fx-border-color: rgb(0, 110, 255)rgb(66, 135, 245);">
          <children>
@@ -24,6 +25,22 @@
             </Label>
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
                <children>
+                  <Label prefHeight="30.0" prefWidth="169.0" text="Id :">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textFieldId" prefHeight="26.0" prefWidth="526.0" />
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
+               <children>
                   <Label prefHeight="30.0" prefWidth="169.0" text="Nom :">
                      <padding>
                         <Insets left="10.0" right="10.0" />
@@ -33,11 +50,6 @@
                      </font>
                   </Label>
                   <TextField fx:id="textFieldNom" prefHeight="26.0" prefWidth="526.0" />
-                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="25.0" prefWidth="169.0" text="Modifier">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
                </children>
                <padding>
                   <Insets right="10.0" />
@@ -45,7 +57,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
                <children>
-                  <Label prefHeight="30.0" prefWidth="169.0" text="Prénom :">
+                  <Label prefHeight="32.0" prefWidth="169.0" text="Prenom :">
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>
@@ -53,12 +65,7 @@
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="26.0" prefWidth="526.0" />
-                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="Modifier">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
+                  <TextField fx:id="textFieldPrenom" prefHeight="26.0" prefWidth="526.0" />
                </children>
                <padding>
                   <Insets right="10.0" />
@@ -66,7 +73,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
                <children>
-                  <Label prefHeight="32.0" prefWidth="169.0" text="Poste :">
+                  <Label prefHeight="34.0" prefWidth="169.0" text="Sexe">
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>
@@ -74,12 +81,7 @@
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="26.0" prefWidth="526.0" />
-                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="Modifier">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
+                  <TextField fx:id="textFieldSexe" prefHeight="26.0" prefWidth="526.0" />
                </children>
                <padding>
                   <Insets right="10.0" />
@@ -87,7 +89,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
                <children>
-                  <Label prefHeight="34.0" prefWidth="169.0" text="Téléphone :">
+                  <Label prefHeight="32.0" prefWidth="169.0" text="Numéro de téléphone :">
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>
@@ -95,12 +97,7 @@
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="26.0" prefWidth="526.0" />
-                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="Modifier">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
+                  <TextField fx:id="textFieldNumero_tel" prefHeight="26.0" prefWidth="526.0" />
                </children>
                <padding>
                   <Insets right="10.0" />
@@ -108,28 +105,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
                <children>
-                  <Label prefHeight="32.0" prefWidth="169.0" text="Email :">
-                     <padding>
-                        <Insets left="10.0" right="10.0" />
-                     </padding>
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
-                  </Label>
-                  <TextField prefHeight="26.0" prefWidth="526.0" />
-                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="Modifier">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets right="10.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
-               <children>
-                  <Label prefHeight="34.0" prefWidth="169.0" text="Adresse :">
+                  <Label prefHeight="34.0" prefWidth="169.0" text="Date de naissance :">
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>
@@ -140,12 +116,7 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <TextField prefHeight="26.0" prefWidth="526.0" />
-                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="Modifier">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
+                  <DatePicker fx:id="dateNaissance" prefHeight="26.0" prefWidth="526.0" />
                </children>
                <padding>
                   <Insets right="10.0" />
@@ -153,7 +124,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
                <children>
-                  <Label prefHeight="32.0" prefWidth="169.0" text="Course :">
+                  <Label prefHeight="32.0" prefWidth="169.0" text="Rôle : ">
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>
@@ -162,11 +133,6 @@
                      </font>
                   </Label>
                   <ChoiceBox prefHeight="26.0" prefWidth="526.0" />
-                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="Modifier">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
                </children>
                <padding>
                   <Insets right="10.0" />
@@ -174,7 +140,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
                <children>
-                  <Label prefHeight="32.0" prefWidth="169.0" text="Majeur :">
+                  <Label prefHeight="32.0" prefWidth="169.0" text="Certificat_medicale : ">
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>
@@ -183,11 +149,6 @@
                      </font>
                   </Label>
                   <ChoiceBox prefHeight="26.0" prefWidth="526.0" />
-                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="Modifier">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
                </children>
                <padding>
                   <Insets right="10.0" />
@@ -195,17 +156,12 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="35.0" prefWidth="260.0">
                <children>
-                  <Label prefHeight="32.0" prefWidth="169.0" text="Permis :">
+                  <Label prefHeight="32.0" prefWidth="169.0" text="Adresse Mail :">
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>
                   </Label>
-                  <ChoiceBox prefHeight="26.0" prefWidth="526.0" />
-                  <Button alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="Modifier">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
+                  <TextField fx:id="textFieldMail" prefHeight="26.0" prefWidth="526.0" />
                </children>
                <padding>
                   <Insets right="10.0" />
@@ -213,17 +169,12 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
                <children>
-                  <Label prefHeight="32.0" prefWidth="169.0" text="Coût :">
+                  <Label prefHeight="32.0" prefWidth="169.0" text="Niveau : ">
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>
                   </Label>
-                  <TextField prefHeight="26.0" prefWidth="526.0" />
-                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="Modifier">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
+                  <TextField fx:id="textFieldNiveau" prefHeight="26.0" prefWidth="526.0" />
                </children>
                <padding>
                   <Insets right="10.0" />
@@ -231,7 +182,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="35.0" prefWidth="260.0">
                <children>
-                  <Label prefHeight="32.0" prefWidth="155.0" text="Certificat médicale :">
+                  <Label prefHeight="32.0" prefWidth="169.0" text="Materiel utiliser : ">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -239,12 +190,10 @@
                         <Insets left="10.0" right="10.0" />
                      </padding>
                   </Label>
-                  <TextField prefHeight="26.0" prefWidth="509.0" />
-                  <Button alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Modifier">
+                  <TextField fx:id="textFieldMateriel_utilise" prefHeight="26.0" prefWidth="526.0">
                      <HBox.margin>
-                        <Insets left="50.0" right="10.0" />
-                     </HBox.margin>
-                  </Button>
+                        <Insets right="10.0" />
+                     </HBox.margin></TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
@@ -257,12 +206,7 @@
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="26.0" prefWidth="518.0" />
-                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="Changement de fichier">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
+                  <TextField prefHeight="26.0" prefWidth="526.0" />
                </children>
                <padding>
                   <Insets right="10.0" />
@@ -270,7 +214,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
                <children>
-                  <Label prefHeight="31.0" prefWidth="165.0" text="Photo de profil : ">
+                  <Label prefHeight="31.0" prefWidth="169.0" text="Photo de profil : ">
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>
@@ -278,12 +222,7 @@
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="26.0" prefWidth="518.0" />
-                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="Changement de la photo">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
+                  <TextField prefHeight="26.0" prefWidth="526.0" />
                </children>
                <padding>
                   <Insets right="10.0" />
@@ -291,7 +230,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="455.0" text="Validation de l'incription">
+                  <Button mnemonicParsing="false" onAction="#doValider" prefHeight="75.0" prefWidth="455.0" text="Validation de l'incription">
                      <font>
                         <Font size="35.0" />
                      </font>

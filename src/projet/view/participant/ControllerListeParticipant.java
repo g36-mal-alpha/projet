@@ -31,7 +31,7 @@ public class ControllerListeParticipant {
 	@Inject
 	private IManagerGui			managerGui;
 	@Inject
-	private ModelInfoParticipant		modelInfoParticipant;
+	private ModelParticipant		modelParticipant;
 	
 	
 	// Initialisation du Controller
@@ -40,7 +40,7 @@ public class ControllerListeParticipant {
 	private void initialize() {
 
 		// Data binding
-		listView.setItems( modelInfoParticipant.getListe() );
+		listView.setItems( modelParticipant.getListe() );
 		
 		// Configuraiton des boutons
 		listView.getSelectionModel().selectedItemProperty().addListener(
@@ -55,8 +55,8 @@ public class ControllerListeParticipant {
 	}
 	
 	public void refresh() {
-		modelInfoParticipant.actualiserListe();
-		UtilFX.selectInListView( listView, modelInfoParticipant.getCourantParticipant() );
+		modelParticipant.actualiserListe();
+		UtilFX.selectInListView( listView, modelParticipant.getCourant() );
 		listView.requestFocus();
 	}
 
@@ -65,20 +65,20 @@ public class ControllerListeParticipant {
 	
 	@FXML
 	private void doAjouter() {
-		modelInfoParticipant.preparerAjouter();;
-		managerGui.showView( EnumView.ParticipantModification  );
+		modelParticipant.preparerAjouter();;
+		managerGui.showView( EnumView.ParticipantForm  );
 	}
 
 	@FXML
 	private void doModifier() {
-		modelInfoParticipant.preparerModifier( listView.getSelectionModel().getSelectedItem() );
-		managerGui.showView( EnumView.ParticipantModification  );
+		modelParticipant.preparerModifier( listView.getSelectionModel().getSelectedItem() );
+		managerGui.showView( EnumView.ParticipantForm  );
 	}
-
+	
 	@FXML
 	private void doSupprimer() {
 		if ( managerGui.showDialogConfirm( "Confirmez-vous la suppresion ?" ) ) {
-			modelInfoParticipant.supprimer( listView.getSelectionModel().getSelectedItem() );
+			modelParticipant.supprimer( listView.getSelectionModel().getSelectedItem() );
 			refresh();
 		}
 	}

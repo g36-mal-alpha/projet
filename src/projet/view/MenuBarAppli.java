@@ -110,6 +110,10 @@ public class MenuBarAppli extends MenuBar {
 		menu.getItems().add( item );
 		itemPostes = item;
 		
+		item = new MenuItem( "Participant" );
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.ParticipantListe  )  );
+		menu.getItems().add( item );
+		
 		
 		// Manu Etats
 		
@@ -181,10 +185,7 @@ public class MenuBarAppli extends MenuBar {
 		item = new MenuItem( "ViewInfoParticipantTest" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.InfoParticipant )  );
 		menu.getItems().add( item );
-		
-		item = new MenuItem( "ViewListeParticipant" );
-		item.setOnAction(  (e) -> managerGui.showView( EnumView.ParticipantListe  )  );
-		menu.getItems().add( item );
+
 		
 		/*
 		// PROJET - Menu Postes
