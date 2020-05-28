@@ -192,7 +192,7 @@ public class DaoPoste {
 
 	// Méthodes auxiliaires
 
-	private Poste construirePoste( ResultSet rs , boolean flagComplet ) throws SQLException {
+	private Poste construirePoste( ResultSet rs , boolean categorie ) throws SQLException {
 		Poste poste = new Poste();
 		poste.setId( rs.getObject( "idposte", Integer.class ) );
 		poste.setLibelle( rs.getObject( "libelle", String.class ) );
@@ -202,7 +202,7 @@ public class DaoPoste {
 		poste.setHeure_debut( rs.getObject( "heure_debut", String.class ) );
 		poste.setHeure_fin( rs.getObject( "heure_fin", String.class ) );
 		poste.setNumero_poste( rs.getObject( "numero_poste", Integer.class ) );
-		if ( flagComplet ) {
+		if ( categorie ) {
 			 Integer idCategorie = rs.getObject( "idcategorie", Integer.class );
 			 if ( idCategorie != null ) {
 				 poste.setCategorie( daoCategorie.retrouver(idCategorie) );
