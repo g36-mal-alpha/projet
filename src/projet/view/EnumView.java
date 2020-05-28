@@ -23,6 +23,8 @@ public enum EnumView implements IEnumView {
 	PosteForm					( "poste/ViewPosteForm.fxml" ),
 	BenevoleListe				( "benevole/ViewBenevoleList.fxml" ),
 	BenevoleForm				( "benevole/ViewBenevoleForm.fxml" ),
+	EquipeForm				    ( "equipe/ViewEquipeForm.fxml" ),
+	EquipeListe				    ( "equipe/ViewEquipeListe.fxml" ),
 	TestDaoCategorie			( "test/ViewTestDaoCategorie.fxml" ),
 	TestDaoService				( "test/ViewTestDaoService.fxml" ),
 	TestDaoBenevole				( "test/ViewTestDaoBenevole.fxml" ),
@@ -37,9 +39,7 @@ public enum EnumView implements IEnumView {
 	InfoParticipant 			("participant/ViewInfoParticipant.fxml"),
 	ParticipantListe 			("participant/ViewListeParticipant.fxml"),
 	ParticipantModification 	("participant/ViewInfoParticipantModification.fxml"),
-	ViewMap						( "map/ViewMap.fxml" )
-	
-	;
+	ViewMap						( "map/ViewMap.fxml" );
 
 	
 	// Champs

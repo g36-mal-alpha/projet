@@ -9,7 +9,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import jfox.javafx.util.UtilFX;
 import jfox.javafx.view.IManagerGui;
-import projet.data.Service;
+import projet.data.Equipe;
 import projet.view.EnumView;
 
 
@@ -19,7 +19,7 @@ public class ControllerEquipeListe {
 	// Composants de la vue
 
 	@FXML
-	private ListView<Service>		listView;
+	private ListView<Equipe>		listView;
 	@FXML
 	private Button				buttonModifier;
 	@FXML
@@ -42,7 +42,7 @@ public class ControllerEquipeListe {
 		// Data binding
 		listView.setItems( modelEquipe.getListe() );
 		
-		listView.setCellFactory(  UtilFX.cellFactory( item -> item.getNom() ));
+		listView.setCellFactory(  UtilFX.cellFactory( item -> item.getNom_equipe() ));
 		
 		// Configuraiton des boutons
 		listView.getSelectionModel().selectedItemProperty().addListener(
@@ -65,23 +65,23 @@ public class ControllerEquipeListe {
 	@FXML
 	private void doAjouter() {
 		modelEquipe.preparerAjouter();;
-		managerGui.showView( EnumView.ServiceForm );
+		managerGui.showView( EnumView.EquipeForm );
 	}
 
 	@FXML
 	private void doModifier() {
-		Service item = listView.getSelectionModel().getSelectedItem();
+		Equipe item = listView.getSelectionModel().getSelectedItem();
 		if ( item == null ) {
 			managerGui.showDialogError( "Aucun élément n'est sélectionné dans la liste.");
 		} else {
 			modelEquipe.preparerModifier(item);
-			managerGui.showView( EnumView.ServiceForm );
+			managerGui.showView( EnumView.EquipeForm );
 		}
 	}
 
 	@FXML
 	private void doSupprimer() {
-		Service item = listView.getSelectionModel().getSelectedItem();
+		Equipe item = listView.getSelectionModel().getSelectedItem();
 		if ( item == null ) {
 			managerGui.showDialogError( "Aucun élément n'est sélectionné dans la liste.");
 		} else {

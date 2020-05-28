@@ -69,6 +69,16 @@ public class ModelEquipe  {
 			message.append( "\nLe nom est trop long : 50 maxi." );
 		}
 		
+		if( courant.getNb_plateau() != null ) {
+			if ( courant.getNb_plateau() > 10 ) {
+				message.append( "\nVous êtes gourmand (trop de plateaux repas" );
+			}
+		}
+		
+		if ( message.length() > 0 ) {
+			throw new ExceptionValidation( message.toString().substring(1) );
+		}
+		
 		if ( message.length() > 0 ) {
 			throw new ExceptionValidation( message.toString().substring(1) );
 		}

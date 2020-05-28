@@ -100,6 +100,11 @@ public class MenuBarAppli extends MenuBar {
 		menu.getItems().add( item );
 		itemPostes = item;
 		
+		item = new MenuItem( "Equipes" );
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.EquipeListe )  );
+		menu.getItems().add( item );
+		itemPostes = item;
+		
 		
 		// Manu Etats
 		
