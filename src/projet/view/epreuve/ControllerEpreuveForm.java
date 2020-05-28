@@ -13,7 +13,7 @@ import projet.data.Equipe;
 import projet.view.EnumView;
 
 
-public class ControllerEquipeForm {
+public class ControllerEpreuveForm {
 
 	
 	// Composants de la vue
@@ -34,7 +34,7 @@ public class ControllerEquipeForm {
 	@Inject
 	private IManagerGui		managerGui;
 	@Inject
-	private ModelEquipe	modelEquipe;
+	private ModelEpreuve	modelEpreuve;
 
 
 	// Initialisation du Controller
@@ -44,7 +44,7 @@ public class ControllerEquipeForm {
 
 		// Data binding
 		
-		Equipe courant = modelEquipe.getCourant();
+		Equipe courant = modelEpreuve.getCourant();
 
 		textFieldId.textProperty().bindBidirectional( courant.idProperty(), new IntegerStringConverter()  );
 
@@ -68,7 +68,7 @@ public class ControllerEquipeForm {
 	
 	@FXML
 	private void doValider() {
-		modelEquipe.validerMiseAJour();
+		modelEpreuve.validerMiseAJour();
 		managerGui.showView( EnumView.EquipeListe );
 	}
 	

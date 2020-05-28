@@ -14,7 +14,7 @@ import projet.data.Equipe;
 import projet.view.EnumView;
 
 
-public class ControllerEquipeListe {
+public class ControllerEpreuveListe {
 	
 	
 	// Composants de la vue
@@ -32,7 +32,7 @@ public class ControllerEquipeListe {
 	@Inject
 	private IManagerGui			managerGui;
 	@Inject
-	private ModelEquipe		modelEquipe;
+	private ModelEpreuve		modelEpreuve;
 	
 	
 	// Initialisation du Controller
@@ -41,7 +41,7 @@ public class ControllerEquipeListe {
 	private void initialize() {
 
 		// Data binding
-		listView.setItems( modelEquipe.getListe() );
+		listView.setItems( modelEpreuve.getListe() );
 		
 		listView.setCellFactory(  UtilFX.cellFactory( item -> item.getNom_equipe() ));
 		
@@ -52,8 +52,8 @@ public class ControllerEquipeListe {
 	}
 	
 	public void refresh() {
-		modelEquipe.actualiserListe();
-		UtilFX.selectInListView( listView, modelEquipe.getCourant() );
+		modelEpreuve.actualiserListe();
+		UtilFX.selectInListView( listView, modelEpreuve.getCourant() );
 		listView.requestFocus();
 	}
 
@@ -62,7 +62,7 @@ public class ControllerEquipeListe {
 	
 	@FXML
 	private void doAjouter() {
-		modelEquipe.preparerAjouter();;
+		modelEpreuve.preparerAjouter();;
 		managerGui.showView( EnumView.EquipeForm );
 	}
 
@@ -72,7 +72,7 @@ public class ControllerEquipeListe {
 		if ( item == null ) {
 			managerGui.showDialogError( "Aucun élément n'est sélectionné dans la liste.");
 		} else {
-			modelEquipe.preparerModifier(item);
+			modelEpreuve.preparerModifier(item);
 			managerGui.showView( EnumView.EquipeForm );
 		}
 	}
@@ -85,7 +85,7 @@ public class ControllerEquipeListe {
 		} else {
 			boolean reponse = managerGui.showDialogConfirm( "Confirmez-vous la suppresion ?" );
 			if ( reponse ) {
-				modelEquipe.supprimer( item );
+				modelEpreuve.supprimer( item );
 				refresh();
 			}
 		}

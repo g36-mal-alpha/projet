@@ -11,7 +11,7 @@ import projet.dao.DaoEquipe;
 import projet.data.Equipe;
 
 
-public class ModelEquipe  {
+public class ModelEpreuve  {
 	
 	
 	// Données observables 
