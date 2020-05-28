@@ -15,26 +15,31 @@
     -fx-font-size: 16;
 }
 
-#buttonCo {
+.button {
 	-fx-background-color: #3498db;
 	-fx-text-fill: white;
 }
 
-#buttonCo:hover {
+.button:hover {
 	-fx-background-color: #34495e;
 }
 
-#buttonAjouter, #buttonSupprimer, #buttonModifier {
-	-fx-background-color: #3498db;
-	-fx-text-fill: white;
-}
-
-#buttonAjouter:hover, #buttonSupprimer:hover, #buttonModifier:hover {
-	-fx-background-color: #34495e;
-}
 
 #labelTable {
 	-fx-text-fill: #3498db;
+}
+
+.list-view .list-cell:even {
+-fx-background-color: #3498db;
+-fx-text-fill: white;
+}
+.list-view .list-cell:odd {
+-fx-background-color: #3498db;
+-fx-text-fill: white;
+}
+
+.list-view .list-cell:hover {
+	-fx-background-color: #34495e;
 }
 
 
