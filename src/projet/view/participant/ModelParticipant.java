@@ -1,6 +1,8 @@
 package projet.view.participant;
 
 
+import java.time.LocalDate;
+
 import javax.inject.Inject;
 
 import javafx.collections.FXCollections;
@@ -65,32 +67,53 @@ public class ModelParticipant  {
 	public void validerMiseAJour() {
 
 		// Vérifie la validité des données
-		/*
-		StringBuilder message = new StringBuilder();
-
-		if( courant.getLibelle() == null || courant.getLibelle().isEmpty() ) {
-			message.append( "\nLe libelle du poste ne doit pas être vide." );
-		} else  if ( courant.getLibelle().length()> 50 ) {
-			message.append( "\nLe mémo est trop long : 50 maxi." );
-		}
 		
-		if( courant.getLieu() == null || courant.getLieu().isEmpty() ) {
-			message.append( "\nLe lieu du poste ne doit pas être vide." );
-		} else  if ( courant.getLieu().length()> 50 ) {
-			message.append( "\nLe lieu est trop long : 50 maxi." );
-		}
+	StringBuilder message = new StringBuilder();
+	
+	//Nom
+	if( courant.getNom() == null || courant.getNom().isEmpty() ) {
+		message.append( "\nLe nom ne doit pas être vide." );
+	} else  if ( courant.getNom().length()> 50 ) {
+		message.append( "\nLe nom est trop long." );
+	}
+	
+	//Prenom
+	if( courant.getPrenom() == null || courant.getPrenom().isEmpty() ) {
+		message.append( "\nLe prenom ne doit pas être vide." );
+	} else  if ( courant.getPrenom().length()> 50 ) {
+		message.append( "\nLe prenom est trop long." );
+	}
 		
-		if( courant.getJour() != null) {
+	//Sexe 
+	if( courant.getSexe() != "M" || courant.getSexe().isEmpty() || courant.getSexe() != "F"  ) {
+		message.append( "\nLe sexe ne doit valide." );
+	
+	//Numero de téléphone
+	if( courant.getNumero_tel() == null || courant.getNumero_tel().isEmpty() ) {
+		message.append( "\nLe nom ne doit pas être vide." );
+	} else  if ( courant.getNumero_tel().length()> 10 ) {
+		message.append( "\nLe numero de téléphone est trop long." );
+	}
+			
+	//Date de naissance	
+		if( courant.getDate_naissance() != null) {
 			
 			LocalDate mini=LocalDate.of(2000, 01, 01);
 			LocalDate maxi=LocalDate.of(2099, 12, 31);
 	
-			if(courant.getJour().isBefore(mini))
+			if(courant.getDate_naissance().isBefore(mini))
 			{
 				message.append( "\nLe jour doit être comprise entre le 01/01/2000 et le 31/12/2099." );
 			}		
-			if(courant.getJour().isAfter(maxi)) {
+			if(courant.getDate_naissance().isAfter(maxi)) {
 				message.append( "\nLe jour doit être comprise entre le 01/01/2000 et le 31/12/2099." );
+			}
+			
+			//Mail
+			if( courant.getMail() == null || courant.getMail().isEmpty() ) {
+				message.append( "\nL'adresse e-mail ne doit pas être vide." );
+			} else  if ( courant.getMail().length()> 100 ) {
+				message.append( "\nL'adresse e-mail est trop longue : 100 maxi." );
 			}
 			
 		}
@@ -99,7 +122,6 @@ public class ModelParticipant  {
 			throw new ExceptionValidation( message.toString().substring(1) );
 		}
 		
-		*/
 		// Effectue la mise à jour
 		
 		if ( courant.getId() == null ) {
@@ -111,7 +133,7 @@ public class ModelParticipant  {
 		}
 	}
 
-
+}
 	
 	public void supprimer( Participant item ) {
 		

@@ -5,7 +5,6 @@ package projet.view.participant;
 import javax.inject.Inject;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import jfox.javafx.util.ConverterStringInteger;
@@ -34,6 +33,8 @@ public class ControllerParticipantForm {
 		private DatePicker			dateNaissance;
 		@FXML
 		private TextField			textFieldNumero_tel;
+		@FXML
+		private TextField			textFieldCertificat_Medical;
 		@FXML
 		private TextField			textFieldMail;
 		@FXML
@@ -66,7 +67,7 @@ public class ControllerParticipantForm {
 			
 			dateNaissance.getEditor().textProperty().bindBidirectional( courant.date_naissanceProperty(), new ConverterStringLocalDate() );
 			dateNaissance.getEditor().focusedProperty().addListener(new ListenerFocusValidation( courant.date_naissanceProperty(), "Jour incorrect." ) );
-			
+			textFieldCertificat_Medical.textProperty().bindBidirectional( courant.certificat_medicalProperty() );
 			textFieldMail.textProperty().bindBidirectional( courant.mailProperty() );
 			textFieldNiveau.textProperty().bindBidirectional( courant.niveauProperty() );
 			textFieldMateriel_utilise.textProperty().bindBidirectional( courant.materiel_utiliseProperty() );
