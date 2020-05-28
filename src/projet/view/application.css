@@ -42,6 +42,14 @@
 	-fx-background-color: #34495e;
 }
 
+.list-view .list-cell:filled:selected:focused, .list-view .list-cell:filled:selected {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+}
+
+
+
+
 
 
 /* VARIABLE DEFINITIONS: Only these 4 variables have to be adjusted, the rest is copy-paste */
