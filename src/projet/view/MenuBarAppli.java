@@ -110,7 +110,7 @@ public class MenuBarAppli extends MenuBar {
 		menu.getItems().add( item );
 		itemPostes = item;
 		
-		item = new MenuItem( "Participant" );
+		item = new MenuItem( "Participants" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.ParticipantListe  )  );
 		menu.getItems().add( item );
 		
@@ -182,9 +182,6 @@ public class MenuBarAppli extends MenuBar {
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.TestDaoDocuments )  );
 		menu.getItems().add( item );
 		
-		item = new MenuItem( "ViewInfoParticipantTest" );
-		item.setOnAction(  (e) -> managerGui.showView( EnumView.InfoParticipant )  );
-		menu.getItems().add( item );
 
 		
 		/*
