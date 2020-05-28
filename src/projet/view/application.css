@@ -24,6 +24,19 @@
 	-fx-background-color: #34495e;
 }
 
+#buttonAjouter, #buttonSupprimer, #buttonModifier {
+	-fx-background-color: #3498db;
+	-fx-text-fill: white;
+}
+
+#buttonAjouter:hover, #buttonSupprimer:hover, #buttonModifier:hover {
+	-fx-background-color: #34495e;
+}
+
+#labelTable {
+	-fx-text-fill: #3498db;
+}
+
 
 
 /* VARIABLE DEFINITIONS: Only these 4 variables have to be adjusted, the rest is copy-paste */
