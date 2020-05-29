@@ -116,12 +116,21 @@ ALTER TABLE benevole ALTER COLUMN idbenevole RESTART WITH 8;
 -- Poste 
 
 INSERT INTO poste ( idposte, lieu, libelle, nombre ,jour, heure_debut, numero_poste, heure_fin, idcategorie) VALUES
-  ( 1, 'lieu1', 'signaleur',2,'12/08/2020', '17:00:00' , 1, '18:00:00', 1),
-  ( 2, 'lieu2', 'buvette',5,'12/08/2020', '17:00:00' , 2, '18:00:00', 1),
-  ( 3, 'lieu3', 'moto',6,'12/08/2020' ,  '09:00:00' , 17, '11:00:00', 1),
-  ( 4, 'lieu4', 'photographe',3, '12/08/2020', '07:00:00' , 45, '10:00:00', 1);
- 
-ALTER TABLE poste ALTER COLUMN idposte RESTART WITH 6;
+  ( 1, 'lieu1', 'Signaleur', 37,'12/08/2020', '08:30:00' , 1, '13:30:00', 4),
+  ( 2, 'lieu2', 'Buvette',5,'12/08/2020', '07:00:00' , 2, '15:00:00', 3),
+  ( 3, 'lieu3', 'Moto', 2, '12/08/2020', '09:00:00' , 3, '13:30:00', 3),
+  ( 4, 'lieu4', 'Photographe', 2, '12/08/2020', '07:00:00' , 4, '14:00:00', 3),
+  ( 5, 'lieu5', 'Parking Voiture', 1, '12/08/2020', '07:00:00', 9, '09:00:00', 1),
+  ( 6, 'lieu6', 'Parking Velo', 1, '12/08/2020', '07:00:00', 10, '09:00:00', 1),
+  ( 7, 'lieu7', 'Remise Dossards', 4, '12/08/2020', '07:00:00', 11, '09:00:00', 1),
+  ( 8, 'lieu8', 'Ravitaillement', 6, '12/08/2020', '09:00:00', 12, '13:00:00', 4),
+  ( 9, 'lieu9', 'Securite sur eau', 6, '12/08/2020', '09:00:00', 13, '10:30:00', 1),
+  ( 10, 'lieu10', 'Chronometrage', 6, '12/08/2020', '09:30:00', 14, '13:30:00', 4),
+  ( 11, 'lieu11', 'Repas', 3, '12/08/2020', '12:00:00', 15, '14:00:00', 2),
+  ( 12, 'lieu12', 'Recuperation Dossards', 1, '12/08/2020', '12:00:00', 16, '13:30:00', 1);
+
+
+ALTER TABLE poste ALTER COLUMN idposte RESTART WITH 15;
   
 -- Equipe
 
