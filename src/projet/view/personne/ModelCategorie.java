@@ -29,6 +29,8 @@ public class ModelCategorie  {
 	private DaoCategorie	daoCategorie;
     @Inject
     private DaoPersonne		daoPersonne;
+    @Inject
+    private ModelCategorie  modelCategorie;
 	
 	// Getters 
 	
@@ -55,6 +57,7 @@ public class ModelCategorie  {
 	}
 	
 	public void preparerModifier( Categorie item ) {
+		modelCategorie.actualiserListe();
 		mapper.update( courant, daoCategorie.retrouver( item.getId() ) );
 	}
 	

@@ -6,11 +6,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import jfox.javafx.control.EditingCell;
 import jfox.javafx.util.ConverterStringInteger;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Poste;
-import projet.data.Telephone;
 import projet.view.EnumView;
 
 
@@ -22,10 +22,6 @@ public class ControllerPosteListeDetail  {
 	@FXML
 	private TextField			textFieldId;
 	@FXML
-	private TextField			textFieldLibelle;
-	@FXML	
-	private TextField			textFieldLieu;
-	@FXML
 	private TableView<Poste>	tableViewPostes;
 	@FXML
 	private TableColumn<Poste, Integer> columnId;
@@ -34,8 +30,6 @@ public class ControllerPosteListeDetail  {
 	@FXML
 	private TableColumn<Poste, String> columnLieu;
 	
-
-
 
 	
 	// Autres champs
@@ -53,25 +47,22 @@ public class ControllerPosteListeDetail  {
 		
 		// Champs simples
 		textFieldId.textProperty().bindBidirectional( courant.idProperty(), new ConverterStringInteger() );
-		textFieldLibelle.textProperty().bindBidirectional( courant.libelleProperty() );
-		textFieldLieu.textProperty().bindBidirectional( courant.lieuProperty() );
 
-        
-		
 		// Configuration du TableView
+		
+		columnId.setCellValueFactory(new PropertyValueFactory<Poste, Integer>("id"));
+		columnLibelle.setCellValueFactory(new PropertyValueFactory<Poste, String>("libelle"));
+		columnLieu.setCellValueFactory(new PropertyValueFactory<Poste, String>("lieu"));
+		
+		/*epreuve.setCellValueFactory(new Callback<CellDataFeatures<Participant,String>,ObservableValue<String>>(){
 
+            @Override
+            public ObservableValue<String> call(CellDataFeatures<Participant, String> param) {
+                return new SimpleStringProperty(param.getValue().getEquipe().getEpreuve().getNomEpreuve());
+            }
+        });*/
 		// Data binding
-		tableViewPostes.setItems(  courant.getPoste() );
-		
-		columnId.setCellValueFactory( t -> t.getValue().idProperty() );
-		
-		columnLibelle.setCellValueFactory( t -> t.getValue().libelleProperty() );
-		columnLieu.setCellValueFactory( t -> t.getValue().libelleProperty() );
-
-
-		columnLibelle.setCellFactory(  p -> new EditingCell<>() );
-		columnLibelle.setCellValueFactory( t -> t.getValue().libelleProperty() );
-		
+		tableViewPostes.setItems( modelPoste.getListe());
 	
 	}
 	
