@@ -12,7 +12,7 @@ public class ModelSexe {
 	
 	private final ObservableList<Sexe> liste = FXCollections.observableArrayList(); 
 	
-	private final Sexe	courant1 = new Sexe();
+	private final Sexe	courant = new Sexe();
 	
 	// Autres champs
 
@@ -22,8 +22,8 @@ public class ModelSexe {
 		return liste;
 	}
 	
-	public Sexe getCourant1() {
-		return courant1;
+	public Sexe getCourant() {
+		return courant;
 	}
 
 }

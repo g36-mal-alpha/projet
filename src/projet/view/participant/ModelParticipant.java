@@ -28,12 +28,6 @@ public class ModelParticipant  {
 	private final Participant	courant = new Participant();
 	
 	
-	private final Property<String>	nom	= new SimpleObjectProperty<>();
-	
-	public ObservableList<Sexe> getSexe() {
-		return modelSexe.getListe();
-	}
-	
 	// Autres champs
     @Inject
 	private IMapper			mapper;
@@ -52,6 +46,11 @@ public class ModelParticipant  {
 	public Participant getCourant() {
 		return courant;
 	}	
+	
+	public ObservableList<Sexe> getSexe() {
+		return modelSexe.getListe();
+	}
+
 	
 	// Actualisations
 	

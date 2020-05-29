@@ -49,8 +49,6 @@ public class ControllerListeParticipant {
 		});
 		configurerBoutons();
 		
-		//CellFactory
-		listView.setCellFactory( UtilFX.cellFactory( item -> item.getNom() ) );
 		
 	}
 	

@@ -54,8 +54,6 @@ public class ControllerParticipantForm {
 		private ModelParticipant		modelParticipant;
 		@Inject
 		private Participant				participant;
-		@Inject
-		private ModelSexe			modelSexe;
 	    
 		
 		// Initialisation du controller
