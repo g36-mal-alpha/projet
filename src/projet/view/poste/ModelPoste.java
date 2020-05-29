@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import jfox.commun.exception.ExceptionValidation;
 import jfox.javafx.util.UtilFX;
 import projet.commun.IMapper;
+import projet.dao.DaoBenevole;
 import projet.dao.DaoPoste;
 import projet.data.Benevole;
 import projet.data.Categorie;
@@ -23,6 +24,9 @@ public class ModelPoste  {
 	
 	private final ObservableList<Poste> liste = FXCollections.observableArrayList(); 
 	
+	private final ObservableList<Benevole> benevolesPourDialogAjout = FXCollections.observableArrayList();
+
+	
 	private final Poste	courant = new Poste();
 
 	
@@ -32,23 +36,28 @@ public class ModelPoste  {
     @Inject
 	private DaoPoste	    daoPoste;
     @Inject
+	private DaoBenevole	    daoBenevole;
+    @Inject
     private ModelCategorie  modelCategorie;
 	
 	
 	// Getters 
 	
-	public ObservableList<Poste> getListe() {
-		return liste;
-	}
-	
 	public Poste getCourant() {
 		return courant;
 	}
 	
-	public ObservableList<Categorie> getCategories() {
+	public ObservableList<Poste> getListe() {
+		return liste;
+	}
+	
+	public ObservableList<Categorie> getCategorie() {
 		 return modelCategorie.getListe();
 	}
 	
+	public ObservableList<Benevole> getBenevolesesPourDialogAjout() {
+		 return benevolesPourDialogAjout;
+	}
 
 	
 	// Actualisations
@@ -57,6 +66,11 @@ public class ModelPoste  {
 		liste.setAll( daoPoste.listerTout() );
  	}
 
+	public void  actualiserListeBenevolesPourDialogAjout() {
+		liste.setAll( daoBenevole.benevolesPourDialogAjout() );
+		benevolesPourDialogAjout.removeAll( courant.getBenevoles() );
+
+ 	}
 
 	// Actions
 	

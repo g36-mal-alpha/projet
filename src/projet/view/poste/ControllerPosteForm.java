@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 
 import javax.inject.Inject;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -96,7 +97,7 @@ public class ControllerPosteForm {
 		
 		TextFieldNumero_poste.textProperty().bindBidirectional( courant.numero_posteProperty(),  new IntegerStringConverter() );
 		
-		comboBoxCategorie.setItems( modelPoste.getCategories() );
+		comboBoxCategorie.setItems( modelPoste.getCategorie() );
 		comboBoxCategorie.valueProperty().bindBidirectional( courant.categorieProperty());
 
 		listViewBenevoles.setItems( courant.getBenevoles() );
@@ -123,13 +124,16 @@ public class ControllerPosteForm {
 	
 	@FXML
 	private void doSupprimerBenevoles() {
-	 modelPoste.supprimerBenevole(
-	 listViewBenevoles.getSelectionModel().getSelectedItem() );
+	 ObservableList<Benevole> selectedItems =
+	 listViewBenevoles.getSelectionModel().getSelectedItems();
+	 for ( int i = selectedItems.size() - 1; i>=0; --i ) {
+	 modelPoste.supprimerBenevole( selectedItems.get(i) );
+	 }
 	}
 	
 	@FXML
 	private void doAjouterBenevoles() {
-		
+		managerGui.showDialog( EnumView.PosteAjoutBenevoles );
 	}
 
 	/*

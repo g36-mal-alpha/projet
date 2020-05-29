@@ -20,6 +20,7 @@ public enum EnumView implements IEnumView {
 	ServiceListe	      	    ( "service/ViewServiceListe.fxml" ),
 	ServiceForm					( "service/ViewServiceForm.fxml" ),
 	PosteListe		   			( "poste/ViewPosteListe.fxml" ),
+	PosteAjoutBenevoles		    ( "poste/ViewPosteAjoutBenevoles.fxml" ),
 	PosteForm					( "poste/ViewPosteForm.fxml" ),
 	BenevoleListe				( "benevole/ViewBenevoleList.fxml" ),
 	BenevoleForm				( "benevole/ViewBenevoleForm.fxml" ),

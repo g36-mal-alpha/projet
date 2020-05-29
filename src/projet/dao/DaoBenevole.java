@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 
 import jfox.dao.jdbc.UtilJdbc;
 import projet.data.Benevole;
+import projet.data.Poste;
 
 public class DaoBenevole {
 
@@ -229,5 +230,10 @@ public class DaoBenevole {
 		}
 		return benevole;
 	}
-	
+
+
+	public Poste benevolesPourDialogAjout() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
