@@ -72,15 +72,15 @@ ALTER TABLE personne ALTER COLUMN idpersonne RESTART WITH 4;
 -- Telephone
 
 INSERT INTO telephone (idtelephone, idpersonne, libelle, numero ) VALUES
-  ( 11, 1, 'Portable', '06 11 11 11 11' ),
-  ( 12, 1, 'Fax', '05 55 99 11 11' ),
-  ( 13, 1, 'Bureau', '05 55 11 11 11' ),
-  ( 21, 2, 'Portable', '06 22 22 22 22' ),
-  ( 22, 2, 'Fax', '05 55 99 22 22' ),
-  ( 23, 2, 'Bureau', '05 55 22 22 22' ),
-  ( 31, 3, 'Portable', '06 33 33 33 33' ),
-  ( 32, 3, 'Fax', '05 55 99 33 33' ),
-  ( 33, 3, 'Bureau', '05 55 33 33 33' );
+  ( 11, 1, 'Portable', '0611111111' ),
+  ( 12, 1, 'Fax', '0555991111' ),
+  ( 13, 1, 'Bureau', '0555111111' ),
+  ( 21, 2, 'Portable', '0622222222' ),
+  ( 22, 2, 'Fax', '0555992222' ),
+  ( 23, 2, 'Bureau', '0555222222' ),
+  ( 31, 3, 'Portable', '0633333333' ),
+  ( 32, 3, 'Fax', '0555993333' ),
+  ( 33, 3, 'Bureau', '0555333333' );
 
 ALTER TABLE telephone ALTER COLUMN idtelephone RESTART WITH 100;
 
