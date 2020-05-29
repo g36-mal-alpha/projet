@@ -64,6 +64,12 @@ public class ControllerPosteListe {
 	// Actions
 	
 	@FXML
+	private void doDetail() {
+		modelPoste.preparerDetail();
+		managerGui.showView( EnumView.PosteFormDetail );
+	}
+	
+	@FXML
 	private void doAjouter() {
 		modelPoste.preparerAjouter();;
 		managerGui.showView( EnumView.PosteForm );
