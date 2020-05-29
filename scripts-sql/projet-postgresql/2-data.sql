@@ -42,7 +42,8 @@ INSERT INTO role (idcompte, role) VALUES
 
 INSERT INTO categorie (idcategorie, libelle ) VALUES
   (1, 'M' ),
-  (2, 'E' );
+  (2, 'E' ),
+  (3, 'M ou E');
   
 
 -- Sexe
