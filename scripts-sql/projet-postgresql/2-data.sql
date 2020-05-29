@@ -44,7 +44,8 @@ INSERT INTO categorie (idcategorie, libelle ) VALUES
   (1, 'M' ),
   (2, 'E' ),
   (3, 'M ou E');
-  
+ 
+ALTER TABLE compte ALTER COLUMN idcompte RESTART WITH 2;
 
 -- Sexe
 
@@ -52,12 +53,15 @@ INSERT INTO sexe (idsexe, libelle ) VALUES
   (1, 'homme' ),
   (2, 'femme' );
   
+ALTER TABLE sexe ALTER COLUMN idsexe RESTART WITH 2;
   
  -- hierarchie
 
 INSERT INTO hierarchie (idhierarchie, libelle ) VALUES
   (1, 'chef équipe' ),
   (2, 'équipier' );
+  
+ ALTER TABLE hierarchie ALTER COLUMN idhierarchie RESTART WITH 2;
   
 
 -- Personne
