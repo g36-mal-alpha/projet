@@ -143,11 +143,11 @@ ALTER TABLE epreuve ALTER COLUMN idepreuve RESTART WITH 4;
 
 -- Participant
  
-INSERT INTO participant (idparticipant, idequipe, idepreuve, nom, prenom, sexe, numero_tel,  date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise) VALUES
-  ( 1,1,1, 'nom1', 'leo', 'M', '06 52 36 98 25','12/08/1995', 'adresse 1', 'chef equipe','fichier 1', 'mail1@gmail.com',  'junior' , 'velo, kanoé'),
-  ( 2,2,2, 'nom2', 'bob', 'M', '06 95 58 21 02','12/08/1965', 'adresse 2', 'equipier',   'fichier 2', 'mail2@hotmail.fr', 'senior', 'velo'),
-  ( 3,3,3, 'nom3', 'toto','M', '06 87 10 96 32','12/08/1998','adresse 3', 'equipier',   'fichier 3', 'mail3@orange.fr',  'junior', 'kanoe'),
-  (	4,3,2, 'nom4', 'clement','M', '06 87 10 78 32','12/08/1999','adresse 4', 'chef equipe',   'fichier 4', 'mail4@orange.fr',  'senior', 'kanoe');
+INSERT INTO participant (idparticipant, idequipe, idepreuve, nom, prenom, idsexe, numero_tel,  date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise) VALUES
+  ( 1,1,1, 'nom1', 'leo', 1, '06 52 36 98 25','12/08/1995', 'adresse 1', 'chef equipe','fichier 1', 'mail1@gmail.com',  'junior' , 'velo, kanoé'),
+  ( 2,2,2, 'nom2', 'bob', 2, '06 95 58 21 02','12/08/1965', 'adresse 2', 'equipier',   'fichier 2', 'mail2@hotmail.fr', 'senior', 'velo'),
+  ( 3,3,3, 'nom3', 'toto',1, '06 87 10 96 32','12/08/1998','adresse 3', 'equipier',   'fichier 3', 'mail3@orange.fr',  'junior', 'kanoe'),
+  (	4,3,2, 'nom4', 'clement',2, '06 87 10 78 32','12/08/1999','adresse 4', 'chef equipe',   'fichier 4', 'mail4@orange.fr',  'senior', 'kanoe');
   
 ALTER TABLE participant ALTER COLUMN idparticipant RESTART WITH 16;
  
