@@ -25,7 +25,7 @@ public class Poste {
 	private final Property<Integer>		id				= new SimpleObjectProperty<>();
 	private final StringProperty   	 	libelle     	= new SimpleStringProperty();
 	private final StringProperty   	 	lieu   	        = new SimpleStringProperty();
-	private final Property<Integer>	    statut 		    = new SimpleObjectProperty<>(0);
+	private final Property<Integer>	    nombre 		    = new SimpleObjectProperty<>();
 	private final Property<LocalDate>   jour            = new SimpleObjectProperty<>();
 	
 	//private final Property<LocalTime> heure_debut     = new SimpleObjectProperty<>();
@@ -51,11 +51,11 @@ public class Poste {
 	public Poste() {
 	}
 	
-	public Poste( int id, String libelle, String lieu, Integer statut, LocalDate jour, String heure_debut, String heure_fin, Integer numero_poste , Poste poste, Categorie categorie ) {
+	public Poste( int id, String libelle, String lieu, Integer nombre, LocalDate jour, String heure_debut, String heure_fin, Integer numero_poste , Poste poste, Categorie categorie ) {
 		setId(id);
 		setLibelle(libelle);
 		setLieu(lieu);
-		setStatut(statut);
+		setNombre(nombre);
 		setJour(jour);
 		setHeure_debut(heure_debut);
 		setHeure_fin(heure_fin);
@@ -109,16 +109,19 @@ public class Poste {
 		this.lieuProperty().set(lieu);
 	}
 	
-	public final Property<Integer> statutProperty() {
-		return this.statut;
+
+	public final Property<Integer> nombreProperty() {
+		return this.nombre;
 	}
 	
-	public final Integer getStatut() {
-		return this.statutProperty().getValue();
-	}
 
-	public final void setStatut(final Integer statut) {
-		this.statutProperty().setValue(statut);
+	public final Integer getNombre() {
+		return this.nombreProperty().getValue();
+	}
+	
+
+	public final void setNombre(final Integer nombre) {
+		this.nombreProperty().setValue(nombre);
 	}
 	
 

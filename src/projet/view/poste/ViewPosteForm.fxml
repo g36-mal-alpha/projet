@@ -69,6 +69,7 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
                                     <Label text="Jour" />
@@ -104,6 +105,8 @@
                                     <TextField fx:id="TextFieldHeure_fin" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <Label text="Numero" GridPane.rowIndex="4" />
                                     <TextField fx:id="TextFieldNumero_poste" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Label text="Nombre" GridPane.rowIndex="5" />
+                                    <TextField fx:id="TextFieldNombre" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                  </children>
                                  <padding>
                                     <Insets left="5.0" right="5.0" />

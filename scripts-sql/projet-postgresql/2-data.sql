@@ -46,7 +46,8 @@ INSERT INTO role (idcompte, role) VALUES
 INSERT INTO categorie (idcategorie, libelle ) VALUES
   (1, 'M' ),
   (2, 'E' ),
-  (3, 'M ou E');
+  (3, 'M ou E'),
+  (4, 'M et E');
  
 ALTER TABLE compte ALTER COLUMN idcompte RESTART WITH 2;
 
@@ -114,11 +115,11 @@ ALTER TABLE benevole ALTER COLUMN idbenevole RESTART WITH 8;
 
 -- Poste 
 
-INSERT INTO poste ( idposte, lieu, libelle, statut ,jour, heure_debut, numero_poste, heure_fin, idcategorie) VALUES
-  ( 1, 'lieu1', 'signaleur',1,'12/08/2020', '17:00:00' , 1, '18:00:00', 1),
-  ( 2, 'lieu2', 'buvette',1,'12/08/2020', '17:00:00' , 2, '18:00:00', 1),
-  ( 3, 'lieu3', 'moto',1,'12/08/2020' ,  '09:00:00' , 17, '11:00:00', 1),
-  ( 4, 'lieu4', 'photographe',1, '12/08/2020', '07:00:00' , 45, '10:00:00', 1);
+INSERT INTO poste ( idposte, lieu, libelle, nombre ,jour, heure_debut, numero_poste, heure_fin, idcategorie) VALUES
+  ( 1, 'lieu1', 'signaleur',2,'12/08/2020', '17:00:00' , 1, '18:00:00', 1),
+  ( 2, 'lieu2', 'buvette',5,'12/08/2020', '17:00:00' , 2, '18:00:00', 1),
+  ( 3, 'lieu3', 'moto',6,'12/08/2020' ,  '09:00:00' , 17, '11:00:00', 1),
+  ( 4, 'lieu4', 'photographe',3, '12/08/2020', '07:00:00' , 45, '10:00:00', 1);
  
 ALTER TABLE poste ALTER COLUMN idposte RESTART WITH 6;
   

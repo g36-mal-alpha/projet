@@ -44,11 +44,11 @@ public class DaoPoste {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "INSERT INTO poste ( libelle, lieu, statut, jour, heure_debut, heure_fin, numero_poste, idcategorie ) VALUES( ?, ?, ?, ?, ?, ?, ?, ? ) ";
+			sql = "INSERT INTO poste ( libelle, lieu, nombre, jour, heure_debut, heure_fin, numero_poste, idcategorie ) VALUES( ?, ?, ?, ?, ?, ?, ?, ? ) ";
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 			stmt.setObject( 1, poste.getLibelle() );
 			stmt.setObject( 2, poste.getLieu() );
-			stmt.setObject( 3, poste.getStatut() );
+			stmt.setObject( 3, poste.getNombre() );
 			stmt.setObject( 4, poste.getJour() );
 			stmt.setObject( 5, poste.getHeure_debut() );
 			stmt.setObject( 6, poste.getHeure_fin() );
@@ -85,11 +85,11 @@ public class DaoPoste {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "UPDATE poste SET libelle = ?, lieu = ?, statut = ?, jour = ? , heure_debut = ?, heure_fin = ?, numero_poste = ?, idcategorie = ?  WHERE idposte =  ?";
+			sql = "UPDATE poste SET libelle = ?, lieu = ?, nombre = ?, jour = ? , heure_debut = ?, heure_fin = ?, numero_poste = ?, idcategorie = ?  WHERE idposte =  ?";
 			stmt = cn.prepareStatement( sql );
 			stmt.setObject( 1, poste.getLibelle() );
 			stmt.setObject( 2, poste.getLieu() );
-			stmt.setObject( 3, poste.getStatut() );
+			stmt.setObject( 3, poste.getNombre() );
 			stmt.setObject( 4, poste.getJour() );
 			stmt.setObject( 5, poste.getHeure_debut() );
 			stmt.setObject( 6, poste.getHeure_fin() );
@@ -196,7 +196,7 @@ public class DaoPoste {
 		Poste poste = new Poste();
 		poste.setId( rs.getObject( "idposte", Integer.class ) );
 		poste.setLibelle( rs.getObject( "libelle", String.class ) );
-		poste.setStatut( rs.getObject( "statut", Integer.class ) );
+		poste.setNombre( rs.getObject( "nombre", Integer.class ) );
 		poste.setLieu( rs.getObject( "lieu", String.class ) );
 		poste.setJour( rs.getObject( "jour", LocalDate.class ) );
 		poste.setHeure_debut( rs.getObject( "heure_debut", String.class ) );

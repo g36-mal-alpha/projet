@@ -44,6 +44,8 @@ public class ControllerPosteForm {
 	@FXML
 	private TextField			TextFieldNumero_poste;
 	@FXML
+	private TextField			TextFieldNombre;
+	@FXML
 	private ComboBox<Categorie>	comboBoxCategorie;
     @FXML
     private ListView<Benevole>  listViewBenevoles;
@@ -66,16 +68,15 @@ public class ControllerPosteForm {
 		
 		Poste courant = modelPoste.getCourant();
 		
-		actualiserStatutDansVue();
+		//actualiserStatutDansVue();
 		textFieldId.textProperty().bindBidirectional( courant.idProperty(), new IntegerStringConverter()  );
 		
 		textFieldLibelle.textProperty().bindBidirectional( courant.libelleProperty()  );
 		
 		textAreaLieu.textProperty().bindBidirectional( courant.lieuProperty()  );
 	
-		toggleGroupStatut.selectedToggleProperty().addListener( obs -> actualiserStatutDansModele() ) ; 
-		courant.statutProperty().addListener( obs -> actualiserStatutDansVue() );
-		
+		TextFieldNombre.textProperty().bindBidirectional( courant.nombreProperty(),  new IntegerStringConverter() );
+
 		datePickerJour.getEditor().textProperty().bindBidirectional( courant.jourProperty(), new ConverterStringLocalDate() );
 		datePickerJour.getEditor().focusedProperty().addListener(new ListenerFocusValidation( courant.jourProperty(), "Jour incorrect." ) );
 		
@@ -131,7 +132,7 @@ public class ControllerPosteForm {
 		
 	}
 
-	
+	/*
 	//Statut Radio
 	private void actualiserStatutDansModele() { 
 		
@@ -149,5 +150,5 @@ public class ControllerPosteForm {
 		int statut = modelPoste.getCourant().getStatut();   
 		Toggle bouton = toggleGroupStatut.getToggles().get( statut ); 
 		toggleGroupStatut.selectToggle(  bouton );
-	}
+	}*/
 }
