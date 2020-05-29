@@ -23,7 +23,7 @@
          <children>
             <Button fx:id="buttonAjouter" mnemonicParsing="false" onAction="#doAjouter" text="Ajouter" />
             <Button fx:id="buttonModifier" mnemonicParsing="false" onAction="#doModifier" text="Modifier" />
-            <Button fx:id="buttonSupprimer" mnemonicParsing="false" text="Supprimer" />
+            <Button fx:id="buttonSupprimer" mnemonicParsing="false" onAction="#doSupprimer" text="Supprimer" />
          </children>
       </HBox>
    </children>

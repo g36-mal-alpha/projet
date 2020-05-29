@@ -26,7 +26,7 @@ public class ModelParticipant  {
 	private final ObservableList<Participant> liste = FXCollections.observableArrayList(); 
 	
 	private final Participant	courant = new Participant();
-	private final Sexe	courant1 = new Sexe();
+	
 	
 	private final Property<String>	nom	= new SimpleObjectProperty<>();
 	
