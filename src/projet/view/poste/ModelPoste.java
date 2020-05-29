@@ -67,7 +67,7 @@ public class ModelPoste  {
  	}
 
 	public void  actualiserListeBenevolesPourDialogAjout() {
-		liste.setAll( daoBenevole.benevolesPourDialogAjout() );
+		liste.setAll( daoBenevole.benevolesPourDialogAjout());
 		benevolesPourDialogAjout.removeAll( courant.getBenevoles() );
 
  	}

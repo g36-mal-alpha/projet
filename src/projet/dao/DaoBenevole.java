@@ -110,7 +110,7 @@ public class DaoBenevole {
 	}
 
 	
-	public Benevole retrouver( int idBenevole ) {
+	public Benevole retrouver( int idbenevole ) {
 
 		Connection			cn 		= null;
 		PreparedStatement	stmt	= null;
@@ -121,7 +121,7 @@ public class DaoBenevole {
 			cn = dataSource.getConnection();
 			sql = "SELECT * FROM benevole WHERE idbenevole = ?";
 			stmt = cn.prepareStatement( sql );
-			stmt.setInt(1, idBenevole);
+			stmt.setInt(1, idbenevole);
 			rs = stmt.executeQuery();
 
 			if ( rs.next() ) {
@@ -164,7 +164,7 @@ public class DaoBenevole {
 	}
 	
 	
-	public List<Benevole> listerPoutPoste(int idPoste) {
+	public List<Benevole> listerPoutPoste(int idposte) {
 
 		Connection			cn 		= null;
 		PreparedStatement	stmt 	= null;
@@ -175,7 +175,7 @@ public class DaoBenevole {
 			cn = dataSource.getConnection();
 			sql = "SELECT * FROM avoir INNER JOIN benevole ON avoir.idbenevole = benevole.idbenevole WHERE avoir.idposte = ?";
 			stmt = cn.prepareStatement( sql );
-			stmt.setInt( 1, idPoste );
+			stmt.setInt( 1, idposte );
 			rs = stmt.executeQuery();
 
 			List<Benevole> benevoles = new LinkedList<>();
@@ -191,7 +191,7 @@ public class DaoBenevole {
 		}
 	}
 	
-    public int compterPourCategorie( int idCategorie ) {
+    public int compterPourCategorie( int idcategorie ) {
     	
 		Connection			cn		= null;
 		PreparedStatement	stmt 	= null;
@@ -201,7 +201,7 @@ public class DaoBenevole {
 			cn = dataSource.getConnection();
             String sql = "SELECT COUNT(*) FROM benevole WHERE idcategorie = ?";
             stmt = cn.prepareStatement( sql );
-            stmt.setObject( 1, idCategorie );
+            stmt.setObject( 1, idcategorie );
             rs = stmt.executeQuery();
 
             rs.next();
@@ -233,7 +233,9 @@ public class DaoBenevole {
 
 
 	public Poste benevolesPourDialogAjout() {
-		// TODO Auto-generated method stub
 		return null;
-	}
+	
+		
+  }
+	
 }

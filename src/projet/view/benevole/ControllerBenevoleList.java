@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 import jfox.javafx.util.UtilFX;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Benevole;
+import projet.data.Service;
 import projet.view.EnumView;
 import projet.view.benevole.ModelBenevole;
 
@@ -75,9 +76,15 @@ public class ControllerBenevoleList {
 		
 		@FXML
 		private void doSupprimer() {
-			if ( managerGui.showDialogConfirm("Etes-vous sûr de voulir supprimer cette personne ?" ) ) {
-				modelBenevole.supprimer( listView.getSelectionModel().getSelectedItem() );
-				refresh();
+			Benevole item = listView.getSelectionModel().getSelectedItem();
+			if ( item == null ) {
+				managerGui.showDialogError( "Aucun élément n'est sélectionné dans la liste.");
+			} else {
+				boolean reponse = managerGui.showDialogConfirm( "Confirmez-vous la suppresion ?" );
+				if ( reponse ) {
+					modelBenevole.supprimer( item );
+					refresh();
+				}
 			}
 		}
 		
