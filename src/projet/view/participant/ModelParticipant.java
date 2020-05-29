@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 import javax.inject.Inject;
 
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import jfox.commun.exception.ExceptionValidation;
@@ -12,7 +13,9 @@ import jfox.javafx.util.UtilFX;
 import projet.commun.IMapper;
 import projet.dao.DaoParticipant;
 import projet.data.Participant;
-
+import projet.data.Sexe;
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleObjectProperty;
 
 
 public class ModelParticipant  {
@@ -23,8 +26,13 @@ public class ModelParticipant  {
 	private final ObservableList<Participant> liste = FXCollections.observableArrayList(); 
 	
 	private final Participant	courant = new Participant();
+	private final Sexe	courant1 = new Sexe();
 	
-
+	private final Property<String>	nom	= new SimpleObjectProperty<>();
+	
+	public ObservableList<Sexe> getSexe() {
+		return modelSexe.getListe();
+	}
 	
 	// Autres champs
     @Inject
@@ -32,7 +40,8 @@ public class ModelParticipant  {
     
     @Inject
    	private DaoParticipant	    daoParticipant;
-
+    @Inject
+    private ModelSexe		modelSexe;
 	
 	// Getters 
 	
@@ -42,8 +51,7 @@ public class ModelParticipant  {
 	
 	public Participant getCourant() {
 		return courant;
-	}
-	
+	}	
 	
 	// Actualisations
 	
@@ -83,10 +91,6 @@ public class ModelParticipant  {
 	} else  if ( courant.getPrenom().length()> 50 ) {
 		message.append( "\nLe prenom est trop long." );
 	}
-		
-	//Sexe 
-	if( courant.getSexe() != "M" || courant.getSexe().isEmpty() || courant.getSexe() != "F"  ) {
-		message.append( "\nLe sexe ne doit valide." );
 	
 	//Numero de téléphone
 	if( courant.getNumero_tel() == null || courant.getNumero_tel().isEmpty() ) {
@@ -98,7 +102,7 @@ public class ModelParticipant  {
 	//Date de naissance	
 		if( courant.getDate_naissance() != null) {
 			
-			LocalDate mini=LocalDate.of(2000, 01, 01);
+			LocalDate mini=LocalDate.of(1950, 01, 01);
 			LocalDate maxi=LocalDate.of(2099, 12, 31);
 	
 			if(courant.getDate_naissance().isBefore(mini))
@@ -133,7 +137,7 @@ public class ModelParticipant  {
 		}
 	}
 
-}
+
 	
 	public void supprimer( Participant item ) {
 		

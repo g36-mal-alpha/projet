@@ -17,7 +17,7 @@ public class Participant {
 	private final Property<Integer>		id				   = new SimpleObjectProperty<>();
 	private final StringProperty   	 	nom     	  	   = new SimpleStringProperty();
 	private final StringProperty   	 	prenom     	       = new SimpleStringProperty();
-	private final StringProperty   	 	sexe     	  	   = new SimpleStringProperty();
+	private final Property<Sexe>    	sexe			   = new SimpleObjectProperty<>();
 	private final StringProperty   	 	numero_tel         = new SimpleStringProperty();
 	private final Property<LocalDate>   date_naissance     = new SimpleObjectProperty<LocalDate>();
 	private final StringProperty   	 	adresse     	   = new SimpleStringProperty();
@@ -33,7 +33,7 @@ public class Participant {
 	public Participant() {
 	}
 
-	public Participant( int id, String nom, String prenom, String sexe, String numero_tel, LocalDate date_naissance, String adresse, String role, String certificat_medical, String mail, String niveau, String materiel_utilise) {
+	public Participant( int id, String nom, String prenom, Sexe sexe, String numero_tel, LocalDate date_naissance, String adresse, String role, String certificat_medical, String mail, String niveau, String materiel_utilise) {
 		setId(id);
 		setNom(nom);
 		setPrenom(prenom);
@@ -92,21 +92,19 @@ public class Participant {
 		this.prenomProperty().set(prenom);
 	}
 	
-
-	public final StringProperty sexeProperty() {
+	public final Property<Sexe> sexeProperty()
+	{
 		return this.sexe;
 	}
 	
-
-	public final String getSexe() {
-		return this.sexeProperty().get();
+	public final projet.data.Sexe getSexe()
+	{
+		return this.sexeProperty().getValue();
 	}
 	
-
-	public final void setSexe(final String sexe) {
-		this.sexeProperty().set(sexe);
+	public final void setSexe(final projet.data.Sexe sexe) {
+		this.sexeProperty().setValue(sexe);
 	}
-	
 
 	public final StringProperty numero_telProperty() {
 		return this.numero_tel;

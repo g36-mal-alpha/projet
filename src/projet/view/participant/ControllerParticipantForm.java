@@ -5,6 +5,7 @@ package projet.view.participant;
 import javax.inject.Inject;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import jfox.javafx.util.ConverterStringInteger;
@@ -13,6 +14,7 @@ import jfox.javafx.util.ListenerFocusValidation;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Participant;
 import projet.view.EnumView;
+import projet.data.Sexe;
 
 
 
@@ -28,7 +30,7 @@ public class ControllerParticipantForm {
 		@FXML	
 		private TextField			textFieldPrenom;
 		@FXML
-		private TextField			textFieldSexe;
+		private ComboBox<Sexe>			comboBoxSexe;
 		@FXML
 		private DatePicker			dateNaissance;
 		@FXML
@@ -41,6 +43,8 @@ public class ControllerParticipantForm {
 		private TextField			textFieldNiveau;
 		@FXML	
 		private TextField			textFieldMateriel_utilise;
+		@FXML	
+		private ComboBox			comboBoxRole;
 
 		
 		// Autres champs
@@ -50,6 +54,8 @@ public class ControllerParticipantForm {
 		private ModelParticipant		modelParticipant;
 		@Inject
 		private Participant				participant;
+		@Inject
+		private ModelSexe			modelSexe;
 	    
 		
 		// Initialisation du controller
@@ -62,7 +68,6 @@ public class ControllerParticipantForm {
 			textFieldId.textProperty().bindBidirectional( courant.idProperty(), new ConverterStringInteger() );
 			textFieldNom.textProperty().bindBidirectional( courant.nomProperty() );
 			textFieldPrenom.textProperty().bindBidirectional( courant.prenomProperty() );
-			textFieldSexe.textProperty().bindBidirectional( courant.sexeProperty() );
 			textFieldNumero_tel.textProperty().bindBidirectional( courant.numero_telProperty());
 			
 			dateNaissance.getEditor().textProperty().bindBidirectional( courant.date_naissanceProperty(), new ConverterStringLocalDate() );
@@ -73,6 +78,8 @@ public class ControllerParticipantForm {
 			textFieldMateriel_utilise.textProperty().bindBidirectional( courant.materiel_utiliseProperty() );
 
 			// Data binding
+			comboBoxSexe.setItems(  modelParticipant.getSexe());
+	        comboBoxSexe.valueProperty().bindBidirectional( courant.sexeProperty() );
 		}
 		
 		

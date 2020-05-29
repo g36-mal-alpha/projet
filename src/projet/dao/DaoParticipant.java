@@ -23,6 +23,8 @@ public class DaoParticipant {
 
 	@Inject
 	private DataSource		dataSource;
+	@Inject
+	private DaoSexe	daoSexe;
 
 
 	// Actions
@@ -37,11 +39,11 @@ public class DaoParticipant {
 		try {
 			//probleme unique mail 
 			cn = dataSource.getConnection();
-			sql = "INSERT INTO participant (nom, prenom, sexe, numero_tel, date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+			sql = "INSERT INTO participant (nom, prenom, idsexe, numero_tel, date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 			stmt.setObject( 1,  participant.getNom() );
 			stmt.setObject( 2,  participant.getPrenom() );
-			stmt.setObject( 3,  participant.getSexe() );
+			stmt.setObject( 3,  participant.getSexe().getId() );
 			stmt.setObject( 4,  participant.getNumero_tel() );
 			stmt.setObject( 5,  participant.getDate_naissance() );
 			stmt.setObject( 6,  participant.getAdresse() );
@@ -56,13 +58,15 @@ public class DaoParticipant {
 			rs = stmt.getGeneratedKeys();
 			rs.next();
 			participant.setId( rs.getObject( 1, Integer.class) );
-			return participant.getId();
+		
 
 		} catch ( SQLException e ) {
 			throw new RuntimeException(e);
 		} finally {
 			UtilJdbc.close( rs, stmt, cn );
 		}
+		
+		return participant.getId();
 	}
 
 
@@ -74,11 +78,11 @@ public class DaoParticipant {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "UPDATE participant SET nom = ?, prenom = ?, sexe = ?, numero_tel = ?,  date_naissance = ?, adresse = ?, role = ?, certificat_medical = ?, mail = ?, niveau = ?, materiel_utilise = ?  WHERE idparticipant =  ?";
+			sql = "UPDATE participant SET nom = ?, prenom = ?, idsexe = ?, numero_tel = ?,  date_naissance = ?, adresse = ?, role = ?, certificat_medical = ?, mail = ?, niveau = ?, materiel_utilise = ?  WHERE idparticipant =  ?";
 			stmt = cn.prepareStatement( sql );
 			stmt.setObject( 1, participant.getNom() );
 			stmt.setObject( 2, participant.getPrenom() );
-			stmt.setObject( 3, participant.getSexe() );
+			stmt.setObject( 3, participant.getSexe().getId() );
 			stmt.setObject( 4, participant.getNumero_tel() );
 			stmt.setObject( 5, participant.getDate_naissance() );
 			stmt.setObject( 6, participant.getAdresse() );
@@ -134,7 +138,7 @@ public class DaoParticipant {
 			rs = stmt.executeQuery();
 
 			if ( rs.next() ) {
-				return construireParticipant( rs );
+				return construireParticipant( rs, true );
 			} else {
 				return null;
 			}
@@ -161,7 +165,7 @@ public class DaoParticipant {
 
 			List<Participant> services = new LinkedList<>();
 			while (rs.next()) {
-				services.add( construireParticipant( rs ) );
+				services.add( construireParticipant( rs, false ) );
 			}
 			return services;
 
@@ -172,15 +176,37 @@ public class DaoParticipant {
 		}
 	}
 
+public int compterPourSexe( int idSexe ) {
+    	
+		Connection			cn		= null;
+		PreparedStatement	stmt 	= null;
+		ResultSet 			rs		= null;
+
+		try {
+			cn = dataSource.getConnection();
+            String sql = "SELECT COUNT(*) FROM participant WHERE idsexe = ?";
+            stmt = cn.prepareStatement( sql );
+            stmt.setObject( 1, idSexe );
+            rs = stmt.executeQuery();
+
+            rs.next();
+            return rs.getInt( 1 );
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close( rs, stmt, cn );
+		}
+    }
+	
 
 	// Méthodes auxiliaires
 	//nom = ?, prenom = ?, sexe = ?, numero_tel = ?,  date_naissance = ?, adresse = ?, role = ?, certificat_medical = ?, mail = ?, niveau = ?, materiel_utilise = ? 
-	private Participant construireParticipant( ResultSet rs ) throws SQLException {
+	private Participant construireParticipant( ResultSet rs , boolean flagComplet ) throws SQLException {
 		Participant participant = new Participant();
 		participant.setId( rs.getObject( "idparticipant", Integer.class ) );
 		participant.setNom( rs.getObject( "nom", String.class ) );
 		participant.setPrenom( rs.getObject( "prenom", String.class ) );		
-		participant.setSexe( rs.getObject( "sexe", String.class ) );
 		participant.setNumero_tel( rs.getObject( "numero_tel", String.class ) );
 		participant.setDate_naissance( rs.getObject( "date_naissance", LocalDate.class ) );
 		participant.setAdresse( rs.getObject( "adresse", String.class ) );
@@ -189,6 +215,9 @@ public class DaoParticipant {
 		participant.setMail( rs.getObject( "mail", String.class ) );
 		participant.setNiveau( rs.getObject( "niveau", String.class ) );
 		participant.setMateriel_utilise( rs.getObject( "materiel_utilise", String.class ) );
+		if ( flagComplet ) {
+			participant.setSexe( daoSexe.retrouver( rs.getObject("idsexe", Integer.class) ) );
+		}
 		return participant;
 	}
 
