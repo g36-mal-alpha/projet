@@ -20,7 +20,7 @@
 
 <AnchorPane fx:id="paneRoot" prefHeight="373.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.poste.ControllerPosteForm">
    <children>
-      <Label alignment="CENTER" styleClass="titre-vue" text="Poste" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+      <Label fx:id="labelTable" alignment="CENTER" styleClass="titre-vue" text="Poste" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
       <HBox alignment="CENTER" fillHeight="false" layoutY="60.0" prefHeight="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
             <GridPane alignment="CENTER" prefWidth="280.0">
