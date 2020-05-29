@@ -6,6 +6,8 @@ DELETE FROM service;
 DELETE FROM telephone;
 DELETE FROM personne;
 DELETE FROM categorie;
+DELETE FROM sexe;
+DELETE FROM hierarchie;
 DELETE FROM avoir;
 DELETE FROM encadrer;
 DELETE FROM role;
@@ -16,6 +18,7 @@ DELETE FROM equipe;
 DELETE FROM epreuve;
 DELETE FROM benevole;
 DELETE FROM compte;
+
 
 
 
