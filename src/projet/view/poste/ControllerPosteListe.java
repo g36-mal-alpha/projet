@@ -66,7 +66,7 @@ public class ControllerPosteListe {
 	@FXML
 	private void doDetail() {
 		modelPoste.preparerDetail();
-		managerGui.showView( EnumView.PosteFormDetail );
+		managerGui.showDialog( EnumView.PosteListeDetail );
 	}
 	
 	@FXML

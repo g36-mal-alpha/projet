@@ -149,4 +149,9 @@ public class ModelPoste  {
 	public void ajouterBenevole( Benevole item ) {
 		 courant.getBenevoles().add( item );
 	}
+
+	public void preparerDetail() {
+		// TODO Auto-generated method stub
+		
+	}
 }
