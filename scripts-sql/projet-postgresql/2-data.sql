@@ -2,25 +2,27 @@ SET search_path TO projet;
 
 
 -- Supprimer toutes les données
-DELETE FROM service;
-DELETE FROM telephone;
-DELETE FROM personne;
+
+DELETE FROM compte;
+DELETE FROM role;
+
 DELETE FROM categorie;
 DELETE FROM sexe;
 DELETE FROM hierarchie;
-DELETE FROM avoir;
-DELETE FROM encadrer;
-DELETE FROM role;
+
+DELETE FROM personne;
+DELETE FROM telephone;
+DELETE FROM service;
+
+DELETE FROM benevole;
 DELETE FROM poste;
-DELETE FROM participant;
-DELETE FROM documents_licencies;
 DELETE FROM equipe;
 DELETE FROM epreuve;
-DELETE FROM benevole;
-DELETE FROM compte;
+DELETE FROM participant;
+DELETE FROM documents_licencies;
 
-
-
+DELETE FROM avoir;
+DELETE FROM encadrer;
 
 -- Compte
 
@@ -49,7 +51,7 @@ INSERT INTO categorie (idcategorie, libelle ) VALUES
   (3, 'M ou E'),
   (4, 'M et E');
  
-ALTER TABLE compte ALTER COLUMN idcompte RESTART WITH 2;
+ALTER TABLE categorie ALTER COLUMN idcategorie RESTART WITH 5;
 
 -- Sexe
 
@@ -57,7 +59,7 @@ INSERT INTO sexe (idsexe, libelle ) VALUES
   (1, 'homme' ),
   (2, 'femme' );
   
-ALTER TABLE sexe ALTER COLUMN idsexe RESTART WITH 2;
+ALTER TABLE sexe ALTER COLUMN idsexe RESTART WITH 3;
   
  -- hierarchie
 
@@ -65,7 +67,7 @@ INSERT INTO hierarchie (idhierarchie, libelle ) VALUES
   (1, 'chef équipe' ),
   (2, 'équipier' );
   
- ALTER TABLE hierarchie ALTER COLUMN idhierarchie RESTART WITH 2;
+ ALTER TABLE hierarchie ALTER COLUMN idhierarchie RESTART WITH 3;
   
 
 -- Personne
@@ -102,7 +104,7 @@ INSERT INTO service ( idservice, nom, anneecreation, flagsiege ) VALUES
   ( 3, 'Agence Limoges', 2008, FALSE ),
   ( 4, 'Agence Brive', 2014, FALSE );
 
-ALTER TABLE service ALTER COLUMN idservice RESTART WITH 4;
+ALTER TABLE service ALTER COLUMN idservice RESTART WITH 5;
  
 -- Bénévole 
 
@@ -111,7 +113,7 @@ INSERT INTO benevole ( idbenevole, nom, prenom, date_naissance, permis_conduire,
   ( 2, 'Tesla', 'Nicolas', '12/08/1978','lien_fichier1', TRUE , 1),
   ( 3, 'Boussard', 'Lucas', '12/08/1986','lien_fichier1', FALSE , 2);
   
-ALTER TABLE benevole ALTER COLUMN idbenevole RESTART WITH 8;
+ALTER TABLE benevole ALTER COLUMN idbenevole RESTART WITH 50;
 
 -- Poste 
 
@@ -130,7 +132,7 @@ INSERT INTO poste ( idposte, lieu, libelle, nombre ,jour, heure_debut, numero_po
   ( 12, 'lieu12', 'Recuperation Dossards', 1, '12/08/2020', '12:00:00', 16, '13:30:00', 1);
 
 
-ALTER TABLE poste ALTER COLUMN idposte RESTART WITH 15;
+ALTER TABLE poste ALTER COLUMN idposte RESTART WITH 20;
   
 -- Equipe
 
@@ -139,7 +141,7 @@ INSERT INTO equipe ( idequipe, nom_equipe, valide, paye, nb_plateau) VALUES
   ( 2, 'equipe 2', TRUE , TRUE, 2),
   ( 3, 'equipe 3', TRUE, TRUE, 1);
 
-ALTER TABLE equipe ALTER COLUMN idequipe RESTART WITH 4;
+ALTER TABLE equipe ALTER COLUMN idequipe RESTART WITH 20;
   
 -- Epreuve
 
@@ -148,7 +150,7 @@ INSERT INTO epreuve ( idepreuve, nom_epreuve, date_epreuve, lieu, tarif) VALUES
   ( 2, 'epreuve b', '17/08/2020', 'lieu 2', '10'),
   ( 3, 'epreuve c', '11/08/2020',  'lieu 1', '20');
   
-ALTER TABLE epreuve ALTER COLUMN idepreuve RESTART WITH 4;
+ALTER TABLE epreuve ALTER COLUMN idepreuve RESTART WITH 10;
 
 -- Participant
  
@@ -158,7 +160,7 @@ INSERT INTO participant (idparticipant, idequipe, idepreuve, nom, prenom, idsexe
   ( 3,3,3, 'nom3', 'toto',1, '06 87 10 96 32','12/08/1998','adresse 3', 'equipier',   'fichier 3', 'mail3@orange.fr',  'junior', 'kanoe'),
   (	4,3,2, 'nom4', 'clement',2, '06 87 10 78 32','12/08/1999','adresse 4', 'chef equipe',   'fichier 4', 'mail4@orange.fr',  'senior', 'kanoe');
   
-ALTER TABLE participant ALTER COLUMN idparticipant RESTART WITH 16;
+ALTER TABLE participant ALTER COLUMN idparticipant RESTART WITH 100;
  
 -- Documents Licencies
 
@@ -167,7 +169,7 @@ INSERT INTO documents_licencies ( iddocument, idparticipant, nom_doc, date_doc, 
   ( 2, 2, 'doc b', '17/08/2020', 'lien 2'),
   ( 3, 3, 'doc c', '11/08/2020',  'lien 1');
 
-ALTER TABLE documents_licencies ALTER COLUMN iddocument RESTART WITH 5;
+ALTER TABLE documents_licencies ALTER COLUMN iddocument RESTART WITH 100;
 
 -- Avoir
 

@@ -28,8 +28,8 @@ public class Poste {
 	private final Property<Integer>	    nombre 		    = new SimpleObjectProperty<>();
 	private final Property<LocalDate>   jour            = new SimpleObjectProperty<>();
 	
-	//private final Property<LocalTime> heure_debut     = new SimpleObjectProperty<>();
-	private final StringProperty      heure_debut     = new SimpleStringProperty();
+	//private final Property<LocalTime>   heure_debut     = new SimpleObjectProperty<>();
+	private final StringProperty        heure_debut     = new SimpleStringProperty();
 	//private final DateFormat            heure_debut     = new SimpleDateFormat("hh:mm:ss");
 	
 	/*Date parseDateString(String heure_debut){
@@ -37,8 +37,8 @@ public class Poste {
     Date date = dateFormat.parse(heure_debut);
 	}*/
 	
-	//private final Property<LocalTime> heure_fin       = new SimpleObjectProperty<>();
-	private final StringProperty      heure_fin       = new SimpleStringProperty();
+	//private final Property<LocalTime>   heure_fin       = new SimpleObjectProperty<>();
+	private final StringProperty        heure_fin       = new SimpleStringProperty();
 	//private final DateFormat            heure_fin       = new SimpleDateFormat("hh:mm:ss");
 	
 	private final Property<Integer>		numero_poste    = new SimpleObjectProperty<>();
