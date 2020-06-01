@@ -176,10 +176,21 @@ ALTER TABLE documents_licencies ALTER COLUMN iddocument RESTART WITH 100;
 INSERT INTO avoir ( idposte, idbenevole) VALUES
   (1, 3),
   (1, 2),
-  (2, 1),
+  (2, 2),
   (3, 1),
-  (4, 2),
-  (2, 3);
+  (10, 3),
+  (6, 2),
+  (5, 1),
+  (8, 2),
+  (12, 3),
+  (7, 3),
+  (9, 3),
+  (11, 2),
+  (10, 1),
+  (3, 2),
+  (6, 1),
+  (8, 3);
+  
 
 
 -- Encadrer
