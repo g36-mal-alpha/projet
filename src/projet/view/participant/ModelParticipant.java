@@ -58,7 +58,6 @@ public class ModelParticipant  {
 			liste.setAll( daoParticipant.listerTout() );
 	 	}
 
-
 		// Actions
 		
 		public void preparerAjouter() {
