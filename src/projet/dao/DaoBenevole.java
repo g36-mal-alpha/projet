@@ -52,6 +52,9 @@ public class DaoBenevole {
 			rs = stmt.getGeneratedKeys();
 			rs.next();
 			benevole.setId( rs.getObject( 1, Integer.class) );
+			
+			insererAvoir(benevole);
+			
 			return benevole.getId();
 
 		} catch ( SQLException e ) {
@@ -80,6 +83,9 @@ public class DaoBenevole {
 			stmt.setObject( 6, benevole.getCategorie().getId() );
 			stmt.setObject( 7, benevole.getId() );
 			stmt.executeUpdate();
+			
+			supprimerAvoir(benevole.getId());
+			insererAvoir(benevole);
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -96,6 +102,7 @@ public class DaoBenevole {
 		String				sql;
 
 		try {
+			supprimerAvoir(idBenevole);
 			cn = dataSource.getConnection();
 			sql = "DELETE FROM benevole WHERE idbenevole = ? ";
 			stmt = cn.prepareStatement( sql );
@@ -255,7 +262,6 @@ public class DaoBenevole {
 
 		Connection			cn		= null;
 		PreparedStatement	stmt	= null;
-		ResultSet 			rs		= null;
 		String				sql;
 
 		try {
@@ -276,7 +282,7 @@ public class DaoBenevole {
 		} catch ( SQLException e ) {
 			throw new RuntimeException(e);
 		} finally {
-			UtilJdbc.close( rs, stmt, cn );
+			UtilJdbc.close(stmt, cn );
 		}
 	}
 
