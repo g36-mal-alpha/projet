@@ -10,6 +10,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Benevole;
+import projet.view.EnumView;
 
 
 public class ControllerPosteAjoutBenevoles {
@@ -30,14 +31,16 @@ public class ControllerPosteAjoutBenevoles {
 	@Inject
 	private IManagerGui			managerGui;
 	@Inject
-	private ModelPoste		modelPoste;
-	
+	private ModelPoste		    modelPoste;
+	@Inject
+//	private ModelBenevole      modelBenevoles;
 	
 	// Initialisation du Controller
 
 	@FXML
 	private void initialize() {
 
+		
 		// Data binding
 		listView.setItems( modelPoste.getBenevolesesPourDialogAjout() );
 		
@@ -64,6 +67,8 @@ public class ControllerPosteAjoutBenevoles {
 	 managerGui.closeStage();
 	}
 	
+	
+	
 	@FXML
 	private void doAjouter() {
 	 for ( Benevole item : listView.getSelectionModel().getSelectedItems() ) {
@@ -72,7 +77,7 @@ public class ControllerPosteAjoutBenevoles {
 	 managerGui.closeStage();
 	}
 	
-	
+
 	// Gestion des évènements
 
 	// Clic sur la liste

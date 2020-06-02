@@ -45,6 +45,8 @@ public class Poste {
 	private final Property<Poste>       poste           = new SimpleObjectProperty<>();
 	private final Property<Categorie>   categorie       = new SimpleObjectProperty<>();
 	private final ObservableList<Benevole> benevoles    = FXCollections.observableArrayList();
+	private final ObservableList<Poste> postes          = FXCollections.observableArrayList();
+	
 	
 	// Constructeurs
 	
@@ -200,6 +202,10 @@ public class Poste {
 	
 	public ObservableList<Benevole> getBenevoles() {
 		return benevoles;
+	}
+	
+	public ObservableList<Poste> getPostes() {
+		return postes;
 	}
 	
 	public final Property<Poste> posteProperty() {
