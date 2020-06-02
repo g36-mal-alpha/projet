@@ -188,6 +188,33 @@ public class DaoPoste {
 			UtilJdbc.close( rs, stmt, cn );
 		}
 	}
+	
+	public List<Poste> listerPourBenevole(int idBenevole) {
+
+		Connection			cn 		= null;
+		PreparedStatement	stmt 	= null;
+		ResultSet 			rs		= null;
+		String				sql;
+
+		try {
+			cn = dataSource.getConnection();
+			sql = "SELECT * FROM avoir INNER JOIN poste ON avoir.idPoste = poste.idPoste WHERE avoir.idbenevole = ?";
+			stmt = cn.prepareStatement( sql );
+			stmt.setInt(1, idBenevole);
+			rs = stmt.executeQuery();
+
+			List<Poste> postes = new LinkedList<>();
+			while (rs.next()) {
+				postes.add( construirePoste( rs, false ) );
+			}
+			return postes;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close( rs, stmt, cn );
+		}
+	}
 
 
 	// Méthodes auxiliaires

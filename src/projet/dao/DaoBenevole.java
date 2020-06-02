@@ -27,6 +27,9 @@ public class DaoBenevole {
 	@Inject
 	private DaoCategorie	daoCategorie;
 	
+	@Inject
+	private DaoPoste		daoPostes;
+	
 	// Actions 
 
 	public int inserer( Benevole benevole ) {
@@ -198,7 +201,7 @@ public class DaoBenevole {
 		}
 	}
 	
-    public int compterPourCategorie( int idcategorie ) {
+    public int compterPourBenevole( int idBenevole ) {
     	
 		Connection			cn		= null;
 		PreparedStatement	stmt 	= null;
@@ -206,9 +209,9 @@ public class DaoBenevole {
 
 		try {
 			cn = dataSource.getConnection();
-            String sql = "SELECT COUNT(*) FROM benevole WHERE idcategorie = ?";
+            String sql = "SELECT COUNT(*) FROM benevole WHERE idbenevole = ?";
             stmt = cn.prepareStatement( sql );
-            stmt.setObject( 1, idcategorie );
+            stmt.setObject( 1, idBenevole );
             rs = stmt.executeQuery();
 
             rs.next();
@@ -234,6 +237,7 @@ public class DaoBenevole {
 		benevole.setMineurs( rs.getObject( "mineurs", Boolean.class ) );
 		if ( flagComplet ) {
 			benevole.setCategorie( daoCategorie.retrouver( rs.getObject("idcategorie", Integer.class) ) );
+			benevole.getPostes().setAll(daoPostes.listerPourBenevole(benevole.getId()));
 		}
 		return benevole;
 	}
@@ -266,7 +270,7 @@ public class DaoBenevole {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "INSERT INTO avoir (idPoste, idBenevole ) VALUES( ?, ?) ";
+			sql = "INSERT INTO avoir (idboste, idbenevole ) VALUES( ?, ?) ";
 			stmt = cn.prepareStatement( sql);
 			
 			stmt.setObject(2, benevole.getId());
