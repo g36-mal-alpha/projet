@@ -38,13 +38,12 @@ public class ModelParticipant  {
     private ModelSexe		modelSexe;
 	
 	// Getters 
+	public Participant getCourant() {
+		return courant;
+	} 
 	
 	public ObservableList<Participant> getListe() {
 		return liste;
-	}
-	
-	public Participant getCourant() {
-		return courant;
 	}	
 	
 	public ObservableList<Sexe> getSexe() {
@@ -61,10 +60,12 @@ public class ModelParticipant  {
 		// Actions
 		
 		public void preparerAjouter() {
+			modelSexe.actualiserListe();
 			mapper.update( courant, new Participant() );
 		}
 		
 		public void preparerModifier( Participant item ) {
+			modelSexe.actualiserListe();
 			mapper.update( courant, daoParticipant.retrouver( item.getId() ) );
 		}
 		

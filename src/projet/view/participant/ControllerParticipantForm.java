@@ -38,6 +38,8 @@ public class ControllerParticipantForm {
 		@FXML
 		private TextField			textFieldCertificat_Medical;
 		@FXML
+		private TextField			textFieldAdresse;
+		@FXML
 		private TextField			textFieldMail;
 		@FXML
 		private TextField			textFieldNiveau;
@@ -71,6 +73,7 @@ public class ControllerParticipantForm {
 			dateNaissance.getEditor().textProperty().bindBidirectional( courant.date_naissanceProperty(), new ConverterStringLocalDate() );
 			dateNaissance.getEditor().focusedProperty().addListener(new ListenerFocusValidation( courant.date_naissanceProperty(), "Jour incorrect." ) );
 			textFieldCertificat_Medical.textProperty().bindBidirectional( courant.certificat_medicalProperty() );
+			textFieldAdresse.textProperty().bindBidirectional( courant.adresseProperty() );
 			textFieldMail.textProperty().bindBidirectional( courant.mailProperty() );
 			textFieldNiveau.textProperty().bindBidirectional( courant.niveauProperty() );
 			textFieldMateriel_utilise.textProperty().bindBidirectional( courant.materiel_utiliseProperty() );

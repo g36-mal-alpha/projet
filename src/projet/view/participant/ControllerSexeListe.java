@@ -19,7 +19,7 @@ public class ControllerSexeListe {
 	// Composants de la vue
 
 	@FXML
-	private ListView<Sexe>	listView;
+	private ListView<Sexe>		listView;
 	@FXML
 	private Button				buttonModifier;
 	@FXML
