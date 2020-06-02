@@ -30,7 +30,7 @@ public class MenuBarAppli extends MenuBar {
 
 	private MenuItem itemCategories;
 	private MenuItem itemSexe;
-	//private MenuItem itemHierarchie;
+	//private MenuItem itemHierarchie;+
 	private MenuItem itemComptes;
 	private MenuItem itemPostes;
 	
