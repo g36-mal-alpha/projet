@@ -45,12 +45,16 @@ public class Benevole {
 	}
 		
 	
-	public ObservableList<Poste> getPostes() {
-		return postes;
-	}
+
+	
+
 	
 	 
 	// Getters & setters
+
+	public ObservableList<Poste> getPostes() {
+		return postes;
+	}
 
 	public final Property<Integer> idProperty() {
 		return this.id;
@@ -216,4 +220,5 @@ public class Benevole {
 	public String toString() {
 		return getNom() + " " +getPrenom();
 	}
+
 }

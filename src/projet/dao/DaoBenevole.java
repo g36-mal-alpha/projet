@@ -231,5 +231,55 @@ public class DaoBenevole {
 		return benevole;
 	}
 	
+	private void supprimerAvoir( int idBenevole) {
+
+		Connection			cn 		= null;
+		PreparedStatement	stmt 	= null;
+		String				sql;
+
+		try {
+			cn = dataSource.getConnection();
+			sql = "DELETE FROM avoir WHERE idbenevole = ? ";
+			stmt = cn.prepareStatement( sql );
+			stmt.setInt( 1, idBenevole );
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close( stmt, cn );
+		}
+	}
+	
+	private void insererAvoir( Benevole benevole ) {
+
+		Connection			cn		= null;
+		PreparedStatement	stmt	= null;
+		ResultSet 			rs		= null;
+		String				sql;
+
+		try {
+			cn = dataSource.getConnection();
+			sql = "INSERT INTO avoir (idPoste, idBenevole ) VALUES( ?, ?) ";
+			stmt = cn.prepareStatement( sql);
+			
+			stmt.setObject(2, benevole.getId());
+			
+			for(Poste poste : benevole.getPostes())
+			{
+				stmt.setObject(1, poste.getId());
+				
+				
+				stmt.executeUpdate();
+			}
+
+		} catch ( SQLException e ) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close( rs, stmt, cn );
+		}
+	}
+
+	
   }
 	
