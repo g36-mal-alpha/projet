@@ -1,6 +1,7 @@
 package projet.view.poste;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.inject.Inject;
 
@@ -40,17 +41,17 @@ public class ControllerPosteListeDetail  {
 	@FXML
 	private TableColumn<Poste, Integer> columnNombre;
 	@FXML
-	private TableColumn<Poste, String> columnJour;
+	private TableColumn<Poste, LocalDate> columnJour;
 	@FXML
-	private TableColumn<Poste, LocalDate> columnDebut;
+	private TableColumn<Poste, LocalTime> columnDebut;
 	@FXML
-	private TableColumn<Poste, LocalDate> columnFin;
+	private TableColumn<Poste, LocalTime> columnFin;
 	@FXML
 	private TableColumn<Poste, Integer> columnNumero;
 	@FXML
-	private TableColumn<Categorie, String> columnCategorie;
+	private TableColumn<Poste, String> columnCategorie;
 	@FXML
-	private TableColumn<Benevole, String> columnBenevole;
+	private TableColumn<Poste, String> columnBenevole;
 	
 	// Autres champs
 	@Inject
@@ -73,8 +74,8 @@ public class ControllerPosteListeDetail  {
 		columnNumero.setCellValueFactory(new PropertyValueFactory<>("numero_poste"));
 		
 		
-		//columnCategorie.setCellValueFactory(param -> param.getValue().getLibelle().toString());
-		//columnBenevole.setCellValueFactory(param -> param.getValue().getId());
+		//columnCategorie.setCellValueFactory(param -> param.getValue().getCategorie().libelleProperty());
+		//columnBenevole.setCellValueFactory(param -> ((Benevole) param.getValue().getBenevoles()).nomProperty());
 		
 		// Tableview
 		tableViewPostes.setItems(modelPoste.getListe());
