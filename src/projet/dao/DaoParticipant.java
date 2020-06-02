@@ -39,19 +39,24 @@ public class DaoParticipant {
 		try {
 			//probleme unique mail 
 			cn = dataSource.getConnection();
-			sql = "INSERT INTO participant (nom, prenom, idsexe, numero_tel, date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+			sql = "INSERT INTO participant (id, nom, prenom, numero_tel, date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise,  idsexe) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 			stmt.setObject( 1,  participant.getNom() );
 			stmt.setObject( 2,  participant.getPrenom() );
-			stmt.setObject( 3,  participant.getSexe().getId() );
-			stmt.setObject( 4,  participant.getNumero_tel() );
-			stmt.setObject( 5,  participant.getDate_naissance() );
-			stmt.setObject( 6,  participant.getAdresse() );
-			stmt.setObject( 7,  participant.getRole() );
-			stmt.setObject( 8,  participant.getCertificat_medical() );
-			stmt.setObject( 9,  participant.getMail() );
-			stmt.setObject( 10, participant.getNiveau() );
-			stmt.setObject( 11, participant.getMateriel_utilise() );
+			stmt.setObject( 3,  participant.getNumero_tel() );
+			stmt.setObject( 4,  participant.getDate_naissance() );
+			stmt.setObject( 5,  participant.getAdresse() );
+			stmt.setObject( 6,  participant.getRole() );
+			stmt.setObject( 7,  participant.getCertificat_medical() );
+			stmt.setObject( 8,  participant.getMail() );
+			stmt.setObject( 9, participant.getNiveau() );
+			stmt.setObject( 10, participant.getMateriel_utilise() );
+			if ( participant.getSexe() == null ) {
+				 stmt.setObject( 11, null );
+			} 
+			else {
+				 stmt.setObject( 11,participant.getSexe().getId() );
+			} 
 			stmt.executeUpdate();
 
 			// Récupère l'identifiant généré par le SGBD
@@ -78,19 +83,24 @@ public class DaoParticipant {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "UPDATE participant SET nom = ?, prenom = ?, idsexe = ?, numero_tel = ?,  date_naissance = ?, adresse = ?, role = ?, certificat_medical = ?, mail = ?, niveau = ?, materiel_utilise = ?  WHERE idparticipant =  ?";
+			sql = "UPDATE participant SET nom = ?, prenom = ?, numero_tel = ?,  date_naissance = ?, adresse = ?, role = ?, certificat_medical = ?, mail = ?, niveau = ?, materiel_utilise = ? idsexe = ?  WHERE idparticipant =  ?";
 			stmt = cn.prepareStatement( sql );
 			stmt.setObject( 1, participant.getNom() );
 			stmt.setObject( 2, participant.getPrenom() );
-			stmt.setObject( 3, participant.getSexe().getId() );
-			stmt.setObject( 4, participant.getNumero_tel() );
-			stmt.setObject( 5, participant.getDate_naissance() );
-			stmt.setObject( 6, participant.getAdresse() );
-			stmt.setObject( 7, participant.getRole() );
-			stmt.setObject( 8, participant.getCertificat_medical() );
-			stmt.setObject( 9, participant.getMail() );
-			stmt.setObject( 10, participant.getNiveau() );
-			stmt.setObject( 11, participant.getMateriel_utilise() );
+			stmt.setObject( 3, participant.getNumero_tel() );
+			stmt.setObject( 4, participant.getDate_naissance() );
+			stmt.setObject( 5, participant.getAdresse() );
+			stmt.setObject( 6, participant.getRole() );
+			stmt.setObject( 7, participant.getCertificat_medical() );
+			stmt.setObject( 8, participant.getMail() );
+			stmt.setObject( 9, participant.getNiveau() );
+			stmt.setObject( 10, participant.getMateriel_utilise() );
+			if ( participant.getSexe() == null ) {
+				 stmt.setObject( 11, null );
+			} 
+			else {
+				 stmt.setObject( 11,participant.getSexe().getId() );
+			} 
 			stmt.setObject( 12, participant.getId() );
 			stmt.executeUpdate();
 
@@ -216,9 +226,11 @@ public int compterPourSexe( int idSexe ) {
 		participant.setNiveau( rs.getObject( "niveau", String.class ) );
 		participant.setMateriel_utilise( rs.getObject( "materiel_utilise", String.class ) );
 		if ( flagComplet ) {
-			participant.setSexe( daoSexe.retrouver( rs.getObject("idsexe", Integer.class) ) );
+			 Integer idSexe = rs.getObject( "idsexe", Integer.class );
+			 if ( idSexe != null ) {
+				 participant.setSexe( daoSexe.retrouver(idSexe) );
+			 }
 		}
 		return participant;
 	}
-
 }
