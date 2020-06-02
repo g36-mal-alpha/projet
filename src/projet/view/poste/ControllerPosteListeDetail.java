@@ -1,5 +1,7 @@
 package projet.view.poste;
 
+import java.time.LocalDate;
+
 import javax.inject.Inject;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -14,6 +16,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import jfox.javafx.control.EditingCell;
 import jfox.javafx.util.ConverterStringInteger;
 import jfox.javafx.view.IManagerGui;
+import projet.data.Benevole;
+import projet.data.Categorie;
 import projet.data.Poste;
 import projet.view.EnumView;
 
@@ -34,10 +38,19 @@ public class ControllerPosteListeDetail  {
 	@FXML
 	private TableColumn<Poste, String> columnLieu;
 	@FXML
-	private TableColumn<Poste, String> columnEpreuve;
-	
-	
-
+	private TableColumn<Poste, Integer> columnNombre;
+	@FXML
+	private TableColumn<Poste, String> columnJour;
+	@FXML
+	private TableColumn<Poste, LocalDate> columnDebut;
+	@FXML
+	private TableColumn<Poste, LocalDate> columnFin;
+	@FXML
+	private TableColumn<Poste, Integer> columnNumero;
+	@FXML
+	private TableColumn<Categorie, String> columnCategorie;
+	@FXML
+	private TableColumn<Benevole, String> columnBenevole;
 	
 	// Autres champs
 	@Inject
@@ -50,42 +63,22 @@ public class ControllerPosteListeDetail  {
 	
 	public void initialize() {
 
-		Poste courant = modelPoste.getCourant();
+		// Data Binding
+		columnLibelle.setCellValueFactory(new PropertyValueFactory<>("libelle"));
+		columnLieu.setCellValueFactory(new PropertyValueFactory<>("lieu"));
+		columnNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+		columnJour.setCellValueFactory(new PropertyValueFactory<>("jour"));
+		columnDebut.setCellValueFactory(new PropertyValueFactory<>("heure_debut"));
+		columnFin.setCellValueFactory(new PropertyValueFactory<>("heure_fin"));
+		columnNumero.setCellValueFactory(new PropertyValueFactory<>("numero_poste"));
 		
 		
-		// Champs simples
-		textFieldId.textProperty().bindBidirectional( courant.idProperty(), new ConverterStringInteger() );
+		//columnCategorie.setCellValueFactory(param -> param.getValue().getLibelle().toString());
+		//columnBenevole.setCellValueFactory(param -> param.getValue().getId());
+		
+		// Tableview
+		tableViewPostes.setItems(modelPoste.getListe());
 
-		// Configuration du TableView
-		
-		//TableView<Poste> table = new TableView<Poste>();
-	    //TableColumn<Poste, String> libelleCol = new TableColumn<Poste, String>("Libelle");
-		
-		columnId.setCellValueFactory(new PropertyValueFactory<Poste, Integer>("id"));
-		columnLibelle.setCellValueFactory(new PropertyValueFactory<Poste, String>("libelle"));
-		columnLieu.setCellValueFactory(new PropertyValueFactory<Poste, String>("lieu"));
-		
-		/*columnEpreuve.setCellValueFactory(new Callback<CellDataFeatures<Poste,String>,ObservableValue<String>>(){
-
-            @Override
-            public ObservableValue<String> call(CellDataFeatures<Poste, String> param) {
-                return new SimpleStringProperty(param.getValue().getEquipe().getEpreuve().getNomEpreuve());
-            }
-        });*/
-		
-		// Data binding
-	    /*libelleCol.setCellValueFactory(new PropertyValueFactory<>("Libelle"));
-	    
-	    libelleCol.setSortType(TableColumn.SortType.DESCENDING);
-	     
-	    
-	    ObservableList<Poste> list = modelPoste.getListe();
-	    table.setItems(list);
-	    table.getColumns().addAll("id");*/
-	    
-		tableViewPostes.setItems( modelPoste.getListe());
-	     
-	     
 	}
 	
 	
@@ -93,7 +86,7 @@ public class ControllerPosteListeDetail  {
 
 	@FXML
 	private void doAnnuler() {
-		managerGui.showView( EnumView.PersonneListe );
+		managerGui.showView( EnumView.PosteListe );
 	}
     
 }
