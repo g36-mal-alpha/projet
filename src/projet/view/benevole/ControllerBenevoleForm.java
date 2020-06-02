@@ -64,8 +64,8 @@ public class ControllerBenevoleForm {
 
 			// Data binding
 			
-			comboPoste.setItems( bene.getPostes());
-			//comboPoste.valueProperty().bindBidirectional( courant.libelleProperty());
+			comboPoste.setItems( modelBenevole.getPostes());
+			comboPoste.valueProperty().bindBidirectional( courant.posteProperty());
 			
 			//checkMineur.selectedProperty().bindBidirectional( courant.mineursProperty() );
 		

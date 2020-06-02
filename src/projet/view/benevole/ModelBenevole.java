@@ -40,9 +40,11 @@ public class ModelBenevole {
 			return courant;
 		}
 		
-		public ObservableList<Poste> getListePoste() {
+		public ObservableList<Poste> getPostes() {
 			 return modelPoste.getListe();
 		}
+		
+
 		
 
 		
@@ -57,11 +59,13 @@ public class ModelBenevole {
 		// Actions
 		
 		public void preparerAjouter() {
+			modelPoste.actualiserListe();
 			mapper.update( courant, new Benevole() );
 		}
 
 		
 		public void preparerModifier( Benevole item ) {
+			modelPoste.actualiserListe();
 			mapper.update( courant, daoBenevole.retrouver( item.getId() ) );
 		}
 		

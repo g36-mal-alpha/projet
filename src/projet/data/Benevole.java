@@ -26,6 +26,7 @@ public class Benevole {
 	private final Property<Boolean>		permanent		= new SimpleObjectProperty<>( false );
 	//private final BooleanProperty		permanent		= new SimpleBooleanProperty();
 	 private final Property<Categorie> categorie        = new SimpleObjectProperty<>();
+	 private final Property<Poste>		poste 			= new SimpleObjectProperty<>();
 	 private final ObservableList<Poste> postes    		= FXCollections.observableArrayList();
 		
 	// Constructeurs
@@ -33,7 +34,7 @@ public class Benevole {
 	public Benevole() {
 	}
 
-	public Benevole( int id, String nom, String prenom, LocalDate date_naissance, String permis_conduire, Boolean mineurs, Boolean permanent, Categorie categorie ) {
+	public Benevole( int id, String nom, String prenom, LocalDate date_naissance, String permis_conduire, Boolean mineurs, Boolean permanent, Categorie categorie, Poste poste ) {
 		setId(id);
 		setNom(nom);
 		setPrenom(prenom);
@@ -42,6 +43,7 @@ public class Benevole {
 		setMineurs(mineurs);
 		setPermanent(permanent);
 		setCategorie(categorie);
+		setPoste(poste);
 	}
 		
 	
@@ -220,5 +222,20 @@ public class Benevole {
 	public String toString() {
 		return getNom() + " " +getPrenom();
 	}
+
+	public final Property<Poste> posteProperty() {
+		return this.poste;
+	}
+	
+
+	public final Poste getPoste() {
+		return this.posteProperty().getValue();
+	}
+	
+
+	public final void setPoste(final Poste poste) {
+		this.posteProperty().setValue(poste);
+	}
+	
 
 }
