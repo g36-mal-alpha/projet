@@ -134,8 +134,10 @@ public class ControllerPosteForm {
 	@FXML
 	private void doAjouterBenevoles() {
 		managerGui.showDialog( EnumView.PosteAjoutBenevoles );
+		modelPoste.actualiserListeBenevolesPourDialogAjout();
 	}
-
+	
+	
 	/*
 	//Statut Radio
 	private void actualiserStatutDansModele() { 

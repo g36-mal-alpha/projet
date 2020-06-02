@@ -230,12 +230,6 @@ public class DaoBenevole {
 		}
 		return benevole;
 	}
-
-
-	public Poste benevolesPourDialogAjout() {
-		return null;
 	
-		
   }
 	
-}
