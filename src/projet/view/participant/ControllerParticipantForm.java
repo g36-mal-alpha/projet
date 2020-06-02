@@ -30,7 +30,7 @@ public class ControllerParticipantForm {
 		@FXML	
 		private TextField			textFieldPrenom;
 		@FXML
-		private ComboBox<Sexe>			comboBoxSexe;
+		private ComboBox<Sexe>		comboBoxSexe;
 		@FXML
 		private DatePicker			dateNaissance;
 		@FXML
@@ -49,7 +49,7 @@ public class ControllerParticipantForm {
 		
 		// Autres champs
 		@Inject
-		private IManagerGui			managerGui;
+		private IManagerGui				managerGui;
 		@Inject
 		private ModelParticipant		modelParticipant;
 		@Inject

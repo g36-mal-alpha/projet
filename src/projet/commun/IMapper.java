@@ -13,6 +13,7 @@ import projet.data.Personne;
 import projet.data.Poste;
 import projet.data.Service;
 import projet.data.Participant;
+import projet.data.Sexe;
 
 
 @Mapper
@@ -21,6 +22,8 @@ public interface IMapper {
 	Compte update( @MappingTarget Compte target, Compte source  );
 	
 	Categorie update( @MappingTarget Categorie target, Categorie source );
+	
+	Sexe update( @MappingTarget Sexe target, Sexe source );
 
 	@Mapping( target="categorie", expression="java( source.getCategorie() )" )
 	Personne update( @MappingTarget Personne target, Personne source );

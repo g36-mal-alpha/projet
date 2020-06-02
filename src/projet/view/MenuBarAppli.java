@@ -29,7 +29,7 @@ public class MenuBarAppli extends MenuBar {
 	private MenuItem itemDeconnecter;
 
 	private MenuItem itemCategories;
-	//private MenuItem itemSexe;
+	private MenuItem itemSexe;
 	//private MenuItem itemHierarchie;
 	private MenuItem itemComptes;
 	private MenuItem itemPostes;
@@ -115,12 +115,12 @@ public class MenuBarAppli extends MenuBar {
 		menu.getItems().add( item );
 		itemPostes = item;
 		
-		/*item = new MenuItem( "Sexe" );
+		item = new MenuItem( "Sexe" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.SexeListe )  );
 		menu.getItems().add( item );
 		itemSexe = item;
 		
-		item = new MenuItem( "Hierarchie" );
+		/*item = new MenuItem( "Hierarchie" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.HierarchieListe )  );
 		menu.getItems().add( item );
 		itemHierarchie = item;*/
