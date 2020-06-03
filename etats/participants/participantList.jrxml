@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="participantList" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="af864f10-3204-4a46-b0e7-54b330519adc">
-	<property name="com.jaspersoft.studio.data.sql.tables" value="cGFydGljaXBhbnQgLDE1LDE1LGQ3ZDk3ZmZiLThlOGMtNGRlOC1hY2Q0LTJiZjI0YWU0ZTRhOTs="/>
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[cGFydGljaXBhbnQgLDE1LDE1LDIwNmU3OWU2LTNkY2MtNDZjMi04MzdjLTgwZjk1YjcwY2ZjMzto
+aWVyYXJjaGllIEFTICwyODUsMTU2LDQwODk3N2JhLWM4YTItNDdmOC1iN2E5LTFlY2ZhNDRhZjA4
+MTs=]]>
+	</property>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostegreSQL_projet"/>
 	<style name="Defaut" isDefault="true" hTextAlign="Center" vTextAlign="Middle" fontName="Arial" fontSize="10"/>
 	<style name="Etiquette" hTextAlign="Center" vTextAlign="Middle" isBold="true"/>
@@ -11,8 +15,10 @@
 	participant.date_naissance,
 	participant.numero_tel,
 	participant.mail,
-	participant.adresse
-FROM participant
+	participant.adresse,
+	hierarchie.libelle
+FROM participant,
+	hierarchie
 ORDER BY participant.nom ASC,
 	participant.prenom ASC]]>
 	</queryString>
@@ -39,6 +45,10 @@ ORDER BY participant.nom ASC,
 	<field name="adresse" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="adresse"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="participant"/>
+	</field>
+	<field name="libelle" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="libelle"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="hierarchie"/>
 	</field>
 	<variable name="nbParticipants" class="java.lang.Integer" calculation="Count">
 		<variableExpression><![CDATA[$F{nom}]]></variableExpression>
@@ -110,45 +120,57 @@ ORDER BY participant.nom ASC,
 				<text><![CDATA[Mail]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Etiquette" x="405" y="0" width="150" height="61" uuid="11655420-21fc-43f4-9ca0-4a0bcbe42206">
+				<reportElement style="Etiquette" x="405" y="0" width="95" height="61" uuid="11655420-21fc-43f4-9ca0-4a0bcbe42206">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f1703616-c4d7-43ca-be7e-967321d7c3df"/>
 				</reportElement>
 				<text><![CDATA[Adresse]]></text>
 			</staticText>
+			<staticText>
+				<reportElement style="Etiquette" x="500" y="0" width="55" height="61" uuid="456d8be8-9e43-436d-8e5e-033e72849684">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0e71f152-dc01-4f23-9869-3cd1f6f6112e"/>
+				</reportElement>
+				<text><![CDATA[Role]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="51" splitType="Stretch">
+		<band height="58" splitType="Stretch">
 			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.spreadsheet.SpreadsheetLayout"/>
 			<textField>
-				<reportElement x="0" y="0" width="120" height="51" uuid="b494fa7e-7b2b-42bb-a1b4-522933622936">
+				<reportElement x="0" y="0" width="120" height="58" uuid="b494fa7e-7b2b-42bb-a1b4-522933622936">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cb113053-7ce1-4e1a-a80b-51ea6c4b6277"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{nom}.toUpperCase() + " " + $F{prenom}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="120" y="0" width="90" height="51" uuid="dd350377-9de2-4cf0-a24c-a7162bae28af">
+				<reportElement x="120" y="0" width="90" height="58" uuid="dd350377-9de2-4cf0-a24c-a7162bae28af">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2c00f107-9092-4462-87a6-5187bb2489c9"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{date_naissance}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="210" y="0" width="100" height="51" uuid="fcf55ec3-5f1b-481f-934e-4f5c480a86fb">
+				<reportElement x="210" y="0" width="100" height="58" uuid="fcf55ec3-5f1b-481f-934e-4f5c480a86fb">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a73735be-c72b-4575-bdff-77630ad23f24"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{numero_tel}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="310" y="0" width="95" height="51" uuid="6f0c975f-f717-4848-9c10-5e6eb339d839">
+				<reportElement x="310" y="0" width="95" height="58" uuid="6f0c975f-f717-4848-9c10-5e6eb339d839">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8c06b4e9-e0e5-4933-b019-faea66c87439"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{mail}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="405" y="0" width="150" height="51" uuid="13b3cfcf-afcd-4610-b91c-2fd967409a84">
+				<reportElement x="405" y="0" width="95" height="58" uuid="13b3cfcf-afcd-4610-b91c-2fd967409a84">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f1703616-c4d7-43ca-be7e-967321d7c3df"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{adresse}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="0" width="55" height="58" uuid="381845c0-9e27-40f7-9301-eec0ae3211ae">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0e71f152-dc01-4f23-9869-3cd1f6f6112e"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{libelle}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
