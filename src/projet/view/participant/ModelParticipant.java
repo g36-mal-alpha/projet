@@ -15,6 +15,7 @@ import projet.dao.DaoParticipant;
 import projet.data.Participant;
 import projet.data.Sexe;
 import projet.data.Hierarchie;
+import projet.data.Equipe;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 
@@ -38,6 +39,8 @@ public class ModelParticipant  {
     private ModelSexe			modelSexe;
     @Inject
     private ModelHierarchie		modelHierarchie;
+    /*@Inject
+    private ModelEquipe			modelEquipe;*/
 	
 	// Getters 
 	public Participant getCourant() {
@@ -55,6 +58,10 @@ public class ModelParticipant  {
 	public ObservableList<Hierarchie> getHierarchie() {
 		return modelHierarchie.getListe();
 	}
+	
+	/*public ObservableList<Equipe> getEquipe() {
+		return modelEquipe.getListe();
+	}*/
 
 	
 	// Actualisations

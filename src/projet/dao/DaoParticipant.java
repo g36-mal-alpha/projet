@@ -19,7 +19,7 @@ import projet.data.Participant;
 public class DaoParticipant {
 
 
-	// Champs
+	// Champ
 
 	@Inject
 	private DataSource		dataSource;
