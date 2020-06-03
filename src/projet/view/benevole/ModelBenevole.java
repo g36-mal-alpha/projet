@@ -89,5 +89,11 @@ public class ModelBenevole {
 			daoBenevole.supprimer( item.getId() );
 			mapper.update( courant, UtilFX.findNext( liste, item ) );
 		}
+		
+		public void preparerDetail() {
+
+		}
+		
+		
 
 }

@@ -17,8 +17,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import jfox.javafx.control.EditingCell;
 import jfox.javafx.util.ConverterStringInteger;
 import jfox.javafx.view.IManagerGui;
-import projet.data.Benevole;
-import projet.data.Categorie;
 import projet.data.Poste;
 import projet.view.EnumView;
 
@@ -65,6 +63,7 @@ public class ControllerPosteListeDetail  {
 	public void initialize() {
 
 		// Data Binding
+		columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
 		columnLibelle.setCellValueFactory(new PropertyValueFactory<>("libelle"));
 		columnLieu.setCellValueFactory(new PropertyValueFactory<>("lieu"));
 		columnNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));

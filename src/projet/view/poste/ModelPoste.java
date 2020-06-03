@@ -151,7 +151,6 @@ public class ModelPoste  {
 	}
 
 	public void preparerDetail() {
-		// TODO Auto-generated method stub
-		
+
 	}
 }

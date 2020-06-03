@@ -61,6 +61,12 @@ public class ControllerBenevoleList {
 		
 		
 		// Actions
+	
+		@FXML
+		private void doDetail() {
+			modelBenevole.preparerDetail();
+			managerGui.showDialog( EnumView.BenevoleListeDetail );
+		}
 		
 		@FXML
 		private void doAjouter() {
