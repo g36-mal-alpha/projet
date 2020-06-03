@@ -57,10 +57,10 @@ public class DaoParticipant {
 				 stmt.setObject( 10,participant.getSexe().getId() );
 			} 
 			if ( participant.getHierarchie() == null ) {
-				 stmt.setObject( 10, null );
+				 stmt.setObject( 11, null );
 			} 
 			else {
-				 stmt.setObject( 10,participant.getHierarchie().getId() );
+				 stmt.setObject( 11,participant.getHierarchie().getId() );
 			} 
 			stmt.executeUpdate();
 
@@ -109,7 +109,7 @@ public class DaoParticipant {
 				 stmt.setObject( 11, null );
 			} 
 			else {
-				 stmt.setObject( 1,participant.getHierarchie().getId() );
+				 stmt.setObject( 11,participant.getHierarchie().getId() );
 			}  
 			stmt.setObject( 12, participant.getId() );
 			stmt.executeUpdate();
