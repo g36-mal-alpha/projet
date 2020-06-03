@@ -90,7 +90,7 @@ public class ControllerParticipantListeDetail  {
 
 	@FXML
 	private void doAnnuler() {
-		managerGui.showView( EnumView.PosteListe );
+		managerGui.showView( EnumView.ParticipantListe );
 	}
     
 }
