@@ -158,7 +158,7 @@ public class DaoParticipant {
 			rs = stmt.executeQuery();
 
 			if ( rs.next() ) {
-				return construireParticipant( rs, false );
+				return construireParticipant( rs, true );
 			} else {
 				return null;
 			}
