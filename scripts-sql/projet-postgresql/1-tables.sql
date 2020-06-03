@@ -184,10 +184,9 @@ CREATE TABLE participant(
 	PRIMARY KEY (idparticipant),
 	
 	FOREIGN KEY (idequipe) REFERENCES equipe (idequipe),
-	FOREIGN KEY (idepreuve) REFERENCES epreuve (idepreuve)
-
-	--FOREIGN KEY (idhierarchie) REFERENCES hierarchie (idhierarchie),
-	--FOREIGN KEY (idsexe) REFERENCES sexe (idsexe),
+	FOREIGN KEY (idepreuve) REFERENCES epreuve (idepreuve),
+	FOREIGN KEY (idhierarchie) REFERENCES hierarchie (idhierarchie),
+	FOREIGN KEY (idsexe) REFERENCES sexe (idsexe)
 	
 	--UNIQUE (mail)
 
