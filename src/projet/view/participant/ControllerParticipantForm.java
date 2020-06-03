@@ -12,6 +12,7 @@ import jfox.javafx.util.ConverterStringInteger;
 import jfox.javafx.util.ConverterStringLocalDate;
 import jfox.javafx.util.ListenerFocusValidation;
 import jfox.javafx.view.IManagerGui;
+import projet.data.Hierarchie;
 import projet.data.Participant;
 import projet.view.EnumView;
 import projet.data.Sexe;
@@ -46,7 +47,7 @@ public class ControllerParticipantForm {
 		@FXML	
 		private TextField			textFieldMateriel_utilise;
 		@FXML	
-		private ComboBox			comboBoxRole;
+		private ComboBox<Hierarchie>		comboBoxHierarchie;
 
 		
 		// Autres champs
@@ -79,8 +80,12 @@ public class ControllerParticipantForm {
 			textFieldMateriel_utilise.textProperty().bindBidirectional( courant.materiel_utiliseProperty() );
 
 			// Data binding
-			comboBoxSexe.setItems(  modelParticipant.getSexe());
-	        comboBoxSexe.valueProperty().bindBidirectional( courant.sexeProperty() );
+			comboBoxSexe.setItems(modelParticipant.getSexe());
+	        comboBoxSexe.valueProperty().bindBidirectional(courant.sexeProperty() );
+	        
+			// Data binding
+			comboBoxHierarchie.setItems(  modelParticipant.getHierarchie());
+	        comboBoxHierarchie.valueProperty().bindBidirectional( courant.HierarchieProperty() );
 		}
 		
 		

@@ -9,7 +9,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import jfox.javafx.util.UtilFX;
 import jfox.javafx.view.IManagerGui;
-import projet.data.Sexe;
+import projet.data.Hierarchie;
 import projet.view.EnumView;
 
 
@@ -19,7 +19,7 @@ public class ControllerHierachieListe {
 	// Composants de la vue
 
 	@FXML
-	private ListView<Sexe>	listView;
+	private ListView<Hierarchie>	listView;
 	@FXML
 	private Button				buttonModifier;
 	@FXML
@@ -31,7 +31,7 @@ public class ControllerHierachieListe {
 	@Inject
 	private IManagerGui			managerGui;
 	@Inject
-	private ModelSexe		modelSexe;
+	private ModelHierarchie		modelHierarchie;
 	
 	
 	// Initialisation du Controller
@@ -40,13 +40,13 @@ public class ControllerHierachieListe {
 	private void initialize() {
 
 		// Data binding
-		listView.setItems( modelSexe.getListe() );
+		listView.setItems( modelHierarchie.getListe() );
 		
 	}
 	
 	public void refresh() {
-		modelSexe.actualiserListe();
-		UtilFX.selectInListView( listView, modelSexe.getCourant() );
+		modelHierarchie.actualiserListe();
+		UtilFX.selectInListView( listView, modelHierarchie.getCourant() );
 		listView.requestFocus();
 	}
 

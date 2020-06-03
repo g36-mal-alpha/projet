@@ -7,9 +7,10 @@ import javafx.collections.ObservableList;
 import jfox.commun.exception.ExceptionValidation;
 import jfox.javafx.util.UtilFX;
 import projet.commun.IMapper;
-import projet.dao.DaoSexe;
+import projet.dao.DaoHierarchie;
 import projet.dao.DaoParticipant;
-import projet.data.Sexe;
+import projet.data.Hierarchie;
+
 
 
 public class ModelHierarchie  {
@@ -17,28 +18,28 @@ public class ModelHierarchie  {
 	
 	// Données observables 
 	
-	private final ObservableList<Sexe> liste = FXCollections.observableArrayList(); 
+	private final ObservableList<Hierarchie> liste = FXCollections.observableArrayList(); 
 	
-	private final Sexe	courant = new Sexe();
+	private final Hierarchie	courant = new Hierarchie();
 
 	
 	// Autres champs
     @Inject
 	private IMapper			mapper;
     @Inject
-	private DaoSexe			daoSexe;
+	private DaoHierarchie	daoHierarchie;
     @Inject
     private DaoParticipant	daoParticipant;
     @Inject
-    private ModelHierarchie  modelSexe;
+    private ModelHierarchie  modelHierarchie;
 	
 	// Getters 
 	
-	public ObservableList<Sexe> getListe() {
+	public ObservableList<Hierarchie> getListe() {
 		return liste;
 	}
 	
-	public Sexe getCourant() {
+	public Hierarchie getCourant() {
 		return courant;
 	}
 	
@@ -46,19 +47,19 @@ public class ModelHierarchie  {
 	// Actualisations
 	
 	public void actualiserListe() {
-		liste.setAll( daoSexe.listerTout() );
+		liste.setAll( daoHierarchie.listerTout() );
  	}
 
 
 	// Actions
 	
 	public void preparerAjouter() {
-		mapper.update( courant, new Sexe() );
+		mapper.update( courant, new Hierarchie() );
 	}
 	
-	public void preparerModifier( Sexe item ) {
-		modelSexe.actualiserListe();
-		mapper.update( courant, daoSexe.retrouver( item.getId() ) );
+	public void preparerModifier( Hierarchie item ) {
+		modelHierarchie.actualiserListe();
+		mapper.update( courant, daoHierarchie.retrouver( item.getId() ) );
 	}
 	
 	
@@ -72,22 +73,22 @@ public class ModelHierarchie  {
 		
 		if ( courant.getId() == null ) {
 			// Insertion
-			courant.setId( daoSexe.inserer( courant ) );
+			courant.setId( daoHierarchie.inserer( courant ) );
 		} else {
 			// modficiation
-			daoSexe.modifier( courant );
+			daoHierarchie.modifier( courant );
 		}
 	}
 	
 	
-	public void supprimer( Sexe item ) {
+	public void supprimer( Hierarchie item ) {
 		
 		// Vérifie l'abence de personnes rattachées à la catégorie
 		if ( daoParticipant.compterPourSexe( item.getId() ) != 0 ) {
 			throw new ExceptionValidation( "Des personnes sont rattachées à cette catégorie.." ) ;
 		}
 		
-		daoSexe.supprimer( item.getId() );
+		daoHierarchie.supprimer( item.getId() );
 		mapper.update( courant, UtilFX.findNext( liste, item ) );
 	}
 	

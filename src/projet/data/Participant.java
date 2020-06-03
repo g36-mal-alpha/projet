@@ -21,7 +21,7 @@ public class Participant {
 	private final StringProperty   	 	numero_tel         = new SimpleStringProperty();
 	private final Property<LocalDate>   date_naissance     = new SimpleObjectProperty<LocalDate>();
 	private final StringProperty   	 	adresse     	   = new SimpleStringProperty();
-	private final StringProperty		role               = new SimpleStringProperty();
+	private final Property<Hierarchie>	Hierarchie        = new SimpleObjectProperty();
 	private final StringProperty   	 	certificat_medical = new SimpleStringProperty();
 	private final StringProperty   	 	mail               = new SimpleStringProperty();
 	private final StringProperty   	 	niveau             = new SimpleStringProperty();
@@ -33,7 +33,7 @@ public class Participant {
 	public Participant() {
 	}
 
-	public Participant( int id, String nom, String prenom, Sexe sexe, String numero_tel, LocalDate date_naissance, String adresse, String role, String certificat_medical, String mail, String niveau, String materiel_utilise) {
+	public Participant( int id, String nom, String prenom, Sexe sexe, String numero_tel, LocalDate date_naissance, String adresse, Hierarchie Hierarchie, String certificat_medical, String mail, String niveau, String materiel_utilise) {
 		setId(id);
 		setNom(nom);
 		setPrenom(prenom);
@@ -41,7 +41,7 @@ public class Participant {
 		setNumero_tel(numero_tel);
 		setDate_naissance(date_naissance);
 		setAdresse(adresse);
-		setRole(role);
+		setHierarchie(Hierarchie);
 		setCertificat_medical(certificat_medical);
 		setMail(mail);
 		setNiveau(niveau);
@@ -90,6 +90,20 @@ public class Participant {
 
 	public final void setPrenom(final String prenom) {
 		this.prenomProperty().set(prenom);
+	}
+	
+	public final Property<Hierarchie> HierarchieProperty()
+	{
+		return this.Hierarchie;
+	}
+	
+	public final projet.data.Hierarchie getHierarchie()
+	{
+		return this.HierarchieProperty().getValue();
+	}
+	
+	public final void setHierarchie(final projet.data.Hierarchie Hierarchie) {
+		this.HierarchieProperty().setValue(Hierarchie);
 	}
 	
 	public final Property<Sexe> sexeProperty()
@@ -147,21 +161,6 @@ public class Participant {
 	public final void setAdresse(final String adresse) {
 		this.adresseProperty().set(adresse);
 	}
-	
-	
-	public final StringProperty roleProperty() {
-		return this.role;
-	}
-	
-	public final String getRole() {
-		return this.roleProperty().get();
-	}
-	
-
-	public final void setRole(final String role) {
-		this.roleProperty().set(role);
-	}
-	
 	
 	public final StringProperty certificat_medicalProperty() {
 		return this.certificat_medical;

@@ -39,23 +39,28 @@ public class DaoParticipant {
 		try {
 			//probleme unique mail 
 			cn = dataSource.getConnection();
-			sql = "INSERT INTO participant (nom, prenom, numero_tel, date_naissance, adresse, role, certificat_medical, mail, niveau, materiel_utilise,  idsexe) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+			sql = "INSERT INTO participant (nom, prenom, numero_tel, date_naissance, adresse, certificat_medical, mail, niveau, materiel_utilise,  idsexe, idHierarchie) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 			stmt.setObject( 1,  participant.getNom() );
 			stmt.setObject( 2,  participant.getPrenom() );
 			stmt.setObject( 3,  participant.getNumero_tel() );
 			stmt.setObject( 4,  participant.getDate_naissance() );
 			stmt.setObject( 5,  participant.getAdresse() );
-			stmt.setObject( 6,  participant.getRole() );
-			stmt.setObject( 7,  participant.getCertificat_medical() );
-			stmt.setObject( 8,  participant.getMail() );
-			stmt.setObject( 9, participant.getNiveau() );
-			stmt.setObject( 10, participant.getMateriel_utilise() );
+			stmt.setObject( 6,  participant.getCertificat_medical() );
+			stmt.setObject( 7,  participant.getMail() );
+			stmt.setObject( 8, participant.getNiveau() );
+			stmt.setObject( 9, participant.getMateriel_utilise() );
 			if ( participant.getSexe() == null ) {
-				 stmt.setObject( 11, null );
+				 stmt.setObject( 10, null );
 			} 
 			else {
-				 stmt.setObject( 11,participant.getSexe().getId() );
+				 stmt.setObject( 10,participant.getSexe().getId() );
+			} 
+			if ( participant.getHierarchie() == null ) {
+				 stmt.setObject( 10, null );
+			} 
+			else {
+				 stmt.setObject( 10,participant.getHierarchie().getId() );
 			} 
 			stmt.executeUpdate();
 
@@ -83,24 +88,29 @@ public class DaoParticipant {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "UPDATE participant SET nom = ?, prenom = ?, numero_tel = ?,  date_naissance = ?, adresse = ?, role = ?, certificat_medical = ?, mail = ?, niveau = ?, materiel_utilise = ?, idsexe = ?  WHERE idparticipant =  ?";
+			sql = "UPDATE participant SET nom = ?, prenom = ?, numero_tel = ?,  date_naissance = ?, adresse = ?, certificat_medical = ?, mail = ?, niveau = ?, materiel_utilise = ?, idsexe = ?, idhierarchie = ?  WHERE idparticipant =  ?";
 			stmt = cn.prepareStatement( sql );
 			stmt.setObject( 1, participant.getNom() );
 			stmt.setObject( 2, participant.getPrenom() );
 			stmt.setObject( 3, participant.getNumero_tel() );
 			stmt.setObject( 4, participant.getDate_naissance() );
 			stmt.setObject( 5, participant.getAdresse() );
-			stmt.setObject( 6, participant.getRole() );
-			stmt.setObject( 7, participant.getCertificat_medical() );
-			stmt.setObject( 8, participant.getMail() );
-			stmt.setObject( 9, participant.getNiveau() );
-			stmt.setObject( 10, participant.getMateriel_utilise() );
+			stmt.setObject( 6, participant.getCertificat_medical() );
+			stmt.setObject( 7, participant.getMail() );
+			stmt.setObject( 8, participant.getNiveau() );
+			stmt.setObject( 9, participant.getMateriel_utilise() );
 			if ( participant.getSexe() == null ) {
+				 stmt.setObject( 10, null );
+			}
+			else {
+				 stmt.setObject( 10,participant.getSexe().getId() );
+			} 
+			if ( participant.getHierarchie() == null ) {
 				 stmt.setObject( 11, null );
 			} 
 			else {
-				 stmt.setObject( 11,participant.getSexe().getId() );
-			} 
+				 stmt.setObject( 1,participant.getHierarchie().getId() );
+			}  
 			stmt.setObject( 12, participant.getId() );
 			stmt.executeUpdate();
 
@@ -211,7 +221,7 @@ public int compterPourSexe( int idSexe ) {
 	
 
 	// Méthodes auxiliaires
-	//nom = ?, prenom = ?, sexe = ?, numero_tel = ?,  date_naissance = ?, adresse = ?, role = ?, certificat_medical = ?, mail = ?, niveau = ?, materiel_utilise = ? 
+	//nom = ?, prenom = ?, sexe = ?, numero_tel = ?,  date_naissance = ?, adresse = ?, certificat_medical = ?, mail = ?, niveau = ?, materiel_utilise = ? 
 	private Participant construireParticipant( ResultSet rs , boolean flagComplet ) throws SQLException {
 		Participant participant = new Participant();
 		participant.setId( rs.getObject( "idparticipant", Integer.class ) );
@@ -219,8 +229,7 @@ public int compterPourSexe( int idSexe ) {
 		participant.setPrenom( rs.getObject( "prenom", String.class ) );		
 		participant.setNumero_tel( rs.getObject( "numero_tel", String.class ) );
 		participant.setDate_naissance( rs.getObject( "date_naissance", LocalDate.class ) );
-		participant.setAdresse( rs.getObject( "adresse", String.class ) );
-		participant.setRole( rs.getObject( "role", String.class ) );		
+		participant.setAdresse( rs.getObject( "adresse", String.class ) );	
 		participant.setCertificat_medical( rs.getObject( "certificat_medical", String.class ) );
 		participant.setMail( rs.getObject( "mail", String.class ) );
 		participant.setNiveau( rs.getObject( "niveau", String.class ) );
@@ -229,6 +238,12 @@ public int compterPourSexe( int idSexe ) {
 			 Integer idSexe = rs.getObject( "idsexe", Integer.class );
 			 if ( idSexe != null ) {
 				 participant.setSexe( daoSexe.retrouver(idSexe) );
+			 }
+		}
+		if ( flagComplet ) {
+			 Integer idHierarchie = rs.getObject( "idhierarchie", Integer.class );
+			 if ( idHierarchie != null ) {
+				 participant.setSexe( daoSexe.retrouver(idHierarchie) );
 			 }
 		}
 		return participant;
