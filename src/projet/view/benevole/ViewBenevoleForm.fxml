@@ -28,7 +28,7 @@
 
 <AnchorPane fx:id="paneRoot" prefHeight="380.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.benevole.ControllerBenevoleForm">
    <children>
-      <Label alignment="CENTER" styleClass="titre-vue" text="Bénévoles" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+      <Label fx:id="labelTable" alignment="CENTER" styleClass="titre-vue" text="Bénévoles" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
       <HBox alignment="CENTER" fillHeight="false" layoutY="60.0" prefHeight="185.0" prefWidth="420.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
             <GridPane alignment="CENTER" prefHeight="160.0" prefWidth="391.0" vgap="20.0">
