@@ -33,6 +33,7 @@ public enum EnumView implements IEnumView {
 	InfoParticipant 			("participant/ViewInfoParticipant.fxml"),
 	ParticipantListe 			("participant/ViewListeParticipant.fxml"),
 	ParticipantForm				("participant/ViewParticipantForm.fxml"),
+	ParticipantListeDetail		("participant/ViewParticipantListeDetail.fxml"),
 	TestDaoCategorie			( "test/ViewTestDaoCategorie.fxml" ),
 	TestDaoService				( "test/ViewTestDaoService.fxml" ),
 	TestDaoBenevole				( "test/ViewTestDaoBenevole.fxml" ),

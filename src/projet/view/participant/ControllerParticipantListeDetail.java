@@ -64,15 +64,15 @@ public class ControllerParticipantListeDetail  {
 
 		// Data Binding
 		columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
-		columnNom.setCellValueFactory(new PropertyValueFactory<>("libelle"));
-		columnPrenom.setCellValueFactory(new PropertyValueFactory<>("lieu"));
-		columnNumero_tel.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-		columnDateN.setCellValueFactory(new PropertyValueFactory<>("jour"));
-		columnAdresse.setCellValueFactory(new PropertyValueFactory<>("heure_debut"));
-		columnMail.setCellValueFactory(new PropertyValueFactory<>("heure_fin"));
-		columnNiveau.setCellValueFactory(new PropertyValueFactory<>("numero_poste"));
-		columnMateriel.setCellValueFactory(new PropertyValueFactory<>("numero_poste"));
-		columnCertificat.setCellValueFactory(new PropertyValueFactory<>("numero_poste"));
+		columnNom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+		columnPrenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+		columnNumero_tel.setCellValueFactory(new PropertyValueFactory<>("numero_tel"));
+		columnDateN.setCellValueFactory(new PropertyValueFactory<>("date_naissance"));
+		columnAdresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
+		columnMail.setCellValueFactory(new PropertyValueFactory<>("mail"));
+		columnNiveau.setCellValueFactory(new PropertyValueFactory<>("niveau"));
+		columnMateriel.setCellValueFactory(new PropertyValueFactory<>("materiel_utilise"));
+		columnCertificat.setCellValueFactory(new PropertyValueFactory<>("certificat_medical"));
 		
 		
 		//columnEpreuve.setCellValueFactory(param -> param.getValue().getCategorie().libelleProperty());

@@ -152,6 +152,10 @@ public class ModelParticipant  {
 		daoParticipant.supprimer( item.getId() );
 		mapper.update( courant, UtilFX.findNext( liste, item ) );
 	}
+
+	public void preparerDetail() {
+		
+	}
 	
 	/*public void supprimerBenevole( Benevole item ) {
 		 courant.getBenevoles().remove( item );

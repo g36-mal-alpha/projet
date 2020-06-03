@@ -60,6 +60,11 @@ public class ControllerListeParticipant {
 
 	
 	// Actions
+	@FXML
+	private void doDetail() {
+		modelParticipant.preparerDetail();
+		managerGui.showDialog( EnumView.ParticipantListeDetail );
+	}
 	
 	@FXML
 	private void doAjouter() {
