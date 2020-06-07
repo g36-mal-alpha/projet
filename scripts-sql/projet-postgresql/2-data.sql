@@ -139,7 +139,15 @@ ALTER TABLE poste ALTER COLUMN idposte RESTART WITH 20;
 INSERT INTO equipe ( idequipe, nom_equipe, valide, paye, nb_plateau) VALUES
   ( 1, 'equipe 1',TRUE, FALSE, 1),
   ( 2, 'equipe 2', TRUE , TRUE, 2),
-  ( 3, 'equipe 3', TRUE, TRUE, 1);
+  ( 3, 'equipe 3', TRUE, TRUE, 1),
+  ( 4, 'equipe 4', TRUE, TRUE, 2),
+  ( 5, 'equipe 5', TRUE, TRUE, 2),
+  ( 6, 'equipe 6', TRUE, TRUE, 2),
+  ( 7, 'equipe 7', TRUE, TRUE, 2),
+  ( 8, 'equipe 8', TRUE, TRUE, 2),
+  ( 9, 'equipe 9', TRUE, TRUE, 2),
+  ( 10, 'equipe 10', TRUE, TRUE, 2);
+
 
 ALTER TABLE equipe ALTER COLUMN idequipe RESTART WITH 20;
   
@@ -158,7 +166,10 @@ INSERT INTO participant (idparticipant, idequipe, idepreuve, nom, prenom, idsexe
   ( 1,1,1, 'nom1', 'leo', 1, '0652369825','12/08/1995', 'adresse 1', 1,'fichier 1', 'mail1@gmail.com',  'junior' , 'velo, kanoé'),
   ( 2,2,2, 'nom2', 'bob', 2, '0695582102','12/08/1965', 'adresse 2', 2,   'fichier 2', 'mail2@hotmail.fr', 'senior', 'velo'),
   ( 3,3,3, 'nom3', 'toto',1, '0687109632','12/08/1998','adresse 3', 1,   'fichier 3', 'mail3@orange.fr',  'junior', 'kanoe'),
-  (	4,3,2, 'nom4', 'clement',2, '0687107832','12/08/1999','adresse 4', 2,   'fichier 4', 'mail4@orange.fr',  'senior', 'kanoe');
+  (	4,3,2, 'nom4', 'clement',2, '0687107832','12/08/1999','adresse 4', 2,   'fichier 4', 'mail4@orange.fr',  'senior', 'kanoe'),
+  ( 5, 4, 2, 'Raymond', 'Sellers', 1, '0891730627', '11/06/1997', 'CP385, 5045 Nec Chemin', 1, 'fichier5', 'cursus@llam.edu', 'senior', 'kanoe'),
+  ( 6, 4, 2, 'Brady', 'Kaufman', 2, '0218410983', '03/05/1996', '842-5222 Nec Chemin', 2, 'fichier6', 'vestibulum@dictum.net', 'senior', 'kanoe'),
+  ( 7, 5, 2, 'Timon', 'Pratt', 1, '0825681927', '07/12/2000', 'P 584, 4977 Posuere', 1, 'fichier7', 'tincidunt@Fusquam.ca', 'senior', 'kanoe');
   
 ALTER TABLE participant ALTER COLUMN idparticipant RESTART WITH 100;
  
@@ -174,22 +185,10 @@ ALTER TABLE documents_licencies ALTER COLUMN iddocument RESTART WITH 100;
 -- Avoir
 
 INSERT INTO avoir ( idposte, idbenevole) VALUES
-  (1, 3),
+  (1, 1),
   (1, 2),
-  (2, 2),
-  (3, 1),
-  (10, 3),
-  (6, 2),
-  (5, 1),
-  (8, 2),
-  (12, 3),
-  (7, 3),
-  (9, 3),
-  (11, 2),
-  (10, 1),
-  (3, 2),
-  (6, 1),
-  (8, 3);
+  (2, 3);
+
   
 
 

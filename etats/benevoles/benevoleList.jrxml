@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="benevoleList" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe241323-9684-470b-80b0-fc2dfcac2d60">
-	<property name="com.jaspersoft.studio.data.sql.tables">
-		<![CDATA[YmVuZXZvbGUgLDE1OCwxNSwyMTBjOTA1OC0zNjQ2LTQzMWYtOGUzZi1iMmY0NjZiOWYzOTE7YXZv
-aXIgLDE1LDIzNyw5ZWY3MjhhNi0zYjk4LTRiOTMtODM5MS01NDBkNzUxOTY3MjI7cG9zdGUgLDE1
-OCwyODksNWJjYTA2YWYtMzNlNC00YTk5LTljODgtZTI4Y2ViYzJkMmUyOw==]]>
-	</property>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostegreSQL_projet"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="424"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="565"/>

@@ -2,9 +2,8 @@
 <!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="participantList" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="af864f10-3204-4a46-b0e7-54b330519adc">
 	<property name="com.jaspersoft.studio.data.sql.tables">
-		<![CDATA[cGFydGljaXBhbnQgLDE1LDE1LDIwNmU3OWU2LTNkY2MtNDZjMi04MzdjLTgwZjk1YjcwY2ZjMzto
-aWVyYXJjaGllIEFTICwyODUsMTU2LDQwODk3N2JhLWM4YTItNDdmOC1iN2E5LTFlY2ZhNDRhZjA4
-MTs=]]>
+		<![CDATA[cGFydGljaXBhbnQgLDE1LDE1LGYzMmVhMTgyLWQyNzItNDlhNy04OGJjLTgyNWU2ZGM3MGRhNzto
+aWVyYXJjaGllICwxNzQsMTczLGMyMDczMzkyLWY5ZWItNDQ4MS04YzVhLWQ2NmU4YjAxODVjYjs=]]>
 	</property>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostegreSQL_projet"/>
 	<style name="Defaut" isDefault="true" hTextAlign="Center" vTextAlign="Middle" fontName="Arial" fontSize="10"/>
@@ -16,9 +15,11 @@ MTs=]]>
 	participant.numero_tel,
 	participant.mail,
 	participant.adresse,
-	hierarchie.libelle
-FROM participant,
-	hierarchie
+	hierarchie.libelle,
+	participant.idhierarchie
+FROM participant
+	INNER JOIN hierarchie ON 
+	 participant.idhierarchie = hierarchie.idhierarchie 
 ORDER BY participant.nom ASC,
 	participant.prenom ASC]]>
 	</queryString>
@@ -49,6 +50,10 @@ ORDER BY participant.nom ASC,
 	<field name="libelle" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="libelle"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="hierarchie"/>
+	</field>
+	<field name="idhierarchie" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="idhierarchie"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="participant"/>
 	</field>
 	<variable name="nbParticipants" class="java.lang.Integer" calculation="Count">
 		<variableExpression><![CDATA[$F{nom}]]></variableExpression>
