@@ -302,7 +302,7 @@ NTgsMTUsYzRlMGFlNTAtZmM2ZC00NWY5LTg0MDItZWNkNTk1ODQ5OGM4Ow==]]>
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="55" splitType="Stretch">
+		<band height="40" splitType="Stretch">
 			<textField>
 				<reportElement x="320" y="10" width="52" height="30" uuid="615cff8f-8165-468d-a3f3-02625c252a68"/>
 				<textFieldExpression><![CDATA[$V{nbBenevole}]]></textFieldExpression>
