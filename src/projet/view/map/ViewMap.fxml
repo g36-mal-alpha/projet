@@ -61,25 +61,25 @@
             <Circle fx:id="circle17" fill="RED" layoutX="277.0" layoutY="472.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="circle18" fill="RED" layoutX="204.0" layoutY="371.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="circle19" fill="RED" layoutX="172.0" layoutY="361.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle110" fill="RED" layoutX="207.0" layoutY="339.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle111" fill="RED" layoutX="135.0" layoutY="324.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle112" fill="RED" layoutX="81.0" layoutY="311.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle113" fill="RED" layoutX="62.0" layoutY="279.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle114" fill="RED" layoutX="164.0" layoutY="296.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle115" fill="RED" layoutX="198.0" layoutY="287.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle116" fill="RED" layoutX="172.0" layoutY="259.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle117" fill="RED" layoutX="153.0" layoutY="264.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle118" fill="RED" layoutX="179.0" layoutY="219.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle119" fill="RED" layoutX="206.0" layoutY="196.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle120" fill="RED" layoutX="221.0" layoutY="149.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle121" fill="RED" layoutX="228.0" layoutY="180.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle122" fill="RED" layoutX="251.0" layoutY="178.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle123" fill="RED" layoutX="314.0" layoutY="175.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle124" fill="RED" layoutX="308.0" layoutY="244.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle125" fill="RED" layoutX="309.0" layoutY="223.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle126" fill="RED" layoutX="331.0" layoutY="220.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle127" fill="RED" layoutX="372.0" layoutY="205.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle128" fill="RED" layoutX="373.0" layoutY="224.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle20" fill="RED" layoutX="207.0" layoutY="339.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle21" fill="RED" layoutX="135.0" layoutY="324.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle22" fill="RED" layoutX="81.0" layoutY="311.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle23" fill="RED" layoutX="62.0" layoutY="279.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle24" fill="RED" layoutX="164.0" layoutY="296.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle25" fill="RED" layoutX="198.0" layoutY="287.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle27" fill="RED" layoutX="172.0" layoutY="259.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle26" fill="RED" layoutX="153.0" layoutY="264.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle28" fill="RED" layoutX="179.0" layoutY="219.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle29" fill="RED" layoutX="206.0" layoutY="196.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle31" fill="RED" layoutX="221.0" layoutY="149.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle30" fill="RED" layoutX="228.0" layoutY="180.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle32" fill="RED" layoutX="251.0" layoutY="178.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle33" fill="RED" layoutX="314.0" layoutY="175.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle38" fill="RED" layoutX="308.0" layoutY="244.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle34" fill="RED" layoutX="309.0" layoutY="223.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle35" fill="RED" layoutX="331.0" layoutY="220.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle36" fill="RED" layoutX="372.0" layoutY="205.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle37" fill="RED" layoutX="373.0" layoutY="224.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </AnchorPane>
    </center>
