@@ -200,30 +200,6 @@ public class DaoBenevole {
 			UtilJdbc.close( rs, stmt, cn );
 		}
 	}
-	
-    public int compterPourBenevole( int idBenevole ) {
-    	
-		Connection			cn		= null;
-		PreparedStatement	stmt 	= null;
-		ResultSet 			rs		= null;
-
-		try {
-			cn = dataSource.getConnection();
-            String sql = "SELECT COUNT(*) FROM benevole WHERE idbenevole = ?";
-            stmt = cn.prepareStatement( sql );
-            stmt.setObject( 1, idBenevole );
-            rs = stmt.executeQuery();
-
-            rs.next();
-            return rs.getInt( 1 );
-
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		} finally {
-			UtilJdbc.close( rs, stmt, cn );
-		}
-    }
-	
 
 	// Méthodes auxiliaires
 

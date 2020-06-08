@@ -284,5 +284,50 @@ public class DaoPoste {
 		}
 	}
 
+    public int compterPourPoste( int idPoste ) {
+    	
+		Connection			cn		= null;
+		PreparedStatement	stmt 	= null;
+		ResultSet 			rs		= null;
+
+		try {
+			cn = dataSource.getConnection();
+            String sql = "SELECT COUNT(*) FROM avoir WHERE idposte = ?";
+            stmt = cn.prepareStatement( sql );
+            stmt.setObject( 1, idPoste );
+            rs = stmt.executeQuery();
+
+            rs.next();
+            return rs.getInt( 1 );
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close( rs, stmt, cn );
+		}
+    }
+    
+    public int totalPourPoste( int idPoste ) {
+    	
+		Connection			cn		= null;
+		PreparedStatement	stmt 	= null;
+		ResultSet 			rs		= null;
+
+		try {
+			cn = dataSource.getConnection();
+            String sql = "SELECT nombre FROM poste WHERE idposte = ?";
+            stmt = cn.prepareStatement( sql );
+            stmt.setObject( 1, idPoste );
+            rs = stmt.executeQuery();
+
+            rs.next();
+            return rs.getInt( 1 );
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close( rs, stmt, cn );
+		}
+    }
 }
 	
