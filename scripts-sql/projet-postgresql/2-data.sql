@@ -199,8 +199,8 @@ INSERT INTO participant (idparticipant, idequipe, idepreuve, nom, prenom, idsexe
   ( 16, 9, 2, 'Maggy', 'Hooper', 2, '0327778074', '01/01/2005', '6702 Fringilla Rd.', 2, 'fichier16', 'dis.parturient@at.com', 'senioer', 'kanoe'),
   ( 17, 10, 2, 'Odysseus', 'Rivers', 1, '0673287643', '25/12/2000', '8196 Neque Rue', 1, 'fichier17', 'Nullam@penatibus.co.uk', 'senior', 'kanoe'),
   ( 18, 10, 2, 'Ina', 'Case', 2, '0804941321', '14/11/1999', 'CP 809, 4831 Nullam Av', 2, 'fichier18', 'a.sollicitudin@PeFusce.org', 'senior', 'kanoe'),
-  ( 19, 11, 2, 'Joy', 'Castillo', 2, '0387361313', '18/05/2001', '406-3040 Eu Route', 1, 'fichier19', 'In@aliquetProinvelit.net', 'senior', 'kanoe'),
-  ( 20, 11, 2, 'Maggy', 'Hooper', 2, '0327778074', '02/10/2003', '6702 Fringilla Rd.', 2, 'fichier20', 'dis.parturient@at.com', 'senior', 'kanoe'); 
+  ( 19, 11, 2, 'Laurent', 'Castillo', 1, '0387361313', '18/05/2001', '406-3040 Eu Route', 1, 'fichier19', 'In@aliquetProinvelit.net', 'senior', 'kanoe'),
+  ( 20, 11, 2, 'Bernard', 'Hooper', 1, '0327778074', '02/10/2003', '6702 Fringilla Rd.', 2, 'fichier20', 'dis.parturient@at.com', 'senior', 'kanoe'); 
 
 ALTER TABLE participant ALTER COLUMN idparticipant RESTART WITH 100;
 
