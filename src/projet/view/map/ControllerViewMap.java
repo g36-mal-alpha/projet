@@ -3,13 +3,15 @@ package projet.view.map;
 import javax.inject.Inject;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import projet.dao.DaoBenevole;
+import javafx.scene.shape.Rectangle;
 import projet.dao.DaoPoste;
-import projet.data.Benevole;
+
 
 
 public class ControllerViewMap {
@@ -21,8 +23,10 @@ public class ControllerViewMap {
 	
 	@FXML
 	private  TextArea		 textArea;
-    @FXML
-    private  ProgressBar     progressBar;  
+	@FXML
+	private  Rectangle       rectPlace;
+	@FXML 
+	private  Label           pourcentage;
 	@FXML
 	private  Circle          circle1; 
 	@FXML
@@ -114,7 +118,30 @@ public class ControllerViewMap {
 	
 	@Inject
 	private DaoPoste	dao;
+	
+	public void couleur (int pourcent) {
+		if(pourcent<25) {
+		rectPlace.setFill(Color.GREEN);
+		rectPlace.setStroke(Color.GREEN);
+		}
+		else if(pourcent>=25 && pourcent<50) {
+		rectPlace.setFill(Color.YELLOW);
+		rectPlace.setStroke(Color.YELLOW);
+		}
+		else if(pourcent>=50 && pourcent<75) {
+		rectPlace.setFill(Color.ORANGE);
+		rectPlace.setStroke(Color.ORANGE);
+		}
+		else if(pourcent>=75) {
+		rectPlace.setFill(Color.RED);
+		rectPlace.setStroke(Color.RED);
+		}
+		
+	
+	}
 
+	
+	
 	private void masquer() {
 		circle1.setOpacity(0.00);
 		circle2.setOpacity(0.00);
@@ -238,6 +265,13 @@ public class ControllerViewMap {
 		
 		textArea.clear();
 		textArea.appendText( nombrePlaceRestant +" places disponibles pour ce poste");
+		
+		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
+		couleur(pourcent);
+		
+		rectPlace.setWidth(pourcent*2.5);
+ 		pourcentage.setText(pourcent+"%");
+ 		
 	}
 	
 	@FXML
@@ -250,6 +284,11 @@ public class ControllerViewMap {
 		
 		textArea.clear();
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		
+		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
+		couleur(pourcent);
+		rectPlace.setWidth(pourcent*2.5);
+ 		pourcentage.setText(pourcent+"%");
 	}
 	
 	@FXML
@@ -262,6 +301,11 @@ public class ControllerViewMap {
 		
 		textArea.clear();
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		
+		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
+		couleur(pourcent);
+		rectPlace.setWidth(pourcent*2.5);
+ 		pourcentage.setText(pourcent+"%");
 	}
 	
 	@FXML
@@ -275,6 +319,11 @@ public class ControllerViewMap {
 		
 		textArea.clear();
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		
+		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
+		couleur(pourcent);
+		rectPlace.setWidth(pourcent*2.5);
+ 		pourcentage.setText(pourcent+"%");
 	}
 
 	@FXML
@@ -287,6 +336,11 @@ public class ControllerViewMap {
 		
 		textArea.clear();
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+	
+		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
+		couleur(pourcent);
+		rectPlace.setWidth(pourcent*2.5);
+ 		pourcentage.setText(pourcent+"%");
 	}
 	
 	@FXML
@@ -298,7 +352,12 @@ public class ControllerViewMap {
 		circle41.setOpacity(0.80);
 		
 		textArea.clear();
-		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");
+		
+		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
+		couleur(pourcent);
+		rectPlace.setWidth(pourcent*2.5);
+ 		pourcentage.setText(pourcent+"%");
 	}
 	
 	@FXML
@@ -311,6 +370,11 @@ public class ControllerViewMap {
 		
 		textArea.clear();
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		
+		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
+		couleur(pourcent);
+		rectPlace.setWidth(pourcent*2.5);
+ 		pourcentage.setText(pourcent+"%");
 	}
 	
 	@FXML
@@ -327,6 +391,11 @@ public class ControllerViewMap {
 		
 		textArea.clear();
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		
+		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
+		couleur(pourcent);
+		rectPlace.setWidth(pourcent*2.5);
+ 		pourcentage.setText(pourcent+"%");
 	}
 
 	@FXML
@@ -342,6 +411,11 @@ public class ControllerViewMap {
 		
 		textArea.clear();
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		
+		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
+		couleur(pourcent);
+		rectPlace.setWidth(pourcent*2.5);
+ 		pourcentage.setText(pourcent+"%");
 	}
 	
 	@FXML
@@ -358,6 +432,11 @@ public class ControllerViewMap {
 		
 		textArea.clear();
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		
+		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
+		couleur(pourcent);
+		rectPlace.setWidth(pourcent*2.5);
+ 		pourcentage.setText(pourcent+"%");
 	}
 	
 	@FXML
@@ -370,6 +449,11 @@ public class ControllerViewMap {
 		
 		textArea.clear();
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		
+		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
+		couleur(pourcent);
+		rectPlace.setWidth(pourcent*2.5);
+ 		pourcentage.setText(pourcent+"%");
 	}
 	
 	@FXML
@@ -382,5 +466,10 @@ public class ControllerViewMap {
 		
 		textArea.clear();
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");
+		
+		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
+		couleur(pourcent);
+		rectPlace.setWidth(pourcent*2.5);
+ 		pourcentage.setText(pourcent+"%");
 	}	
 }
