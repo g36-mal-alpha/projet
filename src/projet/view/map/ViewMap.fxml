@@ -130,7 +130,7 @@
             <Circle fx:id="circle41" fill="RED" layoutX="207.0" layoutY="311.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="circle42" fill="RED" layoutX="262.0" layoutY="280.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
             <Rectangle arcHeight="1.0" arcWidth="5.0" fill="WHITE" height="10.0" layoutX="320.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.4" width="250.0" />
-            <Rectangle fx:id="rectPlace" arcHeight="5.0" arcWidth="5.0" fill="RED" height="10.0" layoutX="320.0" layoutY="120.0" stroke="RED" strokeType="INSIDE" />
+            <Rectangle fx:id="rectPlace" arcHeight="5.0" arcWidth="5.0" fill="RED" height="10.0" layoutX="320.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.4" />
             <Label fx:id="pourcentage" layoutX="575.0" layoutY="117.0" text="100%" />
          </children>
       </AnchorPane>

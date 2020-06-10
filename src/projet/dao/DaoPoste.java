@@ -284,7 +284,7 @@ public class DaoPoste {
 		}
 	}
 
-    public int compterPourPoste( int idPoste ) {
+    public int compterParPoste( int idPoste ) {
     	
 		Connection			cn		= null;
 		PreparedStatement	stmt 	= null;
@@ -307,7 +307,7 @@ public class DaoPoste {
 		}
     }
     
-    public int totalPourPoste( int idPoste ) {
+    public int totalDisponilbeParPoste( int idPoste ) {
     	
 		Connection			cn		= null;
 		PreparedStatement	stmt 	= null;
@@ -318,6 +318,50 @@ public class DaoPoste {
             String sql = "SELECT nombre FROM poste WHERE idposte = ?";
             stmt = cn.prepareStatement( sql );
             stmt.setObject( 1, idPoste );
+            rs = stmt.executeQuery();
+
+            rs.next();
+            return rs.getInt( 1 );
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close( rs, stmt, cn );
+		}
+    }
+    
+    public int totalOccupePourPoste() {
+    	
+		Connection			cn		= null;
+		PreparedStatement	stmt 	= null;
+		ResultSet 			rs		= null;
+
+		try {
+			cn = dataSource.getConnection();
+            String sql = "SELECT COUNT(*) FROM avoir";
+            stmt = cn.prepareStatement( sql );
+            rs = stmt.executeQuery();
+
+            rs.next();
+            return rs.getInt( 1 );
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close( rs, stmt, cn );
+		}
+    }
+    
+    public int totalDisponiblePourPoste() {
+    	
+		Connection			cn		= null;
+		PreparedStatement	stmt 	= null;
+		ResultSet 			rs		= null;
+
+		try {
+			cn = dataSource.getConnection();
+            String sql = "SELECT SUM(nombre) FROM poste";
+            stmt = cn.prepareStatement( sql );
             rs = stmt.executeQuery();
 
             rs.next();
