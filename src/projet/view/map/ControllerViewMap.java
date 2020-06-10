@@ -264,7 +264,7 @@ public class ControllerViewMap {
 		circle38.setOpacity(0.80);
 		
 		textArea.clear();
-		textArea.appendText( nombrePlaceRestant +" places disponibles pour ce poste");
+		textArea.appendText( nombrePlaceRestant + " sur " + dao.totalPourPoste(idposte) + " places disponibles pour ce poste");
 		
 		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
 		couleur(pourcent);
@@ -283,7 +283,7 @@ public class ControllerViewMap {
 		circle42.setOpacity(0.80);
 		
 		textArea.clear();
-		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		textArea.appendText(nombrePlaceRestant + " sur " + dao.totalPourPoste(idposte) + " places disponibles pour ce poste");	
 		
 		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
 		couleur(pourcent);
@@ -300,7 +300,7 @@ public class ControllerViewMap {
 		circle41.setOpacity(0.80);
 		
 		textArea.clear();
-		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		textArea.appendText(nombrePlaceRestant + " sur " + dao.totalPourPoste(idposte) + " places disponibles pour ce poste");	
 		
 		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
 		couleur(pourcent);
@@ -318,7 +318,7 @@ public class ControllerViewMap {
 		circle24.setOpacity(0.80);
 		
 		textArea.clear();
-		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		textArea.appendText(nombrePlaceRestant + " sur " + dao.totalPourPoste(idposte) + " places disponibles pour ce poste");	
 		
 		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
 		couleur(pourcent);
@@ -335,7 +335,7 @@ public class ControllerViewMap {
 		circle40.setOpacity(0.80);
 		
 		textArea.clear();
-		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		textArea.appendText(nombrePlaceRestant + " sur " + dao.totalPourPoste(idposte) + " places disponibles pour ce poste");	
 	
 		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
 		couleur(pourcent);
@@ -352,7 +352,7 @@ public class ControllerViewMap {
 		circle41.setOpacity(0.80);
 		
 		textArea.clear();
-		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");
+		textArea.appendText(nombrePlaceRestant + " sur " + dao.totalPourPoste(idposte) + " places disponibles pour ce poste");
 		
 		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
 		couleur(pourcent);
@@ -369,7 +369,7 @@ public class ControllerViewMap {
 		circle39.setOpacity(0.80);
 		
 		textArea.clear();
-		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		textArea.appendText(nombrePlaceRestant + " sur " + dao.totalPourPoste(idposte) + " places disponibles pour ce poste");	
 		
 		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
 		couleur(pourcent);
@@ -390,7 +390,7 @@ public class ControllerViewMap {
 		circle10.setOpacity(0.80);
 		
 		textArea.clear();
-		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		textArea.appendText(nombrePlaceRestant + " sur " + dao.totalPourPoste(idposte) + " places disponibles pour ce poste");	
 		
 		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
 		couleur(pourcent);
@@ -410,7 +410,7 @@ public class ControllerViewMap {
 		circle27.setOpacity(0.80);
 		
 		textArea.clear();
-		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		textArea.appendText(nombrePlaceRestant + " sur " + dao.totalPourPoste(idposte) + " places disponibles pour ce poste");	
 		
 		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
 		couleur(pourcent);
@@ -431,7 +431,7 @@ public class ControllerViewMap {
 		circle23.setOpacity(0.80);
 		
 		textArea.clear();
-		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		textArea.appendText(nombrePlaceRestant + " sur " + dao.totalPourPoste(idposte) + " places disponibles pour ce poste");	
 		
 		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
 		couleur(pourcent);
@@ -448,7 +448,7 @@ public class ControllerViewMap {
 		circle4.setOpacity(0.80);
 		
 		textArea.clear();
-		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
+		textArea.appendText(nombrePlaceRestant +  " sur " + dao.totalPourPoste(idposte) + " places disponibles pour ce poste");	
 		
 		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
 		couleur(pourcent);
@@ -465,7 +465,7 @@ public class ControllerViewMap {
 		circle2.setOpacity(0.80);
 		
 		textArea.clear();
-		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");
+		textArea.appendText(nombrePlaceRestant + " sur " + dao.totalPourPoste(idposte) + " places disponibles pour ce poste");
 		
 		int pourcent = dao.compterPourPoste(idposte)*100/dao.totalPourPoste(idposte);
 		couleur(pourcent);
