@@ -47,6 +47,68 @@ public class ControllerViewMap {
 	private  Circle          circle11; 
 	@FXML
 	private  Circle          circle12; 
+	@FXML
+	private  Circle          circle13; 
+	@FXML
+	private  Circle          circle14; 
+	@FXML
+	private  Circle          circle15; 
+	@FXML
+	private  Circle          circle16; 
+	@FXML
+	private  Circle          circle17; 
+	@FXML
+	private  Circle          circle18; 
+	@FXML
+	private  Circle          circle19; 
+	@FXML
+	private  Circle          circle20; 
+	@FXML
+	private  Circle          circle21; 
+	@FXML
+	private  Circle          circle22; 
+	@FXML
+	private  Circle          circle23; 
+	@FXML
+	private  Circle          circle24;
+	@FXML
+	private  Circle          circle25; 
+	@FXML
+	private  Circle          circle26; 
+	@FXML
+	private  Circle          circle27; 
+	@FXML
+	private  Circle          circle28; 
+	@FXML
+	private  Circle          circle29; 
+	@FXML
+	private  Circle          circle30; 
+	@FXML
+	private  Circle          circle31; 
+	@FXML
+	private  Circle          circle32; 
+	@FXML
+	private  Circle          circle33; 
+	@FXML
+	private  Circle          circle34; 
+	@FXML
+	private  Circle          circle35; 
+	@FXML
+	private  Circle          circle36; 
+	@FXML
+	private  Circle          circle37; 
+	@FXML
+	private  Circle          circle38; 
+	@FXML
+	private  Circle          circle39; 
+	@FXML
+	private  Circle          circle40; 
+	@FXML
+	private  Circle          circle41; 
+	@FXML
+	private  Circle          circle42;
+	
+	
 	
 	// Autres champs
 	
@@ -66,6 +128,36 @@ public class ControllerViewMap {
 		circle10.setOpacity(0.00);
 		circle11.setOpacity(0.00);
 		circle12.setOpacity(0.00);
+		circle13.setOpacity(0.00);
+		circle14.setOpacity(0.00);
+		circle15.setOpacity(0.00);
+		circle16.setOpacity(0.00);
+		circle17.setOpacity(0.00);
+		circle18.setOpacity(0.00);
+		circle19.setOpacity(0.00);
+		circle20.setOpacity(0.00);
+		circle21.setOpacity(0.00);
+		circle22.setOpacity(0.00);
+		circle23.setOpacity(0.00);
+		circle24.setOpacity(0.00);
+		circle25.setOpacity(0.00);
+		circle26.setOpacity(0.00);
+		circle27.setOpacity(0.00);
+		circle28.setOpacity(0.00);
+		circle29.setOpacity(0.00);
+		circle30.setOpacity(0.00);
+		circle31.setOpacity(0.00);
+		circle32.setOpacity(0.00);
+		circle33.setOpacity(0.00);
+		circle34.setOpacity(0.00);
+		circle35.setOpacity(0.00);
+		circle36.setOpacity(0.00);
+		circle37.setOpacity(0.00);
+		circle38.setOpacity(0.00);
+		circle39.setOpacity(0.00);
+		circle40.setOpacity(0.00);
+		circle41.setOpacity(0.00);
+		circle42.setOpacity(0.00);
 	}
 	
 
@@ -85,6 +177,36 @@ public class ControllerViewMap {
 		circle10.setOpacity(0.80);
 		circle11.setOpacity(0.80);
 		circle12.setOpacity(0.80);
+		circle13.setOpacity(0.80);
+		circle14.setOpacity(0.80);
+		circle15.setOpacity(0.80);
+		circle16.setOpacity(0.80);
+		circle17.setOpacity(0.80);
+		circle18.setOpacity(0.80);
+		circle19.setOpacity(0.80);
+		circle20.setOpacity(0.80);
+		circle21.setOpacity(0.80);
+		circle22.setOpacity(0.80);
+		circle23.setOpacity(0.80);
+		circle24.setOpacity(0.80);
+		circle25.setOpacity(0.80);
+		circle26.setOpacity(0.80);
+		circle27.setOpacity(0.80);
+		circle28.setOpacity(0.80);
+		circle29.setOpacity(0.80);
+		circle30.setOpacity(0.80);
+		circle31.setOpacity(0.80);
+		circle32.setOpacity(0.80);
+		circle33.setOpacity(0.80);
+		circle34.setOpacity(0.80);
+		circle35.setOpacity(0.80);
+		circle36.setOpacity(0.80);
+		circle37.setOpacity(0.80);
+		circle38.setOpacity(0.80);
+		circle39.setOpacity(0.80);
+		circle40.setOpacity(0.80);
+		circle41.setOpacity(0.80);
+		circle42.setOpacity(0.80);
 	}
 	
 	@FXML
@@ -93,7 +215,27 @@ public class ControllerViewMap {
 		idposte = 1; 
 		nombrePlaceRestant = dao.totalPourPoste(idposte)-dao.compterPourPoste(idposte);
 		
-		circle1.setOpacity(0.80);
+		circle3.setOpacity(0.80);
+		circle5.setOpacity(0.80);
+		circle6.setOpacity(0.80);
+		circle8.setOpacity(0.80);
+		circle9.setOpacity(0.80);
+		circle11.setOpacity(0.80);
+		circle13.setOpacity(0.80);
+		circle14.setOpacity(0.80);
+		circle16.setOpacity(0.80);
+		circle18.setOpacity(0.80);
+		circle19.setOpacity(0.80);
+		circle20.setOpacity(0.80);
+		circle22.setOpacity(0.80);
+		circle29.setOpacity(0.80);
+		circle30.setOpacity(0.80);
+		circle32.setOpacity(0.80);
+		circle33.setOpacity(0.80);
+		circle35.setOpacity(0.80);
+		circle36.setOpacity(0.80);
+		circle38.setOpacity(0.80);
+		
 		textArea.clear();
 		textArea.appendText( nombrePlaceRestant +" places disponibles pour ce poste");
 	}
@@ -104,7 +246,8 @@ public class ControllerViewMap {
 		idposte = 2; 
 		nombrePlaceRestant = dao.totalPourPoste(idposte)-dao.compterPourPoste(idposte);
 		
-		circle2.setOpacity(0.80);
+		circle42.setOpacity(0.80);
+		
 		textArea.clear();
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
 	}
@@ -115,7 +258,8 @@ public class ControllerViewMap {
 		idposte = 3; 
 		nombrePlaceRestant = dao.totalPourPoste(idposte)-dao.compterPourPoste(idposte);
 		
-		circle4.setOpacity(0.80);
+		circle41.setOpacity(0.80);
+		
 		textArea.clear();
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
 	}
@@ -126,7 +270,9 @@ public class ControllerViewMap {
 		idposte = 4; 
 		nombrePlaceRestant = dao.totalPourPoste(idposte)-dao.compterPourPoste(idposte);
 		
-		circle3.setOpacity(0.80);
+		circle17.setOpacity(0.80);
+		circle24.setOpacity(0.80);
+		
 		textArea.clear();
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
 	}
@@ -137,8 +283,9 @@ public class ControllerViewMap {
 		idposte = 5; 
 		nombrePlaceRestant = dao.totalPourPoste(idposte)-dao.compterPourPoste(idposte);
 		
+		circle40.setOpacity(0.80);
+		
 		textArea.clear();
-		circle5.setOpacity(0.80);
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
 	}
 	
@@ -148,8 +295,9 @@ public class ControllerViewMap {
 		idposte = 6; 
 		nombrePlaceRestant = dao.totalPourPoste(idposte)-dao.compterPourPoste(idposte);
 		
+		circle41.setOpacity(0.80);
+		
 		textArea.clear();
-		circle6.setOpacity(0.80);
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
 	}
 	
@@ -159,8 +307,9 @@ public class ControllerViewMap {
 		idposte = 7; 
 		nombrePlaceRestant = dao.totalPourPoste(idposte)-dao.compterPourPoste(idposte);
 		
+		circle39.setOpacity(0.80);
+		
 		textArea.clear();
-		circle7.setOpacity(0.80);
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
 	}
 	
@@ -170,8 +319,13 @@ public class ControllerViewMap {
 		idposte = 8; 
 		nombrePlaceRestant = dao.totalPourPoste(idposte)-dao.compterPourPoste(idposte);
 		
+		circle34.setOpacity(0.80);
+		circle28.setOpacity(0.80);
+		circle21.setOpacity(0.80);
+		circle15.setOpacity(0.80);
+		circle10.setOpacity(0.80);
+		
 		textArea.clear();
-		circle9.setOpacity(0.80);
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
 	}
 
@@ -181,8 +335,12 @@ public class ControllerViewMap {
 		idposte = 9; 
 		nombrePlaceRestant = dao.totalPourPoste(idposte)-dao.compterPourPoste(idposte);
 
+		circle1.setOpacity(0.80);
+		circle25.setOpacity(0.80);
+		circle26.setOpacity(0.80);
+		circle27.setOpacity(0.80);
+		
 		textArea.clear();
-		circle10.setOpacity(0.80);
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
 	}
 	
@@ -192,8 +350,13 @@ public class ControllerViewMap {
 		idposte = 10; 
 		nombrePlaceRestant = dao.totalPourPoste(idposte)-dao.compterPourPoste(idposte);
 		
+		circle12.setOpacity(0.80);
+		circle13.setOpacity(0.80);
+		circle31.setOpacity(0.80);
+		circle7.setOpacity(0.80);
+		circle23.setOpacity(0.80);
+		
 		textArea.clear();
-		circle8.setOpacity(0.80);
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
 	}
 	
@@ -203,8 +366,9 @@ public class ControllerViewMap {
 		idposte = 11; 
 		nombrePlaceRestant = dao.totalPourPoste(idposte)-dao.compterPourPoste(idposte);
 		
+		circle4.setOpacity(0.80);
+		
 		textArea.clear();
-		circle12.setOpacity(0.80);
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");	
 	}
 	
@@ -214,8 +378,9 @@ public class ControllerViewMap {
 		idposte = 12; 
 		nombrePlaceRestant = dao.totalPourPoste(idposte)-dao.compterPourPoste(idposte);
 
+		circle2.setOpacity(0.80);
+		
 		textArea.clear();
-		circle11.setOpacity(0.80);
 		textArea.appendText(nombrePlaceRestant +" places disponibles pour ce poste");
 	}	
 }

@@ -20,15 +20,15 @@
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <TextArea fx:id="textArea" layoutX="268.0" layoutY="75.0" prefHeight="37.0" prefWidth="220.0" />
-            <ProgressBar fx:id="progressBar" layoutX="269.0" layoutY="115.0" prefHeight="18.0" prefWidth="220.0" progress="0.0" />
+            <TextArea fx:id="textArea" layoutX="339.0" layoutY="81.0" prefHeight="37.0" prefWidth="220.0" />
+            <ProgressBar fx:id="progressBar" layoutX="339.0" layoutY="115.0" prefHeight="18.0" prefWidth="220.0" progress="0.0" />
             <ImageView fitHeight="500.0" fitWidth="650.0" layoutX="24.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@2-Parcours%20%20poste%20%20signaleurs.jpg" />
                </image>
             </ImageView>
-            <Button layoutX="171.0" layoutY="99.0" mnemonicParsing="false" text="Mini Bol d'air" />
-            <Button layoutX="500.0" layoutY="99.0" mnemonicParsing="false" text="Grand Bol d'air" />
+            <Button layoutX="54.0" layoutY="87.0" mnemonicParsing="false" text="Mini Bol d'air" />
+            <Button layoutX="174.0" layoutY="87.0" mnemonicParsing="false" text="Grand Bol d'air" />
             <Button layoutX="808.0" layoutY="215.0" mnemonicParsing="false" onAction="#doMoto" text="Moto" />
             <Button layoutX="675.0" layoutY="368.0" mnemonicParsing="false" onAction="#doRemise" text="Remise Dossards" />
             <Button layoutX="686.0" layoutY="441.0" mnemonicParsing="false" onAction="#doRavitaillement" text="Ravitaillement" />
@@ -80,6 +80,10 @@
             <Circle fx:id="circle35" fill="RED" layoutX="331.0" layoutY="220.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="circle36" fill="RED" layoutX="372.0" layoutY="205.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="circle37" fill="RED" layoutX="373.0" layoutY="224.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle39" fill="RED" layoutX="199.0" layoutY="272.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle40" fill="RED" layoutX="187.0" layoutY="311.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle41" fill="RED" layoutX="207.0" layoutY="311.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle42" fill="RED" layoutX="262.0" layoutY="280.0" opacity="0.8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </AnchorPane>
    </center>
