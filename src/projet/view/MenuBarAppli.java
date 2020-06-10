@@ -24,13 +24,12 @@ public class MenuBarAppli extends MenuBar {
 	private Menu	menuEtats;
 	private Menu	menuTests;
 	private Menu 	menuMap;
-	//private Menu 	menuPostes;
 	
 	private MenuItem itemDeconnecter;
 
 	private MenuItem itemCategories;
 	private MenuItem itemSexe;
-	//private MenuItem itemHierarchie;+
+	//private MenuItem itemHierarchie;
 	private MenuItem itemComptes;
 	private MenuItem itemPostes;
 	
@@ -74,16 +73,25 @@ public class MenuBarAppli extends MenuBar {
 		this.getMenus().add(menu);
 		menuDonnees = menu;
 		
-		item = new MenuItem( "Services" );
+		/*item = new MenuItem( "Services" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.ServiceListe )  );
 		menu.getItems().add( item );
 		
 		item = new MenuItem( "Personnes" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.PersonneListe )  );
+		menu.getItems().add( item );*/
+		
+		item = new MenuItem( "Comptes" );
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.CompteListe )  );
 		menu.getItems().add( item );
+		itemComptes = item;
 		
 		item = new MenuItem( "Bénévoles" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.BenevoleListe )  );
+		menu.getItems().add( item );
+		
+		item = new MenuItem( "Participants" );
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.ParticipantListe  )  );
 		menu.getItems().add( item );
 		
 		item = new MenuItem( "Postes" );
@@ -91,9 +99,10 @@ public class MenuBarAppli extends MenuBar {
 		menu.getItems().add( item );
 		itemPostes = item;
 		
-		item = new MenuItem( "Participants" );
-		item.setOnAction(  (e) -> managerGui.showView( EnumView.ParticipantListe  )  );
+		item = new MenuItem( "Catégories" );
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.CategorieListe )  );
 		menu.getItems().add( item );
+		itemCategories = item;
 		
 		item = new MenuItem( "Equipes" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.EquipeListe )  );
@@ -102,16 +111,6 @@ public class MenuBarAppli extends MenuBar {
 		item = new MenuItem( "Epreuves" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.EpreuveListe )  );
 		menu.getItems().add( item );
-		
-		item = new MenuItem( "Catégories" );
-		item.setOnAction(  (e) -> managerGui.showView( EnumView.CategorieListe )  );
-		menu.getItems().add( item );
-		itemCategories = item;
-		
-		item = new MenuItem( "Comptes" );
-		item.setOnAction(  (e) -> managerGui.showView( EnumView.CompteListe )  );
-		menu.getItems().add( item );
-		itemComptes = item;
 		
 		item = new MenuItem( "Sexe" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.SexeListe )  );
@@ -199,19 +198,6 @@ public class MenuBarAppli extends MenuBar {
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.TestDaoDocuments )  );
 		menu.getItems().add( item );
 		
-		
-
-		
-		/*
-		// PROJET - Menu Postes
-		menu = new Menu("Poste");
-		this.getMenus().add(menu);
-		menuPostes = menu;
-		
-		item = new MenuItem("Poste des bénévoles");
-		item.setOnAction( (e) -> managerGui.showView( EnumView.PosteList )  );
-		menu.getItems().add(item);
-		*/
 		
 		/*Menu MAP*/
 		menu =  new Menu( "Carte" );;

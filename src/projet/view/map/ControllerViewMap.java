@@ -4,9 +4,7 @@ import javax.inject.Inject;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -135,11 +133,7 @@ public class ControllerViewMap {
 		else if(pourcent>=75) {
 		rectPlace.setFill(Color.RED);
 		}
-		
-	
 	}
-
-	
 	
 	private void masquer() {
 		circle1.setOpacity(0.00);
@@ -185,8 +179,6 @@ public class ControllerViewMap {
 		circle41.setOpacity(0.00);
 		circle42.setOpacity(0.00);
 	}
-	
-
 
 	// Actions
 	@FXML
