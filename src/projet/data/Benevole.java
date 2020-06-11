@@ -45,11 +45,6 @@ public class Benevole {
 		setCategorie(categorie);
 		setPoste(poste);
 	}
-		
-	
-
-	
-
 	
 	 
 	// Getters & setters
