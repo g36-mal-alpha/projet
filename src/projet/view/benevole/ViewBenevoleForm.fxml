@@ -6,6 +6,9 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -13,12 +16,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="paneRoot" prefHeight="380.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.benevole.ControllerBenevoleForm">
+<AnchorPane fx:id="paneRoot" prefHeight="421.0" prefWidth="444.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.benevole.ControllerBenevoleForm">
    <children>
-      <Label fx:id="labelTable" alignment="CENTER" styleClass="titre-vue" text="Bénévoles" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
-      <HBox alignment="CENTER" fillHeight="false" layoutY="60.0" prefHeight="185.0" prefWidth="420.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+      <Label fx:id="labelTable" alignment="CENTER" styleClass="titre-vue" text="Bénévole" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+      <HBox alignment="CENTER" fillHeight="false" layoutY="77.0" prefHeight="86.0" prefWidth="536.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="77.0">
          <children>
-            <GridPane alignment="CENTER" prefHeight="160.0" prefWidth="391.0" vgap="20.0">
+            <GridPane alignment="CENTER" prefHeight="72.0" prefWidth="391.0" vgap="20.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="125.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="162.0" />
@@ -28,33 +31,14 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
                   <Label text="Id :" />
                   <TextField fx:id="textFieldId" editable="false" focusTraversable="false" maxWidth="-Infinity" prefHeight="25.0" prefWidth="50.0" GridPane.columnIndex="1" />
-                  <Label text="Nom :" GridPane.rowIndex="1" />
                   <TextField fx:id="textFieldNom" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label text="Prénom :" GridPane.rowIndex="2" />
-                  <TextField fx:id="textFieldPrenom" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </TextField>
-                  <Label text="Date de naissance :" GridPane.rowIndex="3" />
-                  <DatePicker fx:id="dateNaissance" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Label text="Permis de conduire :" GridPane.rowIndex="4" />
-                  <TextField fx:id="textFieldPermis" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Label text="Mineur :" GridPane.rowIndex="5" />
-                  <Label text="Poste :" GridPane.rowIndex="6" />
-                  <ComboBox fx:id="comboPoste" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                  <CheckBox fx:id="checkMineur" mnemonicParsing="false" text="Oui si coché" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <ComboBox fx:id="comboBoxCategorie" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                  <Label text="Categorie :" GridPane.rowIndex="7" />
+                  <TextField fx:id="textFieldPrenom" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Nom :" GridPane.rowIndex="1" />
+                  <Label text="Prenom :" GridPane.rowIndex="2" />
                </children>
             </GridPane>
          </children>
@@ -65,5 +49,96 @@
             <Button cancelButton="true" mnemonicParsing="false" onAction="#doAnnuler" text="Annuler" />
          </children>
       </HBox>
+      <TabPane layoutX="81.0" layoutY="160.0" style="-fx-border-color: lightgray;">
+         <tabs>
+            <Tab closable="false" text="Infos">
+               <content>
+                  <HBox alignment="CENTER" fillHeight="false" prefHeight="147.0" prefWidth="280.0">
+                     <children>
+                        <GridPane maxWidth="-Infinity" prefWidth="280.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="75.0" />
+                              <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Date Naissance" />
+                              <Label text="Permis" GridPane.rowIndex="1" />
+                              <Label text="Mineurs ?" GridPane.rowIndex="2" />
+                              <DatePicker fx:id="dateNaissance" GridPane.columnIndex="1" />
+                              <TextField fx:id="textFieldPermis" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="checkMineur" mnemonicParsing="false" text="Oui si coché" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                  </HBox>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Affectations">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="3.0" layoutY="4.0" prefHeight="150.0" prefWidth="269.0">
+                           <children>
+                              <GridPane prefHeight="145.0" prefWidth="267.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label alignment="CENTER" text="Catégorie :" textAlignment="CENTER">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <GridPane.margin>
+                                          <Insets left="3.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <ComboBox fx:id="comboBoxCategorie" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+                                    <Button mnemonicParsing="false" onAction="#doSupprimerCategorie" prefHeight="25.0" prefWidth="61.0" text="Suppr" GridPane.columnIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                    <Label alignment="CENTER" text="Poste(s)" textAlignment="CENTER" GridPane.rowIndex="1">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <ListView fx:id="listViewPostes" prefHeight="120.0" prefWidth="86.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="4" />
+                                    <Button mnemonicParsing="false" onAction="#doSupprimerPostes" prefHeight="25.0" prefWidth="61.0" text="Suppr" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <Button mnemonicParsing="false" onAction="#doAjoutPostes" prefHeight="25.0" prefWidth="61.0" text="Ajouter" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TabPane>
    </children>
 </AnchorPane>

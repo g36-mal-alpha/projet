@@ -4,9 +4,11 @@ package projet.view.benevole;
 
 import javax.inject.Inject;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.CheckBox;
 import jfox.javafx.util.ConverterStringInteger;
@@ -37,9 +39,10 @@ public class ControllerBenevoleForm {
 		@FXML
 		private CheckBox			checkMineur;
 		@FXML
-		private ComboBox<Poste> 	comboPoste;
-		@FXML
 		private ComboBox<Categorie>	comboBoxCategorie;
+	    @FXML
+	    private ListView<Poste>  listViewPostes;
+		
 
 		
 		// Autres champs
@@ -48,7 +51,7 @@ public class ControllerBenevoleForm {
 		@Inject
 		private ModelBenevole		modelBenevole;
 		@Inject
-		private ModelPoste		modelPoste;
+		private ModelPoste		    modelPoste;
 	    
 		
 		// Initialisation du controller
@@ -67,12 +70,12 @@ public class ControllerBenevoleForm {
 			
 
 			// Data binding
-			
-			comboPoste.setItems( modelBenevole.getPostes());
-			comboPoste.valueProperty().bindBidirectional( courant.posteProperty());
-			
 			comboBoxCategorie.setItems( modelBenevole.getCategorie() );
 			comboBoxCategorie.valueProperty().bindBidirectional( courant.categorieProperty());
+			
+			listViewPostes.setItems( courant.getPostes() );
+
+
 
 			
 			//checkMineur.selectedProperty().bindBidirectional( courant.mineursProperty() );
@@ -93,6 +96,24 @@ public class ControllerBenevoleForm {
 			managerGui.showView( EnumView.BenevoleListe );
 		}
 		
-
+		@FXML
+		private void doSupprimerCategorie() {
+		 comboBoxCategorie.setValue( null );
+		}
+		
+		@FXML
+		private void doSupprimerPostes() {
+		 ObservableList<Poste> selectedItems = listViewPostes.getSelectionModel().getSelectedItems();
+		 for ( int i = selectedItems.size() - 1; i>=0; --i ) {
+		 modelBenevole.supprimerPoste( selectedItems.get(i) );
+		 }
+		}
+		
+		@FXML
+		private void doAjoutPostes() {
+			managerGui.showDialog( EnumView.BenevolesAjoutPostes );
+			modelPoste.actualiserListeBenevolesPourDialogAjout();
+		}
+		
 
 }

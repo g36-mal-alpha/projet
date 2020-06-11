@@ -24,6 +24,7 @@ public enum EnumView implements IEnumView {
 	PosteForm					( "poste/ViewPosteForm.fxml" ),
 	PosteListeDetail			( "poste/ViewPosteListeDetail.fxml" ),
 	BenevoleListe				( "benevole/ViewBenevoleList.fxml" ),
+	BenevolesAjoutPostes		( "benevole/ViewPosteAjoutPostes.fxml" ),
 	BenevoleForm				( "benevole/ViewBenevoleForm.fxml" ),
 	BenevoleListeDetail			( "benevole/ViewBenevoleListeDetail.fxml" ),
 	EquipeForm				    ( "equipe/ViewEquipeForm.fxml" ),

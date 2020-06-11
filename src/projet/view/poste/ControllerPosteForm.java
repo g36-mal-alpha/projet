@@ -57,7 +57,7 @@ public class ControllerPosteForm {
 	@Inject
 	private IManagerGui			managerGui;
 	@Inject
-	private ModelPoste		modelPoste;
+	private ModelPoste		    modelPoste;
 
 
 	// Initialisation du Controller

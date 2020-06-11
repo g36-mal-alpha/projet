@@ -94,7 +94,7 @@ public class ModelPoste  {
 		if( courant.getLibelle() == null || courant.getLibelle().isEmpty() ) {
 			message.append( "\nLe libelle du poste ne doit pas être vide." );
 		} else  if ( courant.getLibelle().length()> 50 ) {
-			message.append( "\nLe mémo est trop long : 50 maxi." );
+			message.append( "\nLe libelle est trop long : 50 maxi." );
 		}
 		
 		if( courant.getLieu() == null || courant.getLieu().isEmpty() ) {
