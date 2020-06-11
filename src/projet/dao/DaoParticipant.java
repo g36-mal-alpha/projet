@@ -29,6 +29,8 @@ public class DaoParticipant {
 	private DaoHierarchie	daoHierarchie;
 	@Inject
 	private DaoEquipe	daoEquipe;
+	@Inject
+	private DaoEpreuve	daoEpreuve;
 
 
 	// Actions
@@ -43,7 +45,7 @@ public class DaoParticipant {
 		try {
 			//probleme unique mail 
 			cn = dataSource.getConnection();
-			sql = "INSERT INTO participant (nom, prenom, numero_tel, date_naissance, adresse, certificat_medical, mail, niveau, materiel_utilise,  idsexe, idHierarchie) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+			sql = "INSERT INTO participant (nom, prenom, numero_tel, date_naissance, adresse, certificat_medical, mail, niveau, materiel_utilise,  idsexe, idHierarchie, idepreuve) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 			stmt.setObject( 1,  participant.getNom() );
 			stmt.setObject( 2,  participant.getPrenom() );
@@ -65,6 +67,12 @@ public class DaoParticipant {
 			} 
 			else {
 				 stmt.setObject( 11,participant.getHierarchie().getId() );
+			} 
+			if ( participant.getEpreuve() == null ) {
+				 stmt.setObject( 12, null );
+			} 
+			else {
+				 stmt.setObject( 12,participant.getEpreuve().getId() );
 			} 
 			stmt.executeUpdate();
 
@@ -92,7 +100,7 @@ public class DaoParticipant {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "UPDATE participant SET nom = ?, prenom = ?, numero_tel = ?,  date_naissance = ?, adresse = ?, certificat_medical = ?, mail = ?, niveau = ?, materiel_utilise = ?, idsexe = ?, idhierarchie = ?  WHERE idparticipant =  ?";
+			sql = "UPDATE participant SET nom = ?, prenom = ?, numero_tel = ?,  date_naissance = ?, adresse = ?, certificat_medical = ?, mail = ?, niveau = ?, materiel_utilise = ?, idsexe = ?, idhierarchie = ?, idepreuve = ?  WHERE idparticipant =  ?";
 			stmt = cn.prepareStatement( sql );
 			stmt.setObject( 1, participant.getNom() );
 			stmt.setObject( 2, participant.getPrenom() );
@@ -105,7 +113,8 @@ public class DaoParticipant {
 			stmt.setObject( 9, participant.getMateriel_utilise() );
 			stmt.setObject( 10,participant.getSexe().getId() );
 			stmt.setObject( 11,participant.getHierarchie().getId() );  
-			stmt.setObject( 12, participant.getId() );
+			stmt.setObject( 12,participant.getEpreuve().getId() );
+			stmt.setObject( 13, participant.getId() );
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -152,7 +161,7 @@ public class DaoParticipant {
 			rs = stmt.executeQuery();
 
 			if ( rs.next() ) {
-				return construireParticipant( rs, true, true, true );
+				return construireParticipant( rs, true, true, true, true );
 			} else {
 				return null;
 			}
@@ -179,7 +188,7 @@ public class DaoParticipant {
 
 			List<Participant> services = new LinkedList<>();
 			while (rs.next()) {
-				services.add( construireParticipant( rs, false, false, false ) );
+				services.add( construireParticipant( rs, false, false, false, false ) );
 			}
 			return services;
 
@@ -216,7 +225,7 @@ public int compterPourSexe( int idSexe ) {
 
 	// Méthodes auxiliaires
 	//nom = ?, prenom = ?, sexe = ?, numero_tel = ?,  date_naissance = ?, adresse = ?, certificat_medical = ?, mail = ?, niveau = ?, materiel_utilise = ? 
-	private Participant construireParticipant( ResultSet rs , boolean flagComplet , boolean flagComplet1 , boolean flagComplet2 ) throws SQLException {
+	private Participant construireParticipant( ResultSet rs , boolean flagComplet , boolean flagComplet1 , boolean flagComplet2 , boolean flagComplet3 ) throws SQLException {
 		Participant participant = new Participant();
 		participant.setId( rs.getObject( "idparticipant", Integer.class ) );
 		participant.setNom( rs.getObject( "nom", String.class ) );
@@ -244,6 +253,12 @@ public int compterPourSexe( int idSexe ) {
 			 Integer idEquipe = rs.getObject( "idequipe", Integer.class );
 			 if ( idEquipe != null ) {
 				 participant.setEquipe( daoEquipe.retrouver(idEquipe) );
+			 }
+		}
+		if ( flagComplet3 ) {
+			 Integer idEpreuve = rs.getObject( "idepreuve", Integer.class );
+			 if ( idEpreuve != null ) {
+				 participant.setEpreuve( daoEpreuve.retrouver(idEpreuve) );
 			 }
 		}
 		return participant;

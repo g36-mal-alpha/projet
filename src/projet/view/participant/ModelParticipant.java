@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 import javax.inject.Inject;
 
-
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import jfox.commun.exception.ExceptionValidation;
@@ -14,10 +14,13 @@ import projet.commun.IMapper;
 import projet.dao.DaoParticipant;
 import projet.data.Participant;
 import projet.data.Sexe;
+import projet.view.epreuve.ModelEpreuve;
 import projet.view.equipe.ModelEquipe;
 import projet.data.Hierarchie;
 import projet.data.Equipe;
-
+import projet.data.Epreuve;
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleObjectProperty;
 
 
 public class ModelParticipant  {
@@ -41,6 +44,8 @@ public class ModelParticipant  {
     private ModelHierarchie		modelHierarchie;
     @Inject
     private ModelEquipe			modelEquipe;
+    @Inject
+    private ModelEpreuve		modelEpreuve;
 	
 	// Getters 
 	public Participant getCourant() {
@@ -62,6 +67,10 @@ public class ModelParticipant  {
 	public ObservableList<Equipe> getEquipe() {
 		return modelEquipe.getListe();
 	}
+	
+	public ObservableList<Epreuve> getEpreuve() {
+		return modelEpreuve.getListe();
+	}
 
 	
 	// Actualisations
@@ -73,9 +82,10 @@ public class ModelParticipant  {
 		// Actions
 		
 		public void preparerAjouter() {
-			modelSexe.actualiserListe();
+			/*modelSexe.actualiserListe();
 			modelHierarchie.actualiserListe();
 			modelEquipe.actualiserListe();
+			modelEpreuve.actualiserListe();*/
 			mapper.update( courant, new Participant() );
 		}
 		
@@ -83,6 +93,7 @@ public class ModelParticipant  {
 			modelSexe.actualiserListe();
 			modelHierarchie.actualiserListe();
 			modelEquipe.actualiserListe();
+			modelEpreuve.actualiserListe();
 			mapper.update( courant, daoParticipant.retrouver( item.getId() ) );
 		}
 		

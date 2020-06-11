@@ -11,6 +11,7 @@ import jfox.javafx.util.UtilFX;
 import projet.commun.IMapper;
 import projet.dao.DaoEpreuve;
 import projet.data.Epreuve;
+import projet.view.participant.ModelSexe;
 
 
 public class ModelEpreuve  {
@@ -28,6 +29,8 @@ public class ModelEpreuve  {
 	private IMapper			mapper;
     @Inject
 	private DaoEpreuve		daoEpreuve;
+    @Inject
+    private ModelEpreuve  modelEpreuve;
 	
 	
 	// Getters 
@@ -55,6 +58,7 @@ public class ModelEpreuve  {
 	}
 	
 	public void preparerModifier( Epreuve item ) {
+		modelEpreuve.actualiserListe();
 		mapper.update( courant, daoEpreuve.retrouver( item.getId() ) );
 	}
 	
@@ -65,6 +69,7 @@ public class ModelEpreuve  {
 		
 		StringBuilder message = new StringBuilder();
 
+		
 		if( courant.getNom_epreuve() == null || courant.getNom_epreuve().isEmpty() ) {
 			message.append( "\nLe nom ne doit pas être vide." );
 		} else  if ( courant.getNom_epreuve().length()> 50 ) {

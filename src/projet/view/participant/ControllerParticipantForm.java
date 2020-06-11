@@ -17,6 +17,7 @@ import projet.data.Hierarchie;
 import projet.data.Participant;
 import projet.view.EnumView;
 import projet.data.Sexe;
+import projet.data.Epreuve;
 
 
 
@@ -32,10 +33,6 @@ public class ControllerParticipantForm {
 		@FXML	
 		private TextField			textFieldPrenom;
 		@FXML
-		private ComboBox<Equipe>	comboBoxEquipe;
-		@FXML
-		private ComboBox<Sexe>		comboBoxSexe;
-		@FXML
 		private DatePicker			dateNaissance;
 		@FXML
 		private TextField			textFieldNumero_tel;
@@ -49,8 +46,14 @@ public class ControllerParticipantForm {
 		private TextField			textFieldNiveau;
 		@FXML	
 		private TextField			textFieldMateriel_utilise;
+		@FXML
+		private ComboBox<Equipe>		comboBoxEquipe;
+		@FXML
+		private ComboBox<Sexe>			comboBoxSexe;
 		@FXML	
 		private ComboBox<Hierarchie>	comboBoxHierarchie;
+		@FXML	
+		private ComboBox<Epreuve>		comboBoxEpreuve;
 
 		
 		// Autres champs
@@ -58,7 +61,8 @@ public class ControllerParticipantForm {
 		private IManagerGui				managerGui;
 		@Inject
 		private ModelParticipant		modelParticipant;
-
+		@Inject
+		private Participant				participant;
 	    
 		
 		// Initialisation du controller
@@ -85,13 +89,14 @@ public class ControllerParticipantForm {
 			comboBoxSexe.setItems(modelParticipant.getSexe());
 	        comboBoxSexe.valueProperty().bindBidirectional(courant.sexeProperty() );
 	        
-			// Data binding
 			comboBoxHierarchie.setItems(modelParticipant.getHierarchie());
 	        comboBoxHierarchie.valueProperty().bindBidirectional( courant.HierarchieProperty() );
 	        
-			// Data binding
 			comboBoxEquipe.setItems(modelParticipant.getEquipe());
 	        comboBoxEquipe.valueProperty().bindBidirectional(courant.equipeProperty() );
+	      
+	    	comboBoxEpreuve.setItems(modelParticipant.getEpreuve());
+	        comboBoxEpreuve.valueProperty().bindBidirectional( courant.epreuveProperty() );
 		}
 		
 		

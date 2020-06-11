@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -11,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.participant.ControllerParticipantForm">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.participant.ControllerParticipantForm">
    <children>
       <VBox layoutX="11.0" layoutY="19.0" prefHeight="578.0" prefWidth="882.0" style="-fx-border-color: rgb(0, 110, 255)rgb(66, 135, 245);">
          <children>
@@ -70,22 +75,6 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
                <children>
-                  <Label prefHeight="34.0" prefWidth="169.0" text="Sexe (M/F) :">
-                     <padding>
-                        <Insets left="10.0" right="10.0" />
-                     </padding>
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="comboBoxSexe" prefWidth="526.0" />
-               </children>
-               <padding>
-                  <Insets right="10.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
-               <children>
                   <Label prefHeight="32.0" prefWidth="169.0" text="Numéro de téléphone :">
                      <padding>
                         <Insets left="10.0" right="10.0" />
@@ -114,22 +103,6 @@
                      </HBox.margin>
                   </Label>
                   <DatePicker fx:id="dateNaissance" prefHeight="26.0" prefWidth="526.0" />
-               </children>
-               <padding>
-                  <Insets right="10.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
-               <children>
-                  <Label prefHeight="32.0" prefWidth="169.0" text="Hierarchie :">
-                     <padding>
-                        <Insets left="10.0" right="10.0" />
-                     </padding>
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="comboBoxHierarchie" prefWidth="526.0" />
                </children>
                <padding>
                   <Insets right="10.0" />
@@ -211,6 +184,38 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
                <children>
+                  <Label prefHeight="32.0" prefWidth="169.0" text="Hierarchie :">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="comboBoxHierarchie" prefWidth="526.0" />
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
+               <children>
+                  <Label prefHeight="34.0" prefWidth="169.0" text="Sexe (M/F) :">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="comboBoxSexe" prefWidth="526.0" />
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
+               <children>
                   <Label prefHeight="32.0" prefWidth="169.0" text="Equipe :">
                      <padding>
                         <Insets left="10.0" right="10.0" />
@@ -220,6 +225,22 @@
                      </font>
                   </Label>
                   <ComboBox fx:id="comboBoxEquipe" prefWidth="526.0" />
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="226.0">
+               <children>
+                  <Label prefHeight="32.0" prefWidth="169.0" text="Epreuve :">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Label>
+                  <ComboBox fx:id="comboBoxEpreuve" prefWidth="526.0" />
                </children>
                <padding>
                   <Insets right="10.0" />

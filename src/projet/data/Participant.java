@@ -21,19 +21,20 @@ public class Participant {
 	private final StringProperty   	 	numero_tel         = new SimpleStringProperty();
 	private final Property<LocalDate>   date_naissance     = new SimpleObjectProperty<LocalDate>();
 	private final StringProperty   	 	adresse     	   = new SimpleStringProperty();
-	private final Property<Hierarchie>	Hierarchie         = new SimpleObjectProperty<Hierarchie>();
+	private final Property<Hierarchie>	Hierarchie        = new SimpleObjectProperty();
 	private final StringProperty   	 	certificat_medical = new SimpleStringProperty();
 	private final StringProperty   	 	mail               = new SimpleStringProperty();
 	private final StringProperty   	 	niveau             = new SimpleStringProperty();
 	private final StringProperty   	 	materiel_utilise   = new SimpleStringProperty();
-	private final Property<Equipe>		Equipe        	   = new SimpleObjectProperty<Equipe>();
+	private final Property<Equipe>		Equipe        	   = new SimpleObjectProperty();
+	private final Property<Epreuve>		Epreuve        	   = new SimpleObjectProperty();
 	
 	// Constructeurs
 	
 	public Participant() {
 	}
 
-	public Participant( int id, String nom, String prenom, Sexe sexe, String numero_tel, LocalDate date_naissance, String adresse, Hierarchie Hierarchie, String certificat_medical, String mail, String niveau, String materiel_utilise, Equipe Equipe) {
+	public Participant( int id, String nom, String prenom, Sexe sexe, String numero_tel, LocalDate date_naissance, String adresse, Hierarchie Hierarchie, String certificat_medical, String mail, String niveau, String materiel_utilise, Equipe Equipe, Epreuve Epreuve) {
 		setId(id);
 		setNom(nom);
 		setPrenom(prenom);
@@ -47,6 +48,7 @@ public class Participant {
 		setNiveau(niveau);
 		setMateriel_utilise(materiel_utilise);
 		setEquipe(Equipe);
+		setEpreuve(Epreuve);
 		
 	}
 	
@@ -133,6 +135,20 @@ public class Participant {
 	
 	public final void setEquipe(final projet.data.Equipe Equipe) {
 		this.equipeProperty().setValue(Equipe);
+	}
+	
+	public final Property<Epreuve> epreuveProperty()
+	{
+		return this.Epreuve;
+	}
+	
+	public final projet.data.Epreuve getEpreuve()
+	{
+		return this.epreuveProperty().getValue();
+	}
+	
+	public final void setEpreuve(final projet.data.Epreuve Epreuve) {
+		this.epreuveProperty().setValue(Epreuve);
 	}
 
 	public final StringProperty numero_telProperty() {
@@ -266,3 +282,4 @@ public class Participant {
 	} 
 
 }
+

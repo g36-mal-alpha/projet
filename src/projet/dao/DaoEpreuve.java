@@ -64,7 +64,7 @@ public class DaoEpreuve {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "UPDATE Epreuve SET nom_Epreuve = ?, date_epreuve = ?,  lieu = ?, tarif = ? WHERE idEpreuve =  ?";
+			sql = "UPDATE Epreuve SET nom_Epreuve = ?, date_epreuve = ?,  lieu = ?, tarif = ? WHERE idepreuve =  ?";
 			stmt = cn.prepareStatement( sql );
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 			stmt.setObject( 1, Epreuve.getNom_epreuve() );
@@ -113,7 +113,7 @@ public class DaoEpreuve {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "SELECT * FROM Epreuve WHERE idEpreuve = ?";
+			sql = "SELECT * FROM Epreuve WHERE idepreuve = ?";
 			stmt = cn.prepareStatement( sql );
 			stmt.setInt(1, idEpreuve);
 			rs = stmt.executeQuery();
@@ -213,7 +213,7 @@ public class DaoEpreuve {
 
 	private Epreuve construireEpreuve( ResultSet rs ) throws SQLException {
 		Epreuve Epreuve = new Epreuve();
-		Epreuve.setId( rs.getObject( "idEpreuve", Integer.class ) );
+		Epreuve.setId( rs.getObject( "idepreuve", Integer.class ) );
 		Epreuve.setNom_epreuve( rs.getObject( "nom_epreuve", String.class ) );
 		Epreuve.setDate_epreuve( rs.getObject( "date_epreuve", LocalDate.class ) );
 		Epreuve.setLieu( rs.getObject( "lieu", String.class ) );
