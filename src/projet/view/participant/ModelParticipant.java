@@ -5,7 +5,6 @@ import java.time.LocalDate;
 
 import javax.inject.Inject;
 
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import jfox.commun.exception.ExceptionValidation;
@@ -19,8 +18,7 @@ import projet.view.equipe.ModelEquipe;
 import projet.data.Hierarchie;
 import projet.data.Equipe;
 import projet.data.Epreuve;
-import javafx.beans.property.Property;
-import javafx.beans.property.SimpleObjectProperty;
+
 
 
 public class ModelParticipant  {
