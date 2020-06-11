@@ -69,13 +69,13 @@ public class ControllerEpreuveForm {
 	
 	@FXML
 	private void doAnnuler() {
-		managerGui.showView( EnumView.EquipeListe );
+		managerGui.showView( EnumView.EpreuveListe);
 	}
 	
 	@FXML
 	private void doValider() {
 		modelEpreuve.validerMiseAJour();
-		managerGui.showView( EnumView.EquipeListe );
+		managerGui.showView( EnumView.EpreuveListe );
 	}
 	
 }
