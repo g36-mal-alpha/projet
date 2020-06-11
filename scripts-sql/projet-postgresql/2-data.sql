@@ -172,9 +172,8 @@ ALTER TABLE equipe ALTER COLUMN idequipe RESTART WITH 20;
 -- Epreuve
 
 INSERT INTO epreuve ( idepreuve, nom_epreuve, date_epreuve, lieu, tarif) VALUES
-  ( 1, 'epreuve a', '12/08/2020',  'lieu 1','10'),
-  ( 2, 'epreuve b', '17/08/2020', 'lieu 2', '10'),
-  ( 3, 'epreuve c', '11/08/2020',  'lieu 1', '20');
+  ( 1, 'Bol D Air', '12/08/2020',  'lieu 1','10'),
+  ( 2, 'Mini Bol D Air', '17/08/2020', 'lieu 2', '10');
 
 ALTER TABLE epreuve ALTER COLUMN idepreuve RESTART WITH 10;
 
@@ -183,7 +182,7 @@ ALTER TABLE epreuve ALTER COLUMN idepreuve RESTART WITH 10;
 INSERT INTO participant (idparticipant, idequipe, idepreuve, nom, prenom, idsexe, numero_tel,  date_naissance, adresse, idHierarchie, certificat_medical, mail, niveau, materiel_utilise) VALUES
   ( 1,1,1, 'nom1', 'leo', 1, '0652369825','12/08/1999', 'adresse 1', 1,'fichier 1', 'mail1@gmail.com',  'junior' , 'velo, kanoé'),
   ( 2,2,2, 'nom2', 'bob', 2, '0695582102','12/08/1999', 'adresse 2', 2,   'fichier 2', 'mail2@hotmail.fr', 'senior', 'velo'),
-  ( 3,3,3, 'nom3', 'toto',1, '0687109632','12/08/1999','adresse 3', 1,   'fichier 3', 'mail3@orange.fr',  'junior', 'kanoe'),
+  ( 3,3,2, 'nom3', 'toto',1, '0687109632','12/08/1999','adresse 3', 1,   'fichier 3', 'mail3@orange.fr',  'junior', 'kanoe'),
   (	4,3,2, 'nom4', 'clement',2, '0687107832','12/08/1999','adresse 4', 2,   'fichier 4', 'mail4@orange.fr',  'senior', 'kanoe'),
   ( 5, 4, 2, 'Raymond', 'Sellers', 1, '0891730627', '11/06/1999', 'CP385, 5045 Nec Chemin', 1, 'fichier5', 'cursus@llam.edu', 'senior', 'kanoe'),
   ( 6, 4, 2, 'Brady', 'Kaufman', 2, '0218410983', '03/05/1999', '842-5222 Nec Chemin', 2, 'fichier6', 'vestibulum@dictum.net', 'senior', 'kanoe'),

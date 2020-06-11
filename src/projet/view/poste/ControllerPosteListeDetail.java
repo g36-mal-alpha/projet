@@ -70,7 +70,7 @@ public class ControllerPosteListeDetail  {
 		columnNumero.setCellValueFactory(new PropertyValueFactory<>("numero_poste"));
 		
 		
-		columnCategorie.setCellValueFactory(param -> param.getValue().getCategorie().libelleProperty());
+		//columnCategorie.setCellValueFactory(param -> param.getValue().getCategorie().libelleProperty());
 		//columnBenevole.setCellValueFactory(param -> param.getValue().getBenevoles().nomProperty());
 		
 	

@@ -99,18 +99,20 @@ public class MenuBarAppli extends MenuBar {
 		menu.getItems().add( item );
 		itemPostes = item;
 		
+		item = new MenuItem( "Equipes" );
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.EquipeListe )  );
+		menu.getItems().add( item );
+		
+		item = new MenuItem( "Epreuves" );
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.EpreuveListe )  );
+		menu.getItems().add( item );
+		
+		
 		item = new MenuItem( "Catégories" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.CategorieListe )  );
 		menu.getItems().add( item );
 		itemCategories = item;
 		
-		item = new MenuItem( "Equipes" );
-		item.setOnAction(  (e) -> managerGui.showView( EnumView.EquipeListe )  );
-		menu.getItems().add( item );
-
-		item = new MenuItem( "Epreuves" );
-		item.setOnAction(  (e) -> managerGui.showView( EnumView.EpreuveListe )  );
-		menu.getItems().add( item );
 		
 		item = new MenuItem( "Sexe" );
 		item.setOnAction(  (e) -> managerGui.showView( EnumView.SexeListe )  );
