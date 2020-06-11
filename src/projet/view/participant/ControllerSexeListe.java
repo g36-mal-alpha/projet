@@ -5,12 +5,8 @@ import javax.inject.Inject;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import jfox.javafx.util.UtilFX;
-import jfox.javafx.view.IManagerGui;
 import projet.data.Sexe;
-import projet.view.EnumView;
 
 
 public class ControllerSexeListe {
@@ -28,8 +24,6 @@ public class ControllerSexeListe {
 
 	// Autres champs
 	
-	@Inject
-	private IManagerGui			managerGui;
 	@Inject
 	private ModelSexe		modelSexe;
 	

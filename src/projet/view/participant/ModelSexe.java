@@ -66,7 +66,7 @@ public class ModelSexe  {
 
 		// Vérifie la validité des données
 		
-		StringBuilder message = new StringBuilder();
+		//StringBuilder message = new StringBuilder();
 		
 		// Effectue la mise à jour
 		

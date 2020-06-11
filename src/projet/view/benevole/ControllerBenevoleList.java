@@ -11,7 +11,6 @@ import javafx.scene.input.MouseEvent;
 import jfox.javafx.util.UtilFX;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Benevole;
-import projet.data.Service;
 import projet.view.EnumView;
 import projet.view.benevole.ModelBenevole;
 

@@ -74,11 +74,8 @@ public class ControllerBenevoleForm {
 			comboBoxCategorie.valueProperty().bindBidirectional( courant.categorieProperty());
 			
 			listViewPostes.setItems( courant.getPostes() );
-
-
-
 			
-			//checkMineur.selectedProperty().bindBidirectional( courant.mineursProperty() );
+			checkMineur.selectedProperty().bindBidirectional( courant.mineursProperty() );
 		
 		}
 		

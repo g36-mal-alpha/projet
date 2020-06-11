@@ -10,7 +10,6 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Benevole;
-import projet.view.EnumView;
 
 
 public class ControllerPosteAjoutBenevoles {

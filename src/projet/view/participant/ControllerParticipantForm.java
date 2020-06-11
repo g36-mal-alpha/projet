@@ -58,8 +58,7 @@ public class ControllerParticipantForm {
 		private IManagerGui				managerGui;
 		@Inject
 		private ModelParticipant		modelParticipant;
-		@Inject
-		private Participant				participant;
+
 	    
 		
 		// Initialisation du controller

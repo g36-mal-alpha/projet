@@ -1,21 +1,14 @@
 package projet.view.participant;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 import javax.inject.Inject;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import jfox.javafx.control.EditingCell;
-import jfox.javafx.util.ConverterStringInteger;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Participant;
 import projet.view.EnumView;

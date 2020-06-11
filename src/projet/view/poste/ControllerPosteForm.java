@@ -1,6 +1,5 @@
 package projet.view.poste;
 
-import java.text.SimpleDateFormat;
 
 import javax.inject.Inject;
 
@@ -11,7 +10,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.util.converter.IntegerStringConverter;
 import jfox.javafx.util.ConverterStringLocalDate;

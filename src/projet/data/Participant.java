@@ -21,12 +21,12 @@ public class Participant {
 	private final StringProperty   	 	numero_tel         = new SimpleStringProperty();
 	private final Property<LocalDate>   date_naissance     = new SimpleObjectProperty<LocalDate>();
 	private final StringProperty   	 	adresse     	   = new SimpleStringProperty();
-	private final Property<Hierarchie>	Hierarchie        = new SimpleObjectProperty();
+	private final Property<Hierarchie>	Hierarchie         = new SimpleObjectProperty<Hierarchie>();
 	private final StringProperty   	 	certificat_medical = new SimpleStringProperty();
 	private final StringProperty   	 	mail               = new SimpleStringProperty();
 	private final StringProperty   	 	niveau             = new SimpleStringProperty();
 	private final StringProperty   	 	materiel_utilise   = new SimpleStringProperty();
-	private final Property<Equipe>		Equipe        	   = new SimpleObjectProperty();
+	private final Property<Equipe>		Equipe        	   = new SimpleObjectProperty<Equipe>();
 	
 	// Constructeurs
 	
