@@ -39,6 +39,8 @@ public class ControllerBenevoleForm {
 		@FXML
 		private CheckBox			checkMineur;
 		@FXML
+		private Poste			   poste;
+		@FXML
 		private ComboBox<Categorie>	comboBoxCategorie;
 	    @FXML
 	    private ListView<Poste>  listViewPostes;

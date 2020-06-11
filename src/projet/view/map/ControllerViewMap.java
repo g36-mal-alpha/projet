@@ -11,12 +11,11 @@ import javafx.scene.shape.Rectangle;
 import projet.dao.DaoPoste;
 
 
-
 public class ControllerViewMap {
 	
 	private int idposte;
 	
-	private int nombrePlaceRestant;
+	public  int nombrePlaceRestant;
 	
 	private int nombrePlaceRestantTotal;
 	

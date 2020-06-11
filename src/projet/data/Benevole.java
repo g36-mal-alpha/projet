@@ -218,7 +218,7 @@ public class Benevole {
 	public String toString() {
 		return getNom() + " " +getPrenom();
 	}
-
+	
 	public final Property<Poste> posteProperty() {
 		return this.poste;
 	}

@@ -14,6 +14,7 @@ import projet.dao.DaoPoste;
 import projet.data.Benevole;
 import projet.data.Categorie;
 import projet.data.Poste;
+import projet.view.map.ControllerViewMap;
 import projet.view.personne.ModelCategorie;
 import projet.view.poste.ModelPoste;
 
@@ -28,6 +29,7 @@ public class ModelBenevole {
 		private final Benevole	courant = new Benevole();
 		
 		
+		
 		// Autres champs
 	    @Inject
 		private IMapper			mapper;
@@ -39,6 +41,7 @@ public class ModelBenevole {
 	    private ModelPoste		modelPoste;
 	    @Inject
 	    private ModelCategorie  modelCategorie;
+	    
 		
 		// Getters
 	    
@@ -85,13 +88,19 @@ public class ModelBenevole {
 			mapper.update( courant, daoBenevole.retrouver( item.getId() ) );
 		}
 		
-		
+	
 		public void validerMiseAJour() {
 			
 			// Vérifie la validité des données
 			
 			StringBuilder message = new StringBuilder();
-
+		
+			/*int nombrePlaceRestant = daoPoste.totalDisponilbeParPoste(idposte)-daoPoste.compterParPoste(idposte);
+			if (nombrePlaceRestant<=0) {
+				message.append( "\nDesolé plus de places disponibles pour ce poste" );
+			}
+			*/
+			
 			if( courant.getNom() == null || courant.getNom().isEmpty() ) {
 				message.append( "\nLe nom du benevole ne doit pas être vide." );
 			} else  if ( courant.getNom().length()> 50 ) {
