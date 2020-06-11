@@ -12,6 +12,7 @@ import jfox.javafx.util.ConverterStringInteger;
 import jfox.javafx.util.ConverterStringLocalDate;
 import jfox.javafx.util.ListenerFocusValidation;
 import jfox.javafx.view.IManagerGui;
+import projet.data.Equipe;
 import projet.data.Hierarchie;
 import projet.data.Participant;
 import projet.view.EnumView;
@@ -31,6 +32,8 @@ public class ControllerParticipantForm {
 		@FXML	
 		private TextField			textFieldPrenom;
 		@FXML
+		private ComboBox<Equipe>	comboBoxEquipe;
+		@FXML
 		private ComboBox<Sexe>		comboBoxSexe;
 		@FXML
 		private DatePicker			dateNaissance;
@@ -47,7 +50,7 @@ public class ControllerParticipantForm {
 		@FXML	
 		private TextField			textFieldMateriel_utilise;
 		@FXML	
-		private ComboBox<Hierarchie>		comboBoxHierarchie;
+		private ComboBox<Hierarchie>	comboBoxHierarchie;
 
 		
 		// Autres champs
@@ -84,8 +87,12 @@ public class ControllerParticipantForm {
 	        comboBoxSexe.valueProperty().bindBidirectional(courant.sexeProperty() );
 	        
 			// Data binding
-			comboBoxHierarchie.setItems(  modelParticipant.getHierarchie());
+			comboBoxHierarchie.setItems(modelParticipant.getHierarchie());
 	        comboBoxHierarchie.valueProperty().bindBidirectional( courant.HierarchieProperty() );
+	        
+			// Data binding
+			comboBoxEquipe.setItems(modelParticipant.getEquipe());
+	        comboBoxEquipe.valueProperty().bindBidirectional(courant.equipeProperty() );
 		}
 		
 		
@@ -100,6 +107,16 @@ public class ControllerParticipantForm {
 		@FXML
 		private void doAnnuler() {
 			managerGui.showView( EnumView.ParticipantListe );
+		}
+		
+		@FXML
+		private void doSupprimerSexe() {
+		 comboBoxSexe.setValue( null );
+		}
+		
+		@FXML
+		private void doSupprimerHierarchie() {
+		 comboBoxHierarchie.setValue( null );
 		}
 		
 

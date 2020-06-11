@@ -25,6 +25,10 @@ public class DaoParticipant {
 	private DataSource		dataSource;
 	@Inject
 	private DaoSexe	daoSexe;
+	@Inject
+	private DaoHierarchie	daoHierarchie;
+	@Inject
+	private DaoEquipe	daoEquipe;
 
 
 	// Actions
@@ -99,18 +103,8 @@ public class DaoParticipant {
 			stmt.setObject( 7, participant.getMail() );
 			stmt.setObject( 8, participant.getNiveau() );
 			stmt.setObject( 9, participant.getMateriel_utilise() );
-			if ( participant.getSexe() == null ) {
-				 stmt.setObject( 10, null );
-			}
-			else {
-				 stmt.setObject( 10,participant.getSexe().getId() );
-			} 
-			if ( participant.getHierarchie() == null ) {
-				 stmt.setObject( 11, null );
-			} 
-			else {
-				 stmt.setObject( 11,participant.getHierarchie().getId() );
-			}  
+			stmt.setObject( 10,participant.getSexe().getId() );
+			stmt.setObject( 11,participant.getHierarchie().getId() );  
 			stmt.setObject( 12, participant.getId() );
 			stmt.executeUpdate();
 
@@ -158,7 +152,7 @@ public class DaoParticipant {
 			rs = stmt.executeQuery();
 
 			if ( rs.next() ) {
-				return construireParticipant( rs, true );
+				return construireParticipant( rs, true, true, true );
 			} else {
 				return null;
 			}
@@ -185,7 +179,7 @@ public class DaoParticipant {
 
 			List<Participant> services = new LinkedList<>();
 			while (rs.next()) {
-				services.add( construireParticipant( rs, false ) );
+				services.add( construireParticipant( rs, false, false, false ) );
 			}
 			return services;
 
@@ -222,7 +216,7 @@ public int compterPourSexe( int idSexe ) {
 
 	// Méthodes auxiliaires
 	//nom = ?, prenom = ?, sexe = ?, numero_tel = ?,  date_naissance = ?, adresse = ?, certificat_medical = ?, mail = ?, niveau = ?, materiel_utilise = ? 
-	private Participant construireParticipant( ResultSet rs , boolean flagComplet ) throws SQLException {
+	private Participant construireParticipant( ResultSet rs , boolean flagComplet , boolean flagComplet1 , boolean flagComplet2 ) throws SQLException {
 		Participant participant = new Participant();
 		participant.setId( rs.getObject( "idparticipant", Integer.class ) );
 		participant.setNom( rs.getObject( "nom", String.class ) );
@@ -240,10 +234,16 @@ public int compterPourSexe( int idSexe ) {
 				 participant.setSexe( daoSexe.retrouver(idSexe) );
 			 }
 		}
-		if ( flagComplet ) {
+		if ( flagComplet1 ) {
 			 Integer idHierarchie = rs.getObject( "idhierarchie", Integer.class );
 			 if ( idHierarchie != null ) {
-				 participant.setSexe( daoSexe.retrouver(idHierarchie) );
+				 participant.setHierarchie( daoHierarchie.retrouver(idHierarchie) );
+			 }
+		}
+		if ( flagComplet2 ) {
+			 Integer idEquipe = rs.getObject( "idequipe", Integer.class );
+			 if ( idEquipe != null ) {
+				 participant.setEquipe( daoEquipe.retrouver(idEquipe) );
 			 }
 		}
 		return participant;

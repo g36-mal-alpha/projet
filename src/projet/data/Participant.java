@@ -26,14 +26,14 @@ public class Participant {
 	private final StringProperty   	 	mail               = new SimpleStringProperty();
 	private final StringProperty   	 	niveau             = new SimpleStringProperty();
 	private final StringProperty   	 	materiel_utilise   = new SimpleStringProperty();
-
+	private final Property<Equipe>		Equipe        	   = new SimpleObjectProperty();
 	
 	// Constructeurs
 	
 	public Participant() {
 	}
 
-	public Participant( int id, String nom, String prenom, Sexe sexe, String numero_tel, LocalDate date_naissance, String adresse, Hierarchie Hierarchie, String certificat_medical, String mail, String niveau, String materiel_utilise) {
+	public Participant( int id, String nom, String prenom, Sexe sexe, String numero_tel, LocalDate date_naissance, String adresse, Hierarchie Hierarchie, String certificat_medical, String mail, String niveau, String materiel_utilise, Equipe Equipe) {
 		setId(id);
 		setNom(nom);
 		setPrenom(prenom);
@@ -46,6 +46,7 @@ public class Participant {
 		setMail(mail);
 		setNiveau(niveau);
 		setMateriel_utilise(materiel_utilise);
+		setEquipe(Equipe);
 		
 	}
 	
@@ -118,6 +119,20 @@ public class Participant {
 	
 	public final void setSexe(final projet.data.Sexe sexe) {
 		this.sexeProperty().setValue(sexe);
+	}
+
+	public final Property<Equipe> equipeProperty()
+	{
+		return this.Equipe;
+	}
+	
+	public final projet.data.Equipe getEquipe()
+	{
+		return this.equipeProperty().getValue();
+	}
+	
+	public final void setEquipe(final projet.data.Equipe Equipe) {
+		this.equipeProperty().setValue(Equipe);
 	}
 
 	public final StringProperty numero_telProperty() {

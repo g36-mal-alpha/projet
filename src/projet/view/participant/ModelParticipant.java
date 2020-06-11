@@ -14,6 +14,7 @@ import projet.commun.IMapper;
 import projet.dao.DaoParticipant;
 import projet.data.Participant;
 import projet.data.Sexe;
+import projet.view.equipe.ModelEquipe;
 import projet.data.Hierarchie;
 import projet.data.Equipe;
 import javafx.beans.property.Property;
@@ -39,8 +40,8 @@ public class ModelParticipant  {
     private ModelSexe			modelSexe;
     @Inject
     private ModelHierarchie		modelHierarchie;
-    /*@Inject
-    private ModelEquipe			modelEquipe;*/
+    @Inject
+    private ModelEquipe			modelEquipe;
 	
 	// Getters 
 	public Participant getCourant() {
@@ -59,9 +60,9 @@ public class ModelParticipant  {
 		return modelHierarchie.getListe();
 	}
 	
-	/*public ObservableList<Equipe> getEquipe() {
+	public ObservableList<Equipe> getEquipe() {
 		return modelEquipe.getListe();
-	}*/
+	}
 
 	
 	// Actualisations
@@ -75,12 +76,14 @@ public class ModelParticipant  {
 		public void preparerAjouter() {
 			modelSexe.actualiserListe();
 			modelHierarchie.actualiserListe();
+			modelEquipe.actualiserListe();
 			mapper.update( courant, new Participant() );
 		}
 		
 		public void preparerModifier( Participant item ) {
 			modelSexe.actualiserListe();
 			modelHierarchie.actualiserListe();
+			modelEquipe.actualiserListe();
 			mapper.update( courant, daoParticipant.retrouver( item.getId() ) );
 		}
 		
