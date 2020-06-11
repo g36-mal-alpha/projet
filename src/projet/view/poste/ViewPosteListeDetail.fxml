@@ -20,15 +20,13 @@
                   <TableView fx:id="tableViewPostes" editable="true" prefHeight="317.0" prefWidth="723.0">
                     <columns>
                       <TableColumn fx:id="columnId" prefWidth="40.0" text="ID" />
-                      <TableColumn fx:id="columnLibelle" text="Libelle" />
-                        <TableColumn fx:id="columnLieu" prefWidth="50.0" text="Lieu" />
-                        <TableColumn fx:id="columnJour" prefWidth="75.0" text="Jour" />
-                        <TableColumn fx:id="columnDebut" prefWidth="75.0" text="Heure Debut" />
-                        <TableColumn fx:id="columnFin" prefWidth="75.0" text="Heure Fin" />
-                        <TableColumn fx:id="columnNumero" text="Numero Poste" />
-                        <TableColumn fx:id="columnNombre" prefWidth="70.0" text="Nombre" />
-                        <TableColumn fx:id="columnCategorie" prefWidth="65.0" text="Catégorie" />
-                        <TableColumn fx:id="columnBenevole" prefWidth="75.0" text="Benevole(s)" />
+                      <TableColumn fx:id="columnLibelle" prefWidth="92.79999542236328" text="Libelle" />
+                        <TableColumn fx:id="columnLieu" prefWidth="74.4000244140625" text="Lieu" />
+                        <TableColumn fx:id="columnJour" prefWidth="59.20001220703125" text="Jour" />
+                        <TableColumn fx:id="columnDebut" prefWidth="115.20001220703125" text="Heure Debut" />
+                        <TableColumn fx:id="columnFin" prefWidth="92.0" text="Heure Fin" />
+                        <TableColumn fx:id="columnNumero" prefWidth="117.59994506835938" text="Numero Poste" />
+                        <TableColumn fx:id="columnNombre" prefWidth="95.199951171875" text="Nombre" />
                     </columns>
                   </TableView>
                </children>
