@@ -41,14 +41,14 @@ public class DaoBenevole {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "INSERT INTO benevole ( nom, prenom, date_naissance, permis_conduire, mineurs, idcategorie ) VALUES( ?, ?, ?, ?, ?, ? ) ";
+			sql = "INSERT INTO benevole ( nom, prenom, date_naissance, permis_conduire, mineurs, idcategorie ) VALUES( ?, ?, ?, ?, ?, 1 ) ";
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 			stmt.setObject( 1, benevole.getNom() );
 			stmt.setObject( 2, benevole.getPrenom() );
 			stmt.setObject( 3, benevole.getDate_naissance() );
 			stmt.setObject( 4, benevole.getPermis_conduire() );
 			stmt.setObject( 5, benevole.getMineurs() );
-			stmt.setObject( 6, benevole.getCategorie().getId() );
+			/*stmt.setObject( 6, 1);  stmt.setObject( 6, benevole.getCategorie().getId() ); */
 			stmt.executeUpdate();
 
 			// Récupère l'identifiant généré par le SGBD

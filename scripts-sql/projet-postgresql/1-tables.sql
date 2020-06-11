@@ -100,7 +100,7 @@ CREATE TABLE benevole(
 	nom               VARCHAR (255) NOT NULL ,
 	prenom            VARCHAR (255) NOT NULL ,
 	date_naissance    DATE  NOT NULL ,
-	permis_conduire   VARCHAR (255) NOT NULL ,
+	permis_conduire   VARCHAR (255) ,
 	mineurs           BOOLEAN  NOT NULL ,
 	
 	PRIMARY KEY (idbenevole),
