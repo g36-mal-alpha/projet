@@ -28,6 +28,7 @@ public class Benevole {
 	 private final Property<Categorie> categorie        = new SimpleObjectProperty<>();
 	 private final Property<Poste>		poste 			= new SimpleObjectProperty<>();
 	 private final ObservableList<Poste> postes    		= FXCollections.observableArrayList();
+	 
 		
 	// Constructeurs
 		

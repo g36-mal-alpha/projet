@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -94,6 +93,7 @@ public class DaoPoste {
 			stmt.setObject( 5, poste.getHeure_debut() );
 			stmt.setObject( 6, poste.getHeure_fin() );
 			stmt.setObject( 7, poste.getNumero_poste() );
+			
 			if ( poste.getCategorie() == null ) {
 				 stmt.setObject( 8, null );
 			} 
@@ -373,5 +373,6 @@ public class DaoPoste {
 			UtilJdbc.close( rs, stmt, cn );
 		}
     }
-}
-	
+ }
+
+

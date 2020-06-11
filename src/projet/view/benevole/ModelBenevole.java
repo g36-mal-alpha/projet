@@ -10,6 +10,7 @@ import projet.dao.DaoBenevole;
 import projet.data.Benevole;
 import projet.data.Categorie;
 import projet.data.Poste;
+import projet.view.personne.ModelCategorie;
 import projet.view.poste.ModelPoste;
 
 public class ModelBenevole {
@@ -28,10 +29,15 @@ public class ModelBenevole {
 		private DaoBenevole		daoBenevole;
 	    @Inject
 	    private ModelPoste		modelPoste;
-		
+	    @Inject
+	    private ModelCategorie  modelCategorie;
 		
 		// Getters
 		
+		public ObservableList<Categorie> getCategorie() {
+			 return modelCategorie.getListe();
+		}
+	    
 		public ObservableList<Benevole> getListe() {
 			return liste;
 		}

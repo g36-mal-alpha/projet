@@ -15,7 +15,9 @@ import jfox.javafx.util.ListenerFocusValidation;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Poste;
 import projet.data.Benevole;
+import projet.data.Categorie;
 import projet.view.EnumView;
+import projet.view.poste.ModelPoste;
 
 public class ControllerBenevoleForm {
 	
@@ -36,6 +38,8 @@ public class ControllerBenevoleForm {
 		private CheckBox			checkMineur;
 		@FXML
 		private ComboBox<Poste> 	comboPoste;
+		@FXML
+		private ComboBox<Categorie>	comboBoxCategorie;
 
 		
 		// Autres champs
@@ -44,7 +48,7 @@ public class ControllerBenevoleForm {
 		@Inject
 		private ModelBenevole		modelBenevole;
 		@Inject
-		private Benevole				bene;
+		private ModelPoste		modelPoste;
 	    
 		
 		// Initialisation du controller
@@ -66,6 +70,10 @@ public class ControllerBenevoleForm {
 			
 			comboPoste.setItems( modelBenevole.getPostes());
 			comboPoste.valueProperty().bindBidirectional( courant.posteProperty());
+			
+			comboBoxCategorie.setItems( modelBenevole.getCategorie() );
+			comboBoxCategorie.valueProperty().bindBidirectional( courant.categorieProperty());
+
 			
 			//checkMineur.selectedProperty().bindBidirectional( courant.mineursProperty() );
 		

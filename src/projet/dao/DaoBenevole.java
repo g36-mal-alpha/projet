@@ -28,7 +28,8 @@ public class DaoBenevole {
 	private DaoCategorie	daoCategorie;
 	
 	@Inject
-	private DaoPoste		daoPostes;
+	private DaoPoste		daoPoste;
+
 	
 	// Actions 
 
@@ -41,14 +42,19 @@ public class DaoBenevole {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "INSERT INTO benevole ( nom, prenom, date_naissance, permis_conduire, mineurs, idcategorie ) VALUES( ?, ?, ?, ?, ?, 1 ) ";
+			sql = "INSERT INTO benevole ( nom, prenom, date_naissance, permis_conduire, mineurs, idcategorie ) VALUES( ?, ?, ?, ?, ?, ? ) ";
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 			stmt.setObject( 1, benevole.getNom() );
 			stmt.setObject( 2, benevole.getPrenom() );
 			stmt.setObject( 3, benevole.getDate_naissance() );
 			stmt.setObject( 4, benevole.getPermis_conduire() );
 			stmt.setObject( 5, benevole.getMineurs() );
-			/*stmt.setObject( 6, 1);  stmt.setObject( 6, benevole.getCategorie().getId() ); */
+			if ( benevole.getCategorie() == null ) {
+				 stmt.setObject( 6, null );
+			} 
+			else {
+				 stmt.setObject( 6,benevole.getCategorie().getId() );
+			} 
 			stmt.executeUpdate();
 
 			// Récupère l'identifiant généré par le SGBD
@@ -83,7 +89,12 @@ public class DaoBenevole {
 			stmt.setObject( 3, benevole.getDate_naissance() );
 			stmt.setObject( 4, benevole.getPermis_conduire() );
 			stmt.setObject( 5, benevole.getMineurs() );
-			stmt.setObject( 6, benevole.getCategorie().getId() );
+			if ( benevole.getCategorie() == null ) {
+				 stmt.setObject( 6, null );
+			} 
+			else {
+				 stmt.setObject( 6,benevole.getCategorie().getId() );
+			} 
 			stmt.setObject( 7, benevole.getId() );
 			stmt.executeUpdate();
 			
@@ -203,7 +214,7 @@ public class DaoBenevole {
 
 	// Méthodes auxiliaires
 
-	private Benevole construireBenevole( ResultSet rs, boolean flagComplet  ) throws SQLException {
+	private Benevole construireBenevole( ResultSet rs, boolean categorie  ) throws SQLException {
 		Benevole benevole = new Benevole();
 		benevole.setId( rs.getObject( "idbenevole", Integer.class ) );
 		benevole.setNom( rs.getObject( "nom", String.class ) );
@@ -211,10 +222,13 @@ public class DaoBenevole {
 		benevole.setDate_naissance( rs.getObject( "date_naissance", LocalDate.class ) );
 		benevole.setPermis_conduire( rs.getObject( "permis_conduire", String.class ) );
 		benevole.setMineurs( rs.getObject( "mineurs", Boolean.class ) );
-		if ( flagComplet ) {
-			benevole.setCategorie( daoCategorie.retrouver( rs.getObject("idcategorie", Integer.class) ) );
-			benevole.getPostes().setAll(daoPostes.listerPourBenevole(benevole.getId()));
-		}
+		if ( categorie ) {
+			 Integer idCategorie = rs.getObject( "idcategorie", Integer.class );
+			 if ( idCategorie != null ) {
+				 benevole.setCategorie( daoCategorie.retrouver(idCategorie) );
+				 benevole.getPostes().setAll( daoPoste.listerPourBenevole( benevole.getId() ) );
+			 }
+		} 
 		return benevole;
 	}
 	
@@ -249,13 +263,11 @@ public class DaoBenevole {
 			sql = "INSERT INTO avoir (idposte, idbenevole ) VALUES( ?, ?) ";
 			stmt = cn.prepareStatement( sql);
 			
-			stmt.setObject(2, benevole.getId());
 			
 			for(Poste poste : benevole.getPostes())
 			{
 				stmt.setObject(1, poste.getId());
-				
-				
+				stmt.setObject(2, benevole.getId());
 				stmt.executeUpdate();
 			}
 
