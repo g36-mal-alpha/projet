@@ -26,6 +26,7 @@ public interface IMapper {
 	
 	Sexe update( @MappingTarget Sexe target, Sexe source );
 	
+
 	Hierarchie update( @MappingTarget Hierarchie target, Hierarchie source );
 
 	@Mapping( target="categorie", expression="java( source.getCategorie() )" )
